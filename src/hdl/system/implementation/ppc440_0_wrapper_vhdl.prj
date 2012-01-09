@@ -1,0 +1,2 @@
+vhdl ppc440_virtex5_v1_01_a "C:\Xilinx\13.1\ISE_DS\EDK\hw\XilinxProcessorIPLib\pcores\ppc440_virtex5_v1_01_a\hdl\vhdl\ppc440_virtex5.vhd"
+vhdl work "C:\git\h3dge\src\hdl\system\hdl\ppc440_0_wrapper.vhd"

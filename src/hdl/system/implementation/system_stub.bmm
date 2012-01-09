@@ -1,0 +1,12 @@
+// File: C:\git\h3dge\src\hdl\system\implementation\system_stub.bmm
+
+ADDRESS_MAP ppc440_0 PPC440 100
+	ADDRESS_SPACE xps_bram_if_cntlr_1_bram_combined COMBINED [0xffffe000:0xffffffff]
+		ADDRESS_RANGE RAMB32
+		BUS_BLOCK
+			system_i/xps_bram_if_cntlr_1_bram/xps_bram_if_cntlr_1_bram/ramb36_0 [63:32] INPUT = xps_bram_if_cntlr_1_bram_combined_0.mem ;
+			system_i/xps_bram_if_cntlr_1_bram/xps_bram_if_cntlr_1_bram/ramb36_1 [31:0] INPUT = xps_bram_if_cntlr_1_bram_combined_1.mem ;
+		END_BUS_BLOCK;
+		END_ADDRESS_RANGE;
+	END_ADDRESS_SPACE;
+END_ADDRESS_MAP;

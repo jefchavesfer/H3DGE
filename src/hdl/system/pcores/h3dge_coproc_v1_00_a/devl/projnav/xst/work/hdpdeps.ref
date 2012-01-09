@@ -1,0 +1,22 @@
+V3 13
+FL C:/git/h3dge/src/hdl/system/pcores/h3dge_coproc_v1_00_a/hdl/vhdl/h3dge_coproc.vhd 2011/12/11.11:01:19 O.40d
+EN work/h3dge_coproc 1323626348 \
+      FL C:/git/h3dge/src/hdl/system/pcores/h3dge_coproc_v1_00_a/hdl/vhdl/h3dge_coproc.vhd \
+      PB ieee/std_logic_1164 1296775758 PB ieee/std_logic_arith 1296775759 \
+      PB ieee/STD_LOGIC_UNSIGNED 1296775760 LB proc_common_v3_00_a \
+      PB proc_common_v3_00_a/proc_common_pkg 1323626309 \
+      PB proc_common_v3_00_a/ipif_pkg 1323626317 \
+      EN proc_common_v3_00_a/soft_reset 1323626320 LB interrupt_control_v2_01_a \
+      EN interrupt_control_v2_01_a/interrupt_control 1323626342 \
+      LB plbv46_slave_single_v1_01_a \
+      EN plbv46_slave_single_v1_01_a/plbv46_slave_single 1323626344 \
+      LB plbv46_master_burst_v1_01_a \
+      EN plbv46_master_burst_v1_01_a/plbv46_master_burst 1323626346
+AR work/h3dge_coproc/IMP 1323626349 \
+      FL C:/git/h3dge/src/hdl/system/pcores/h3dge_coproc_v1_00_a/hdl/vhdl/h3dge_coproc.vhd \
+      EN work/h3dge_coproc 1323626348 \
+      CP plbv46_slave_single_v1_01_a/plbv46_slave_single \
+      CP plbv46_master_burst_v1_01_a/plbv46_master_burst \
+      CP proc_common_v3_00_a/soft_reset \
+      CP interrupt_control_v2_01_a/interrupt_control CP user_logic
+FL C:/git/h3dge2/src/hdl/system/pcores/h3dge_coproc_v1_00_a/hdl/vhdl/h3dge_coproc.vhd 2011/12/11.11:01:19 O.40d

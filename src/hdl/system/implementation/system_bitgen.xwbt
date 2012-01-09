@@ -1,0 +1,7 @@
+INFILE=C:\git\h3dge\src\hdl\system\implementation\system.ncd
+OUTFILE=C:\git\h3dge\src\hdl\system\implementation\system.bit
+FAMILY=Virtex5
+PART=xc5vfx70t-1ff1136
+WORKINGDIR=C:\git\h3dge\src\hdl\system\implementation
+LICENSE=ISE
+USER_INFO=202137623_174167469_174423212_167

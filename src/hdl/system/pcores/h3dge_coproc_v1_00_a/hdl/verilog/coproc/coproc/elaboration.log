@@ -1,0 +1,33 @@
+Active-HDL 8.3.2120.sp1.14.3884  2011-12-10 20:14:50
+
+Elaboration top modules:
+Verilog Module                tb_triangleIntersectionTest
+
+
+-----------------------------------------------------------------------------------------------------
+Verilog Module              | Library | Info | Compiler Version                | Compilation Options
+-----------------------------------------------------------------------------------------------------
+tb_triangleIntersectionTest | coproc  |      | 8.3.2120.sp1.14.3884  (Windows) | -O2 -l coproc
+intersectionModule          | coproc  |      | 8.3.2120.sp1.14.3884  (Windows) | -O2 -l coproc
+intersectionCU              | coproc  |      | 8.3.2120.sp1.14.3884  (Windows) | -O2 -l coproc
+intersectionDF              | coproc  |      | 8.3.2120.sp1.14.3884  (Windows) | -O2 -l coproc
+mux                         | coproc  |      | 8.3.2120.sp1.14.3884  (Windows) | -O2 -l coproc
+vectorialProduct            | coproc  |      | 8.3.2120.sp1.14.3884  (Windows) | -O2 -l coproc
+demuxVector                 | coproc  |      | 8.3.2120.sp1.14.3884  (Windows) | -O2 -l coproc
+scalarProduct               | coproc  |      | 8.3.2120.sp1.14.3884  (Windows) | -O2 -l coproc
+mDiv                        | coproc  |      | 8.3.2120.sp1.14.3884  (Windows) | -O2 -l coproc
+demuxFixed                  | coproc  |      | 8.3.2120.sp1.14.3884  (Windows) | -O2 -l coproc
+-----------------------------------------------------------------------------------------------------
+
+-----------------------------------------------------------------------------------------------------
+SystemVerilog Package       | Library | Info | Compiler Version                | Compilation Options
+-----------------------------------------------------------------------------------------------------
+definitions_pack            | coproc  |      | 8.3.2120.sp1.14.3884  (Windows) | -O2 -l coproc
+math_pack                   | coproc  |      | 8.3.2120.sp1.14.3884  (Windows) | -O2 -l coproc
+-----------------------------------------------------------------------------------------------------
+
+-----------------------------------------------------------------------------------------------------
+Library                     | Comment
+-----------------------------------------------------------------------------------------------------
+coproc                      | None
+-----------------------------------------------------------------------------------------------------

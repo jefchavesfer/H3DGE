@@ -1,0 +1,1467 @@
+\documentclass[a4paper,capchap,espacoduplo,normaltoc]{abntepusp}
+
+% \usepackage[bookmarks,pdftex,a4paper,colorlinks=true,citecolor=black,urlcolor=blue,linkcolor=black,pdfpagemode=None]{hyperref}
+\usepackage[bookmarks,colorlinks=true,citecolor=black,urlcolor=blue,linkcolor=black,pdfpagemode=UseNone]{hyperref}
+\usepackage[centertags]{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage[T1]{fontenc}
+\usepackage[latin1]{inputenc}
+\usepackage[brazil]{babel}
+\usepackage[alf,abnt-repeated-author-omit=yes]{abntcite}
+\usepackage{url}
+\usepackage{graphicx}
+\usepackage[Algoritmo,boxed]{algorithm}
+\usepackage{algorithmic}
+\usepackage{booktabs}
+\usepackage{array}
+\usepackage{longtable}
+\usepackage[footnotesize,center,labelsep=endash]{caption}
+
+\fontfamily{phv}\selectfont
+\renewcommand{\rmdefault}{phv}
+
+% \newcommand{\@makealgocaption}[2]{#2}
+% \renewcommand{\algorithm}{\let\@makecaption\@makealgocaption\@float{algorithm}}
+
+% raytracing format
+\newcommand\raytracing{\emph{ray tracing}}
+\newcommand\Raytracing{\emph{Ray tracing}}
+
+% Math -------------------------------------------------------------------
+\newtheorem{theorem}{Teorema}{\bfseries}{\itshape}
+\newtheorem{lemma}{Lema}{\bfseries}{\itshape}
+\newtheorem{definition}{Definição}{\bfseries}{\itshape}
+\newtheorem{corollary}{Corolário}{\bfseries}{\itshape}
+\newtheoremstyle{example}{\topsep}{\topsep}%
+{}%         Body font
+{}%         Indent amount (empty = no indent, \parindent = para indent)
+{\bfseries}% Thm head font
+{:}%        Punctuation after thm head
+{.5em}%     Space after thm head (\newline = linebreak)
+{\thmname{#1}\thmnumber{ #2}\thmnote{ #3}}%         Thm head spec
+\theoremstyle{example}
+\newtheorem{example}{Exemplo}
+
+\sloppy
+
+\begin{document}
+
+% #1          #2             #3           #4              #5
+% \autorPoli{firstnames}{firstinitials}{middlenames}{middleinitials}{surname}
+\autorPoli{Jefferson}{J.}{Chaves}{C.}{Ferreira} 
+\coautorPoli {João Paulo}{J. P.}{Condé Oliveira}{C. O.}{Prado}
+
+\titulo{h3dge: um gerador de imagens 3D em hardware}
+
+\orientador{Profª Drª Cín\-tia Borges Margi}
+\coorientador{Pedro Maat Costa Massolino}
+
+\monografiaFormatura
+% \monografiaMBA
+% \qualificacaoMSc{<área do Mestrado>}
+% \qualificacaoMSc{Enge\-nharia Elétrica}
+% \dissertacao{<Área do Mestrado>}
+% \qualificacaoDr{<Área do Mestrado>}
+% \teseDr{<Área do Doutorado>}
+% \teseLD
+% \memorialLD
+
+% \areaConcentracao{<Área de Concentração>}
+\areaConcentracao{Sistemas Digitais}
+
+% \departamento{<Departamento>}
+\departamento{Departamento de Engenharia de Computação e Sistemas Digitais (PCS)}
+
+\local{São Paulo}
+
+\data{2011}
+
+\dedicatoria{
+  \emph{À minha mãe, que sempre acreditou em mim.}\\
+  Jefferson\\
+
+  \emph{Aos meus pais e irmãos, que têm me suportado e dado suporte desde muito antes do início deste trabalho.}\\
+  João Paulo
+}
+
+\capa{}
+
+\folhaderosto{}
+
+% Ficha Catalográfica
+
+% \setboolean{PoliRevisao}{true} % gera o quadro de revisão após a defesa
+\renewcommand{\PoliFichaCatalograficaData}{%
+  1. \Raytracing{}. 2. Indexação Espacial. 3. Arquitetura em hardware.
+  I. Jefferson Chaves Ferreira. II. João Paulo Condé Oliveira Prado.
+  III. Universidade de São Paulo. Escola Politécnica.
+  \PoliDepartamentoData. IV. t.}
+
+% \fichacatalografica{} % formata a ficha
+
+\paginadedicatoria{}
+
+\begin{agradecimentos}
+  Em primeiro lugar, agradecemos à nossa orientadora, Profª Cíntia Borges Margi, que nos auxiliou e nos acompanhou nas diversas etapas deste trabalho.
+
+  Agradecemos também ao nosso co-orientador, Pedro Maat Costa Massolino, que nos forneceu auxílio técnico e valiosos conselhos.
+
+  Aos membros do \emph{Security and EMBedded systems EngineerIng group} (SEMBEI), por terem nos acolhido durante os últimos seis meses e ao Laborátório de Arquitetura e Redes de Computadores (LARC) o qual dispôs os meios técnicos, as ferramentas e toda a estrutura necessária ao desenvolvimento deste projeto.
+
+  Enfim, à Escola Politécnica da Universidade de São Paulo e à Télécom ParisTech, que nos propiciaram seis anos de aprendizado e crescimento dentro da fascinante ciência do engenho humano.
+\end{agradecimentos}
+
+\begin{resumo}
+  O \raytracing{} é um algoritmo capaz de gerar imagens 3D a partir de uma cena predeterminada. Seu princípio consiste na geração de raios de luz a partir de uma posição da tela e no rastreamento de seus percursos rumo às fontes luminosas. A partir dos cálculos de interseção com os objetos da cena e por meio da modelagem dos fenômenos ópticos, é possível obter a cor em formato RGB do ponto em questão.
+
+  Embora a complexidade computacional do algoritmo seja alta, o \raytracing{} é interessante para gerar imagens realistas e com alto nível de detalhe para a modelagem de projetos 3D ou mesmo para os jogos eletrônicos, produzindo saídas superiores às fornecidas pelos algoritmos de renderização usuais.
+
+  Este trabalho apresenta uma proposta de arquitetura em hardware para o emprego do \raytracing{} na geração dessas imagens. A combinação de uma arquitetura dedicada com o emprego de cálculos em ponto fixo e com a indexação espacial permite executar o algoritmo com uma performance superior e com menos recursos que os necessários para uma implementação equivalente em software. Isso é de grande relevância no contexto da intensificação do emprego da modelagem 3D e dos sistemas embarcados no mundo da tecnologia da informação.
+\end{resumo}
+
+\begin{abstract}
+  Ray tracing is an algorithm to generate 3D images from a scene. It is
+  based on the generation of light rays from a given position and on
+  tracing their paths until they hit one of the light sources.  Given a
+  scene definition, it is possible to obtain the RGB color of the
+  current position by carrying out intersection calculations and
+  modeling the optical phenomena between the light ray and the scene
+  objects.
+
+  Although the computational complexity of the algorithm is high, ray tracing is an interesting choice for high detail 3D image generation for project design or electronic games, yielding outputs of superior quality when compared with those from usual rendering algorithms.
+
+  This work presents a hardware architecture proposal for the generation of those images using the ray tracing algorithm. The combination of a dedicated architecture, fixed-point calculations and spatial indexing allows for a high-performance ray tracing execution, taking up less resources than those needed for an equivalent software implementation. Due to the intensification of 3D modeling and embedded systems employment in the IT world, this approach becomes specially relevant.
+
+\end{abstract}
+
+\begin{resume}
+  Le lancer de rayon est un algorithme capable de générer des images 3D à partir d'une scène prédéterminé. Il s'agit principalement de générer des rayons de lumière d'une position sur l'écran et de suivre ses parcours vers les sources lumineuses. Avec les calculs d'intersection et l'application des modèles des phénomènes optiques, il est possible trouver le couleur en format RGB à ce point-là.
+
+  Bien que la complexité computationnelle de l'algorithme soit élevée, le lancer de rayon est intéressant pour générer des images réalistes, avec un niveau de détaille appréciable pour la modélisation de projets 3D ou même pour les jeux vidéo, fournissant des sorties de meilleure qualité que les algorithmes de rendérisation usuels.
+
+  Ce travail présente une proposition d'architecture matérielle pour l'emploi du lancer de rayon dans la génération de ces images. La combinaison d'une architecture dédiée avec l'emploi de calculs en point fixe et l'indexation spatiale permet d'exécuter le lancer de rayon avec une performance supérieure et moins de ressources qu'une implémentation logicielle. Cela est très rélévant dans le cadre de l'intensification de l'emploi de la modélisation 3D et des systèmes embarqués dans le monde de la technologie de l'information.
+\end{resume}
+
+\listoffigures
+
+\listoftables
+
+\begin{listofabbrv}{SODIMM}
+\item [API] Application Programming Interface
+\item [CAS] Column Address Strobe
+\item [DDR] Double Data Rate
+\item [DMA] Direct Memory Access
+\item [DVI] Digital Video Interface
+\item [FIFO] First in First out
+\item [FPGA] Field-Programmable Gate Array
+\item [FPU] Floating Point Unit
+\item [GCC] GNU Compiller Collection
+\item [HDL] Hardware Description Language
+\item [IP] Intellectual Property
+\item [JTAG] Joint Test Action Group
+\item [LED] Light-Emitting Diode
+\item [LUT] Look-up Table
+\item [PLB] Processor Local Bus
+\item [RAM] Random Access Memory
+\item [RGB] Red, Green and Blue
+\item [RISC] Reduced Instruction Set Computing
+\item [RS-232] Recommended Standard 232
+\item [RTL] Register Transfer Level
+\item [SAH] Surface Area Heuristic
+\item [SoC] System-on-Chip
+\item [SODIMM] Small Outline Dual In-line Memory Module
+\item [SRAM] Static Random Access Memory
+\item [TFT] Thin Film Transistor
+\item [ULA] Unidade lógica e aritmética
+\item [USP] Universidade de São Paulo
+\item [VGA] Video Graphics Array
+\item [VHDL] VHSIC Hardware Description Language
+\item [VHSIC] Very High Speed Integrated Circuits
+\item [XPS] Xilinx Platform Studio
+\end{listofabbrv}
+
+\tableofcontents
+
+\chapter{Introdução}\label{chp:intro}
+A computação gráfica é a área de estudo a qual engloba o processamento de imagens focando na síntese digital e na manipulação de informações geométricas e de conteúdo visual. Sua área de aplicação é diversa e engloba a área artística, a área de design de produto, os jogos eletrônicos, as animações de cinema, a engenharia (sobretudo na simulação de eventos físicos e químicos de materiais envolvidos nos projetos em desenvolvimento) e a medicina. Dessa forma, há uma demanda crescente por meios que possibilitem a elaboração de elementos visuais com alto nível de detalhe para atender os requisitos destes vários setores profissionais.
+
+As plataformas computacionais contemporâneas possuem alta capacidade de processamento e conseguem sintetizar imagens realistas com relativa facilidade, contudo tais plataformas muitas vezes não executam os algoritmos de geração de imagens realistas com a desenvoltura almejada. Dessa forma, o projeto de arquiteturas dedicadas combinadas com algoritmos otimizados de geração de imagens tem sido visto como uma potencial alternativa a este problema e são um campo de intensa pesquisa.
+
+Este trabalho trata deste assunto e, para atender tais requisitos, combina um algoritmo com o qual é possível gerar imagens com um alto nível de detalhe com a elaboração de uma arquitetura dedicada em hardware. Além disso, tal arquitetura também é acompanhada de métodos otimizados de busca e acesso aos dados.
+
+\section{Motivação}\label{sec:motivacao}
+\Raytracing{} é uma técnica utilizada em computação gráfica para sintetizar imagens 3-D com alto grau de realismo. O método consiste em rastrear a partir de uma cena pré-definida todos os fenômenos ópticos (reflexões e refrações) a que são submetidos os raios de luz que chegam ao observador. A figura \ref{fig:raytraced_glasses} apresenta um exemplo de imagem gerada por esse algoritmo.
+
+\begin{figure}[htbp]
+  \centering
+  \includegraphics[width=0.75\textwidth]{figures/raytraced_glasses}
+  \caption{Exemplo de imagem sintetizada utilizando \raytracing{}. Extraído
+    de \cite{oyonale}.}
+  \label{fig:raytraced_glasses}
+\end{figure}
+
+Embora o princípio subjacente não seja sofisticado, os resultados
+obtidos por \raytracing{} são visualmente impressionantes e superiores
+quando comparados a imagens geradas por outros algoritmos, como a
+renderização por rasterização \cite{stratton}, conforme ilustrado na
+figura \ref{fig:comp_rasterization}. Contudo, o
+\raytracing{} apresenta um alto custo computacional\footnote{Em uma
+  implementação simples do algoritmo de \raytracing, para cada raio de
+  luz lançado é necessário executar uma verificação de interseção
+  para cada primitiva da cena. Como para cada pixel é lançado pelo
+  menos um raio, a complexidade computacional do
+  algoritmo é $O(p \cdot n \cdot r)$, onde $p$ é o número de pixels da imagem;
+  $n$, a quantidade de primitivas; e $r$, o número máximo de reflexões
+  e refrações rastreadas pelo sistema.}, sendo indicado para situações
+onde o tempo de geração das imagens não é crítico (como fotografias
+sintetizadas ou efeitos especiais para filmes e programas de TV); o
+uso dessa técnica em \emph{video games}, por exemplo, é inviável no
+estado atual da tecnologia.
+
+\begin{figure}[htbp]
+  \centering
+  \includegraphics[width=0.4\textwidth]{figures/teas_edited}
+  \caption{Comparação entre imagens sintetizadas por rasterização e
+    por \raytracing. Extraído de \cite{howard}.}
+  \label{fig:comp_rasterization}
+\end{figure}
+
+\section{Trabalhos existentes}\label{trabalhosExistentes}
+
+Existem no mercado diversas soluções em software que implementam a renderização por \raytracing{}, tais como POV-Ray e mental ray. No entanto, realizações em hardware são raras e na maior parte experimentais (\cite{Woop:2005:RPR}, \cite{hanika}). Recentemente, a empresa coreana Siliconarts anunciou o lançamento do primeiro \emph{core} IP para \raytracing{} \cite{raycore}, o que pode significar o começo da entrada dessa tecnologia no mercado de consumo em massa.
+
+Vários centros de pesquisa ao redor do mundo (\cite{hanika} e \cite{purcell}) trabalham com o objetivo de produzir um protótipo para o uso do \raytracing{} em tempo real com a finalidade de abrir as portas para o uso desta tecnologia. Entretanto, nenhum desses trabalhos implementa uma arquitetura completa para a execução do \raytracing{} em FPGAs; é nessa linha de investigação que se insere o projeto h3dge.
+
+\section{Apresentação}\label{sec:presentation}
+O objetivo deste trabalho é propor e descrever um \emph{raytracer} em hardware. O projeto consiste na definição de uma cena composta de objetos modelados por um número de triângulos por meio dos quais pode-se obter facilmente a maioria das figuras em 3D.
+
+Os parâmetros de entrada são compostos por uma lista de triângulos acompanhados de suas coordenadas no espaço e das propriedades dos materiais que os compõem (transparente, opaco, translúcido) e por um número de luzes acompanhadas de suas propriedades (posição no espaço e cor). A partir destas entradas, o hardware emprega o algoritmo de \raytracing{} e gera a imagem em 3D com os efeitos ópticos implementados.
+
+\section{Objetivos}\label{sec:goals}
+O objetivo principal deste projeto é propor, implementar e testar uma arquitetura para um \emph{raytracer} em hardware. 
+
+Além disso, devem-se destacar objetivos secundários para a realização de tal tarefa como:
+\begin{itemize}
+\item Desenvolver um módulo de interface de vídeo;
+\item Desenvolver um módulo para tratar os dados de entrada por meio de uma porta serial;
+\item Desenvolver um módulo no qual serão definidos os fenômenos ópticos do projeto, ou seja, as reflexões e refrações.
+\end{itemize}
+
+\section{Organização}
+O restante deste documento está organizado da seguinte forma:
+\begin{itemize}
+\item No \textbf{capítulo \ref{chp:principiosTeoricos}} são apresentados os conceitos teóricos essenciais ao entendimento deste projeto, oriundos da Matemática e da Física;
+\item Em seguida, o \textbf{capítulo \ref{chp:tecnicas}} é o cerne do trabalho, apresentando toda a metodologia e as técnicas utilizadas para implementar o \emph{raytracer};
+\item O \textbf{capítulo \ref{chp:resultados}} apresenta os resultados obtidos por meio da aplicação dos conceitos abordados no capítulo anterior;
+\item Enfim, as \textbf{conclusões} fecham o documento, com um olhar global sobre os objetivos alcançados e as possibilidades futuras.
+\end{itemize}
+
+\chapter{Princípios Teóricos}\label{chp:principiosTeoricos}
+
+Este capítulo trata das abordagens matemáticas para a realização dos cálculos envolvidos no projeto. Há a seção de princípios matemáticos na qual se discute os algoritmos utilizados no cálculo de raiz quadrada, na interseção de um raio de luz com um plano e na interseção de um raio de luz com um triângulo.
+
+Após a seção de princípios matemáticos, a seção de princípios físicos discute as abordagens utilizadas para a modelagem dos fenômenos ópticos de reflexão e refração e no cálculo da intensidade luminosa de um ponto observado.
+
+\section{Princípios Matemáticos}\label{sec:principiosMatematicos}
+
+\subsection{Cálculo de raiz quadrada} \label{subsec:raizQuadrada}
+O emprego da operação de raiz quadrada é muito frequente na computação gráfica. Apesar de ser uma operação relativamente complexa, ela deve ser empregada em fórmulas matemáticas (como, por exemplo, na  refração) e em frequentes operações de normalização de vetores. Neste trabalho optou-se pelo emprego de um algoritmo que utilize operações matemáticas simples, como deslocamentos e adições, e que já fosse implementado em hardware. Por isso utilizou-se o \emph{Non-Restoring Algorithm} já sintetizado em FPGA e descrito em \cite{Piromsopa:2001}. 
+Dado um radicando não negativo de 32 bits $D[31:0]$, sua raiz quadrada é dada por $Q[15:0]$ e o resto $R[16:0]$ é dado por $R= D - {Q}^{2}$. O algoritmo \ref{algo:raizQuadrada} descreve o processo de obtenção da raiz quadrada.
+
+\begin{algorithm}[htbp]
+  \caption{Cálculo de raiz quadrada}\label{algo:raizQuadrada}
+  \begin{algorithmic}
+
+    \STATE $D[31:0]$ unsigned integer
+    \STATE $Q[15:0]$ unsigned integer \COMMENT {resultado}
+    \STATE $R[16:0]$ unsigned integer \COMMENT {resto}
+
+    \STATE $R \gets 0$
+    \STATE $Q \gets 0$ 
+
+    \FOR{$i = 15 \to 0$} 
+
+	\IF {$R\geq 0$} 
+    \STATE $R \gets (R << 2) \OR ( D>>(i+i) \AND (3))$
+    \STATE $R \gets R - ((Q<<2) \OR (1)$
+	\ELSE
+    \STATE $R \gets (R << 2) \OR ( D>>(i+i) \AND (3))$
+    \STATE $R \gets R - ((Q<<2) \OR (3))$
+	\ENDIF
+
+	\IF {$R\geq 0$}
+    \STATE $Q \gets (Q << 1) \OR (1)$
+	\ELSE
+    \STATE $Q \gets (Q << 1) \OR (0)$
+	\ENDIF 
+	\STATE $i \gets i - 1$
+
+    \ENDFOR
+  \end{algorithmic}
+\end{algorithm}
+
+\subsection{Interseção de raio com plano}\label{subsec:intRayPlan}
+
+Em 3D, uma reta é paralela a um plano $\pi$, ou o intercepta em um ponto individual, ou está totalmente incluí­da no plano. Seja a reta $L$ dada pela equação paramétrica: $ P(s) = P_{0} + s(P_{1} - P_{0}) = P + s.\vec{u}$ e o plano $\pi$ dado pelo ponto $V_{0}$ e seu vetor normal $\vec{n}$.
+
+É necessário verificar se $L$ é paralela ao plano $\pi$ testando se
+$\vec{n}.\vec{u} = 0$, o que significa que a direção do vetor
+$\vec{u}$ da reta é perpendicular ao plano normal $\vec{n}$. Se esse
+produto escalar é de fato nulo, então ou $L$ e $\pi$ são paralelos e
+não se interceptam, ou $L$ está totalmente no plano $\pi$. Para
+verificar se $L \in \pi$, basta testar se um ponto de $L$ (por
+exemplo. $ P_{0}$) está contido em $\pi$.
+
+\begin{figure}[htbp]
+  \centering
+  \includegraphics[width=0.75\textwidth]{figures/intersectionVectorPlan}
+  \caption{Interseção raio - plano}
+  \label{fig:intersectionVectiorPlan}
+\end{figure}
+
+Se a reta e o plano não são paralelos, então $L$ e $\pi$ se interceptam em um ponto único $P(s_{I})$ que é calculado (veja figura \ref{fig:intersectionVectiorPlan}) a seguir. 
+
+No ponto de interseção o vetor $ P(s) - V_{0} = \vec{w} + s.\vec{u}$, onde $\vec{w} = P_{0} - V_{0}$, é equivalente à condição: $\vec{n}.(\vec{w} + s.\vec{u}) = 0$. Por meio de manipulações é possível obter:
+\begin{equation}
+s_{I}=\frac{-\vec{n}.\vec{w}}{\vec{n}.\vec{u}}=\frac{\vec{n}(V_{0}-P_{0})}{\vec{n}(P_{1}-P_{0})}
+\end{equation}
+
+\subsection{Interseção de raio com triângulo} \label{subsec:intRayTriangle}
+
+O método de cálculo de interseção de raio com triângulo escolhido é o de M{\"{o}}ller e Trumbore \cite{Moller:1997:FMS} que utiliza as coordenadas baricêntricas com o propósito de escolher o ponto de interseção. Um ponto $T(u,v)$ de um triângulo é exprimido em coordenadas baricêntricas da seguinte forma:
+
+\begin{equation}
+T(u,v) = (1-u-v).V_{0}+u.V_{1}+v.V_{2} 
+\end{equation}
+
+ onde 
+
+$(u,v)$ são as coordenadas baricêntricas e 
+
+$V_{0}$, $V_{1}$ e $V_{2}$ são os vértices do triângulo. 
+
+Para serem válidos, $u$ e $v$ devem atender às seguintes condições:
+\[
+u\geq0, v\geq0, u + v\leq1 
+\]
+
+Calcular a interseção entre o raio $R(t) = O + t.\vec{D}$ ($O$ é o ponto de origem e $\vec{D}$ é a direção e o sentido)  e o triângulo, $T(u,v)$, é equivalente à $R(t)=T(u,v)$. A partir da igualdade anterior e da representação em coordenadas baricêntricas é possível obter:
+
+\begin{equation} 
+O + t.\vec{D} = (1-u-v).V_{0}+u.V_{1}+v.V_{2}
+\end{equation}
+
+Com algumas manipulações é possível expressar a representação como um produto de vetores da seguinte forma:
+
+\begin{equation}
+ \left( \begin{array}{ccc}
+    -\vec{D} & V_{1} - V_{0} & V_{2} - V_{0} \end{array} \right).\left( \begin{array}{c}t \\ u \\ v \end{array} \right) = O - V_{0}
+\end{equation} 
+
+Nomeando $\vec{E_{1}}=V_{1}-V_{0}, \vec{E_{2}}=V_{2}-V_{0}$  e $\vec{T}=O-V_{0}$ a solução para a equação anterior, aplicando a Regra de Cramer, é a seguinte:
+
+\begin{equation}
+ \left( \begin{array}{c} t\\ u \\ v \end{array} \right) = \frac{1}{((\vec{D} \times \vec{E_{2}}).\vec{E_{1}})}.\left( \begin{array}{c} ((\vec{T}\times \vec{E_{1}}).\vec{E_{2}}) \\ ((\vec{D}\times\vec{ E_{2}}).\vec{T}) \\ ((\vec{T}\times \vec{E_{1}}).\vec{D}) \end{array}\right)
+\end{equation}
+
+A partir da resolução do sistema anterior e se $u$ e $v$ atendem às condições anteriores conclui-se que o ponto pertence ao triângulo e que $t$ é o coeficiente do vetor de direção.
+
+\section{Princípios Físicos}\label{chp:princFisicos}
+\subsection{Reflexão de um raio incidente}\label{subsec:reflexaoRayInc}
+A figura \ref{fig:reflection} ilustra a reflexão de um raio sobre um objeto.
+
+\begin{figure}[htbp]
+  \centering
+  \includegraphics{figures/reflection}
+  \caption{Reflexão de um raio incidente $ \vec{I} = -\vec{I_{op}}$}
+  \label{fig:reflection}
+\end{figure}
+
+Seja $\vec{I_{op}}$ o vetor oposto à direção de um raio incidente em um objeto, $\vec{N}$ é a normal a este raio e $\vec{V}$ é o vetor do raio refletido pelo objeto. Cabe ressaltar que $\vec{I_{op}}$ e $\vec{N}$ são vetores unitários. O raio refletido é calculado da seguinte forma:
+
+\begin{equation}
+\vec{V} = \vec{N} .(\vec{I_{op}}.\vec{N}) + \vec{a}
+\end{equation}
+
+e
+
+\begin{equation}
+\vec{I_{op}} + \vec{a} = \vec{N (I_{op}}.\vec{N})
+\end{equation}
+logo:
+
+\begin{equation}
+\vec{V} = 2 \vec{N} (\vec{I_{op}}.\vec{N}) - \vec{I_{op}}
+\end{equation}
+
+Por meio da substituição de $I_{op}$ por $I$, é possível obter:
+
+\begin{equation}
+\vec{V} = \vec{I} - 2 \vec{N} (\vec{I}.\vec{N})
+\end{equation}
+
+\subsection{Cálculo da refração e da transmissão de um raio incidente} \label{subsec:transmissionRefraction}
+
+A figura \ref{fig:refraction} ilustra a situação na qual um raio de luz, cuja direção e sentido são indicados pelo vetor $i$, é refletido e refratado nas direções e sentidos do vetores $r$  e $t$ respectivamente. Um ângulo $\theta{v}$ é o ângulo compreendido entre o vetor $v$ e a normal $n$. Com base nesta nomenclatura, o raio refratado é calculado a seguir.
+
+\begin{figure}[htbp]
+  \centering
+  \includegraphics{figures/refraction}
+  \caption{Reflexão acompanhada de refração de um raio incidente $ \vec{i}$ - adaptado de \cite{deGreveReflRefr}}
+  \label{fig:refraction}
+\end{figure}
+
+A refração de um raio ocorre quando um raio incidente cruza uma superfície que delimita dois materiais com índices de refração diferentes $n_{2}$ e $n_{1}$ e $\frac{n_{2}}{n_{1}}\leq1$.
+Os ângulos de incidência, reflexão e refração são respectivamente $\theta_{i}$, $\theta{r}$ e $\theta{t}$ e, como os vetores de $\vec{i}$, $\vec{r}$ e $\vec{t}$ são unitários, é possível escrever:
+
+\begin{equation}
+sen(\theta_{v})=\frac{|\vec{v_{h}|}}{\vec{|v|}}=|\vec{v_{h}}|
+\end{equation}
+
+\begin{equation}
+cos(\theta_{v})=\frac{|\vec{v_{v}|}}{\vec{|v|}}=|\vec{v_{v}}|
+\end{equation}
+
+ou 
+
+\begin{equation}
+cos(\theta_{v})=\pm\vec{v}.\vec{n}
+\end{equation}
+
+A partir da lei de Snell-Déscartes $n_{1}sen\theta_{i}=n_{2}sen\theta_{t}$ e da equação anterior, é possível escrever:
+
+\begin{equation}
+|\vec{t_{h}}|=\frac{n_{1}}{n_{2}}|\vec{i_{h}}|
+\end{equation}
+
+Como $\vec{i_{h}}$ e $\vec{t_{h}}$ são paralelos e apontam na mesma direção:
+
+\begin{equation}
+\vec{t_{h}}=\frac{n_{1}}{n_{2}}(\vec{i}-proj_{\vec{n}}(\vec{i}))=\frac{n_{1}}{n_{2}}(\vec{i}-(\vec{i}.\vec{n})\vec{n})
+\end{equation}
+
+A partir de $\vec{t_{h}}+\vec{t_{v}}=\vec{t}$ e do teorema de Pitágoras obtém-se a seguinte equação:
+
+\begin{equation}
+t = 
+\frac{n_{1}}{n_{2}}\vec{i}-\left(\frac{n_{1}}{n_{2}}(\vec{i}.\vec{n})+\sqrt{1-|t_{h}|^{2}}\right)\vec{n}
+= 
+\frac{n_{1}}{n_{2}}i-\left(\frac{n_{1}}{n_{2}}(\vec{i}.\vec{n})+\sqrt{1-sen^{2}\theta_{t}}\right)\vec{n}
+\end{equation}
+
+Novamente empregando-se a lei de Snell:
+
+\[
+\vec{t} = 
+\frac{n_{1}}{n_{2}}\vec{i}-\left(\frac{n_{1}}{n_{2}}(\vec{i}.\vec{n})+\sqrt{1-{\left(\frac{n_{1}}{n_{2}}\right)}^{2}(1 - cos^{2}\theta_{i})}\right)\vec{n}
+\Leftrightarrow
+\]
+
+\begin{equation}
+\vec{t} = 
+\frac{n_{1}}{n_{2}}\vec{i}-\left(\frac{n_{1}}{n_{2}}(\vec{i}.\vec{n})+\sqrt{1-{\left(\frac{n_{1}}{n_{2}}\right)}^{2}(1 - (\vec{i}.\vec{n})^{2})}\right)\vec{n}
+\end{equation}
+
+Vale a pena ressaltar que a equação anterior é valida se a condição ${\left(\frac{n_{1}}{n_{2}}\right)}^{2}(1 - (\vec{i}.\vec{n})^{2}) \leq 1$ for verdadeira. Caso tal condição não se satisfaça, tem-se o fenômeno de reflexão total e não há raio refratado.
+
+\subsection{Modelo para a luminosidade}\label{subsec:intensidadeLuminosa}
+Após os cálculos dos vetores dos raios refletidos e refratados, inicia-se o cálculo da intensidade luminosa para o pixel. Para tal cálculo o modelo de iluminação de Whitted \cite{Whitted:1980:CACM} é utilizado. Ele faz o relacionamento da reflexão especular, da transmissão, da reflexão difusa e da iluminação global com a intensidade total da luz em um ponto preciso por meio da seguinte fórmula:
+
+\begin{equation}
+I = I_{a}+k_{d}+\sum\limits_{j=1}^{j=l_{s}} (\vec{N}.\vec{L_{j}})+k_{s}S+k_{t}T
+\end{equation}
+
+Onde:
+\begin{itemize}
+\item [$I$:] intensidade total
+\item [$I_{a}$:] reflexão devido à luz ambiente
+\item [$k_{d}$:] coeficiente de reflexão difusa
+\item [$N$:] normal unitária da superfície
+\item [$L_{j}$:] vetor em direção a j-ésima fonte luminosa
+\item [$k_{s}$:] coeficiente de reflexão especular
+\item [$S$:] intensidade da luz na direção do raio refletido
+\item [$k_{t}$:] coeficiente de transmissão
+\item [$T$:] a intensidade da luz na direção do raio refratado
+\end{itemize}
+
+\chapter{Técnicas}\label{chp:tecnicas}
+Este capítulo aborda o algoritmo empregado e especifica todos os detalhes técnicos envolvidos no desenvolvimento do \emph{raytracer} em hardware. A primeira seção aborda o princípio do \raytracing{}, as hipóteses simplificadoras e o formato das entradas nas quais o projeto foi especificado.
+
+A segunda seção aborda o desenvolvimento do projeto. Inicialmente são descritos detalhes sobre o projeto em hardware, após isso inicia-se uma visão geral das ferramentas e linguagens empregadas. 
+
+Na terceira seção documenta-se o processo de desenvolvimento e especificação da arquitetura do projeto e tem-se as primeiras estimativas sobre os recursos que serão utilizados.
+
+A quarta seção discute o particionamento entre hardware e software do projeto e documenta detalhes sobre estas duas partes do desenvolvimento.
+
+\section{Algoritmo}\label{sec:algoritmo}
+\subsection{Visão Geral}\label{subsec:visaoGeral}
+
+Após a descrição dos cálculos empregados no \raytracing{}, esta seção apresenta o algoritmo implementado. 
+
+O princípio de funcionamento do algoritmo é bastante simples: define-se uma janela de observação sobre a qual a imagem será projetada e posiciona-se o observador a uma certa distância. Em seguida, para cada pixel da janela um raio é lançado a partir do observador; calculam-se as interseções desse raio com os objetos da cena, e para cada interseção são determinados
+os raios derivados (refletidos, refratados, etc), que são por sua vez
+rastreados da mesma forma, como ilustrado na figura
+\ref{fig:Ray_trace_diagram}. Enfim, a cor do pixel é determinada pela
+composição das contribuições dos raios calculados, calculadas a partir
+das características do material interceptado (cor, coeficientes de reflexão e
+transmissão, etc) e da cor da fonte de luz.
+
+\begin{figure}[htbp]
+  \centering
+  \includegraphics[width=0.75\textwidth]{figures/Ray_trace_diagram}
+  \caption{Funcionamento do algoritmo de \raytracing{}.}
+  \label{fig:Ray_trace_diagram}
+\end{figure}
+
+As primeiras soluções para \raytracing{} usaram lógica de ponto flutuante, a qual requer mais superfície de hardware para sua realização, contudo a utilização de lógica de ponto fixo permite a elaboração de soluções mais eficientes e
+robustas \cite{hanika}. Com o objetivo de produzir uma solução robusta, neste trabalho os cálculos serão feitos empregando-se uma lógica de ponto fixo com possíveis enquadramentos (mudanças de escala) em cálculos intermediários.  
+
+Além disso, no lugar de algoritmos recursivos (tipicamente utilizados na construção de árvores) serão utilizados algoritmos iterativos para que a descrição implementada seja sintetizável em hardware.
+
+\subsection{Hipóteses simplificadoras}\label{subsec:hipSimplificadoras}
+Em uma primeira abordagem, utilizar-se-ão algumas hipóteses simplificadoras na implementação do algoritmo de \raytracing{}:
+
+\begin{itemize}
+\item Todos os raios partirão paralelos ao plano de projeção. Tal simplificação   permite a obtenção de imagens sem implementar um modelo de câmera;
+\item Apenas os fenômenos de reflexão e refração serão considerados. Efeitos ópticos  mais complexos não serão  implementados;
+\item Cada raio partindo do plano de projeção só poderá receber até cinco  reflexões/refrações. Essa medida é essencial para limitar os recursos utilizados.
+\end{itemize}
+
+\subsection{Otimização com uma árvore $k$-d}\label{subsec:otiKDTree}
+
+Segundo \cite{havran} existem diversas maneiras para se otimizar um algoritmo de \raytracing{}. Entre os algoritmos mais comuns, o algoritmo de otimização por árvore $k$-d revelou-se estatisticamente mais eficiente, isto é, tal algoritmo encontra mais rapidamente o triângulo que um determinado raio de luz intercepta. A abordagem detalhada destes algoritmos não faz parte deste trabalho e recomenda-se a leitura de \cite{havran} para um maior aprofundamento em algoritmos de \raytracing{}. 
+
+No \raytracing{}, a imagem 3D é gerada a partir da verificação da busca dos raios de luz incidentes, refletidos e refratados no conjunto de triângulos da cena. Contudo, o processo de verificação tende a ser bem custoso se o algoritmo percorrer a lista inteira de triângulos toda vez que a busca de interseção do raio for necessária. Para evitar isto, utiliza-se um processo de indexação espacial por meio de árvores $k$-d, que organiza os dados com o objetivo de percorrer um número mínimo de triângulos e verificar a ocorrência da interseção destes triângulos com um raio. 
+
+As árvores $k$-d são árvores binárias nas quais cada nó contém um
+ponto em dimensão $k$. Cada nó não-terminal representa uma divisão do
+espaço por um plano, e o caminho percorrido desde a raiz até um nó
+terminal descreve a região do espaço determinada por ele delimitada. O
+nó terminal ainda armazena referências para todos os triângulos
+contidos em sua região espacial. A figura \ref{fig:kdTree} mostra um exemplo de uma
+árvore $k$-d.
+
+\begin{figure}[htbp]
+  \centering
+  \includegraphics[width=0.75\textwidth]{figures/kdTree}
+  \caption{Uma árvore $k$-d bidimensional. Nós internos são nomeados de acordo com os planos divisores e nós folha são nomeados de acordo com a região que delimitam no espaço. À direita está a árvore $k$-d que representa a divisão espacial especificada à esquerda. Extraído de: \cite{Foley:2005:KAS}.}
+  \label{fig:kdTree}
+\end{figure}
+
+As divisões do espaço são sempre feitas por meio de planos paralelos
+aos eixos coordenados, o que simplifica a geração dos filhos esquerdo
+e direito de um nó. Por exemplo: se um nó $N$ é dividido pelo plano $x
+= x_0$, todos os triângulos cujas coordenadas em $x$ de, pelo menos,
+um de seus vértices sejam menores do que $x_0$ estarão referenciados
+em, pelo menos, um nó terminal acessível pelo filho da esquerda; o
+raciocínio é análogo para o filho da direita. Se um triângulo possuir
+vértices tanto à ``esquerda'' de $x_0$ (com coordenada $x$ menor
+que $x_0$) quanto à ``direita'', ele será referenciado por nós
+terminais acessíveis pelos dois filhos de $N$.
+
+Durante a construção de uma árvore $k$-d, é necessário encontrar um critério que consiga resolver o problema de dividir um nó em duas sub-regiões do espaço. Como o problema de divisão de planos na árvore $k$-d é relacionado com os eixos que delimitam o espaço para que seja possível encontrar um determinado triângulo mais rapidamente, seria vantajoso encontrar um método que relacionasse os triângulos e sua posição no espaço com a posição na qual um eixo será dividido. O eixo a ser dividido é o eixo que menos restringe o número de triângulos dentro dele, pois a distância entre a coordenada máxima e a coordenada mínima aceita é a maior entre os eixos de uma determinada subdivisão espacial. Há vários métodos \cite{havran} com os quais é possível obter uma orientação de como dividir o espaço:
+
+\begin{itemize}
+\item \textbf{mediana espacial} - na construção da árvore, o plano de
+  divisão sempre divide o eixo com o maior intervalo no ponto médio da
+  região delimitada pelo eixo. Esta abordagem balanceia o espaço em
+  cada lado do plano de divisão;
+\begin{figure}[H]
+  \centering
+  \includegraphics[width = 0.5\textwidth]{figures/splitMean}
+  \caption{Divisão do espaço por mediana espacial.}
+  \label{fig:splitMean}
+\end{figure}
+
+\item \textbf{mediana de objetos} - a coordenada do eixo de maior
+  intervalo é dividida de tal forma que o número de triângulos seja o
+  mesmo em ambos os lados das novas sub-regiões do espaço;
+\begin{figure}[H]
+  \centering
+  \includegraphics[width = 0.5\textwidth]{figures/splitObjects}
+  \caption{Divisão do espaço por mediana de objetos.}
+  \label{fig:splitObjects}
+\end{figure}
+
+\item \textbf{modelo de custos} - consiste em determinar uma lista de
+  possíveis posições candidatas para a divisão de um eixo e escolher
+  aquela que possui o menor custo de divisão. Isto pode ser feito por
+  meio de probabilidade geométrica.
+\begin{figure}[H]
+  \centering
+  \includegraphics[width = 0.65\textwidth]{figures/splitCost}
+  \caption{Divisão do espaço por um modelo de custos.}
+  \label{fig:splitCost}
+\end{figure}
+
+\end{itemize}
+
+Segundo \cite{havran}, o modelo de custos é que possui melhor desempenho entre os três supracitados e que será empregado neste trabalho.
+O modelo de custos a partir da área superficial corresponde ao cálculo de uma função heurística de custo para todas as possíveis posições do plano de divisão e a seleção da posição que fornece o custo mais baixo. As posições possíveis são limitadas pelas coordenadas no eixo no qual será feita a divisão de cada vértice de todos os triângulos contidos em uma subdivisão do espaço. Esse modelo, ilustrado pela figura \ref{fig:kdTreeHeuristic}, é denominado heurística de área superficial (cuja sigla em inglês é SAH --- \emph{Surface Area Heuristic}), e a fórmula para seu cálculo é a seguinte:
+
+\begin{equation}
+\begin{small}
+  C = \frac{1}{SA(N_{curr})} [ SA(LCN_{curr})(Trig_{left} + Trig_{both})
+  + SA(RCN_{curr})(Trig_{right} + Trig_{both}) ]
+\end{small}
+\end{equation}
+
+onde:
+\begin{description}
+\item[$SA(N_{curr})$] área do nó atual
+\item[$SA(LCN_{curr})$] área do candidato a filho esquerdo do nó atual
+\item[$SA(RCN_{curr})$] área do candidato a filho direito do nó atual
+\item[$Trig_{left}$] número de triângulos à esquerda do valor candidato a
+  divisão
+\item[$Trig_{right}$] número de triângulos à direita do valor candidato a
+  divisão
+\item[$Trig_{both}$] número de triângulos que pertencem aos dois lados
+  da possível divisão
+\end{description}
+
+\begin{figure}[htbp]
+  \centering
+  \includegraphics[width=0.75\textwidth]{figures/kdTreeHeuristic}
+  \caption{O valor de uma função de custo para quatro objetos (duas dimensões). As posições limites dos objetos possuem grande influência na seleção do ponto de divisão com o custo mínimo. Extraído de  \cite{havran}. }
+  \label{fig:kdTreeHeuristic}
+\end{figure}
+
+O critério de parada das divisões dos eixos no modelo de heurística de área superficial ocorre quando o menor custo de divisão de um eixo é maior ou igual ao custo de divisão do nó pai da árvore ou quando a profundidade máxima é atingida. O algoritmo \ref{algo:construcaoArvore} descreve a construção da árvore $k$-d utilizando o modelo de heurística de área superficial.
+
+\begin{algorithm}[htbp]
+  \caption{Construção da árvore $k$-d}\label{algo:construcaoArvore}
+  \begin{algorithmic}
+    \STATE o algoritmo inicia com o tratamento da raiz a qual possui custo de divisão $\infty$
+    \WHILE{existirem nós a serem tratados \AND a profundidade máxima não for atingida}
+    \STATE dividir o eixo do espaço indexável que possui o maior tamanho
+    \STATE calcular o custo de todas as possíveis posições de corte
+    \STATE escolher a posição de menor custo
+    \IF{custo for menor que o custo da divisão do nó-pai}
+    \STATE executar a divisão
+    \STATE criar dois novos nós para armazenar os triângulos compreendidos %
+    na parte esquerda e na parte direita da divisão
+    \STATE adicionar os nós criados ao fim da lista de nós a serem tratados
+    \ENDIF
+    \STATE tratar próximo nó
+    \ENDWHILE
+  \end{algorithmic}
+\end{algorithm}
+
+Após a construção da árvore $k$-d é necessário o uso de um algoritmo para percorrê-la a fim de encontrar o triângulo que intercepta um determinado raio de luz. Dado um raio de luz $r$, deve-se encontrar a interseção mais próxima com o espaço indexável (isto é, o espaço que será subdivido dentro de uma árvore $k$-d). Para isto foram utilizado os cálculos descritos na seção \ref{subsec:intRayPlan}. Uma vez que a primeira interseção é encontrada deve-se procurar o nó folha da árvore-$k$-d no qual a interseção está contida. Esse processo é detalhado no algoritmo \ref{algo:buscaInterseccao}.
+
+\begin{algorithm}[htbp]
+  \caption{Busca de um próximo nó na árvore $k$-d}\label{algo:buscaInterseccao}
+  \begin{algorithmic}
+    \STATE parâmetros:
+    \STATE $ray$ o raio de luz atual
+    \STATE $currentNode$ o nó sendo atravessado por $ray$ atualmente
+    \IF{ainda não foi calculado o primeiro nó atravessado}
+    \STATE $point \leftarrow $ ponto em que o raio entra no espaço indexado
+    \IF{raio não intercepta o espaço indexado}
+    \RETURN nó nulo (não existe próximo nó)
+    \ENDIF
+    \STATE $node \leftarrow $ raiz da árvore $k$-d
+    \ELSE
+    \STATE $point \leftarrow $ ponto em que o raio deixa o nó atual
+    \STATE $node \leftarrow currentNode$
+    \WHILE{$node$ não é estritamente maior em todas as dimensões %
+      ($x$, $y$, $z$) que $currentNode$}
+    \IF{$node$ é a raiz}
+    \RETURN nó nulo (não existe próximo nó)
+    \ELSE
+    \STATE $node \leftarrow $ pai de $node$
+    \ENDIF
+    \ENDWHILE
+    \ENDIF
+    \WHILE{$node$ não é um nó-folha}
+    \STATE $splitAxis \leftarrow$ eixo de divisão de $node$
+    \STATE $splitCoord \leftarrow$ coordenada na qual $splitAxis$ foi dividido
+    \IF{$point[splitAxis] = splitCoord$}
+    \IF{$rayDirection[splitAxis] > 0$}
+    \STATE $node \leftarrow $ filho direito de $node$
+    \ELSE
+    \STATE $node \leftarrow $ filho esquerdo de $node$
+    \ENDIF
+    \ELSIF{$point[splitAxis] > splitCoord$}
+    \STATE $node \leftarrow $ filho direito de $node$
+    \ELSE
+    \STATE $node \leftarrow $ filho esquerdo de $node$
+    \ENDIF
+    \ENDWHILE
+    \RETURN $node$
+  \end{algorithmic}
+\end{algorithm}
+
+Uma vez encontrado o nó-folha, deve-se testar cada triângulo referenciado por ele (o conjunto destes triângulos é chamado pacote de triângulos). Uma vez que a interseção é encontrada, calcula-se o raio refletido (seção \ref{subsec:reflexaoRayInc}) e, se houver, o raio refratado (seção \ref{subsec:transmissionRefraction}). Após isso, é necessário encontrar o próximo pacote de triângulos para cada novo raio gerado, usando novamente o algoritmo \ref{algo:buscaInterseccao}.
+
+\subsection{Configuração das entradas e saídas} \label{subsec:confEntrSaidas}
+
+Há dois arquivos responsáveis pelos parâmetros de entrada do h3dge. O primeiro é um arquivo .dscx cuja estrutura é a seguinte :
+
+\begin{itemize}
+\item Primeira linha: a palavra "DSCX";
+\item Segunda Linha: $width$ e $height$, a largura e a altura da janela de observação;
+\item Terceira linha: $nMats$, $nMedia$ e $nLights$, o número de materiais presentes na cena seguido pelo número de meios ópticos e de fontes luminosas;
+\item $nMats$ linhas seguintes: os materiais cujos atributos são especificados na ordem: cor vermelha, cor verde, cor azul, coeficiente de reflexão, coeficiente de transmissão;
+\item $nMedia$ linhas seguintes: os meios ópticos presentes na cena, caracterizados pelo seu índice de refração;
+\item $nLights$ linhas seguintes: as fontes luminosas cujos atributos são especificados na ordem: coordenadas $x$, $y$ e $z$; e intensidade da cor vermelha, azul e verde;
+\item Linha seguinte: $nTrigs$, o número de triângulos;
+\item $nTrigs$ linhas seguintes: o material de cada triângulo, seguido pelos números identificadores dos dois meios ópticos por ele separados.
+\end{itemize}
+
+A cena que será processada é formada por triângulos e é armazenada em um arquivo .off cuja estrutura é a seguinte :
+
+\begin{itemize}
+\item Primeira linha: a palavra "OFF";
+\item Segunda linha: $nPoints$, a quantidade de pontos; $nTrigs$, a de triângulos; e um zero;
+\item $nPoints$ linhas seguintes: os pontos dos vértices dos triângulos;
+\item $nTrigs$ linhas seguintes: o número de vértices de polígonos (sempre igual a 3, pois a cena é composta sempre por triângulos) e o número identificador dos pontos que compõem cada vértice.  
+\end{itemize}
+
+Tais informações podem ser obtidas por meio de arquivos de formato padronizado, tais como os arquivos \verb|.off| (\emph{Object File Format}, definido em \cite{Shilane:2004:TPS}), utilizados para representar a geometria de um modelo com base em polígonos.
+
+A saída do algoritmo é uma sequência de valores RGB correspondentes a cada um dos \emph{pixels} da imagem calculada.
+
+\section{Desenvolvimento}\label{sec:desenvolvimento}
+\subsection{Metodologia de projeto} \label{subsec:metProjeto}
+Os modelos clássicos de projeto em hardware e software tipicamente começam de uma mesma especificação de sistema que é gradualmente refinada e sintetizada em uma arquitetura a qual é composta por componentes programáveis ou dedicados. Contudo a grande desvantagem desta abordagem é o fato de ser necessário um particionamento prematuro entre o que irá ser programado em hardware e software. Desta forma separa-se, desde o início da concepção do projeto, o que será desenvolvido em software e em hardware e, a partir desta separação, inicia-se o desenvolvimento do projeto. A parte em software é feita geralmente usando uma linguagem de programação de alto desempenho (linguagem C, por exemplo); a parte em hardware, por sua vez, é feita utilizando-se simuladores de linguagens de descrição de hardware de baixo nível como o VHDL ou o Verilog.
+
+A grande desvantagem dessa metodologia é o risco do aumento de complexidade do projeto resultante de um dimensionamento equivocado da divisão entre software e hardware. Por isso, para a execução deste trabalho procurou-se adotar uma nova metodologia \cite{Cag06} na qual procura-se melhorar o projeto do circuito por meio da eliminação da decisão prematura do particionamento. A figura \ref{fig:methodology} ilustra esta metodologia em forma de Y a qual reconhece uma clara separação entre um modelo de aplicação, um modelo de arquitetura e um passo explícito para o mapeamento no qual se correlacionam os dois modelos. 
+
+\begin{figure}[htbp]
+  \centering
+  \includegraphics[width=0.75\textwidth]{figures/methodology}
+  \caption{Metodologia de projeto empregada. Adaptado de \cite{Cag06}.}
+  \label{fig:methodology}
+\end{figure}
+
+O modelo de aplicação descreve o comportamento funcional de uma aplicação independentemente de especificações arquiteturais como o particionamento ou de características do desenvolvimento temporal do sistema. O modelo de arquitetura define os recursos da arquitetura e captura suas características temporais sendo capaz de avaliar a desenvoltura para a execução das arquiteturas em hardware e software. Logo ao invés de utilizar a abordagem clássica na qual a simulação do hardware e do software são vistas como partes cooperantes, a metodologia em Y distingue as simulações de aplicação e arquitetura sendo que a última envolve aspectos das partes programáveis como também das partes dedicadas.
+
+O esquema geral de desenvolvimento é dado pela figura \ref{fig:methodology}. O conjunto de modelos de aplicação no canto superior direito da figura conduz o projeto da arquitetura. O primeiro passo do projetista é estudar estas aplicações, fazer alguns cálculos iniciais e propor uma plataforma candidata para o desenvolvimento da arquitetura. Os números resultantes podem inspirar o projetista a melhorar a arquitetura, reestruturar a aplicação ou mudar o mapeamento. As possíveis ações do projetista são ilustradas por meio das nuvens de cor cinza na figura \ref{fig:methodology}.
+
+O desacoplamento dos modelos de arquitetura e aplicação permite utilizar um mesmo modelo de aplicação para exercitar diferentes particionamentos entre hardware e software e mapeá-los em um conjunto de modelos de arquitetura. Esta capacidade demostra a eficiência do desacoplamento por meio do reuso de ambas as partes do modelo.
+
+Após encontrar uma alternativa que atenda aos requisitos do projeto, é necessária a transição para a abordagens de baixo nível visando à síntese do circuito. Para isto recorre-se a modelos \emph{Register Transfer Level} (RTL) sintetizáveis com os quais é possível obter modelos mais precisos e que atendam aos requisitos de projeto. Para tal tarefa é necessário um conjunto de ambientes de desenvolvimento nos quais existam diferentes níveis de abstração para um mesmo projeto. Assim enquanto modelos executáveis abstratos de aplicação exploram eficientemente as abordagens de projeto, modelos mais detalhados agregam mais detalhes de desenvolvimento e consequentemente trazem uma maior precisão e permitem um projeto eficiente em hardware.
+
+O fluxo de desenvolvimento da plataforma de arquitetura (parte esquerda da metodologia em Y da figura \ref{fig:methodology}) começa com uma descrição RTL do circuito. Tal descrição pode ser acompanhada por um conjunto de detalhes específicos de execução da plataforma de desenvolvimento. Um arquivo separado conhecido como \emph{testbench} (bancada de testes) provê uma bancada virtual para a simulação e verificação do circuito. Ela incorpora o código para gerar os estímulos de entrada e monitorar as respostas de saída. Uma vez que estes arquivos são criados, o circuito pode ser construído e verificado de uma maneira eficiente. Os passos do desenvolvimento da plataforma de arquitetura, segundo  \cite{Chu:2006:RHD}, são descritos abaixo:
+
+\begin{itemize}
+\item Desenvolver o arquivo de projeto da arquitetura e a bancada de testes;
+\item Utilizar o arquivo de projeto da arquitetura como a descrição do circuito e executar a simulação para verificar se as funções do projeto funcionam de maneira adequada;
+\item Executar a síntese do circuito;
+\item Utilizar o arquivo \emph{netlist} de saída do sintetizador, que especifica as instâncias e as interconexões das diversas células do projeto, como descrição do circuito e realizar uma simulação e análise de tempo para verificar a regularidade da síntese e checar se o tempo de execução é adequado;
+\item Executar o \emph{place-and-route} (posicionamento e interligação de células); 
+\item Anotar as informações precisas de tempo para o \emph{netlist}, realizar a simulação e análise de tempo para verificar a correção do \emph{place-and-route} e verificar se o circuito atende as restrições de tempo;
+\item Gerar o arquivo de configuração e programar a plataforma de desenvolvimento;
+\item Verificar o funcionamento da parte física.
+\end{itemize}
+
+O fluxo descrito acima representa um processo ideal, pois assume que a descrição do projeto inicial siga a especificação funcional e atenda as restrições de tempo. Na realidade, o fluxo de desenvolvimento pode acarretar em várias iterações para corrigir os erros funcionais ou problemas de tempo. É possível que haja necessidade de rever os arquivos de projeto de arquitetura originais para ajustar parâmetros da síntese e no \emph{place-and-route}. A figura \ref{fig:metHardware} ilustra todos os passos descritos acima.
+
+\begin{figure}[htbp]
+  \centering
+  \includegraphics[width=0.75\textwidth]{figures/metHardware}
+  \caption{Passos para o projeto da plataforma de arquitetura. Adaptado de  \cite{Chu:2006:RHD}}
+  \label{fig:metHardware}
+\end{figure}
+
+\subsection{Recursos Utilizados} \label{subsec:ferramentasUtilizadas}
+
+Esta seção descreve todas as ferramentas e recursos utilizados no processo de desenvolvimento do \emph{raytracer} segundo a metodologia descrita na seção \ref{subsec:metProjeto} . 
+
+\subsubsection{Ferramentas de desenvolvimento para os modelos de aplicação} \label{subsubsec:ferramentasModAplic}
+Neste trabalho para a execução dos modelos de aplicação foi utilizada a interface Eclipse CDT configurada para executar a biblioteca SystemC. A figura \ref{fig:eclipseEnv} mostra o ambiente de desenvolvimento do modelo de aplicação.
+
+\begin{figure}[htbp]
+  \centering
+  \includegraphics[width=1\textwidth]{figures/eclipseEnv}
+  \caption{O ambiente de desenvolvimento do modelo de aplicação.}
+  \label{fig:eclipseEnv}
+\end{figure}
+
+Um dos objetivos principais da linguagem SystemC é possibilitar a modelagem de sistemas em um nível de abstração acima das descrições RTL, incluindo sistemas que podem ser desenvolvidos em hardware, software ou uma combinação dessas abordagens. A camada de base do SystemC proporciona um \emph{kernel} de simulação orientado a eventos. Com ele é possível realizar operações com eventos e processá-las de maneira abstrata, sem conhecer o que os eventos realmente representam ou o que os processos fazem. Isto é bem interessante para proporcionar uma linguagem de projeto de sistemas diante de uma ampla variedade de modelos de computação e comunicação. 
+
+Outros elementos do SystemC incluem módulos e portas para representar informações estruturais, interfaces e canais que podem ser utilizados em abstrações para a comunicação. O \emph{kernel} e estes elementos abstratos compõem a linguagem núcleo. No topo desta linguagem é possível adicionar modelos mais específicos de computação, bibliotecas e metodologias de projetos que são úteis para o projeto de sistemas.
+
+\begin{figure}[htbp]
+  \centering
+  \includegraphics[width=0.75\textwidth]{figures/scOrga}
+  \caption{Arquitetura da linguagem SystemC. Adaptado de \cite{Grotker:2002:SDS}}
+  \label{fig:scOrga}
+\end{figure}
+
+A figura \ref{fig:scOrga} expõe as diferentes camadas do systemC. A camada de base mostra que SystemC é construída inteiramente em C++. Isto significa que um programa escrito em SystemC pode ser executado por meio de um compilador C++. Junto com a linguagem de núcleo, há os tipos de dados que são úteis para a modelagem de hardware e para certos tipos de programação em software (como os tipos em ponto fixo). Os canais primários da camada superior incluem modelos que são amplamente utilizados como sinais, \emph{timers} e \emph{buffers} FIFO. As camadas do topo não fazem parte do SystemC padrão, contudo pode-se escolher usá-los ou mesmo desenvolver componentes para novos modelos computacionais. 
+
+\subsubsection{Plataforma de desenvolvimento} \label{subsubsec:platDes}
+
+Para o desenvolvimento da arquitetura foi utilizada a plataforma  de desenvolvimento ML507 (figura \ref{fig:ml507}), da Xilinx. Essa placa é construída ao redor da FPGA Virtex-5 XC5VFX70T e possui uma série de periféricos, dentre os quais destacam-se  \cite{XlinxML507Ev}:
+
+\begin{itemize}
+\item Memória DDR2 SODIMM de 256 MB;
+\item Memória \emph{flash} de 32 MB;
+\item SRAM de 9 MB com barramento de dados de 32 bits e 4 bits de paridade;
+\item Saída de vídeo DVI, e adaptador para VGA incluso;
+\item Conector DB9 para porta serial RS232;
+\item Interface JTAG;
+\item LEDs, botões e \emph{switches} para \emph{debug}.
+\end{itemize}
+
+\begin{figure}[htbp]
+  \centering
+  \includegraphics[width=0.75\textwidth]{figures/ml507_front}
+  \caption{Plataforma de desenvolvimento ML507 da Xilinx}
+  \label{fig:ml507}
+\end{figure}
+
+A Xilinx também fornece as ferramentas de software para utilização da placa, notadamente o \emph{Embedded Development Kit}, parte da suíte de desenvolvimento ISE, que contém diversos IPs para a utilização dos periféricos disponíveis.
+
+\subsubsection{Ferramentas de desenvolvimento para os modelos de arquitetura} \label{subsubsec:ferramentasModArq}
+
+A linguagem SystemVerilog foi utilizada para o desenvolvimento dos modelos de arquitetura (notadamente o coprocessador) e seu uso justifica-se em sua praticidade. Trata-se de uma extensão da linguagem Verilog a qual busca maior produtividade no projeto de grandes \emph{chips} com um elevado número de portas e de IPs. Uma grande vantagem desta linguagem é seu maior grau de abstração que permite uma transição mais suave na concepção dos modelos de arquitetura a partir dos modelos de aplicação.
+
+SystemVerilog \cite{systemVerilog} é capaz de suportar a modelagem e verificação no nível de abstração de transação. Ela permite a invocação direta de funções em C/C++ e é a primeira linguagem baseada em Verilog que permite uma cossimulação eficiente entre blocos em SystemC. Isto é muito interessante para estabelecer ligações entre o \emph{design} em uma abstração de sistema para uma implementação em hardware. 
+
+A linguagem também é dotada de um conjunto de extensões que atendem requisitos avançados de projeto. Alguns exemplos são a modelagem de interfaces que permitem maior produtividade no desenvolvimento de projetos nos quais o uso dos barramentos é intensivo; o fim das restrições no número de conexões nas portas dos módulos, permitindo qualquer tipo de dado em cada lado da porta; tipos de dados estendidos que permitem modelagem similar aos tipos de dados do C (estruturas, por exemplo) e melhorias na proteção das IPs. As melhorias no suporte a verificação dos módulos são bastantes significativas. Novas metodologias permitem o aumento da precisão nos testes, simplificam as bancadas e facilitam o reúso de código, diminuindo drasticamente o tempo dispendido na eliminação de erros. 
+
+SystemVerilog também possui novas características para suportar modelos de hardware e bancadas de testes que utilizam técnicas de orientação a objeto que são inteiramente reutilizáveis. A combinação de um método de interface em SystemVerilog com as técnicas de criação de uma bancada de testes orientada a objeto permite o desenvolvimento simplificado de metodologias de testes baseadas em requisitos exigentes de projeto.
+
+Para a descrição dos modelos de arquitetura em SystemVerilog e a sua posterior simulação e verificação utiliza-se a ferramenta ActiveHDL. A ferramenta possui um ambiente gráfico para o desenvolvimento em HDLs permitindo testes integrados de diversos módulos com uma relativa flexibilidade. Ela suporta FPGAs dos principais fabricantes, incluindo a plataforma Xilinx que é empregada neste trabalho \cite{aldec:activehdl}. A figura \ref{fig:activeHDL} ilustra a interface do ActiveHDL.
+
+\begin{figure}[htbp]
+  \centering
+  \includegraphics[width=1\textwidth]{figures/activeHDL}
+  \caption{O ambiente de desenvolvimento e de simulação em SystemVerilog do modelo de arquitetura.}
+  \label{fig:activeHDL}
+\end{figure}
+
+Após a especificação de todos os módulos do coprocessador utilizando SystemVerilog, incia-se o processo de síntese. Neste passo, as representações e descrições dos módulos são convertidas em representações geométricas as quais serão dispostas fisicamente dentro da FPGA. Na síntese leva-se em conta as propriedades da plataforma de desenvolvimento utilizada, as células padrão, as regras de disposição das células e suas limitações temporais e é o primeiro passo da transformação de uma descrição em hardware de nível abstrato em um dispositivo físico. Todas as informações, regras e limitações da FPGA na qual uma descrição em hardware será sintetizada estão em bibliotecas disponibilizadas pelo fabricante.
+
+Para a síntese a ferramenta \emph{Synplify Premier with Design Planner} é empregada. Segundo \cite{synopsys:synplify} tal ferramenta é o ambiente de verificação e desenvolvimento em FPGAs mais produtivo no meio industrial. Além disso, inclui um conjunto de ferramentas de síntese compreensivo, de alta velocidade, com correlação temporal precisa, previsão de consumo e tecnologia de otimização. A figura \ref{fig:synplifyPremier} ilustra a interface do Synplify Premier.
+
+\begin{figure}[htbp]
+  \centering
+  \includegraphics[width=1\textwidth]{figures/synplifyPremier}
+  \caption{O ambiente de síntese}
+  \label{fig:synplifyPremier}
+\end{figure}
+
+Após a síntese é necessário executar o posicionamento e interligação de células. No projeto de hardware usando FPGA, esta etapa geralmente não é feita por uma pessoa pois geralmente usa-se uma ferramenta disponibilizada pelo fabricante da FPGA ou outro fabricante de software. A necessidade de um software é estimulada pela complexidade interna de uma FPGA e pelas características do projeto a ser inserido neste dispositivo. O primeiro passo, o posicionamento, envolve decidir em quais partes da FPGA que serão colocados os subcomponentes eletrônicos e dispositivos lógicos. Após isso, segue-se a fase de interligação (roteamento) na qual é decidido a maneira como todos estes dispositivos serão interligados, levando-se em conta as regras e as limitações do dispositivo em geral especificadas no software responsável por esta etapa. Neste projeto o posicionamento e interligação de células foi feito por meio do ISE Design Suite disponível para a plataforma de desenvolvimento da Xilinx empregada na síntese dos modelos de arquitetura (seção \ref{subsec:dimArquitetura}). A figura \ref{fig:ISE} ilustra a interface do ISE Design Suite da Xilinx.
+
+\begin{figure}[htbp]
+  \centering
+  \includegraphics[width=1\textwidth]{figures/ISE}
+  \caption{Interface do ISE Design Suite, software utilizado para o posicionamento e interligação de células.}
+  \label{fig:ISE}
+\end{figure}
+
+\subsection{Particionamento em hardware e software} \label{subsec:partHardSoft}
+
+O particionamento entre hardware e software levou em conta a frequência das operações que ocorrem no processo de geração de uma imagem em 3D. O processo inicia-se com a leitura dos arquivos de entrada especificados na seção \ref{subsec:confEntrSaidas} a partir de um disco rígido de um PC e o envio destes dados para a plataforma de desenvolvimento ML507 por meio da porta serial. Estes dados são armazenados na memória DDR2. Após a transferência dos dados, incia-se o trabalho do processador, responsável pela execução de um software que indexará os triângulos enviados pela porta serial por meio da construção de uma árvore \emph{k}-d. 
+
+Após a construção da árvore \emph{k}-d, inicia-se o trabalho dos coprocessadores, descritos em hardware, os quais executam o algoritmo de \raytracing{}, calculando as reflexões e refrações dos raios de luz no conjunto de triângulos. A partir destas reflexões e refrações, pode-se calcular a intensidade luminosa (seção \ref{subsec:intensidadeLuminosa}) em um ponto da janela de observação (seção \ref{subsec:visaoGeral}), o que também é feito em hardware. No fim de todo o processo, utilizando a interface disponível na plataforma de desenvolvimento ML507, é possível exibir a imagem 3D gerada pelo algoritmo.
+
+Para cada imagem gerada, é necessária a construção de uma árvore de indexação espacial antes da execução do algoritmo de \raytracing{}. Dessa forma não haverá sobrecarga de nenhum barramento presente o que viabiliza tal divisão. A divisão permitirá uma implementação mais facilitada sem prejudicar as vantagens de se possuir um hardware dedicado para a execução do algoritmo de \raytracing{}, justificando sua construção por meio do software. Além disso, poupa-se superfície em hardware a qual pode ser usada para especificar outros fenômenos ópticos, por exemplo. A lista a seguir e a figura \ref{fig:fluxograma} resumem o particionamento em hardware e software de todas as atividades envolvidas na geração de uma imagem em 3D usando \raytracing{}:
+
+\begin{itemize}
+\item Entrada e construção da árvore de indexação espacial - \textbf{software};
+\item Interseção, reflexões e refrações - \textbf{hardware};
+\item Cálculo da intensidade luminosa - \textbf{hardware};
+\item Saída dos dados - \textbf{hardware} (utilizando recursos disponíveis na plataforma embarcada).
+\end{itemize}
+
+\begin{figure}[htbp]
+  \centering
+  \includegraphics[width = 0.6\textwidth]{figures/fluxograma}
+  \caption{Fluxograma do particionamento em hardware e software do \emph{raytracer}}
+  \label{fig:fluxograma}
+\end{figure}
+
+Uma vez o sistema base definido, foi possível a adaptação dos modelos de aplicação para seu uso como software embarcado. Tal implementação iniciou-se com a adaptação do \emph{port} do sistema operacional FreeRTOS para a versão 13.1 da ferramenta de desenvolvimento da Xilinx, que modificava em alguns pontos a API utilizada. Após modificações nas camadas de abstração do hardware, o sistema pôde ser executado com sucesso na FPGA. Em seguida, tendo em vista o particionamento software/hardware, modificou-se o software em SystemC para a execução no sistema embarcado. Visto que não foi possível compilar toda a biblioteca SystemC para a plataforma PPC440, confeccionou-se uma biblioteca C++ que implementasse os tipos de dados necessários ao correto funcionamento do software existente (notadamente os números em ponto fixo).
+
+\subsection{Especificação e dimensionamento da arquitetura} \label{subsec:dimArquitetura}
+
+A partir do desenvolvimento dos modelos de aplicação (seções \ref{subsec:metProjeto} e \ref{subsubsec:ferramentasModAplic}) é possível especificar e dimensionar a arquitetura do projeto, que será discutida nessa seção.
+
+\subsubsection{Visão geral} \label{subsubsec:visaoGeral}
+De uma maneira geral e simplificada, a arquitetura de hardware do sistema h3dge é a exposta
+na figura \ref{fig:arquitetura}.
+
+\begin{figure}[htbp]
+  \centering
+  \includegraphics[width = \textwidth]{figures/arquitetura}
+  \caption{Arquitetura simplificada do sistema h3dge}
+  \label{fig:arquitetura}
+\end{figure}
+
+Conforme discutido na seção (\ref{subsec:partHardSoft}), cada um dos componentes
+do sistema tem uma função bem determinada, a saber:
+
+\begin{itemize}
+\item O \textbf{processador} é responsável pela indexação espacial e o coprocessador é responsável pelo algoritmo de \raytracing{} e pelo cálculo da intensidade luminosa; 
+\item O \textbf{controlador de memória} oferece acesso à memória DDR2 presente na placa de desenvolvimento;
+\item O \textbf{controlador UART} fornece uma interface de comunicação serial com um PC; 
+\item O \textbf{controlador de vídeo} possibilita a saída da imagem gerada em uma interface DVI;
+\item E todos os componentes se comunicam por meio de \textbf{vias de dados} internas.
+\end{itemize}
+
+As próximas seções detalham o funcionamento da parte majoritária dos elementos dessa estrutura.
+
+\subsubsection{Processador} \label{subsubsec:processador}
+Inicialmente, foi proposta a utilização do processador PicoBlaze para comandar as atividades do circuito. O PicoBlaze é um \emph{soft core} altamente otimizado para as FPGAs da Xilinx, que permite sintetizar em um pequeno número de \emph{slices} uma unidade de processamento funcional e flexível. Suas principais características são \cite{Chu:2008fpga}:
+
+\begin{itemize}
+\item Palavra de dados de 8 bits;
+\item 16 registradores de 8 bits;
+\item Memória de dados de 64 bytes;
+\item Instruções de 18 bits de largura;
+\item Endereços de instrução de 10 bits de largura, suportando um programa de até 1024 instruções;
+\item 256 portas de entrada e 256 portas de saída;
+\item 2 ciclos de relógio por instrução;
+\item 5 ciclos de relógio para tratamento de uma interrupção.
+\end{itemize}
+
+O PicoBlaze é uma boa alternativa para executar programas que fazem essencialmente E/S. Entretanto, após estudo aprofundado de suas características, é possível perceber que ele não é apropriado às necessidades de processamento do h3dge, pelas seguintes razões:
+
+\begin{itemize}
+\item O algoritmo de criação da árvore \emph{k}-d será executado em software, visto que essa etapa do processo não pode ser paralelizada. Como o PicoBlaze só pode ser programado em linguagem assembly, a escrita do algoritmo seria dificultada;
+\item Mesmo se a decisão de implementar o algoritmo em assembly fosse tomada, a realização seria trabalhosa, visto o tamanho dos registradores e da unidade lógica e aritmética (ULA) - uma operação de adição de dois números de 32 bits necessitaria da metade dos registradores;
+\item Mesmo se o algoritmo fosse implementado com sucesso, ele dificilmente caberia na memória de programa de 1024 instruções;
+\item O PicoBlaze não tem um controlador de memória externa embutido. Assim, seria necessário adicioná-lo como uma IP, e escrever o \emph{driver} para utilizá-lo - \emph{driver} este que, por sua vez, ocuparia espaço na já escassa memória de programa.
+\end{itemize}
+
+Tendo em vista essas limitações, optou-se pelo uso do core PowerPC 440 embutido na FPGA. Tal processador possui funcionalidades muito mais favoráveis às necessidades deste projeto, tais como \cite{XlinxV5FPGA}:
+
+\begin{itemize}
+\item Arquitetura RISC 32 bits;
+\item 32 registradores de 32 bits;
+\item Caches de instrução e de dados de 32 KB cada;
+\item Interfaces PLB (Processor Local Bus) para conexão de processadores
+  adicionais;
+\item Interface JTAG;
+\item Suporte à programação em C/C++ via gcc.
+\end{itemize}
+
+Além das funcionalidades superiores, um outro argumento a favor da utilização desse core é seu "custo zero", visto que o bloco está presente em silício (sua utilização não necessita de \emph{slices} adicionais).
+
+\subsubsection{Coprocessador} \label{subsubsec:arqCoproc}
+
+Conforme dito na seção \ref{subsec:partHardSoft} o coprocessador engloba todas as funções necessárias para o cálculo em ponto fixo e pela execução do algoritmo de \raytracing{}. Esta seção dedica-se a especificar a arquitetura do coprocessador.
+
+O primeiro passo no projeto do coprocessador consistiu no desenvolvimento de uma estimativa do tamanho de sua memória por meio da implementação dos modelos de aplicação (seção \ref{subsec:metProjeto}). O propósito da memória do coprocessador é acelerar o processo de cálculo dos raios refletidos e refratados, evitando-se um número exagerado de requisições à memória DDR2 para conseguir os dados necessários para tais cálculos.
+
+A partir da especificação das estruturas de dados necessárias para o algoritmo de \raytracing{}, foi possível calcular o tamanho dos tipos de dados relacionados com o funcionamento do coprocessador. Estes cálculos detalhados encontram-se no apêndice \ref{app:apendiceB}. 
+
+Após estes primeiros cálculos, estipulou-se que a quantidade máxima de triângulos que podem ser referenciados por um único nó folha de uma árvore \emph{k}-d é 1024. Em outras palavras, convencionou-se que um pacote de triângulos pode no máximo possuir 1024 elementos; um pouco mais que 1\% da quantia máxima de triângulos que pode ser armazenada. Tal número mostrou-se satisfatório para todos os testes realizados na plataforma de desenvolvimento. Caso o número de triângulos seja maior que o estipulado, uma nova requisição à memória deve ser feita para para carregar os próximos 1024 triângulos. Cabe destacar que, embora seja possível, é improvável que exista um nó folha com mais que 1024 triângulos, pois o propósito de uma árvore \emph{k}-d é justamente dividir os triângulos entre seus nós folhas para diminuir o número de objetos com os quais o teste de interseção será feito. No caso de imagens com um número muito alto de triângulos, será necessário aumentar a quantia máxima de triângulos que podem estar referenciados em um nó folha.
+
+Além disso, estimou-se a quantidade de espaço necessária para armazenar um conjunto de raios refletidos e refratados, considerando um número máximo de reflexões de cada raio igual a cinco (seção \ref{subsec:hipSimplificadoras}). Como cada raio pode refletir-se e, se possível, refratar-se então, no caso em que a quantidade de raios é máxima, há a possibilidade de obtenção  de um conjunto de raios organizados em uma estrutura similar a uma árvore binária de busca na qual os filhos à esquerda são os raios gerados após uma reflexão e os filhos a direita são os raios gerados após uma refração. O tamanho máximo desta árvore é dado por uma árvore binária de busca balanceada de altura cinco cujo cálculo está disponível no apêndice \ref{app:apendiceB}. Deve-se ressaltar que o número máximo de materiais, meios e luzes é igual a dezesseis conforme já discutido na seção \ref{subsec:hipSimplificadoras}.
+
+A lista a seguir enumera todos as estruturas que serão armazenadas na memória do coprocessador e seu respectivo tamanho, de acordo com os cálculos disponíveis no apêndice \ref{app:apendiceB}:
+
+\begin{itemize}
+\item nó da árvore em processamento - 56 bytes;
+\item vetor para 1024 triângulos - 49152 bytes;
+\item vetor para os materiais - 320 bytes; 
+\item vetor para as luzes - 384 bytes; 
+\item vetor para os meios - 64 bytes;
+\item variável para a cor do \emph{pixel} - 12 bytes;
+\item tamanho da pilha a qual armazena os raios refletidos e refratados - 4032 bytes;
+\end{itemize}
+
+A partir dos dados anteriores conclui-se que o tamanho da memória do coprocessador é de \textbf{52.76 kbytes}. 
+Após o dimensionamento da memória, elaborou-se para o processador a arquitetura descrita na figura \ref{fig:arquiteturaCoprocessador}.
+
+\begin{figure}[htbp]
+  \centering
+  \includegraphics[width=0.75\textwidth]{figures/archi_coproc}
+  \caption{Arquitetura do coprocessador}
+  \label{fig:arquiteturaCoprocessador}
+\end{figure}
+
+O bloco de \emph{Direct Memory Access} (DMA) é composto por uma interface disponível na plataforma de desenvolvimento com a qual é possível acessar a memória DDR2 externa e assim carregar os dados necessários para o funcionamento do coprocessador em sua memória local. A unidade de cálculo em ponto fixo concentra as rotinas matemáticas para os cálculos executados pelo algoritmo de \raytracing{}. O módulo responsável pela execução do algoritmo contém as descrições dos fenômenos ópticos de reflexão e refração e as estruturas para o preparo da execução destas descrições.
+
+Cabe ressaltar que devido a restrições temporais (prazo de entrega) e às dificuldades envolvidas na execução deste projeto (seção \ref{sec:dificuldades}), não foi possível descrever em hardware a arquitetura supracitada. Após uma série de simplificações, decidiu-se descrever em hardware a operação de interseção de um raio com um triângulo, pois trata-se de uma operação frequente no algoritmo e que proporciona ganho de desempenho se descrita em hardware. Os cálculos empregados na interseção são descritos na seção \ref{subsec:intRayPlan} e a arquitetura do fluxo de dados descrito em hardware é ilustrada na figura \ref{fig:fdintersecao}.
+
+\begin{figure}[htbp]
+  \centering
+  \includegraphics[width=\textwidth]{figures/fd}
+  \caption{Fluxo de dados do módulo de interseção de um raio com um triângulo.}
+  \label{fig:fdintersecao}
+\end{figure}
+
+A unidade de controle deste módulo possui quatro estados. No primeiro calcula-se o determinante, o qual é necessário para o cálculo dos parâmetros $u$ e $v$, respectivamente obtidos no segundo e terceiro estados. Após isso é possível calcular, no quarto estado, o resultado $t$ e obter o ponto de interseção por meio da equação $R(t) = O+ t.\vec{D}$ (seção \ref{subsec:intRayPlan}).
+
+
+\subsubsection{Vias de dados} \label{subsubsec:viasDeDados}
+
+Embora a arquitetura exposta na figura \ref{fig:arquitetura} seja adequada para
+um entendimento global do funcionamento do hardware, ela não é exata do ponto
+de vista das vias de dados. Isso porque o \emph{bus} de interconexão nela
+indicado é na verdade implementado por duas vias de dados organizados em uma
+estrutura hierárquica: a \emph{crossbar} e um \emph{bus} PLB v4.6.
+
+A \emph{crossbar} é uma via de dados extremamente simples, localizada no
+interior do bloco de processamento no qual encontra-se o processador
+PowerPC 440. Como pode-se observar na figura \ref{fig:processorBlock}, ela,
+representada por um ``X'', age como unidade central de arbitragem entre todos os
+elementos mestres e escravos do bloco, funcionando basicamente como um
+\emph{switch}.
+
+\begin{figure}[htbp]
+  \centering
+  \includegraphics[width=\textwidth]{figures/processor_block}
+  \caption{Estrutura interna do bloco de processamento das FPGAs Virtex-5.
+    Extraído de \cite{XlinxV5FPGA}.}
+  \label{fig:processorBlock}
+\end{figure}
+
+A \emph{crossbar} localiza-se entre as cinco interfaces escravas do bloco de processamento (três vindo diretamente do processador e duas, SPLB0\footnote{\emph{Slave} PLB 0} e SPLB1\footnote{\emph{Slave} PLB 1}, fazendo a conexão com um \emph{bus} PLB externo) e as duas interfaces mestras (MPLB\footnote{\emph{Master} PLB}, ligada ao \emph{bus} PLB externo, e MCI\footnote{\emph{Memory Controller Interface}}, conectada ao controlador de memória). Somente comunicações entre mestre e escravo, e vice-versa, são permitidas; assim, não é possível enviar dados de um periférico conectado à interface SPLB0 a um outro presente na interface SPLB1.
+
+As principais funcionalidades da \emph{crossbar} são:
+\begin{itemize}
+\item Pipeline de até 5 transações para as interfaces MPLB e MCI;
+\item Transmissões em ciclo único ou em modo \emph{burst};
+\item Arbitragem independente para MPLB e MCI;
+\item Fases de arbitragem e de dados independentes;
+\item Suporte a palavras de 128, 64 ou 32 bits;
+\item Espaço de endereçamento de 64 Gb (34 bits de endereço), a ser dividido
+  entre os dispositivos escravos.
+\end{itemize}
+
+Tipicamente, a \emph{crossbar} funciona a uma frequência mais alta que a do
+\emph{bus} externo e dos escravos/mestres sintetizados na FPGA, e um mecanismo de
+prioridades \emph{round-robin} é utilizado para a arbitragem. A descrição
+em detalhes do funcionamento dessa via de dados está além do escopo deste
+trabalho; para mais detalhes, aconselha-se a leitura de \cite{XlinxV5FPGA}.
+
+O \emph{Processor Local Bus} (PLB), por sua vez, é a via de dados utilizada para
+a conexão do bloco de processamento com os periféricos. Trata-se de um
+\emph{bus} padronizado, parte da arquitetura \emph{CoreConect} proposta pela
+IBM para vias de dados em Systems-on-Chip (SoC).
+
+\begin{figure}[htbp]
+  \centering
+  \includegraphics{figures/plb}
+  \caption{Arquitetura do \emph{bus} PLB v4.6. Extraído de \cite{XlinxPLBv46}.}
+  \label{fig:plb}
+\end{figure}
+
+A estrutura de uma via de dados PLB v4.6, conforme
+ilustrado na figura \ref{fig:plb}, consiste em uma unidade de arbitragem
+centralizada e toda a lógica necessária para o controle da via compartilhada. 
+A implementação utilizada, descrita em \cite{XlinxPLBv46}, possibilita a conexão
+de até 16 mestres e escravos, e possui como funções principais:
+
+\begin{itemize}
+\item Árbitro com número configurável de mestres;
+\item Suporte a palavras de 128, 64 e 32 bits para mestres e escravos;
+\item Pipeline de endereçamento;
+\item Quatro níveis de prioridade para os mestres;
+\item Esquema de prioridades configurável (round-robin ou prioridades fixas);
+\item Temporizador \emph{watchdog};
+\item Circuito de \emph{reset} dedicado.
+\end{itemize}
+
+\subsubsection{Controlador de vídeo} \label{subsubsec:controladorDeVideo}
+
+O controlador de vídeo utilizado foi o XPS Thin Film Transistor (TFT) Controller \cite{XlinxXPSTFT}. Esse controlador é uma IP capaz de exibir até 256 mil cores em uma resolução de 640 por 480 pixels. A saída pode ser feita via uma uma interface VGA ou DVI, mas visto que no kit de desenvolvimento utilizado há somente uma porta DVI, a opção VGA não foi utilizada\footnote{Entretanto, o mesmo kit inclui um adaptador DVI-VGA para paliar essa limitação.}.
+
+De um ponto de vista pragmático, o XPS TFT Controller exibe em um monitor o conteúdo de um \emph{frame buffer} armazenado em memória. Tal \emph{buffer} deve estar organizado em 1024 colunas e 512 linhas de pixels de 32 bits (totalizando 2 MB), das quais somente as primeiras 640 colunas e 480 linhas serão realmente exibidas na tela. Como usual, cada pixel é uma composição de três cores: vermelho, verde e azul; cada cor tem um valor de 6 bits, e o pixel é organizado como mostrado na tabela \ref{tab:pixel} (bits em ordem \emph{big endian}).
+
+\begin{table}[htbp]
+  \centering
+  \caption{Organização de um pixel na memória. Adaptado de \cite{XlinxXPSTFT}.}
+  \label{tab:pixel}
+  \begin{tabular}{cc}
+    \toprule
+    Bits & Descrição \\
+    \midrule
+    $[31:24]$ & Não definido \\
+    $[23:18]$ & Vermelho: \verb+0b000000+ (mais escuro) $\rightarrow$ \verb+0b111111+ (mais claro)\\
+    $[17:16]$ & Não definido \\
+    $[15:10]$ & Verde: \verb+0b000000+ (mais escuro) $\rightarrow$ \verb+0b111111+ (mais claro)\\
+    $[9:8]$ & Não definido \\
+    $[7:2]$ & Azul: \verb+0b000000+ (mais escuro) $\rightarrow$ \verb+0b111111+ (mais claro)\\
+    $[1:0]$ & Não definido \\
+    \bottomrule
+  \end{tabular}
+\end{table}
+
+O \emph{Embedded Development Kit} (EDK) fornece ainda uma API para a utilização dessa IP em software. Por meio dessa biblioteca, é possível configurar e iniciar facilmente o periférico, efetuar algumas operações de renderização básicas (e.g. limpar tela, desenhar um retângulo preenchido com uma cor), assim como escrever alguns caracteres na tela usando as funções básicas de renderização de texto inclusas.
+
+\subsubsection{Dimensionamento da memória DDR2 externa} \label{subsubsec:dimensionamentoDDR2}
+
+As principais estruturas que são armazenadas na memória externa e que ocupam uma quantia significativa de espaço são a lista de triângulos e a árvore \emph{k}-d. Esta seção mostra a metodologia adotada para estimar o tamanho da memoria necessária para executar o algoritmo de \raytracing{} do h3dge. 
+
+No projeto considera-se um máximo de 70000 triângulos os quais são suficientes para executar o h3dge com as duas imagens testes utilizadas (seção \ref{sec:imagensGeradas}) e para construir árvores \emph{k}-d com um tamanho razoável, o que garante a estabilidade do sistema. Maiores árvores geram cenários mais específicos de divisão de planos e de interseção de triângulos, os quais são muito interessantes para encontrar possíveis erros no código. Outro aspecto importante a ser ressaltado é que a árvore \emph{k}-d possui profundidade máxima igual a dezesseis. A profundidade máxima é necessária para se evitar árvores muito profundas as quais diminuem drasticamente o rendimento da indexação espacial (para maiores informações consultar as seções \ref{subsec:otiKDTree} e \ref{sec:desempenhoArvoreKD}). 
+
+Além disso, deve-se ressaltar que na árvore \emph{k}-d as referências dos triângulos indexados em cada pacote são alocadas apenas nos nós folha por meio de listas ligadas. Dessa forma, para poupar espaço em disco, é interessante que as listas ligadas sejam compostas por referências (ou ponteiros) para os triângulos alocados inicialmente em outro intervalo da memória, evitando-se repetições desnecessárias de triângulos nos nós da árvore. O espaço alocado na memória para as referências deve ser suficiente para alocar mais que 70000 triângulos, pois no momento da divisão de uma região do espaço, o plano frequentemente cruza alguns triângulos. Inicialmente adotou-se alocar espaço suficiente para alocar 140000 referências de triângulos, ilustrando o caso no qual o plano intercepta todos os triângulos que devem ser repetidos em ambos os lados dos filhos originados pelo plano divisor. Esta abordagem funciona para figuras menores e mais simples, contudo, para figuras mais complexas são necessárias 280000 referências de triângulos para referenciá-los de maneira segura (sem estouros) na árvore \emph{k}-d. O aumento do número de referências decorre justamente do fato da imagem ser mais complexa, o que aumenta os casos de triângulos interceptados pelo plano divisor nos vários níveis da árvore.
+
+A partir de todas estas considerações tornou-se possível estimar o espaço em memória ocupado pelos triângulos, pela árvore \emph{k}-d e pelas listas ligadas de referências de triângulos alocadas em seus nós folhas. O total de espaço em memória necessário é de \textbf{12.34 Megabytes}. Para maiores detalhes sobre os cálculos realizados, consultar o apêndice \ref{app:apendiceA}.
+
+\subsubsection{Considerações a respeito do número de coprocessadores em paralelo} \label{subsubsec:coprocParalelo}
+
+O número de coprocessadores depende diretamente da capacidade do barramento de transferência de dados entre a memória e a FPGA. Os ganhos de desempenho na execução paralela existem até o momento em que o barramento atinge sua capacidade máxima de transferência de dados. Após esse momento, a adição de novos coprocessadores torna-se inadequada, pois a latência para o acesso ao barramento crescerá de tal forma que anulará os ganhos de performance obtidos com a maior capacidade de coprocessamento. 
+
+No momento em que um coprocessador está acessando a memória, outro coprocessador pode estar calculando a intensidade luminosa de seu respectivo ponto. A situação limite ocorre quando a frequência conjunta dos acessos à memória de todos os processadores se iguala à capacidade do barramento de acesso à memória. É importante ressaltar que no projeto há o controlador de vídeo que também utiliza o barramento para acessar a memória, logo seu uso também deve ser considerado para a estimativa de quantos coprocessadores podem ser acoplados ao barramento. De acordo com \cite{XlinxXPSTFT}, a frequência dos acessos a memória do controlador de vídeo é de 25MHz e, de acordo com \cite{XlinxV5FPGA}, o barramento PLB funciona a 100MHz, portanto sobram 75MHz para os coprocessadores acessarem a memória.
+
+Segundo \cite{XlinxPPC40DDR2}, o \emph{clock} de funcionamento da memoria DDR2 da plataforma de desenvolvimento é de 267MHz e seu tempo de latência (latência CAS) é de cinco ciclos de relógio \cite{XlinxDataSheet}. Dessa forma, o tempo de resposta da memória é de 53MHz, sendo menor que os 75MHz resultantes da atuação do controlador de vídeo. Assim conclui-se que são necessários dois ciclos de relógio do barramento para ler um dado da memória.
+
+Após a síntese do módulo de execução do algoritmo de \raytracing{}, foi possível obter sua análise temporal e seu ciclo de máquina que é de 210ns, logo sua frequência é de 4.5MHz. Assim conclui-se que são necessários 23 ciclos de \emph{clock} para calcular um raio refletido e, se existir, um raio refratado. Para que estes raios sejam calculados, é necessário saber quais são os triângulos contidos dentro da sub-região na qual o raio está imerso, logo necessitam-se de acessos à memória. A execução do cálculo de um raio leva dez vezes mais vezes que a de um acesso a memória, assim nota-se que o o barramento PLB não estará muito ocupado durante o cálculo dos fenômenos ópticos necessários para determinar as intensidades luminosas nos pontos da janela de observação, o que abre espaço para o paralelismo.
+
+Nota-se que o grau de paralelismo depende da quantidade média de triângulos por pacote pois, para conseguir cada triângulo, é necessário acessar a memória. Se houver até 10 triângulos por nó folha da árvore \emph{k}-d, o coprocessador não precisará esperar pelo barramento para obter os dados necessários para os cálculos de interseção. Desta forma, o paralelismo é possível para figuras pouco complexas e se resume a 2 processadores por conta da limitação do barramento único e da latência da memória. Para acelerar o processo, podem ser utilizado outros barramentos e módulos para DMA e assim possibilitar o acesso a memória com mais frequência. Neste trabalho não foi possível devido a limitação do barramento único disponível na plataforma de desenvolvmento da Xilinx.
+
+\chapter{Resultados}\label{chp:resultados}
+
+Este capítulo dedica-se ao detalhamento de todos os resultados conseguidos na elaboração do projeto do \emph{raytracer h3dge}. Na primeira seção exibe-se as imagens geradas a partir da execução do algoritmo. Após isso, inicia-se o detalhamento de como as árvores de indexação espacial melhoram a execução do algoritmo por meio da drástica redução dos testes de interseção entre um raio e um triângulo. Enfim, são apresentados os resultados obtidos por meio da sintetização da arquitetura proposta em hardware.
+
+\section{Imagens geradas} \label{sec:imagensGeradas}
+
+As imagens geradas pelo algoritmo de \raytracing{} do h3dge foram três: 
+
+\begin{itemize}
+\item A primeira delas é o poliedro (figura \ref{fig:poliedro}), o qual contém oitenta faces.
+
+  \begin{figure}[htbp]
+    \centering
+    \includegraphics[width=0.75\textwidth]{figures/polyhedron}
+    \caption{O poliedro, uma das figuras geradas pelo algoritmo de \raytracing{} utilizado no h3dge. Nota-se os efeitos de transparência causados pela refração dos raios de luz.}
+    \label{fig:poliedro}
+  \end{figure}
+
+\item A segunda e terceira imagens são do célebre Stanford bunny, composto por setenta mil triângulos. A seguir há duas imagens do coelho: a primeira (figura \ref{fig:bunnyFront}) com a visão frontal e a segunda (figura \ref{fig:bunnyBack}) com a visão traseira, respectivamente.
+
+  \begin{figure}[htbp]
+    \centering
+    \includegraphics[width=0.75\textwidth]{figures/bunny-front}
+    \caption{Stanford bunny, uma das figuras geradas pelo algoritmo de \raytracing{} utilizado no h3dge: visão frontal.}
+    \label{fig:bunnyFront}
+  \end{figure}
+
+  \begin{figure}[htbp]
+    \centering
+    \includegraphics[width=0.75\textwidth]{figures/bunny-back}
+    \caption{Stanford bunny, uma das figuras geradas pelo algoritmo de \raytracing{} utilizado no h3dge: visão traseira.}
+    \label{fig:bunnyBack}
+  \end{figure}
+
+\end{itemize}
+
+
+\section{Melhoria de desempenho causada pelo uso de uma árvore \emph{k}-d} \label{sec:desempenhoArvoreKD}
+
+Para verificar a influência da árvore $k$-d no desempenho do sistema, foi executado um experimento em software. Tal experimento consistiu em variar a altura máxima \emph{permitida} à arvore (que pode ser diferente da altura real, visto que a construção da árvore pode parar antes da atingir a altura máxima se o custo de divisão dos nós aumentar demasiadamente) e verificar o tempo de execução do algoritmo de \raytracing. Os resultados obtidos para o poliedro (figura \ref{fig:poliedro}) são apresentados na tabela \ref{tab:kdtreePerf} e na figura \ref{fig:kdtreePerf}.
+
+\begin{table}[htbp]
+  \centering
+  \caption{Influência da árvore $k$-d no desempenho}
+  \label{tab:kdtreePerf}
+  \begin{tabular}{cc}
+    \toprule
+    Altura máxima da árvore $k$-d & Tempo de execução (s) \\
+    \midrule
+    0 & 13,985 \\
+    1 & 11,257 \\
+    2 & 8,240 \\
+    3 & 6,241 \\
+    4 & 5,776 \\
+    5 & 5,347 \\
+    6 & 5,565 \\
+    7 & 6,089 \\
+    8 & 6,329 \\
+    9 & 6,472 \\
+    10 & 6,538 \\
+    11 & 6,574 \\
+    12 & 6,501 \\
+    13 & 6,527 \\
+    14 & 6,620 \\
+    15 & 6,547 \\
+    16 & 6,588 \\
+    \bottomrule
+  \end{tabular}
+\end{table}
+
+\begin{figure}[htbp]
+  \centering
+  \includegraphics[width=\textwidth]{figures/kdtree_perf}
+  \caption{Influência da árvore $k$-d no desempenho}
+  \label{fig:kdtreePerf}
+\end{figure}
+
+A interpretação desses resultados mostra que a SAH, apesar de levar a árvores $k$-d de qualidade, não garante o menor tempo de execução global. Isso porque ela só visa a minimizar o tempo gasto percorrendo a árvore e o pacote de triângulos, e não o tempo de construção da árvore; assim, vemos que uma árvore $k$-d de altura máxima 5 tem performance superior à uma árvore de altura máxima 16.
+
+Mesmo com essa limitação, vemos que o uso da árvore $k$-d permite a obtenção de ganhos de performance significativos. Com uma árvore de altura 3 o ganho ultrapassa 55\%, e no melhor caso temos um ganho de mais de 61\%. Assim, a validade desse método para a aceleração do algoritmo de \raytracing{} fica atestada.
+
+\section{Resultados do sistema sintetizado em {hardware}}
+Esta seção discute os resultados obtidos na sintetização da arquitetura proposta na seção \ref{subsec:dimArquitetura} em hardware. Primeiramente são apresentados os dados referentes ao sistema-base; em seguida, são detalhados os resultados da sintetização do coprocessador.
+
+\subsection{Sistema base}
+
+O sistema base é constituído pelo processador, controlador de memória, controlador UART, controlador de vídeo, \emph{bus} PLB e outros periféricos essenciais e de debug. Após a síntese, a ocupação da FPGA reportada pela ferramenta Xilinx Platform Studio é a apresentada na tabela \ref{tab:sinteseBSB}.
+
+\begin{table}[htbp]
+  \centering
+  \caption{Ocupação da FPGA para o sistema-base}
+  \label{tab:sinteseBSB}
+  \begin{small}
+    \begin{tabular}{lcc}
+      \toprule
+      Elemento & Utilização (absoluta) & Utilização (\%) \\
+      \midrule
+      Número de slices & 4545 de 11200 & 40 \\
+      Número de registradores nas slices & 7243 de 44800 & 16 \\
+      \hspace{10pt}Número usado como Flip Flop & 7243 & \\
+      \hspace{10pt}Número usado como Latch & 0 & \\
+      \hspace{10pt}Número usado como LatchThru & 0 & \\
+      Número de LUTs nas slices & 8151 de 44800 & 18 \\
+      Número de pares LUT-Flip Flop nas slices & 10916 de 44800 & 24 \\
+      \bottomrule
+    \end{tabular}
+  \end{small}
+\end{table}
+
+Observando os dados de ocupação, podemos notar que o sistema-base corresponde a uma grande parcela da área total da FPGA, tomando 40\% dos \emph{slices} disponíveis. Tal ocupação poderia ser diminuída por meio da exclusão dos componentes adicionados para facilitar a depuração, tais como botões e LEDs.
+
+Do ponto de vista de performance, o sistema satisfaz a todas as condições para operar a 100 MHz, velocidade atribuída ao \emph{bus} PLB --- com a exceção do controlador de vídeo, que funciona a 25 MHz. Para testar a velocidade do sistema ``puro'', sem a aceleração em hardware, foi executada a síntese dos modelos da seção \ref{sec:imagensGeradas} somente em software, utilizando o algoritmo em C++ com cálculos em ponto flutuante (acelerados graças à presença de uma FPU). Os resultados desse experimento são exibidos na tabela \ref{tab:perfSoftPPC}.
+
+\begin{table}[htbp]
+  \centering
+  \caption{Desempenho do algoritmo de \raytracing{} em software no sistema base}
+  \label{tab:perfSoftPPC}
+  \begin{tabular}{cc}
+    \toprule
+    Modelo & Tempo de execução \\
+    \midrule
+    Poliedro & 9min20s \\
+    Stanford bunny & > 60min \\
+    \bottomrule
+  \end{tabular}
+\end{table}
+
+\subsection{Coprocessador} \label{subsec:SynthesisCoproc}
+
+Esta seção dedica-se a mostrar os dados da síntese dos módulos implementados no coprocessador. A princípio tentou-se sintetizar os módulos de interseção raio-triângulo, reflexão e refração de maneira combinatória utilizando o comando \emph{assign} do SistemVerilog. Apesar do ganho de velocidade que seria obtido com tal estratégia, ela revelou-se inadequada, pois a superfície ocupada seria de 916\% das LUTs da FPGA do kit de desenvolvimento. Dessa forma, foi necessário modificar esta implementação inicial visando à redução da área ocupada. 
+
+A princípio alterou-se o módulo de interseção de um raio com um triângulo, já que esta é uma operação bem frequente no algoritmo de \raytracing{}. Para a redução da área ocupada foi adotada uma arquitetura de unidade de controle e fluxo de dados, documentada na seção \ref{subsubsec:arqCoproc}. Após a síntese utilizando o ISE Project Navigator, os dados exibidos na tabela \ref{tab:sinteseIntersecao} foram obtidos.
+
+\begin{table}[htbp]
+\centering
+\caption{Ocupação da FPGA para o módulo de interseção}
+\label{tab:sinteseIntersecao}
+\begin{small}
+\begin{tabular}{lcc}
+\toprule
+Elemento & Utilização (absoluta) & Utilização (\%) \\
+\midrule
+Número de slices & 2049 de 11200 & 18 \\
+Número de registradores nas slices & 572 de 44800 & 1 \\
+\hspace{10pt}Número usado como Flip Flop & 326 & \\
+\hspace{10pt}Número usado como Latch & 192 & \\
+\hspace{10pt}Número usado como LatchThru & 54 & \\
+Número de LUTs nas slices & 7457 de 44800 & 16 \\
+Número de pares LUT-Flip Flop nas slices & 7592 de 44800 & 16 \\
+\bottomrule
+\end{tabular}
+\end{small}
+\end{table}
+
+A partir destes dados foi possível executar a síntese do módulo de interseção em hardware conforme descrito na seção \ref{subsubsec:arqCoproc}. Após isso tentou-se sintetizar o módulo de cálculo da normal, abrindo caminho para a posterior síntese dos módulos de reflexão e refração, adotando-se a estratégia de projeto composto por uma unidade de controle e por um fluxo de dados. Apesar dos esforços para a redução de superfície, a síntese no Synplify mostrou que os módulos de interseção e cálculo de normal ocupariam juntos 108\% da área da FPGA, impossibilitando o processo de posicionamento e interligação de células. 
+
+É importante ressaltar que a redução de superfície ainda é possível, pois na arquitetura testada para o módulo da normal havia três módulos de divisão (os quais ocupam muita superfície em hardware) operando em paralelo. Pode-se reduzir este número para um módulo, contudo isto adicionaria mais dois estados para a unidade de controle o que demandaria mais tempo para que o cálculo da normal fosse efetuado. A proximidade da data de entrega deste projeto impossibilitou que o módulo de cálculo da normal fosse implementado de uma maneira apropriada, logo sua execução será deixada neste trabalho como uma atividade em aberto.
+
+\chapter{Conclusões}\label{chp:conclusion}
+
+Os capítulos anteriores dedicaram-se cada um a introduzir os assuntos abordados neste trabalho, ou a descrever uma parte específica de sua realização. Esta seção, por sua vez, discute os resultados globais do projeto, bem como suas contribuições acadêmicas e suas perspectivas futuras.
+
+\section{Objetivos alcançados}
+
+Este trabalho teve como objetivo propor, implementar e testar uma arquitetura em hardware para a execução do algoritmo de \raytracing. Tal arquitetura deveria, a partir de informações fornecidas por meio de um arquivo de entrada, gerar a imagem sintetizada correspondente e exibi-la em um terminal de vídeo. 
+
+Nesse escopo, pode-se dizer que o projeto foi concluído com sucesso. A partir do estudo aprofundado do algoritmo de \raytracing, foi proposta uma arquitetura para sua realização em hardware, que evoluiu conforme o avanço do projeto para se adequar a novos requisitos, impostos tanto pela própria natureza do projeto (tempo e recursos disponíveis) quanto pela complexidade do problema em si. Finalmente, como resultado desse processo, a descrição em SystemVerilog de módulos de um coprocessador que pudesse executar o algoritmo e um protótipo atendendo aos requisitos funcionais puderam ser finalizados.
+
+Entretanto, alguns pontos do projeto permanecem como objetivos para projetos futuros; em especial, a integração entre o coprocessador e o sistema base para a realização efetiva da aceleração em hardware. Outras perspectivas futuras serão apresentadas na seção \ref{sec:future}.
+
+\section{Dificuldades encontradas} \label{sec:dificuldades}
+Apesar dos êxitos, as dificuldades encontradas no decorrer do projeto foram numerosas. Tais dificuldades tiveram grande impacto sobre o cronograma do projeto, limitando, às vezes severamente, o avanço dos trabalhos. Dentre os principais obstáculos que surgiram, destacam-se:
+
+\begin{itemize}
+\item \emph{A dificuldade na depuração}: a depuração de um algoritmo
+  de \raytracing{} é uma tarefa árdua. Embora a observação dos
+  resultados não seja difícil --- a apresentação gráfica da saída,
+  característica comum a projetos da área da computação gráfica,
+  facilita a verificação do correto funcionamento do algoritmo ---,
+  encontrar a origem de um defeito não é trivial, principalmente se
+  considerado que o algoritmo em alto nível foi descrito em
+  C++/SystemC. Muitas vezes foi necessário executar o programa passo a
+  passo com um debugger, repetidamente, acompanhando as mudanças em
+  grande parte das variáveis, somente para encontrar a causa de um
+  erro em um único pixel. E em alguns casos, a interação entre as
+  várias partes do programa era tão complexa que a única solução
+  viável era reescrever completamente as funções afetadas --- durante
+  meses, por exemplo, tentou-se lidar com um ``buraco'' que se formava
+  na frente do poliedro (figura \ref{fig:poliedro}) sem sucesso, até
+  que se decidiu pela reescrita do algoritmo de construção e
+  percurso da árvore $k$-d\footnote{A causa de tal ``buraco'' era a
+    forma como o percurso da árvore $k$-d era
+    implementado. Inicialmente, o algoritmo percorria a árvore sempre
+    a partir da raiz, o que pode acarretar a perda de pacotes de
+    triângulos por conta de imprecisões nos cálculos.};
+
+\item \emph{Problemas com as ferramentas}: a manipulação do ambiente de desenvolvimento mostrou-se outra fonte de atrasos no cronograma. Primeiramente, a ferramenta de síntese da Xilinx surpreendeu negativamente ao não suportar a linguagem SystemVerilog, que contudo era extremamente necessária, haja vista a complexidade das estruturas de dados envolvidas. Dessa forma, foi necessário optar por um arranjo mal-coordenado de três ferramentas (Active-HDL, Synplify e Xilinx ISE) para obter um suporte a essa linguagem (ainda que incompleto, visto que várias funcionalidades importantes, como as \emph{arrays} de duas dimensões, não estavam implementadas). Em segundo lugar, a documentação incipiente fornecida com o Xilinx XPS, bem como os \emph{bugs} inesperados e a política de não suportar arquivos de versões anteriores da ferramenta, apresentaram-se como um obstáculo à realização do sistema base --- uma tarefa que em princípio não deveria apresentar grandes dificuldades.
+
+\item \emph{As mudanças excessivas na arquitetura}: embora a metodologia adotada previsse uma evolução gradual dos requisitos e do particionamento hardware-software do sistema, a presença dos problemas acima mencionados afetou negativamente a organização do projeto, visto que algumas vezes foi necessário tomar decisões baseadas mais no cronograma que em critérios técnicos. Um exemplo desse tipo de situação foi a tradução do código em SystemC para C++ visando à execução no processador embarcado. Embora importante para acelerar o desenvolvimento do protótipo, ela acabou introduzindo ainda mais dificuldades, visto que, uma vez que não era possível compilar a biblioteca para o ambiente PowerPC utilizado, foi necessário reescrever uma boa parte do código para realizar as operações em ponto fixo.
+
+\end{itemize}
+
+\section{Contribuições}
+
+A grande contribuição deste trabalho está na proposição de uma arquitetura completa para a execução do algoritmo de \raytracing{} em FPGAs, assim como na realização do protótipo correspondente.
+
+Focando-se na realização de um \emph{ray tracer} embarcado, o projeto h3dge se insere em uma categoria alternativa aos atuais esforços para a realização de \raytracing{} em tempo real --- notadamente a execução do algoritmo paralelizado em clusters com grande capacidade de processamento. Entretanto, seus fundamentos, notadamente a otimização por meio de árvores $k$-d e a paralelização dos cálculos por meio de processadores dedicados, podem ser aproveitados em sistema de qualquer escala.
+
+\section{Trabalhos futuros}\label{sec:future}
+
+Ao mesmo tempo em que contribui ao esforço de desenvolvimento de \emph{ray tracers} mais rápidos e eficientes, este trabalho fornece muitos pontos para evolução futura, dentre os quais destacam-se:
+\begin{itemize}
+\item Melhorar a integração entre o coprocessador e o sistema base;
+\item Acelerar a construção da árvore $k$-d em hardware, por meio da utilização de algoritmos mais eficientes e paralelizados;
+\item Aumentar o grau de realismo das imagens geradas pela incorporação de mais efeitos ópticos ao algoritmo, tais como dispersão ou aberração cromática;
+\item Melhorar a interface do sistema com o PC por meio da utilização de um barramento mais eficiente, como o \emph{bus} PCI express, que permitiria a efetiva utilização da FPGA como uma ``placa de vídeo'';
+\end{itemize}
+
+\section{Considerações finais}
+
+De um modo geral, este projeto foi uma ocasião frutífera, possibilitando o estudo de um problema complexo e a investigação de possíveis soluções. A combinação de duas áreas completamente distintas --- a saber, computação gráfica e arquitetura de computadores --- possibilitou uma oportunidade única de aprendizado e de utilização de todos os conceitos apreendidos durante o curso de Engenharia Elétrica com Ênfase em Computação na Escola Politécnica da Universidade de São Paulo, desde álgebra linear e cálculo vetorial até os métodos de gerenciamento de projetos. Assim, na opinião do grupo, este trabalho pode ser chamado com justeza de ``trabalho de formatura'', síntese e apogeu de seis anos de dedicação ao estudo da engenharia.
+
+\bibliography{monografia}
+
+\appendix
+
+\chapter{Estimativas para o coprocessador} \label{app:apendiceB}
+\newcolumntype{L}{>{\raggedright\arraybackslash}p{1.7in}}%
+\begin{centering}
+  \begin{longtable}{clr}
+    \caption{Dimensionamento da memória do coprocessador} \\
+    \toprule
+    \textbf{Estrutura} & \multicolumn{1}{c}{\textbf{Elemento}} & \multicolumn{1}{c}{\textbf{Total}} \\
+    \midrule
+    \endfirsthead
+    \caption[]{Dimensionamento da memória do coprocessador (continuação)} \\
+    \toprule
+    \textbf{Estrutura} & \multicolumn{1}{c}{\textbf{Elemento}} & \multicolumn{1}{c}{\textbf{Total}} \\
+    \midrule
+    \endhead
+    \endfoot
+    \bottomrule
+    \endlastfoot
+    \textbf{Triângulo} & v1 & 96 \\
+    \multicolumn{1}{l}{} & v2 & 96 \\
+    \multicolumn{1}{l}{} & v3 & 96 \\
+    \multicolumn{1}{l}{} & materialId & 32 \\
+    \multicolumn{1}{l}{} & medium1 & 32 \\
+    \multicolumn{1}{l}{} & medium2 & 32 \\
+    \multicolumn{1}{l}{} & Total (bits) & 384 \\
+    \cmidrule{2-3}
+    \multicolumn{1}{l}{} & \textbf{Total (bytes)} & \textbf{48} \\
+    \cmidrule{1-3}
+    \textbf{Raio} & point start & 96 \\
+    & vector direction & 96 \\
+    & Ray* next & 32 \\
+    & Int depth & 32 \\
+    & RayType type & 32 \\
+    & KdTreeNode* currentNode & 32 \\
+    & currentNRefraction & 32 \\
+    & amplitude & 32 \\
+    & Triangle* triangleHit & 32 \\
+    & point intersection & 96 \\
+    & Total (bits) & 512 \\
+    \cmidrule{2-3}
+    & \textbf{Total (bytes)} & \textbf{64} \\
+    \cmidrule{1-3}
+    \textbf{Material} & cor RGB & 96 \\
+    & coeff reflection & 32 \\
+    & coeff transmission & 32 \\
+    & Total (bits) & 160 \\
+    \cmidrule{2-3}
+    & \textbf{Total (bytes)} & 20 \\
+    \cmidrule{1-3}
+    \textbf{Meio} & indiceRefracao & 32 \\
+    & Total (bits) & 32 \\
+    \cmidrule{2-3}
+    & \textbf{Total (bytes)} & 4 \\
+    \cmidrule{1-3}
+    \textbf{Luz} & point posicao & 96 \\
+    & point color & 96 \\
+    & Total (bits) & 192 \\
+    \cmidrule{2-3}
+    & \textbf{Total (bytes)} & 24 \\
+    \cmidrule{1-3}
+    \textbf{Memória} & nó em processamento da árvore (bytes) & 56 \\
+    \textbf{coprocessador} & vetor para 1024 triangulos (bytes) & 49152 \\
+    & vetor para os materiais (bytes) & 320 \\
+    & vetor para as luzes (bytes) & 384 \\
+    & vetor para os meios (bytes) & 64 \\
+    \multicolumn{1}{l}{} & variavel para cor do pixel - RGB (bytes) & 12 \\
+    & máximo de reflexões & 5 \\
+    & Total pilha de reflexões e refrações (bytes) & 4032 \\
+    \cmidrule{2-3}
+    \multicolumn{1}{l}{} & \textbf{Total (kbytes)} & \textbf{52,76} \\
+  \end{longtable}
+\end{centering}
+
+\chapter{Estimativas para a árvore $k$-d}\label{app:apendiceA}
+
+\begin{centering}
+  \begin{longtable}{llrr}
+    \caption{Dimensionamento da memória DDR2 necessária para a alocação de uma árvore \emph{k}-d de 70000 triângulos} \\
+    \toprule
+    \multicolumn{1}{c}{\textbf{Estrutura}} & \multicolumn{1}{c}{\textbf{Elemento}} & \multicolumn{1}{c}{\textbf{Eixo}} & \multicolumn{1}{c}{\textbf{Total}} \\
+    \midrule
+    \endfirsthead
+    \caption[]{Dimensionamento da memória DDR2 necessária para a alocação de uma árvore \emph{k}-d de 70000 triângulos (continuação)} \\
+    \toprule
+    \multicolumn{1}{c}{\textbf{Estrutura}} & \multicolumn{1}{c}{\textbf{Elemento}} & \multicolumn{1}{c}{\textbf{Eixo}} & \multicolumn{1}{c}{\textbf{Total}} \\
+    \midrule
+    \endhead
+    \endfoot
+    \bottomrule
+    \endlastfoot
+    \multicolumn{1}{c}{\textbf{Triângulo}} & v1 & 32 & 96 \\
+    & v2 & 32 & 96 \\
+    & v3 & 32 & 96 \\
+    & materialId &  & 32 \\
+    & medium1 &  & 32 \\
+    & medium2 &  & 32 \\
+    & Total (bits) &  & 384 \\
+    & Total (bytes) &  & 48 \\
+    \cmidrule{2-4}
+    & \textbf{Total triângulos (MB)} & \textbf{} & \textbf{3,20} \\
+    \cmidrule{1-4}
+    \multicolumn{1}{c}{\textbf{Nó da árvore}} & left* &   & 32 \\
+    & right* &   & 32 \\
+    & parent* &  & 32 \\
+    & next1* &   & 32 \\
+    & trig* &   & 32 \\
+    & nbTriangles &   & 32 \\
+    & minbounds & 32 & 96 \\
+    & maxbounds & 32 & 96 \\
+    & splitAxis &  & 32 \\
+    & depth &  & 32 \\
+    & Total (bits) &   & 448 \\
+    & Total (bytes) &   & 56 \\
+    \cmidrule{2-4}
+    & \textbf{Total nós da árvore (MB) - profund. 16} &  & 7,00 \\
+    \cmidrule{1-4}
+    \multicolumn{1}{c}{\textbf{Ref. triângulo}} & triangle* &   & 32 \\
+    & next* &   & 32 \\
+    & Total (bits) &   & 64 \\
+    & Total (bytes) &   & 8 \\
+    \cmidrule{2-4}
+    & \textbf{Total referências (MB)} &  & 2,14 \\
+    \cmidrule{1-4}
+    \multicolumn{ 3}{l}{\textbf{Total árvore k-d (MB)}} & 12,341 \\
+  \end{longtable}
+\end{centering}
+
+\end{document}

@@ -1,0 +1,376 @@
+Release 13.1 - platgen Xilinx EDK 13.1 Build EDK_O.40d
+ (nt64)
+Copyright (c) 1995-2011 Xilinx, Inc.  All rights reserved.
+
+Command Line: platgen -p xc5vfx70tff1136-1 -lang vhdl -msg
+__xps/ise/xmsgprops.lst system.mhs 
+
+Parse C:/git/h3dge/src/hdl/system/system.mhs ...
+
+Read MPD definitions ...
+
+Overriding IP level properties ...
+INFO:EDK - IPNAME: ppc440mc_ddr2, INSTANCE:DDR2_SDRAM - tcl is overriding
+   PARAMETER C_IODELAY_GRP value to DDR2_SDRAM -
+   C:\Xilinx\13.1\ISE_DS\EDK\hw\XilinxProcessorIPLib\pcores\ppc440mc_ddr2_v3_00_
+   c\data\ppc440mc_ddr2_v2_1_0.mpd line 103 
+
+Computing clock values...
+
+Performing IP level DRCs on properties...
+
+Running DRC Tcl procedures for OPTION IPLEVEL_DRC_PROC...
+Address Map for Processor ppc440_0
+  (0b0000000000-0b0011111111) ppc440_0	
+  (0000000000-0x0fffffff) ppc440_0	plb_v46_0
+  (0000000000-0x0fffffff) DDR2_SDRAM	ppc440_0_PPC440MC
+  (0x81400000-0x8140ffff) Push_Buttons_5Bit	plb_v46_0
+  (0x81420000-0x8142ffff) LEDs_Positions	plb_v46_0
+  (0x81440000-0x8144ffff) LEDs_8Bit	plb_v46_0
+  (0x81460000-0x8146ffff) DIP_Switches_8Bit	plb_v46_0
+  (0x81800000-0x8180ffff) xps_intc_0	plb_v46_0
+  (0x83c00000-0x83c0ffff) xps_timer_0	plb_v46_0
+  (0x83d00000-0x83dfffff) SRAM	plb_v46_0
+  (0x84000000-0x8400ffff) RS232_Uart_1	plb_v46_0
+  (0x86e00000-0x86e0ffff) xps_tft_0	plb_v46_0
+  (0x90000000-0x9fffffff) ppc440_0	plb_v46_0
+  (0x90000000-0x9fffffff) ppc440_0	plb_v46_0->ppc440_0->plb_v46_0
+  (0xc2800000-0xc280ffff) h3dge_coproc_0	plb_v46_0
+  (0xffffe000-0xffffffff) xps_bram_if_cntlr_1	plb_v46_0
+INFO:EDK - IPNAME: ppc440_virtex5, INSTANCE:ppc440_0 - tool is overriding
+   PARAMETER C_SPLB0_P2P value to 0 -
+   C:\Xilinx\13.1\ISE_DS\EDK\hw\XilinxProcessorIPLib\pcores\ppc440_virtex5_v1_01
+   _a\data\ppc440_virtex5_v2_1_0.mpd line 173 
+INFO:EDK - IPNAME: ppc440_virtex5, INSTANCE:ppc440_0 - tool is overriding
+   PARAMETER C_SPLB0_NUM_MASTERS value to 3 -
+   C:\Xilinx\13.1\ISE_DS\EDK\hw\XilinxProcessorIPLib\pcores\ppc440_virtex5_v1_01
+   _a\data\ppc440_virtex5_v2_1_0.mpd line 168 
+INFO:EDK - IPNAME: ppc440_virtex5, INSTANCE:ppc440_0 - tool is overriding
+   PARAMETER C_SPLB0_MID_WIDTH value to 2 -
+   C:\Xilinx\13.1\ISE_DS\EDK\hw\XilinxProcessorIPLib\pcores\ppc440_virtex5_v1_01
+   _a\data\ppc440_virtex5_v2_1_0.mpd line 169 
+INFO:EDK - IPNAME: plb_v46, INSTANCE:plb_v46_0 - tool is overriding PARAMETER
+   C_PLBV46_NUM_MASTERS value to 3 -
+   C:\Xilinx\13.1\ISE_DS\EDK\hw\XilinxProcessorIPLib\pcores\plb_v46_v1_05_a\data
+   \plb_v46_v2_1_0.mpd line 69 
+INFO:EDK - IPNAME: plb_v46, INSTANCE:plb_v46_0 - tool is overriding PARAMETER
+   C_PLBV46_NUM_SLAVES value to 12 -
+   C:\Xilinx\13.1\ISE_DS\EDK\hw\XilinxProcessorIPLib\pcores\plb_v46_v1_05_a\data
+   \plb_v46_v2_1_0.mpd line 70 
+INFO:EDK - IPNAME: plb_v46, INSTANCE:plb_v46_0 - tool is overriding PARAMETER
+   C_PLBV46_DWIDTH value to 128 -
+   C:\Xilinx\13.1\ISE_DS\EDK\hw\XilinxProcessorIPLib\pcores\plb_v46_v1_05_a\data
+   \plb_v46_v2_1_0.mpd line 73 
+INFO:EDK - IPNAME: xps_bram_if_cntlr, INSTANCE:xps_bram_if_cntlr_1 - tool is
+   overriding PARAMETER C_SPLB_DWIDTH value to 128 -
+   C:\Xilinx\13.1\ISE_DS\EDK\hw\XilinxProcessorIPLib\pcores\xps_bram_if_cntlr_v1
+   _00_b\data\xps_bram_if_cntlr_v2_1_0.mpd line 73 
+INFO:EDK - IPNAME: xps_bram_if_cntlr, INSTANCE:xps_bram_if_cntlr_1 - tool is
+   overriding PARAMETER C_SPLB_NUM_MASTERS value to 3 -
+   C:\Xilinx\13.1\ISE_DS\EDK\hw\XilinxProcessorIPLib\pcores\xps_bram_if_cntlr_v1
+   _00_b\data\xps_bram_if_cntlr_v2_1_0.mpd line 74 
+INFO:EDK - IPNAME: xps_bram_if_cntlr, INSTANCE:xps_bram_if_cntlr_1 - tool is
+   overriding PARAMETER C_SPLB_MID_WIDTH value to 2 -
+   C:\Xilinx\13.1\ISE_DS\EDK\hw\XilinxProcessorIPLib\pcores\xps_bram_if_cntlr_v1
+   _00_b\data\xps_bram_if_cntlr_v2_1_0.mpd line 75 
+INFO:EDK - IPNAME: bram_block, INSTANCE:xps_bram_if_cntlr_1_bram - tool is
+   overriding PARAMETER C_MEMSIZE value to 0x2000 -
+   C:\Xilinx\13.1\ISE_DS\EDK\hw\XilinxProcessorIPLib\pcores\bram_block_v1_00_a\d
+   ata\bram_block_v2_1_0.mpd line 67 
+INFO:EDK - IPNAME: bram_block, INSTANCE:xps_bram_if_cntlr_1_bram - tool is
+   overriding PARAMETER C_PORT_DWIDTH value to 64 -
+   C:\Xilinx\13.1\ISE_DS\EDK\hw\XilinxProcessorIPLib\pcores\bram_block_v1_00_a\d
+   ata\bram_block_v2_1_0.mpd line 68 
+INFO:EDK - IPNAME: bram_block, INSTANCE:xps_bram_if_cntlr_1_bram - tool is
+   overriding PARAMETER C_NUM_WE value to 8 -
+   C:\Xilinx\13.1\ISE_DS\EDK\hw\XilinxProcessorIPLib\pcores\bram_block_v1_00_a\d
+   ata\bram_block_v2_1_0.mpd line 70 
+INFO:EDK - IPNAME: xps_uartlite, INSTANCE:RS232_Uart_1 - tool is overriding
+   PARAMETER C_SPLB_DWIDTH value to 128 -
+   C:\Xilinx\13.1\ISE_DS\EDK\hw\XilinxProcessorIPLib\pcores\xps_uartlite_v1_01_a
+   \data\xps_uartlite_v2_1_0.mpd line 71 
+INFO:EDK - IPNAME: xps_uartlite, INSTANCE:RS232_Uart_1 - tool is overriding
+   PARAMETER C_SPLB_MID_WIDTH value to 2 -
+   C:\Xilinx\13.1\ISE_DS\EDK\hw\XilinxProcessorIPLib\pcores\xps_uartlite_v1_01_a
+   \data\xps_uartlite_v2_1_0.mpd line 73 
+INFO:EDK - IPNAME: xps_uartlite, INSTANCE:RS232_Uart_1 - tool is overriding
+   PARAMETER C_SPLB_NUM_MASTERS value to 3 -
+   C:\Xilinx\13.1\ISE_DS\EDK\hw\XilinxProcessorIPLib\pcores\xps_uartlite_v1_01_a
+   \data\xps_uartlite_v2_1_0.mpd line 74 
+INFO:EDK - IPNAME: xps_gpio, INSTANCE:LEDs_8Bit - tool is overriding PARAMETER
+   C_SPLB_DWIDTH value to 128 -
+   C:\Xilinx\13.1\ISE_DS\EDK\hw\XilinxProcessorIPLib\pcores\xps_gpio_v2_00_a\dat
+   a\xps_gpio_v2_1_0.mpd line 69 
+INFO:EDK - IPNAME: xps_gpio, INSTANCE:LEDs_8Bit - tool is overriding PARAMETER
+   C_SPLB_MID_WIDTH value to 2 -
+   C:\Xilinx\13.1\ISE_DS\EDK\hw\XilinxProcessorIPLib\pcores\xps_gpio_v2_00_a\dat
+   a\xps_gpio_v2_1_0.mpd line 71 
+INFO:EDK - IPNAME: xps_gpio, INSTANCE:LEDs_8Bit - tool is overriding PARAMETER
+   C_SPLB_NUM_MASTERS value to 3 -
+   C:\Xilinx\13.1\ISE_DS\EDK\hw\XilinxProcessorIPLib\pcores\xps_gpio_v2_00_a\dat
+   a\xps_gpio_v2_1_0.mpd line 72 
+INFO:EDK - IPNAME: xps_gpio, INSTANCE:LEDs_Positions - tool is overriding
+   PARAMETER C_SPLB_DWIDTH value to 128 -
+   C:\Xilinx\13.1\ISE_DS\EDK\hw\XilinxProcessorIPLib\pcores\xps_gpio_v2_00_a\dat
+   a\xps_gpio_v2_1_0.mpd line 69 
+INFO:EDK - IPNAME: xps_gpio, INSTANCE:LEDs_Positions - tool is overriding
+   PARAMETER C_SPLB_MID_WIDTH value to 2 -
+   C:\Xilinx\13.1\ISE_DS\EDK\hw\XilinxProcessorIPLib\pcores\xps_gpio_v2_00_a\dat
+   a\xps_gpio_v2_1_0.mpd line 71 
+INFO:EDK - IPNAME: xps_gpio, INSTANCE:LEDs_Positions - tool is overriding
+   PARAMETER C_SPLB_NUM_MASTERS value to 3 -
+   C:\Xilinx\13.1\ISE_DS\EDK\hw\XilinxProcessorIPLib\pcores\xps_gpio_v2_00_a\dat
+   a\xps_gpio_v2_1_0.mpd line 72 
+INFO:EDK - IPNAME: xps_gpio, INSTANCE:Push_Buttons_5Bit - tool is overriding
+   PARAMETER C_SPLB_DWIDTH value to 128 -
+   C:\Xilinx\13.1\ISE_DS\EDK\hw\XilinxProcessorIPLib\pcores\xps_gpio_v2_00_a\dat
+   a\xps_gpio_v2_1_0.mpd line 69 
+INFO:EDK - IPNAME: xps_gpio, INSTANCE:Push_Buttons_5Bit - tool is overriding
+   PARAMETER C_SPLB_MID_WIDTH value to 2 -
+   C:\Xilinx\13.1\ISE_DS\EDK\hw\XilinxProcessorIPLib\pcores\xps_gpio_v2_00_a\dat
+   a\xps_gpio_v2_1_0.mpd line 71 
+INFO:EDK - IPNAME: xps_gpio, INSTANCE:Push_Buttons_5Bit - tool is overriding
+   PARAMETER C_SPLB_NUM_MASTERS value to 3 -
+   C:\Xilinx\13.1\ISE_DS\EDK\hw\XilinxProcessorIPLib\pcores\xps_gpio_v2_00_a\dat
+   a\xps_gpio_v2_1_0.mpd line 72 
+INFO:EDK - IPNAME: xps_gpio, INSTANCE:DIP_Switches_8Bit - tool is overriding
+   PARAMETER C_SPLB_DWIDTH value to 128 -
+   C:\Xilinx\13.1\ISE_DS\EDK\hw\XilinxProcessorIPLib\pcores\xps_gpio_v2_00_a\dat
+   a\xps_gpio_v2_1_0.mpd line 69 
+INFO:EDK - IPNAME: xps_gpio, INSTANCE:DIP_Switches_8Bit - tool is overriding
+   PARAMETER C_SPLB_MID_WIDTH value to 2 -
+   C:\Xilinx\13.1\ISE_DS\EDK\hw\XilinxProcessorIPLib\pcores\xps_gpio_v2_00_a\dat
+   a\xps_gpio_v2_1_0.mpd line 71 
+INFO:EDK - IPNAME: xps_gpio, INSTANCE:DIP_Switches_8Bit - tool is overriding
+   PARAMETER C_SPLB_NUM_MASTERS value to 3 -
+   C:\Xilinx\13.1\ISE_DS\EDK\hw\XilinxProcessorIPLib\pcores\xps_gpio_v2_00_a\dat
+   a\xps_gpio_v2_1_0.mpd line 72 
+INFO:EDK - IPNAME: xps_mch_emc, INSTANCE:SRAM - tool is overriding PARAMETER
+   C_SPLB_MID_WIDTH value to 2 -
+   C:\Xilinx\13.1\ISE_DS\EDK\hw\XilinxProcessorIPLib\pcores\xps_mch_emc_v3_01_a\
+   data\xps_mch_emc_v2_1_0.mpd line 77 
+INFO:EDK - IPNAME: xps_mch_emc, INSTANCE:SRAM - tool is overriding PARAMETER
+   C_SPLB_NUM_MASTERS value to 3 -
+   C:\Xilinx\13.1\ISE_DS\EDK\hw\XilinxProcessorIPLib\pcores\xps_mch_emc_v3_01_a\
+   data\xps_mch_emc_v2_1_0.mpd line 78 
+INFO:EDK - IPNAME: xps_mch_emc, INSTANCE:SRAM - tool is overriding PARAMETER
+   C_SPLB_DWIDTH value to 128 -
+   C:\Xilinx\13.1\ISE_DS\EDK\hw\XilinxProcessorIPLib\pcores\xps_mch_emc_v3_01_a\
+   data\xps_mch_emc_v2_1_0.mpd line 80 
+INFO:EDK - IPNAME: xps_timer, INSTANCE:xps_timer_0 - tool is overriding
+   PARAMETER C_SPLB_DWIDTH value to 128 -
+   C:\Xilinx\13.1\ISE_DS\EDK\hw\XilinxProcessorIPLib\pcores\xps_timer_v1_02_a\da
+   ta\xps_timer_v2_1_0.mpd line 75 
+INFO:EDK - IPNAME: xps_timer, INSTANCE:xps_timer_0 - tool is overriding
+   PARAMETER C_SPLB_MID_WIDTH value to 2 -
+   C:\Xilinx\13.1\ISE_DS\EDK\hw\XilinxProcessorIPLib\pcores\xps_timer_v1_02_a\da
+   ta\xps_timer_v2_1_0.mpd line 77 
+INFO:EDK - IPNAME: xps_timer, INSTANCE:xps_timer_0 - tool is overriding
+   PARAMETER C_SPLB_NUM_MASTERS value to 3 -
+   C:\Xilinx\13.1\ISE_DS\EDK\hw\XilinxProcessorIPLib\pcores\xps_timer_v1_02_a\da
+   ta\xps_timer_v2_1_0.mpd line 78 
+INFO:EDK - IPNAME: xps_intc, INSTANCE:xps_intc_0 - tool is overriding PARAMETER
+   C_SPLB_DWIDTH value to 128 -
+   C:\Xilinx\13.1\ISE_DS\EDK\hw\XilinxProcessorIPLib\pcores\xps_intc_v2_01_a\dat
+   a\xps_intc_v2_1_0.mpd line 71 
+INFO:EDK - IPNAME: xps_intc, INSTANCE:xps_intc_0 - tool is overriding PARAMETER
+   C_SPLB_NUM_MASTERS value to 3 -
+   C:\Xilinx\13.1\ISE_DS\EDK\hw\XilinxProcessorIPLib\pcores\xps_intc_v2_01_a\dat
+   a\xps_intc_v2_1_0.mpd line 73 
+INFO:EDK - IPNAME: xps_intc, INSTANCE:xps_intc_0 - tool is overriding PARAMETER
+   C_SPLB_MID_WIDTH value to 2 -
+   C:\Xilinx\13.1\ISE_DS\EDK\hw\XilinxProcessorIPLib\pcores\xps_intc_v2_01_a\dat
+   a\xps_intc_v2_1_0.mpd line 74 
+INFO:EDK - IPNAME: xps_tft, INSTANCE:xps_tft_0 - tool is overriding PARAMETER
+   C_MPLB_DWIDTH value to 128 -
+   C:\Xilinx\13.1\ISE_DS\EDK\hw\XilinxProcessorIPLib\pcores\xps_tft_v2_01_a\data
+   \xps_tft_v2_1_0.mpd line 76 
+INFO:EDK - IPNAME: xps_tft, INSTANCE:xps_tft_0 - tool is overriding PARAMETER
+   C_SPLB_DWIDTH value to 128 -
+   C:\Xilinx\13.1\ISE_DS\EDK\hw\XilinxProcessorIPLib\pcores\xps_tft_v2_01_a\data
+   \xps_tft_v2_1_0.mpd line 80 
+INFO:EDK - IPNAME: xps_tft, INSTANCE:xps_tft_0 - tool is overriding PARAMETER
+   C_SPLB_MID_WIDTH value to 2 -
+   C:\Xilinx\13.1\ISE_DS\EDK\hw\XilinxProcessorIPLib\pcores\xps_tft_v2_01_a\data
+   \xps_tft_v2_1_0.mpd line 82 
+INFO:EDK - IPNAME: xps_tft, INSTANCE:xps_tft_0 - tool is overriding PARAMETER
+   C_SPLB_NUM_MASTERS value to 3 -
+   C:\Xilinx\13.1\ISE_DS\EDK\hw\XilinxProcessorIPLib\pcores\xps_tft_v2_01_a\data
+   \xps_tft_v2_1_0.mpd line 83 
+INFO:EDK - IPNAME: h3dge_coproc, INSTANCE:h3dge_coproc_0 - tool is overriding
+   PARAMETER C_SPLB_NUM_MASTERS value to 3 -
+   C:\git\h3dge\src\hdl\system\pcores\h3dge_coproc_v1_00_a\data\h3dge_coproc_v2_
+   1_0.mpd line 30 
+INFO:EDK - IPNAME: h3dge_coproc, INSTANCE:h3dge_coproc_0 - tool is overriding
+   PARAMETER C_SPLB_MID_WIDTH value to 2 -
+   C:\git\h3dge\src\hdl\system\pcores\h3dge_coproc_v1_00_a\data\h3dge_coproc_v2_
+   1_0.mpd line 31 
+
+Checking platform address map ...
+
+Checking platform configuration ...
+IPNAME: plb_v46, INSTANCE: plb_v46_0 - 3 master(s) : 12 slave(s) 
+IPNAME: fcb_v20, INSTANCE: ppc440_0_fcb_v20 - 1 master(s) : 1 slave(s) 
+
+Checking port drivers...
+
+Performing Clock DRCs...
+
+Performing Reset DRCs...
+
+Overriding system level properties...
+INFO:EDK - IPNAME: ppc440_virtex5, INSTANCE:ppc440_0 - tcl is overriding
+   PARAMETER C_PPC440MC_ADDR_BASE value to 0x00000000 -
+   C:\Xilinx\13.1\ISE_DS\EDK\hw\XilinxProcessorIPLib\pcores\ppc440_virtex5_v1_01
+   _a\data\ppc440_virtex5_v2_1_0.mpd line 122 
+INFO:EDK - IPNAME: ppc440_virtex5, INSTANCE:ppc440_0 - tcl is overriding
+   PARAMETER C_PPC440MC_ADDR_HIGH value to 0x0fffffff -
+   C:\Xilinx\13.1\ISE_DS\EDK\hw\XilinxProcessorIPLib\pcores\ppc440_virtex5_v1_01
+   _a\data\ppc440_virtex5_v2_1_0.mpd line 123 
+INFO:EDK - IPNAME: jtagppc_cntlr, INSTANCE:jtagppc_cntlr_inst - tcl is
+   overriding PARAMETER C_NUM_PPC_USED value to 1 -
+   C:\Xilinx\13.1\ISE_DS\EDK\hw\XilinxProcessorIPLib\pcores\jtagppc_cntlr_v2_01_
+   c\data\jtagppc_cntlr_v2_1_0.mpd line 68 
+INFO:EDK - IPNAME: xps_intc, INSTANCE:xps_intc_0 - tcl is overriding PARAMETER
+   C_KIND_OF_INTR value to 0b11111111111111111111111111111111 -
+   C:\Xilinx\13.1\ISE_DS\EDK\hw\XilinxProcessorIPLib\pcores\xps_intc_v2_01_a\dat
+   a\xps_intc_v2_1_0.mpd line 78 
+INFO:EDK - IPNAME: xps_intc, INSTANCE:xps_intc_0 - tcl is overriding PARAMETER
+   C_KIND_OF_EDGE value to 0b11111111111111111111111111111111 -
+   C:\Xilinx\13.1\ISE_DS\EDK\hw\XilinxProcessorIPLib\pcores\xps_intc_v2_01_a\dat
+   a\xps_intc_v2_1_0.mpd line 79 
+INFO:EDK - IPNAME: xps_intc, INSTANCE:xps_intc_0 - tcl is overriding PARAMETER
+   C_KIND_OF_LVL value to 0b11111111111111111111111111111111 -
+   C:\Xilinx\13.1\ISE_DS\EDK\hw\XilinxProcessorIPLib\pcores\xps_intc_v2_01_a\dat
+   a\xps_intc_v2_1_0.mpd line 80 
+
+Running system level update procedures...
+
+Running UPDATE Tcl procedures for OPTION SYSLEVEL_UPDATE_PROC...
+
+Running system level DRCs...
+
+Performing System level DRCs on properties...
+
+Running DRC Tcl procedures for OPTION SYSLEVEL_DRC_PROC...
+
+Running UPDATE Tcl procedures for OPTION PLATGEN_SYSLEVEL_UPDATE_PROC...
+INFO: The DDR2_SDRAM core has constraints automatically generated by XPS in
+implementation/ddr2_sdram_wrapper/ddr2_sdram_wrapper.ucf.
+It can be overridden by constraints placed in the system.ucf file.
+
+INFO: The xps_tft_0 core has constraints automatically generated by XPS in
+implementation/xps_tft_0_wrapper/xps_tft_0_wrapper.ucf.
+It can be overridden by constraints placed in the system.ucf file.
+
+
+Modify defaults ...
+
+Creating stub ...
+
+Processing licensed instances ...
+Completion time: 0.00 seconds
+
+Creating hardware output directories ...
+
+Managing hardware (BBD-specified) netlist files ...
+IPNAME:apu_fpu_virtex5 INSTANCE:ppc440_0_apu_fpu_virtex5 -
+C:\git\h3dge\src\hdl\system\system.mhs line 286 - Copying (BBD-specified)
+netlist files.
+
+Managing cache ...
+IPNAME:ppc440_virtex5 INSTANCE:ppc440_0 - C:\git\h3dge\src\hdl\system\system.mhs
+line 61 - Copying cache implementation netlist
+IPNAME:plb_v46 INSTANCE:plb_v46_0 - C:\git\h3dge\src\hdl\system\system.mhs line
+90 - Copying cache implementation netlist
+IPNAME:xps_bram_if_cntlr INSTANCE:xps_bram_if_cntlr_1 -
+C:\git\h3dge\src\hdl\system\system.mhs line 98 - Copying cache implementation
+netlist
+IPNAME:bram_block INSTANCE:xps_bram_if_cntlr_1_bram -
+C:\git\h3dge\src\hdl\system\system.mhs line 110 - Copying cache implementation
+netlist
+IPNAME:xps_uartlite INSTANCE:rs232_uart_1 -
+C:\git\h3dge\src\hdl\system\system.mhs line 116 - Copying cache implementation
+netlist
+IPNAME:xps_gpio INSTANCE:leds_8bit - C:\git\h3dge\src\hdl\system\system.mhs line
+131 - Copying cache implementation netlist
+IPNAME:xps_gpio INSTANCE:leds_positions - C:\git\h3dge\src\hdl\system\system.mhs
+line 144 - Copying cache implementation netlist
+IPNAME:xps_gpio INSTANCE:push_buttons_5bit -
+C:\git\h3dge\src\hdl\system\system.mhs line 157 - Copying cache implementation
+netlist
+IPNAME:xps_gpio INSTANCE:dip_switches_8bit -
+C:\git\h3dge\src\hdl\system\system.mhs line 170 - Copying cache implementation
+netlist
+IPNAME:xps_mch_emc INSTANCE:sram - C:\git\h3dge\src\hdl\system\system.mhs line
+183 - Copying cache implementation netlist
+IPNAME:ppc440mc_ddr2 INSTANCE:ddr2_sdram -
+C:\git\h3dge\src\hdl\system\system.mhs line 212 - Copying cache implementation
+netlist
+IPNAME:xps_timer INSTANCE:xps_timer_0 - C:\git\h3dge\src\hdl\system\system.mhs
+line 268 - Copying cache implementation netlist
+IPNAME:fcb_v20 INSTANCE:ppc440_0_fcb_v20 -
+C:\git\h3dge\src\hdl\system\system.mhs line 279 - Copying cache implementation
+netlist
+IPNAME:apu_fpu_virtex5 INSTANCE:ppc440_0_apu_fpu_virtex5 -
+C:\git\h3dge\src\hdl\system\system.mhs line 286 - Copying cache implementation
+netlist
+IPNAME:jtagppc_cntlr INSTANCE:jtagppc_cntlr_inst -
+C:\git\h3dge\src\hdl\system\system.mhs line 345 - Copying cache implementation
+netlist
+IPNAME:proc_sys_reset INSTANCE:proc_sys_reset_0 -
+C:\git\h3dge\src\hdl\system\system.mhs line 351 - Copying cache implementation
+netlist
+IPNAME:xps_intc INSTANCE:xps_intc_0 - C:\git\h3dge\src\hdl\system\system.mhs
+line 363 - Copying cache implementation netlist
+IPNAME:xps_tft INSTANCE:xps_tft_0 - C:\git\h3dge\src\hdl\system\system.mhs line
+373 - Copying cache implementation netlist
+IPNAME:util_vector_logic INSTANCE:util_vector_logic_0 -
+C:\git\h3dge\src\hdl\system\system.mhs line 395 - Copying cache implementation
+netlist
+IPNAME:h3dge_coproc INSTANCE:h3dge_coproc_0 -
+C:\git\h3dge\src\hdl\system\system.mhs line 404 - Copying cache implementation
+netlist
+
+Elaborating instances ...
+IPNAME:bram_block INSTANCE:xps_bram_if_cntlr_1_bram -
+C:\git\h3dge\src\hdl\system\system.mhs line 110 - elaborating IP
+IPNAME:clock_generator INSTANCE:clock_generator_0 -
+C:\git\h3dge\src\hdl\system\system.mhs line 295 - elaborating IP
+ClkGen elaborate status: PASSED
+----------------------------------------
+
+Writing HDL for elaborated instances ...
+
+Inserting wrapper level ...
+Completion time: 0.00 seconds
+
+Constructing platform-level connectivity ...
+Completion time: 1.00 seconds
+
+Writing (top-level) BMM ...
+
+Writing (top-level and wrappers) HDL ...
+
+Generating synthesis project file ...
+
+Running XST synthesis ...
+
+INFO:EDK - The following instances are synthesized with XST. The MPD option
+   IMP_NETLIST=TRUE indicates that a NGC file is to be produced using XST
+   synthesis. IMP_NETLIST=FALSE (default) instances are not synthesized. 
+INSTANCE:clock_generator_0 - C:\git\h3dge\src\hdl\system\system.mhs line 295 -
+Running XST synthesis
+INSTANCE:h3dge_coproc_0 - C:\git\h3dge\src\hdl\system\system.mhs line 404 -
+Running XST synthesis
+
+Running NGCBUILD ...
+IPNAME:clock_generator_0_wrapper INSTANCE:clock_generator_0 -
+C:\git\h3dge\src\hdl\system\system.mhs line 295 - Running NGCBUILD
+INFO:EDK:3509 - NCF files should not be modified as they will be regenerated.
+   If any constraint needs to be overridden, this should be done by modifying
+   the data/system.ucf file.
+
+Rebuilding cache ...
+
+Total run time: 135.00 seconds

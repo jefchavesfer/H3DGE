@@ -1,0 +1,3 @@
+PROCESSOR=ppc440_0
+REPOSITORIES=-lp ../../hdl/system
+HWSPEC=../h3dge_hw_platform/system.xml

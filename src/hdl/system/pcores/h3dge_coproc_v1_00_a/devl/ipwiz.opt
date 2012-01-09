@@ -1,0 +1,14 @@
+-batch 
+-create h3dge_coproc 
+-ver 1.00.a 
+-dir "C:\git\h3dge\src\hdl\system" 
+-lang verilog 
+-bus plbv46 ms 
+-burst m 32 
+-rst 
+-isc 1 
+-intrn 1 1 
+-reg 20 
+-xps 
+-ise 
+-driver 

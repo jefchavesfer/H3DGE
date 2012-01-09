@@ -1,0 +1,19 @@
+iMPACT Version: Feb  3 2011 13:40:02
+
+iMPACT log file Started on Wed Nov 30 13:33:15 2011
+
+Preference Table
+Name                 Setting             
+StartupClock         Auto_Correction     
+AutoSignature        False               
+KeepSVF              False               
+ConcurrentMode       False               
+UseHighz             False               
+ConfigOnFailure      Stop                
+UserLevel            Novice              
+MessageLevel         Detailed            
+svfUseTime           false               
+SpiByteSwap          Auto_Correction     
+AutoInfer            false               
+SvfPlayDisplayComments false               
+INFO:iMPACT - Unknown SVF keyword [tdi][h3dge.svf: line 64343]:[TDI]

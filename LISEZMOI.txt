@@ -1,0 +1,80 @@
+Comment faire le raytracer fonctionner
+------------------------------------------------------------------------------------------------------------
+
+Ce code est développé en utilisant Eclipse CDT avec SystemC. Pour installer cet environnement il faut lire le document "howToInstall" ci-joint.
+
+Quelques fois il y aura besoin d'inclure des autres bibliothèques du C dedans le code de la bibliothèque SystemC pour faire la compilation fonctionner.
+S'il y aura des problèmes dans  ../configure, make et install, il suffit d'inclure les respectives bibliothèques pour les instructions non reconnues. Cela se passe deux ou trois fois. De toute façon la solution pour ces problèmes est toujours dans l'internet.
+
+STRUCTURE
+---------------------------------------------------------------------------------------------------------
+RayTracerSCNaive - sans indexation spatiale... Très lent mais il est bon pour testes les démarches dans le raytracing sans s'inquiéter avec les arbres KD
+
+RayTracerSC - la version finale - le raytracing et l'indexation spatiale
+
+-------
+
+DefTypes.cpp - toutes les macros, les types de données, les opérations, les structs et les fonctions pour manipuler les pools  de références:
+
+initFreeNodeList
+deliverNode
+requestNode
+newNode (initNode)
+
+Scene.cpp - toutes les fonctions relatifs aux arbres Kd et à son manipulation
+Le struct scène est déclaré dans le fichier .h
+
+RayTracer.cpp - toutes les fonctions relatifs au procède de suivi de rayons et la déclaration des variables globales
+
+
+
+SITUATION
+----------------------------------------------------------------------------------------------------------
+
+Le raytracer n'est pas encore prêt. Il y a quelques soucis. La situation est la suivante:
+
+Les arbres d'indexation spatiale marchent bien
+	Souci: si il y a des triangles totalement contenus dans la frontière des paquètes, ils ne seront pas détectés!
+
+L'algorithme de raytracer marche bien pour les rayons réfléchis et réfractés
+
+
+BUGS
+----------------------------------------------------------------------------------------------------------
+* Quelques bugs dans la section de rayons réfractés - problèmes avec le management des rayons dedans et dehors un objet.
+
+PROBLÈME DANS LE PROCÈDE POUR PRENDRE LES PROCHAINS PAQUETS
+
+Comment est aujourd’hui:
+Il trouve le premier paquet. S'il il y a besoin il calcule les intersections du rayon dedans le paquet et trouve le paquet suivant (avec le point de sortie du rayon du paquet courant) et cela continue jusqu'au moment que le rayon sort de l'espace indexable. Des imprécisions sur le calcul des intersections font que le paquet n'intersecte pas le paquet désirable et par conséquent des intersections sont perdues.
+
+Comment doit être fait:
+Il faut ordonnancer toutes les paquets que le rayon en question trouve dans l'espace indexable. Même s'on n'a pas besoin (exemple: le rayon trouve une intersection dans le  premier paquet - le plus proche). Avec cela il est sur que toutes les triangles qui doivent entre traités seront traités. Cela demande un peu plus du temps aussi, mais il n'aura pas des problèmes. Pour trouver ces paquets il faut:
+
+Trouver le premier paquet - déjà implémente
+Une fois que le premier paquet est encontré, parcourir l'arbre en vérifiant quels sont les autres nœuds qui font partie de l'ensemble de paquets interceptés par le rayon. Avec le parcours de l'arbre il est impossible de perdre les paquets à cause de l'intersection. Après calculer toutes les paquets que le rayon intersecte, il faut vérifier s'il y a des intersections dedans les paquets trouves (en ordre du plus proche au plus lointain).
+
+
+FONCTION RAY TRACER
+
+BUGS CONNUS:
+
+* Loi de Beer pour le calcul de l’influence des rayons réfractés
+	Fonction: LightContribution - line 449
+	
+* Les limites des approximations des valeurs pour la longueur "t" du rayon.
+	Fonction: HitTriangle - lignes 20, 21 and 36
+		
+* Les différences dans le calcul à cause des approximations dans les numéros de virgule fixe
+	Fonction: HitTriangle 
+
+* La fausse ombre à cause des fausses intersections entre le rayon de la lumière et un triangle
+	Fonction: LightContribution/ HitTriangle.
+
+* Auto Intersection: quand la longueur du rayon est 0 (t=0)
+	Fonction: HitTriangle/ Light Contribution
+
+* La position du point de debout est différente à celle du point de la camera
+	Fonction: HitTriangle
+
+

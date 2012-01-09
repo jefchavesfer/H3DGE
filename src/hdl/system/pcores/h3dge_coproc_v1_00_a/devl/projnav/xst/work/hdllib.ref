@@ -1,0 +1,5 @@
+MO adder NULL ../../hdl/verilog/adder.v vlg54/adder.bin 1323626307
+MO coproc NULL ../../hdl/verilog/coproc.v vlg5E/coproc.bin 1323626307
+MO user_logic NULL ../../hdl/verilog/user_logic.v vlg08/user__logic.bin 1323626307
+AR h3dge_coproc imp C:/git/h3dge/src/hdl/system/pcores/h3dge_coproc_v1_00_a/hdl/vhdl/h3dge_coproc.vhd sub00/vhpl01 1323626349
+EN h3dge_coproc NULL C:/git/h3dge/src/hdl/system/pcores/h3dge_coproc_v1_00_a/hdl/vhdl/h3dge_coproc.vhd sub00/vhpl00 1323626348

@@ -1,0 +1,478 @@
+Release 13.1 - xst O.40d (nt64)
+Copyright (c) 1995-2011 Xilinx, Inc.  All rights reserved.
+--> 
+TABLE OF CONTENTS
+  1) Synthesis Options Summary
+  2) HDL Compilation
+  3) Design Hierarchy Analysis
+  4) HDL Analysis
+  5) HDL Synthesis
+     5.1) HDL Synthesis Report
+  6) Advanced HDL Synthesis
+     6.1) Advanced HDL Synthesis Report
+  7) Low Level Synthesis
+  8) Partition Report
+  9) Final Report
+	9.1) Device utilization summary
+	9.2) Partition Resource Summary
+	9.3) TIMING REPORT
+
+
+=========================================================================
+*                      Synthesis Options Summary                        *
+=========================================================================
+---- Source Parameters
+Input Format                       : MIXED
+Input File Name                    : "ppc440_0_apu_fpu_virtex5_wrapper_xst.prj"
+Verilog Include Directory          : {"C:\git\h3dge\src\hdl\system\pcores\" "C:\Xilinx\13.1\ISE_DS\EDK\hw\XilinxBFMinterface\pcores\" "C:\Xilinx\13.1\ISE_DS\EDK\hw\XilinxProcessorIPLib\pcores\" }
+
+---- Target Parameters
+Target Device                      : xc5vfx70tff1136-1
+Output File Name                   : "../implementation/ppc440_0_apu_fpu_virtex5_wrapper.ngc"
+
+---- Source Options
+Top Module Name                    : ppc440_0_apu_fpu_virtex5_wrapper
+
+---- Target Options
+Add IO Buffers                     : NO
+
+---- General Options
+Optimization Goal                  : speed
+Netlist Hierarchy                  : as_optimized
+Optimization Effort                : 1
+Hierarchy Separator                : /
+
+---- Other Options
+Cores Search Directories           : {../implementation/ppc440_0_apu_fpu_virtex5_wrapper}
+
+=========================================================================
+
+
+=========================================================================
+*                          HDL Compilation                              *
+=========================================================================
+Compiling vhdl file "C:/Xilinx/13.1/ISE_DS/EDK/hw/XilinxProcessorIPLib/pcores/apu_fpu_virtex5_v1_01_a/synhdl/vhdl/apu_fpu_virtex5.vhd" in Library apu_fpu_virtex5_v1_01_a.
+Entity <apu_fpu_virtex5> compiled.
+Entity <apu_fpu_virtex5> (Architecture <wrap>) compiled.
+Compiling vhdl file "C:/git/h3dge/src/hdl/system/hdl/ppc440_0_apu_fpu_virtex5_wrapper.vhd" in Library work.
+Entity <ppc440_0_apu_fpu_virtex5_wrapper> compiled.
+Entity <ppc440_0_apu_fpu_virtex5_wrapper> (Architecture <STRUCTURE>) compiled.
+Compiling vhdl file "C:/Xilinx/13.1/ISE_DS/EDK/hw/XilinxProcessorIPLib/pcores/common_v1_00_a/hdl/vhdl/family.vhd" in Library common_v1_00_a.
+Package <family> compiled.
+Package body <family> compiled.
+
+=========================================================================
+*                     Design Hierarchy Analysis                         *
+=========================================================================
+Analyzing hierarchy for entity <ppc440_0_apu_fpu_virtex5_wrapper> in library <work> (architecture <STRUCTURE>).
+
+Analyzing hierarchy for entity <apu_fpu_virtex5> in library <apu_fpu_virtex5_v1_01_a> (architecture <wrap>) with generics.
+	C_DOUBLE_PRECISION = 1
+	C_LATENCY_CONF = 1
+	C_USE_RLOCS = 0
+
+
+=========================================================================
+*                            HDL Analysis                               *
+=========================================================================
+Analyzing Entity <ppc440_0_apu_fpu_virtex5_wrapper> in library <work> (Architecture <STRUCTURE>).
+Entity <ppc440_0_apu_fpu_virtex5_wrapper> analyzed. Unit <ppc440_0_apu_fpu_virtex5_wrapper> generated.
+
+Analyzing generic Entity <apu_fpu_virtex5> in library <apu_fpu_virtex5_v1_01_a> (Architecture <wrap>).
+	C_DOUBLE_PRECISION = 1
+	C_LATENCY_CONF = 1
+	C_USE_RLOCS = 0
+Entity <apu_fpu_virtex5> analyzed. Unit <apu_fpu_virtex5> generated.
+
+
+=========================================================================
+*                           HDL Synthesis                               *
+=========================================================================
+
+Performing bidirectional port resolution...
+
+Synthesizing Unit <apu_fpu_virtex5>.
+    Related source file is "C:/Xilinx/13.1/ISE_DS/EDK/hw/XilinxProcessorIPLib/pcores/apu_fpu_virtex5_v1_01_a/synhdl/vhdl/apu_fpu_virtex5.vhd".
+Unit <apu_fpu_virtex5> synthesized.
+
+
+Synthesizing Unit <ppc440_0_apu_fpu_virtex5_wrapper>.
+    Related source file is "C:/git/h3dge/src/hdl/system/hdl/ppc440_0_apu_fpu_virtex5_wrapper.vhd".
+Unit <ppc440_0_apu_fpu_virtex5_wrapper> synthesized.
+
+
+=========================================================================
+HDL Synthesis Report
+
+Found no macro
+=========================================================================
+
+=========================================================================
+*                       Advanced HDL Synthesis                          *
+=========================================================================
+
+Reading core <../implementation/ppc440_0_apu_fpu_virtex5_wrapper/apu_fpu_dp_lo.ngc>.
+Loading core <apu_fpu_dp_lo> for timing and area information for instance <gen_apu_fpu_dp_lo.netlist>.
+
+=========================================================================
+Advanced HDL Synthesis Report
+
+Found no macro
+=========================================================================
+
+=========================================================================
+*                         Low Level Synthesis                           *
+=========================================================================
+
+Optimizing unit <ppc440_0_apu_fpu_virtex5_wrapper> ...
+
+Mapping all equations...
+Building and optimizing final netlist ...
+
+Final Macro Processing ...
+
+=========================================================================
+Final Register Report
+
+Found no macro
+=========================================================================
+
+=========================================================================
+*                           Partition Report                            *
+=========================================================================
+
+Partition Implementation Status
+-------------------------------
+
+  No Partitions were found in this design.
+
+-------------------------------
+
+=========================================================================
+*                            Final Report                               *
+=========================================================================
+Final Results
+Top Level Output File Name         : ../implementation/ppc440_0_apu_fpu_virtex5_wrapper.ngc
+Output Format                      : ngc
+Optimization Goal                  : speed
+Keep Hierarchy                     : no
+
+Design Statistics
+# IOs                              : 421
+
+Cell Usage :
+# BELS                             : 5849
+#      GND                         : 3
+#      INV                         : 45
+#      LUT1                        : 94
+#      LUT2                        : 472
+#      LUT3                        : 664
+#      LUT4                        : 529
+#      LUT5                        : 473
+#      LUT6                        : 1123
+#      LUT6_2                      : 468
+#      MUXCY                       : 1020
+#      MUXF7                       : 240
+#      MUXF8                       : 2
+#      VCC                         : 3
+#      XORCY                       : 713
+# FlipFlops/Latches                : 2629
+#      FD                          : 589
+#      FDE                         : 1287
+#      FDR                         : 89
+#      FDRE                        : 177
+#      FDRS                        : 139
+#      FDRSE                       : 324
+#      FDS                         : 24
+# RAMS                             : 44
+#      RAM32M                      : 44
+# Shift Registers                  : 160
+#      SRLC16E                     : 78
+#      SRLC32E                     : 82
+# DSPs                             : 13
+#      DSP48E                      : 13
+=========================================================================
+
+Device utilization summary:
+---------------------------
+
+Selected Device : 5vfx70tff1136-1 
+
+
+Slice Logic Utilization: 
+ Number of Slice Registers:            2629  out of  44800     5%  
+ Number of Slice LUTs:                 4204  out of  44800     9%  
+    Number used as Logic:              3868  out of  44800     8%  
+    Number used as Memory:              336  out of  13120     2%  
+       Number used as RAM:              176
+       Number used as SRL:              160
+
+Slice Logic Distribution: 
+ Number of LUT Flip Flop pairs used:   5021
+   Number with an unused Flip Flop:    2392  out of   5021    47%  
+   Number with an unused LUT:           817  out of   5021    16%  
+   Number of fully used LUT-FF pairs:  1812  out of   5021    36%  
+   Number of unique control sets:       125
+
+IO Utilization: 
+ Number of IOs:                         421
+ Number of bonded IOBs:                   0  out of    640     0%  
+
+Specific Feature Utilization:
+ Number of DSP48Es:                      13  out of    128    10%  
+
+---------------------------
+Partition Resource Summary:
+---------------------------
+
+  No Partitions were found in this design.
+
+---------------------------
+
+
+=========================================================================
+TIMING REPORT
+
+NOTE: THESE TIMING NUMBERS ARE ONLY A SYNTHESIS ESTIMATE.
+      FOR ACCURATE TIMING INFORMATION PLEASE REFER TO THE TRACE REPORT
+      GENERATED AFTER PLACE-and-ROUTE.
+
+Clock Information:
+------------------
+-----------------------------------+--------------------------------------------------------------------+-------+
+Clock Signal                       | Clock buffer(FF name)                                              | Load  |
+-----------------------------------+--------------------------------------------------------------------+-------+
+FCB_CLK                            | NONE(ppc440_0_apu_fpu_virtex5/gen_apu_fpu_dp_lo.netlist/sync_reset)| 2846  |
+-----------------------------------+--------------------------------------------------------------------+-------+
+INFO:Xst:2169 - HDL ADVISOR - Some clock signals were not automatically buffered by XST with BUFG/BUFR resources. Please use the buffer_type constraint in order to insert these buffers to the clock signals to help prevent skew problems.
+
+Asynchronous Control Signals Information:
+----------------------------------------
+No asynchronous control signals found in this design
+
+Timing Summary:
+---------------
+Speed Grade: -1
+
+   Minimum period: 6.968ns (Maximum Frequency: 143.518MHz)
+   Minimum input arrival time before clock: 2.807ns
+   Maximum output required time after clock: 2.165ns
+   Maximum combinational path delay: 1.383ns
+
+Timing Detail:
+--------------
+All values displayed in nanoseconds (ns)
+
+=========================================================================
+Timing constraint: Default period analysis for Clock 'FCB_CLK'
+  Clock period: 6.968ns (frequency: 143.518MHz)
+  Total number of paths / destination ports: 3415512 / 5241
+-------------------------------------------------------------------------
+Delay:               6.968ns (Levels of Logic = 113)
+  Source:            ppc440_0_apu_fpu_virtex5/gen_apu_fpu_dp_lo.netlist/fpu_add_conv_adcv_exp_sel_inf_add_delay_delay_0 (FF)
+  Destination:       ppc440_0_apu_fpu_virtex5/gen_apu_fpu_dp_lo.netlist/fpu_add_conv_adcv_round_logic.rnd2_q_del_delay_0_26 (FF)
+  Source Clock:      FCB_CLK rising
+  Destination Clock: FCB_CLK rising
+
+  Data Path: ppc440_0_apu_fpu_virtex5/gen_apu_fpu_dp_lo.netlist/fpu_add_conv_adcv_exp_sel_inf_add_delay_delay_0 to ppc440_0_apu_fpu_virtex5/gen_apu_fpu_dp_lo.netlist/fpu_add_conv_adcv_round_logic.rnd2_q_del_delay_0_26
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     FDE:C->Q              2   0.471   0.715  fpu_add_conv_adcv_exp_sel_inf_add_delay_delay_0 (fpu_add_conv_adcv_exp_sel_inf_add_delay_delay_0)
+     LUT3:I0->O            3   0.094   0.000  fpu_add_conv_adcv_align_zeros_up_add1 (fpu_add_conv_adcv_align_zeros)
+     MUXCY:S->O            1   0.372   0.000  fpu_add_conv_adcv_align_frac_addsub_logic_add.frac_addsub_struct_add1.carry_mux2 (fpu_add_conv_adcv_align_frac_addsub_logic_add.frac_addsub_carry_in2_rnd1)
+     MUXCY:CI->O           1   0.026   0.000  fpu_add_conv_adcv_align_frac_addsub_logic_add.frac_addsub_struct_add1.add1_chain_gen[0].no_rlocs.carry_mux (fpu_add_conv_adcv_align_frac_addsub_logic_add.frac_addsub_struct_add1.add1/carry<1>)
+     MUXCY:CI->O           1   0.026   0.000  fpu_add_conv_adcv_align_frac_addsub_logic_add.frac_addsub_struct_add1.add1_chain_gen[1].no_rlocs.carry_mux (fpu_add_conv_adcv_align_frac_addsub_logic_add.frac_addsub_struct_add1.add1/carry<2>)
+     MUXCY:CI->O           1   0.026   0.000  fpu_add_conv_adcv_align_frac_addsub_logic_add.frac_addsub_struct_add1.add1_chain_gen[2].no_rlocs.carry_mux (fpu_add_conv_adcv_align_frac_addsub_logic_add.frac_addsub_struct_add1.add1/carry<3>)
+     MUXCY:CI->O           1   0.026   0.000  fpu_add_conv_adcv_align_frac_addsub_logic_add.frac_addsub_struct_add1.add1_chain_gen[3].no_rlocs.carry_mux (fpu_add_conv_adcv_align_frac_addsub_logic_add.frac_addsub_struct_add1.add1/carry<4>)
+     MUXCY:CI->O           1   0.026   0.000  fpu_add_conv_adcv_align_frac_addsub_logic_add.frac_addsub_struct_add1.add1_chain_gen[4].no_rlocs.carry_mux (fpu_add_conv_adcv_align_frac_addsub_logic_add.frac_addsub_struct_add1.add1/carry<5>)
+     MUXCY:CI->O           1   0.026   0.000  fpu_add_conv_adcv_align_frac_addsub_logic_add.frac_addsub_struct_add1.add1_chain_gen[5].no_rlocs.carry_mux (fpu_add_conv_adcv_align_frac_addsub_logic_add.frac_addsub_struct_add1.add1/carry<6>)
+     MUXCY:CI->O           1   0.026   0.000  fpu_add_conv_adcv_align_frac_addsub_logic_add.frac_addsub_struct_add1.add1_chain_gen[6].no_rlocs.carry_mux (fpu_add_conv_adcv_align_frac_addsub_logic_add.frac_addsub_struct_add1.add1/carry<7>)
+     MUXCY:CI->O           1   0.026   0.000  fpu_add_conv_adcv_align_frac_addsub_logic_add.frac_addsub_struct_add1.add1_chain_gen[7].no_rlocs.carry_mux (fpu_add_conv_adcv_align_frac_addsub_logic_add.frac_addsub_struct_add1.add1/carry<8>)
+     MUXCY:CI->O           1   0.026   0.000  fpu_add_conv_adcv_align_frac_addsub_logic_add.frac_addsub_struct_add1.add1_chain_gen[8].no_rlocs.carry_mux (fpu_add_conv_adcv_align_frac_addsub_logic_add.frac_addsub_struct_add1.add1/carry<9>)
+     MUXCY:CI->O           1   0.026   0.000  fpu_add_conv_adcv_align_frac_addsub_logic_add.frac_addsub_struct_add1.add1_chain_gen[9].no_rlocs.carry_mux (fpu_add_conv_adcv_align_frac_addsub_logic_add.frac_addsub_struct_add1.add1/carry<10>)
+     MUXCY:CI->O           1   0.026   0.000  fpu_add_conv_adcv_align_frac_addsub_logic_add.frac_addsub_struct_add1.add1_chain_gen[10].no_rlocs.carry_mux (fpu_add_conv_adcv_align_frac_addsub_logic_add.frac_addsub_struct_add1.add1/carry<11>)
+     MUXCY:CI->O           1   0.026   0.000  fpu_add_conv_adcv_align_frac_addsub_logic_add.frac_addsub_struct_add1.add1_chain_gen[11].no_rlocs.carry_mux (fpu_add_conv_adcv_align_frac_addsub_logic_add.frac_addsub_struct_add1.add1/carry<12>)
+     MUXCY:CI->O           1   0.026   0.000  fpu_add_conv_adcv_align_frac_addsub_logic_add.frac_addsub_struct_add1.add1_chain_gen[12].no_rlocs.carry_mux (fpu_add_conv_adcv_align_frac_addsub_logic_add.frac_addsub_struct_add1.add1/carry<13>)
+     MUXCY:CI->O           1   0.026   0.000  fpu_add_conv_adcv_align_frac_addsub_logic_add.frac_addsub_struct_add1.add1_chain_gen[13].no_rlocs.carry_mux (fpu_add_conv_adcv_align_frac_addsub_logic_add.frac_addsub_struct_add1.add1/carry<14>)
+     MUXCY:CI->O           1   0.026   0.000  fpu_add_conv_adcv_align_frac_addsub_logic_add.frac_addsub_struct_add1.add1_chain_gen[14].no_rlocs.carry_mux (fpu_add_conv_adcv_align_frac_addsub_logic_add.frac_addsub_struct_add1.add1/carry<15>)
+     MUXCY:CI->O           1   0.026   0.000  fpu_add_conv_adcv_align_frac_addsub_logic_add.frac_addsub_struct_add1.add1_chain_gen[15].no_rlocs.carry_mux (fpu_add_conv_adcv_align_frac_addsub_logic_add.frac_addsub_struct_add1.add1/carry<16>)
+     MUXCY:CI->O           1   0.026   0.000  fpu_add_conv_adcv_align_frac_addsub_logic_add.frac_addsub_struct_add1.add1_chain_gen[16].no_rlocs.carry_mux (fpu_add_conv_adcv_align_frac_addsub_logic_add.frac_addsub_struct_add1.add1/carry<17>)
+     MUXCY:CI->O           1   0.026   0.000  fpu_add_conv_adcv_align_frac_addsub_logic_add.frac_addsub_struct_add1.add1_chain_gen[17].no_rlocs.carry_mux (fpu_add_conv_adcv_align_frac_addsub_logic_add.frac_addsub_struct_add1.add1/carry<18>)
+     MUXCY:CI->O           1   0.026   0.000  fpu_add_conv_adcv_align_frac_addsub_logic_add.frac_addsub_struct_add1.add1_chain_gen[18].no_rlocs.carry_mux (fpu_add_conv_adcv_align_frac_addsub_logic_add.frac_addsub_struct_add1.add1/carry<19>)
+     MUXCY:CI->O           1   0.026   0.000  fpu_add_conv_adcv_align_frac_addsub_logic_add.frac_addsub_struct_add1.add1_chain_gen[19].no_rlocs.carry_mux (fpu_add_conv_adcv_align_frac_addsub_logic_add.frac_addsub_struct_add1.add1/carry<20>)
+     MUXCY:CI->O           1   0.026   0.000  fpu_add_conv_adcv_align_frac_addsub_logic_add.frac_addsub_struct_add1.add1_chain_gen[20].no_rlocs.carry_mux (fpu_add_conv_adcv_align_frac_addsub_logic_add.frac_addsub_struct_add1.add1/carry<21>)
+     MUXCY:CI->O           1   0.026   0.000  fpu_add_conv_adcv_align_frac_addsub_logic_add.frac_addsub_struct_add1.add1_chain_gen[21].no_rlocs.carry_mux (fpu_add_conv_adcv_align_frac_addsub_logic_add.frac_addsub_struct_add1.add1/carry<22>)
+     MUXCY:CI->O           1   0.026   0.000  fpu_add_conv_adcv_align_frac_addsub_logic_add.frac_addsub_struct_add1.add1_chain_gen[22].no_rlocs.carry_mux (fpu_add_conv_adcv_align_frac_addsub_logic_add.frac_addsub_struct_add1.add1/carry<23>)
+     MUXCY:CI->O           1   0.026   0.000  fpu_add_conv_adcv_align_frac_addsub_logic_add.frac_addsub_struct_add1.add1_chain_gen[23].no_rlocs.carry_mux (fpu_add_conv_adcv_align_frac_addsub_logic_add.frac_addsub_struct_add1.add1/carry<24>)
+     MUXCY:CI->O           1   0.026   0.000  fpu_add_conv_adcv_align_frac_addsub_logic_add.frac_addsub_struct_add1.add1_chain_gen[24].no_rlocs.carry_mux (fpu_add_conv_adcv_align_frac_addsub_logic_add.frac_addsub_struct_add1.add1/carry<25>)
+     MUXCY:CI->O           1   0.026   0.000  fpu_add_conv_adcv_align_frac_addsub_logic_add.frac_addsub_struct_add1.add1_chain_gen[25].no_rlocs.carry_mux (fpu_add_conv_adcv_align_frac_addsub_logic_add.frac_addsub_struct_add1.add1/carry<26>)
+     MUXCY:CI->O           1   0.026   0.000  fpu_add_conv_adcv_align_frac_addsub_logic_add.frac_addsub_struct_add1.add1_chain_gen[26].no_rlocs.carry_mux (fpu_add_conv_adcv_align_frac_addsub_logic_add.frac_addsub_struct_add1.add1/carry<27>)
+     MUXCY:CI->O           1   0.026   0.000  fpu_add_conv_adcv_align_frac_addsub_logic_add.frac_addsub_struct_add1.add1_chain_gen[27].no_rlocs.carry_mux (fpu_add_conv_adcv_align_frac_addsub_logic_add.frac_addsub_struct_add1.add1/carry<28>)
+     MUXCY:CI->O           1   0.026   0.000  fpu_add_conv_adcv_align_frac_addsub_logic_add.frac_addsub_struct_add1.add1_chain_gen[28].no_rlocs.carry_mux (fpu_add_conv_adcv_align_frac_addsub_logic_add.frac_addsub_struct_add1.add1/carry<29>)
+     MUXCY:CI->O           1   0.026   0.000  fpu_add_conv_adcv_align_frac_addsub_logic_add.frac_addsub_struct_add1.add1_chain_gen[29].no_rlocs.carry_mux (fpu_add_conv_adcv_align_frac_addsub_logic_add.frac_addsub_struct_add1.add1/carry<30>)
+     MUXCY:CI->O           1   0.026   0.000  fpu_add_conv_adcv_align_frac_addsub_logic_add.frac_addsub_struct_add1.add1_chain_gen[30].no_rlocs.carry_mux (fpu_add_conv_adcv_align_frac_addsub_logic_add.frac_addsub_struct_add1.add1/carry<31>)
+     MUXCY:CI->O           1   0.026   0.000  fpu_add_conv_adcv_align_frac_addsub_logic_add.frac_addsub_struct_add1.add1_chain_gen[31].no_rlocs.carry_mux (fpu_add_conv_adcv_align_frac_addsub_logic_add.frac_addsub_struct_add1.add1/carry<32>)
+     MUXCY:CI->O           1   0.026   0.000  fpu_add_conv_adcv_align_frac_addsub_logic_add.frac_addsub_struct_add1.add1_chain_gen[32].no_rlocs.carry_mux (fpu_add_conv_adcv_align_frac_addsub_logic_add.frac_addsub_carry_rnd2)
+     MUXCY:CI->O           1   0.026   0.000  fpu_add_conv_adcv_align_frac_addsub_logic_add.frac_addsub_struct_add2.add1_chain_gen[0].no_rlocs.carry_mux (fpu_add_conv_adcv_align_frac_addsub_logic_add.frac_addsub_struct_add2.add1/carry<1>)
+     MUXCY:CI->O           1   0.026   0.000  fpu_add_conv_adcv_align_frac_addsub_logic_add.frac_addsub_struct_add2.add1_chain_gen[1].no_rlocs.carry_mux (fpu_add_conv_adcv_align_frac_addsub_logic_add.frac_addsub_struct_add2.add1/carry<2>)
+     MUXCY:CI->O           1   0.026   0.000  fpu_add_conv_adcv_align_frac_addsub_logic_add.frac_addsub_struct_add2.add1_chain_gen[2].no_rlocs.carry_mux (fpu_add_conv_adcv_align_frac_addsub_logic_add.frac_addsub_struct_add2.add1/carry<3>)
+     MUXCY:CI->O           1   0.026   0.000  fpu_add_conv_adcv_align_frac_addsub_logic_add.frac_addsub_struct_add2.add1_chain_gen[3].no_rlocs.carry_mux (fpu_add_conv_adcv_align_frac_addsub_logic_add.frac_addsub_struct_add2.add1/carry<4>)
+     MUXCY:CI->O           1   0.026   0.000  fpu_add_conv_adcv_align_frac_addsub_logic_add.frac_addsub_struct_add2.add1_chain_gen[4].no_rlocs.carry_mux (fpu_add_conv_adcv_align_frac_addsub_logic_add.frac_addsub_struct_add2.add1/carry<5>)
+     MUXCY:CI->O           1   0.026   0.000  fpu_add_conv_adcv_align_frac_addsub_logic_add.frac_addsub_struct_add2.add1_chain_gen[5].no_rlocs.carry_mux (fpu_add_conv_adcv_align_frac_addsub_logic_add.frac_addsub_struct_add2.add1/carry<6>)
+     MUXCY:CI->O           1   0.026   0.000  fpu_add_conv_adcv_align_frac_addsub_logic_add.frac_addsub_struct_add2.add1_chain_gen[6].no_rlocs.carry_mux (fpu_add_conv_adcv_align_frac_addsub_logic_add.frac_addsub_struct_add2.add1/carry<7>)
+     MUXCY:CI->O           1   0.026   0.000  fpu_add_conv_adcv_align_frac_addsub_logic_add.frac_addsub_struct_add2.add1_chain_gen[7].no_rlocs.carry_mux (fpu_add_conv_adcv_align_frac_addsub_logic_add.frac_addsub_struct_add2.add1/carry<8>)
+     MUXCY:CI->O           1   0.026   0.000  fpu_add_conv_adcv_align_frac_addsub_logic_add.frac_addsub_struct_add2.add1_chain_gen[8].no_rlocs.carry_mux (fpu_add_conv_adcv_align_frac_addsub_logic_add.frac_addsub_struct_add2.add1/carry<9>)
+     MUXCY:CI->O           1   0.026   0.000  fpu_add_conv_adcv_align_frac_addsub_logic_add.frac_addsub_struct_add2.add1_chain_gen[9].no_rlocs.carry_mux (fpu_add_conv_adcv_align_frac_addsub_logic_add.frac_addsub_struct_add2.add1/carry<10>)
+     MUXCY:CI->O           1   0.026   0.000  fpu_add_conv_adcv_align_frac_addsub_logic_add.frac_addsub_struct_add2.add1_chain_gen[10].no_rlocs.carry_mux (fpu_add_conv_adcv_align_frac_addsub_logic_add.frac_addsub_struct_add2.add1/carry<11>)
+     MUXCY:CI->O           1   0.026   0.000  fpu_add_conv_adcv_align_frac_addsub_logic_add.frac_addsub_struct_add2.add1_chain_gen[11].no_rlocs.carry_mux (fpu_add_conv_adcv_align_frac_addsub_logic_add.frac_addsub_struct_add2.add1/carry<12>)
+     MUXCY:CI->O           1   0.026   0.000  fpu_add_conv_adcv_align_frac_addsub_logic_add.frac_addsub_struct_add2.add1_chain_gen[12].no_rlocs.carry_mux (fpu_add_conv_adcv_align_frac_addsub_logic_add.frac_addsub_struct_add2.add1/carry<13>)
+     MUXCY:CI->O           1   0.026   0.000  fpu_add_conv_adcv_align_frac_addsub_logic_add.frac_addsub_struct_add2.add1_chain_gen[13].no_rlocs.carry_mux (fpu_add_conv_adcv_align_frac_addsub_logic_add.frac_addsub_struct_add2.add1/carry<14>)
+     MUXCY:CI->O           1   0.026   0.000  fpu_add_conv_adcv_align_frac_addsub_logic_add.frac_addsub_struct_add2.add1_chain_gen[14].no_rlocs.carry_mux (fpu_add_conv_adcv_align_frac_addsub_logic_add.frac_addsub_struct_add2.add1/carry<15>)
+     MUXCY:CI->O           1   0.026   0.000  fpu_add_conv_adcv_align_frac_addsub_logic_add.frac_addsub_struct_add2.add1_chain_gen[15].no_rlocs.carry_mux (fpu_add_conv_adcv_align_frac_addsub_logic_add.frac_addsub_struct_add2.add1/carry<16>)
+     MUXCY:CI->O           1   0.026   0.000  fpu_add_conv_adcv_align_frac_addsub_logic_add.frac_addsub_struct_add2.add1_chain_gen[16].no_rlocs.carry_mux (fpu_add_conv_adcv_align_frac_addsub_logic_add.frac_addsub_struct_add2.add1/carry<17>)
+     MUXCY:CI->O           1   0.026   0.000  fpu_add_conv_adcv_align_frac_addsub_logic_add.frac_addsub_struct_add2.add1_chain_gen[17].no_rlocs.carry_mux (fpu_add_conv_adcv_align_frac_addsub_logic_add.frac_addsub_struct_add2.add1/carry<18>)
+     MUXCY:CI->O           1   0.026   0.000  fpu_add_conv_adcv_align_frac_addsub_logic_add.frac_addsub_struct_add2.add1_chain_gen[18].no_rlocs.carry_mux (fpu_add_conv_adcv_align_frac_addsub_logic_add.frac_addsub_struct_add2.add1/carry<19>)
+     MUXCY:CI->O           1   0.026   0.000  fpu_add_conv_adcv_align_frac_addsub_logic_add.frac_addsub_struct_add2.add1_chain_gen[19].no_rlocs.carry_mux (fpu_add_conv_adcv_align_frac_addsub_logic_add.frac_addsub_struct_add2.add1/carry<20>)
+     MUXCY:CI->O           1   0.026   0.000  fpu_add_conv_adcv_align_frac_addsub_logic_add.frac_addsub_struct_add2.add1_chain_gen[20].no_rlocs.carry_mux (fpu_add_conv_adcv_align_frac_addsub_logic_add.frac_addsub_struct_add2.add1/carry<21>)
+     XORCY:CI->O          40   0.357   0.705  fpu_add_conv_adcv_align_frac_addsub_logic_add.frac_addsub_struct_add2.add1_chain_gen[21].no_rlocs.q_xor.sum_xor (fpu_add_conv_adcv_align_mant<54>)
+     LUT6:I4->O            2   0.094   0.581  fpu_add_conv_adcv_res_round_sel (fpu_add_conv_adcv_res_round_sel)
+     LUT6:I4->O            1   0.094   0.000  fpu_add_conv_adcv_round_rnd_bit_gen_a_ip_not00031 (fpu_add_conv_adcv_round_rnd_bit_gen_a_ip<5>)
+     MUXCY:S->O            1   0.372   0.000  fpu_add_conv_adcv_round_rnd_bit_gen_mode_norm_2.rnd_chain_chain_gen[5].no_rlocs.carry_mux (fpu_add_conv_adcv_round_round_rnd1)
+     MUXCY:CI->O           1   0.026   0.000  fpu_add_conv_adcv_round_logic.rnd1_chain_gen[0].no_rlocs.carry_mux (fpu_add_conv_adcv_round_logic.rnd1/carry<1>)
+     MUXCY:CI->O           1   0.026   0.000  fpu_add_conv_adcv_round_logic.rnd1_chain_gen[1].no_rlocs.carry_mux (fpu_add_conv_adcv_round_logic.rnd1/carry<2>)
+     MUXCY:CI->O           1   0.026   0.000  fpu_add_conv_adcv_round_logic.rnd1_chain_gen[2].no_rlocs.carry_mux (fpu_add_conv_adcv_round_logic.rnd1/carry<3>)
+     MUXCY:CI->O           1   0.026   0.000  fpu_add_conv_adcv_round_logic.rnd1_chain_gen[3].no_rlocs.carry_mux (fpu_add_conv_adcv_round_logic.rnd1/carry<4>)
+     MUXCY:CI->O           1   0.026   0.000  fpu_add_conv_adcv_round_logic.rnd1_chain_gen[4].no_rlocs.carry_mux (fpu_add_conv_adcv_round_logic.rnd1/carry<5>)
+     MUXCY:CI->O           1   0.026   0.000  fpu_add_conv_adcv_round_logic.rnd1_chain_gen[5].no_rlocs.carry_mux (fpu_add_conv_adcv_round_logic.rnd1/carry<6>)
+     MUXCY:CI->O           1   0.026   0.000  fpu_add_conv_adcv_round_logic.rnd1_chain_gen[6].no_rlocs.carry_mux (fpu_add_conv_adcv_round_logic.rnd1/carry<7>)
+     MUXCY:CI->O           1   0.026   0.000  fpu_add_conv_adcv_round_logic.rnd1_chain_gen[7].no_rlocs.carry_mux (fpu_add_conv_adcv_round_logic.rnd1/carry<8>)
+     MUXCY:CI->O           1   0.026   0.000  fpu_add_conv_adcv_round_logic.rnd1_chain_gen[8].no_rlocs.carry_mux (fpu_add_conv_adcv_round_logic.rnd1/carry<9>)
+     MUXCY:CI->O           1   0.026   0.000  fpu_add_conv_adcv_round_logic.rnd1_chain_gen[9].no_rlocs.carry_mux (fpu_add_conv_adcv_round_logic.rnd1/carry<10>)
+     MUXCY:CI->O           1   0.026   0.000  fpu_add_conv_adcv_round_logic.rnd1_chain_gen[10].no_rlocs.carry_mux (fpu_add_conv_adcv_round_logic.rnd1/carry<11>)
+     MUXCY:CI->O           1   0.026   0.000  fpu_add_conv_adcv_round_logic.rnd1_chain_gen[11].no_rlocs.carry_mux (fpu_add_conv_adcv_round_logic.rnd1/carry<12>)
+     MUXCY:CI->O           1   0.026   0.000  fpu_add_conv_adcv_round_logic.rnd1_chain_gen[12].no_rlocs.carry_mux (fpu_add_conv_adcv_round_logic.rnd1/carry<13>)
+     MUXCY:CI->O           1   0.026   0.000  fpu_add_conv_adcv_round_logic.rnd1_chain_gen[13].no_rlocs.carry_mux (fpu_add_conv_adcv_round_logic.rnd1/carry<14>)
+     MUXCY:CI->O           1   0.026   0.000  fpu_add_conv_adcv_round_logic.rnd1_chain_gen[14].no_rlocs.carry_mux (fpu_add_conv_adcv_round_logic.rnd1/carry<15>)
+     MUXCY:CI->O           1   0.026   0.000  fpu_add_conv_adcv_round_logic.rnd1_chain_gen[15].no_rlocs.carry_mux (fpu_add_conv_adcv_round_logic.rnd1/carry<16>)
+     MUXCY:CI->O           1   0.026   0.000  fpu_add_conv_adcv_round_logic.rnd1_chain_gen[16].no_rlocs.carry_mux (fpu_add_conv_adcv_round_logic.rnd1/carry<17>)
+     MUXCY:CI->O           1   0.026   0.000  fpu_add_conv_adcv_round_logic.rnd1_chain_gen[17].no_rlocs.carry_mux (fpu_add_conv_adcv_round_logic.rnd1/carry<18>)
+     MUXCY:CI->O           1   0.026   0.000  fpu_add_conv_adcv_round_logic.rnd1_chain_gen[18].no_rlocs.carry_mux (fpu_add_conv_adcv_round_logic.rnd1/carry<19>)
+     MUXCY:CI->O           1   0.026   0.000  fpu_add_conv_adcv_round_logic.rnd1_chain_gen[19].no_rlocs.carry_mux (fpu_add_conv_adcv_round_logic.rnd1/carry<20>)
+     MUXCY:CI->O           1   0.026   0.000  fpu_add_conv_adcv_round_logic.rnd1_chain_gen[20].no_rlocs.carry_mux (fpu_add_conv_adcv_round_logic.rnd1/carry<21>)
+     MUXCY:CI->O           1   0.026   0.000  fpu_add_conv_adcv_round_logic.rnd1_chain_gen[21].no_rlocs.carry_mux (fpu_add_conv_adcv_round_logic.rnd1/carry<22>)
+     MUXCY:CI->O           1   0.026   0.000  fpu_add_conv_adcv_round_logic.rnd1_chain_gen[22].no_rlocs.carry_mux (fpu_add_conv_adcv_round_logic.rnd1/carry<23>)
+     MUXCY:CI->O           1   0.026   0.000  fpu_add_conv_adcv_round_logic.rnd1_chain_gen[23].no_rlocs.carry_mux (fpu_add_conv_adcv_round_logic.rnd1/carry<24>)
+     MUXCY:CI->O           1   0.026   0.000  fpu_add_conv_adcv_round_logic.rnd1_chain_gen[24].no_rlocs.carry_mux (fpu_add_conv_adcv_round_logic.rnd1/carry<25>)
+     MUXCY:CI->O           1   0.026   0.000  fpu_add_conv_adcv_round_logic.rnd1_chain_gen[25].no_rlocs.carry_mux (fpu_add_conv_adcv_round_carry_rnd2)
+     MUXCY:CI->O           1   0.026   0.000  fpu_add_conv_adcv_round_logic.rnd2_chain_gen[0].no_rlocs.carry_mux (fpu_add_conv_adcv_round_logic.rnd2_carry<1>)
+     MUXCY:CI->O           1   0.026   0.000  fpu_add_conv_adcv_round_logic.rnd2_chain_gen[1].no_rlocs.carry_mux (fpu_add_conv_adcv_round_logic.rnd2_carry<2>)
+     MUXCY:CI->O           1   0.026   0.000  fpu_add_conv_adcv_round_logic.rnd2_chain_gen[2].no_rlocs.carry_mux (fpu_add_conv_adcv_round_logic.rnd2_carry<3>)
+     MUXCY:CI->O           1   0.026   0.000  fpu_add_conv_adcv_round_logic.rnd2_chain_gen[3].no_rlocs.carry_mux (fpu_add_conv_adcv_round_logic.rnd2_carry<4>)
+     MUXCY:CI->O           1   0.026   0.000  fpu_add_conv_adcv_round_logic.rnd2_chain_gen[4].no_rlocs.carry_mux (fpu_add_conv_adcv_round_logic.rnd2_carry<5>)
+     MUXCY:CI->O           1   0.026   0.000  fpu_add_conv_adcv_round_logic.rnd2_chain_gen[5].no_rlocs.carry_mux (fpu_add_conv_adcv_round_logic.rnd2_carry<6>)
+     MUXCY:CI->O           1   0.026   0.000  fpu_add_conv_adcv_round_logic.rnd2_chain_gen[6].no_rlocs.carry_mux (fpu_add_conv_adcv_round_logic.rnd2_carry<7>)
+     MUXCY:CI->O           1   0.026   0.000  fpu_add_conv_adcv_round_logic.rnd2_chain_gen[7].no_rlocs.carry_mux (fpu_add_conv_adcv_round_logic.rnd2_carry<8>)
+     MUXCY:CI->O           1   0.026   0.000  fpu_add_conv_adcv_round_logic.rnd2_chain_gen[8].no_rlocs.carry_mux (fpu_add_conv_adcv_round_logic.rnd2_carry<9>)
+     MUXCY:CI->O           1   0.026   0.000  fpu_add_conv_adcv_round_logic.rnd2_chain_gen[9].no_rlocs.carry_mux (fpu_add_conv_adcv_round_logic.rnd2_carry<10>)
+     MUXCY:CI->O           1   0.026   0.000  fpu_add_conv_adcv_round_logic.rnd2_chain_gen[10].no_rlocs.carry_mux (fpu_add_conv_adcv_round_logic.rnd2_carry<11>)
+     MUXCY:CI->O           1   0.026   0.000  fpu_add_conv_adcv_round_logic.rnd2_chain_gen[11].no_rlocs.carry_mux (fpu_add_conv_adcv_round_logic.rnd2_carry<12>)
+     MUXCY:CI->O           1   0.026   0.000  fpu_add_conv_adcv_round_logic.rnd2_chain_gen[12].no_rlocs.carry_mux (fpu_add_conv_adcv_round_logic.rnd2_carry<13>)
+     MUXCY:CI->O           1   0.026   0.000  fpu_add_conv_adcv_round_logic.rnd2_chain_gen[13].no_rlocs.carry_mux (fpu_add_conv_adcv_round_logic.rnd2_carry<14>)
+     MUXCY:CI->O           1   0.026   0.000  fpu_add_conv_adcv_round_logic.rnd2_chain_gen[14].no_rlocs.carry_mux (fpu_add_conv_adcv_round_logic.rnd2_carry<15>)
+     MUXCY:CI->O           1   0.026   0.000  fpu_add_conv_adcv_round_logic.rnd2_chain_gen[15].no_rlocs.carry_mux (fpu_add_conv_adcv_round_logic.rnd2_carry<16>)
+     MUXCY:CI->O           1   0.026   0.000  fpu_add_conv_adcv_round_logic.rnd2_chain_gen[16].no_rlocs.carry_mux (fpu_add_conv_adcv_round_logic.rnd2_carry<17>)
+     MUXCY:CI->O           1   0.026   0.000  fpu_add_conv_adcv_round_logic.rnd2_chain_gen[17].no_rlocs.carry_mux (fpu_add_conv_adcv_round_logic.rnd2_carry<18>)
+     MUXCY:CI->O           1   0.026   0.000  fpu_add_conv_adcv_round_logic.rnd2_chain_gen[18].no_rlocs.carry_mux (fpu_add_conv_adcv_round_logic.rnd2_carry<19>)
+     MUXCY:CI->O           1   0.026   0.000  fpu_add_conv_adcv_round_logic.rnd2_chain_gen[19].no_rlocs.carry_mux (fpu_add_conv_adcv_round_logic.rnd2_carry<20>)
+     MUXCY:CI->O           1   0.026   0.000  fpu_add_conv_adcv_round_logic.rnd2_chain_gen[20].no_rlocs.carry_mux (fpu_add_conv_adcv_round_logic.rnd2_carry<21>)
+     MUXCY:CI->O           1   0.026   0.000  fpu_add_conv_adcv_round_logic.rnd2_chain_gen[21].no_rlocs.carry_mux (fpu_add_conv_adcv_round_logic.rnd2_carry<22>)
+     MUXCY:CI->O           1   0.026   0.000  fpu_add_conv_adcv_round_logic.rnd2_chain_gen[22].no_rlocs.carry_mux (fpu_add_conv_adcv_round_logic.rnd2_carry<23>)
+     MUXCY:CI->O           1   0.026   0.000  fpu_add_conv_adcv_round_logic.rnd2_chain_gen[23].no_rlocs.carry_mux (fpu_add_conv_adcv_round_logic.rnd2_carry<24>)
+     MUXCY:CI->O           1   0.026   0.000  fpu_add_conv_adcv_round_logic.rnd2_chain_gen[24].no_rlocs.carry_mux (fpu_add_conv_adcv_round_logic.rnd2_carry<25>)
+     MUXCY:CI->O           1   0.026   0.000  fpu_add_conv_adcv_round_logic.rnd2_chain_gen[25].no_rlocs.carry_mux (fpu_add_conv_adcv_round_logic.rnd2_carry<26>)
+     XORCY:CI->O           1   0.357   0.000  fpu_add_conv_adcv_round_logic.rnd2_chain_gen[26].no_rlocs.q_xor.sum_xor (fpu_add_conv_adcv_round_logic.rnd2_q_int<26>)
+     FD:D                     -0.018          fpu_add_conv_adcv_round_logic.rnd2_q_del_delay_0_26
+    ----------------------------------------
+    Total                      6.968ns (4.967ns logic, 2.001ns route)
+                                       (71.3% logic, 28.7% route)
+
+=========================================================================
+Timing constraint: Default OFFSET IN BEFORE for Clock 'FCB_CLK'
+  Total number of paths / destination ports: 732 / 234
+-------------------------------------------------------------------------
+Offset:              2.807ns (Levels of Logic = 4)
+  Source:            APUFCMINSTRVALID (PAD)
+  Destination:       ppc440_0_apu_fpu_virtex5/gen_apu_fpu_dp_lo.netlist/fpu_fetch_id_new_instr (FF)
+  Destination Clock: FCB_CLK rising
+
+  Data Path: APUFCMINSTRVALID to ppc440_0_apu_fpu_virtex5/gen_apu_fpu_dp_lo.netlist/fpu_fetch_id_new_instr
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     begin scope: 'ppc440_0_apu_fpu_virtex5/gen_apu_fpu_dp_lo.netlist'
+     LUT6:I3->O            1   0.094   0.000  fpu_fetch_id_new_instr_mux000051 (fpu_fetch_id_new_instr_mux00005)
+     MUXF7:I0->O           4   0.251   1.085  fpu_fetch_id_new_instr_mux00005_f7 (fpu_fetch_n13)
+     LUT6:I0->O            1   0.094   0.336  fpu_fetch_id_new_instr_mux000025 (fpu_fetch_id_new_instr_mux000025)
+     FDRS:S                    0.573          fpu_fetch_id_new_instr
+    ----------------------------------------
+    Total                      2.807ns (1.386ns logic, 1.421ns route)
+                                       (49.4% logic, 50.6% route)
+
+=========================================================================
+Timing constraint: Default OFFSET OUT AFTER for Clock 'FCB_CLK'
+  Total number of paths / destination ports: 218 / 73
+-------------------------------------------------------------------------
+Offset:              2.165ns (Levels of Logic = 3)
+  Source:            ppc440_0_apu_fpu_virtex5/gen_apu_fpu_dp_lo.netlist/fpu_exec_wds_reg (FF)
+  Destination:       FCMAPUDONE (PAD)
+  Source Clock:      FCB_CLK rising
+
+  Data Path: ppc440_0_apu_fpu_virtex5/gen_apu_fpu_dp_lo.netlist/fpu_exec_wds_reg to FCMAPUDONE
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     FDRSE:C->Q            6   0.471   1.000  fpu_exec_wds_reg (fpu_exec_ctrl_early_store_en)
+     LUT5:I0->O            1   0.094   0.000  fpu_fetch_lut_dp3_is_real.l (fpu_fetch_done_part3)
+     MUXCY:S->O            0   0.600   0.000  fpu_fetch_cmux1 (fcmapudone)
+     end scope: 'ppc440_0_apu_fpu_virtex5/gen_apu_fpu_dp_lo.netlist'
+    ----------------------------------------
+    Total                      2.165ns (1.165ns logic, 1.000ns route)
+                                       (53.8% logic, 46.2% route)
+
+=========================================================================
+Timing constraint: Default path analysis
+  Total number of paths / destination ports: 6 / 1
+-------------------------------------------------------------------------
+Delay:               1.383ns (Levels of Logic = 5)
+  Source:            APUFCMWRITEBACKOK (PAD)
+  Destination:       FCMAPUDONE (PAD)
+
+  Data Path: APUFCMWRITEBACKOK to FCMAPUDONE
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     begin scope: 'ppc440_0_apu_fpu_virtex5/gen_apu_fpu_dp_lo.netlist'
+     LUT5:I0->O            1   0.094   0.000  fpu_fetch_lut_dp1_is_real.l (fpu_fetch_done_part1)
+     MUXCY:S->O            1   0.372   0.000  fpu_fetch_dc1_cch[1].cmux (fpu_fetch_dc1_subchain<1>)
+     MUXCY:CI->O           1   0.026   0.000  fpu_fetch_dc1_cch[0].cmux (fpu_fetch_comb_done)
+     MUXCY:CI->O           0   0.254   0.000  fpu_fetch_cmux1 (fcmapudone)
+     end scope: 'ppc440_0_apu_fpu_virtex5/gen_apu_fpu_dp_lo.netlist'
+    ----------------------------------------
+    Total                      1.383ns (1.383ns logic, 0.000ns route)
+                                       (100.0% logic, 0.0% route)
+
+=========================================================================
+
+
+Total REAL time to Xst completion: 21.00 secs
+Total CPU time to Xst completion: 21.29 secs
+ 
+--> 
+
+Total memory usage is 408344 kilobytes
+
+Number of errors   :    0 (   0 filtered)
+Number of warnings :    0 (   0 filtered)
+Number of infos    :    1 (   0 filtered)
+

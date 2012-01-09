@@ -1,0 +1,1660 @@
+Release 13.1 Map O.40d (nt64)
+Xilinx Mapping Report File for Design 'h3dge_coproc'
+
+Design Information
+------------------
+Command Line   : map -intstyle ise -p xc5vfx70t-ff1136-1 -w -logic_opt off -ol
+high -t 1 -register_duplication off -global_opt off -mt off -cm area -ir off -pr
+off -lc off -power off -o h3dge_coproc_map.ncd h3dge_coproc.ngd h3dge_coproc.pcf
+ 
+Target Device  : xc5vfx70t
+Target Package : ff1136
+Target Speed   : -1
+Mapper Version : virtex5 -- $Revision: 1.55 $
+Mapped Date    : Sun Dec 11 11:03:23 2011
+
+Design Summary
+--------------
+Number of errors:      0
+Number of warnings:   38
+Slice Logic Utilization:
+  Number of Slice Registers:                   230 out of  44,800    1%
+    Number used as Flip Flops:                 230
+  Number of Slice LUTs:                        229 out of  44,800    1%
+    Number used as logic:                      228 out of  44,800    1%
+      Number using O6 output only:             194
+      Number using O5 and O6:                   34
+    Number used as exclusive route-thru:         1
+  Number of route-thrus:                         1
+    Number using O6 output only:                 1
+
+Slice Logic Distribution:
+  Number of occupied Slices:                   163 out of  11,200    1%
+  Number of LUT Flip Flop pairs used:          312
+    Number with an unused Flip Flop:            82 out of     312   26%
+    Number with an unused LUT:                  83 out of     312   26%
+    Number of fully used LUT-FF pairs:         147 out of     312   47%
+    Number of unique control sets:              37
+    Number of slice register sites lost
+      to control set restrictions:              94 out of  44,800    1%
+
+  A LUT Flip Flop pair for this architecture represents one LUT paired with
+  one Flip Flop within a slice.  A control set is a unique combination of
+  clock, reset, set, and enable signals for a registered element.
+  The Slice Logic Distribution report is not meaningful if the design is
+  over-mapped for a non-slice resource or if Placement fails.
+  OVERMAPPING of BRAM resources should be ignored if the design is
+  over-mapped for a non-BRAM resource or if placement fails.
+
+IO Utilization:
+  Number of bonded IOBs:                       485 out of     640   75%
+
+Specific Feature Utilization:
+  Number of BUFG/BUFGCTRLs:                      2 out of      32    6%
+    Number used as BUFGs:                        2
+
+Average Fanout of Non-Clock Nets:                3.38
+
+Peak Memory Usage:  561 MB
+Total REAL time to MAP completion:  48 secs 
+Total CPU time to MAP completion:   45 secs 
+
+Table of Contents
+-----------------
+Section 1 - Errors
+Section 2 - Warnings
+Section 3 - Informational
+Section 4 - Removed Logic Summary
+Section 5 - Removed Logic
+Section 6 - IOB Properties
+Section 7 - RPMs
+Section 8 - Guide Report
+Section 9 - Area Group and Partition Summary
+Section 10 - Timing Report
+Section 11 - Configuration String Information
+Section 12 - Control Set Information
+Section 13 - Utilization by Hierarchy
+
+Section 1 - Errors
+------------------
+
+Section 2 - Warnings
+--------------------
+WARNING:MapLib:701 - Signal PLB_MWrBTerm connected to top level port
+   PLB_MWrBTerm has been removed.
+WARNING:MapLib:701 - Signal PLB_MRdBTerm connected to top level port
+   PLB_MRdBTerm has been removed.
+WARNING:MapLib:701 - Signal PLB_wrDBus<0> connected to top level port
+   PLB_wrDBus<0> has been removed.
+WARNING:MapLib:701 - Signal PLB_wrDBus<1> connected to top level port
+   PLB_wrDBus<1> has been removed.
+WARNING:MapLib:701 - Signal PLB_wrDBus<2> connected to top level port
+   PLB_wrDBus<2> has been removed.
+WARNING:MapLib:701 - Signal PLB_wrDBus<3> connected to top level port
+   PLB_wrDBus<3> has been removed.
+WARNING:MapLib:701 - Signal PLB_wrDBus<4> connected to top level port
+   PLB_wrDBus<4> has been removed.
+WARNING:MapLib:701 - Signal PLB_wrDBus<5> connected to top level port
+   PLB_wrDBus<5> has been removed.
+WARNING:MapLib:701 - Signal PLB_wrDBus<6> connected to top level port
+   PLB_wrDBus<6> has been removed.
+WARNING:MapLib:701 - Signal PLB_wrDBus<7> connected to top level port
+   PLB_wrDBus<7> has been removed.
+WARNING:MapLib:701 - Signal PLB_wrDBus<8> connected to top level port
+   PLB_wrDBus<8> has been removed.
+WARNING:MapLib:701 - Signal PLB_wrDBus<9> connected to top level port
+   PLB_wrDBus<9> has been removed.
+WARNING:MapLib:701 - Signal PLB_wrDBus<10> connected to top level port
+   PLB_wrDBus<10> has been removed.
+WARNING:MapLib:701 - Signal PLB_wrDBus<11> connected to top level port
+   PLB_wrDBus<11> has been removed.
+WARNING:MapLib:701 - Signal PLB_wrDBus<12> connected to top level port
+   PLB_wrDBus<12> has been removed.
+WARNING:MapLib:701 - Signal PLB_wrDBus<13> connected to top level port
+   PLB_wrDBus<13> has been removed.
+WARNING:MapLib:701 - Signal PLB_wrDBus<14> connected to top level port
+   PLB_wrDBus<14> has been removed.
+WARNING:MapLib:701 - Signal PLB_wrDBus<15> connected to top level port
+   PLB_wrDBus<15> has been removed.
+WARNING:MapLib:701 - Signal PLB_wrDBus<16> connected to top level port
+   PLB_wrDBus<16> has been removed.
+WARNING:MapLib:701 - Signal PLB_wrDBus<17> connected to top level port
+   PLB_wrDBus<17> has been removed.
+WARNING:MapLib:701 - Signal PLB_wrDBus<18> connected to top level port
+   PLB_wrDBus<18> has been removed.
+WARNING:MapLib:701 - Signal PLB_wrDBus<19> connected to top level port
+   PLB_wrDBus<19> has been removed.
+WARNING:MapLib:701 - Signal PLB_wrDBus<20> connected to top level port
+   PLB_wrDBus<20> has been removed.
+WARNING:MapLib:701 - Signal PLB_wrDBus<21> connected to top level port
+   PLB_wrDBus<21> has been removed.
+WARNING:MapLib:701 - Signal PLB_wrDBus<22> connected to top level port
+   PLB_wrDBus<22> has been removed.
+WARNING:MapLib:701 - Signal PLB_wrDBus<23> connected to top level port
+   PLB_wrDBus<23> has been removed.
+WARNING:MapLib:701 - Signal PLB_wrDBus<24> connected to top level port
+   PLB_wrDBus<24> has been removed.
+WARNING:MapLib:701 - Signal PLB_wrDBus<25> connected to top level port
+   PLB_wrDBus<25> has been removed.
+WARNING:MapLib:701 - Signal PLB_wrDBus<26> connected to top level port
+   PLB_wrDBus<26> has been removed.
+WARNING:MapLib:701 - Signal PLB_wrDBus<27> connected to top level port
+   PLB_wrDBus<27> has been removed.
+WARNING:MapLib:701 - Signal PLB_BE<1> connected to top level port PLB_BE<1> has
+   been removed.
+WARNING:MapLib:701 - Signal PLB_BE<2> connected to top level port PLB_BE<2> has
+   been removed.
+WARNING:MapLib:701 - Signal PLB_BE<5> connected to top level port PLB_BE<5> has
+   been removed.
+WARNING:MapLib:701 - Signal PLB_BE<6> connected to top level port PLB_BE<6> has
+   been removed.
+WARNING:MapLib:701 - Signal PLB_BE<9> connected to top level port PLB_BE<9> has
+   been removed.
+WARNING:MapLib:701 - Signal PLB_BE<10> connected to top level port PLB_BE<10>
+   has been removed.
+WARNING:MapLib:701 - Signal PLB_BE<13> connected to top level port PLB_BE<13>
+   has been removed.
+WARNING:MapLib:701 - Signal PLB_BE<14> connected to top level port PLB_BE<14>
+   has been removed.
+
+Section 3 - Informational
+-------------------------
+INFO:LIT:243 - Logical network PLB_wrPrim has no load.
+INFO:LIT:395 - The above info message is repeated 329 more times for the
+   following (max. 5 shown):
+   PLB_rdBurst,
+   PLB_SAValid,
+   PLB_wrPendReq,
+   PLB_rdPendReq,
+   PLB_MIRQ
+   To see the details of these info messages, please use the -detail switch.
+INFO:MapLib:562 - No environment variables are currently set.
+INFO:LIT:244 - All of the single ended outputs in this design are using slew
+   rate limited output drivers. The delay on speed critical single ended outputs
+   can be dramatically reduced by designating them as fast outputs.
+INFO:Pack:1716 - Initializing temperature to 85.000 Celsius. (default - Range:
+   0.000 to 85.000 Celsius)
+INFO:Pack:1720 - Initializing voltage to 0.950 Volts. (default - Range: 0.950 to
+   1.050 Volts)
+INFO:Map:215 - The Interim Design Summary has been generated in the MAP Report
+   (.mrp).
+INFO:Pack:1650 - Map created a placed design.
+
+Section 4 - Removed Logic Summary
+---------------------------------
+ 336 block(s) removed
+   5 block(s) optimized away
+ 331 signal(s) removed
+
+Section 5 - Removed Logic
+-------------------------
+
+The trimmed logic report below shows the logic removed from your design due to
+sourceless or loadless signals, and VCC or ground connections.  If the removal
+of a signal or symbol results in the subsequent removal of an additional signal
+or symbol, the message explaining that second removal will be indented.  This
+indentation will be repeated as a chain of related logic is removed.
+
+To quickly locate the original cause for the removal of a chain of logic, look
+above the place where that logic is listed in the trimming report, then locate
+the lines that are least indented (begin at the leftmost edge).
+
+Loadless block "PLBV46_MASTER_BURST_I/I_RD_WR_CONTROL/I_FIFO_REN_WRACK_REG"
+(SFF) removed.
+ The signal "PLBV46_MASTER_BURST_I/I_RD_WR_CONTROL/sm_plb_ld_wrdata_reg" is
+loadless and has been removed.
+  Loadless block "PLBV46_MASTER_BURST_I/I_RD_WR_CONTROL/sm_plb_ld_wrdata_reg"
+(SFF) removed.
+   The signal "PLBV46_MASTER_BURST_I/I_RD_WR_CONTROL/sm_plb_ld_wrdata_reg_ns" is
+loadless and has been removed.
+    Loadless block "PLBV46_MASTER_BURST_I/I_RD_WR_CONTROL/sm_plb_ld_wrdata_reg_ns1"
+(ROM) removed.
+Loadless block "PLBV46_MASTER_BURST_I/I_RD_WR_CONTROL/I_RDEOP_REG" (SFF)
+removed.
+ The signal "PLBV46_MASTER_BURST_I/I_RD_WR_CONTROL/sig_set_rd_eop" is loadless
+and has been removed.
+  Loadless block "PLBV46_MASTER_BURST_I/I_RD_WR_CONTROL/sig_set_rd_eop" (ROM)
+removed.
+   The signal "PLBV46_MASTER_BURST_I/I_RD_WR_CONTROL/sm_post_rdreq" is loadless and
+has been removed.
+    Loadless block "PLBV46_MASTER_BURST_I/I_RD_WR_CONTROL/sm_post_rdreq" (SFF)
+removed.
+     The signal "PLBV46_MASTER_BURST_I/I_RD_WR_CONTROL/sm_post_rdreq_ns" is loadless
+and has been removed.
+      Loadless block "PLBV46_MASTER_BURST_I/I_RD_WR_CONTROL/sm_post_rdreq_ns1" (ROM)
+removed.
+   The signal "N197" is loadless and has been removed.
+    Loadless block "PLBV46_MASTER_BURST_I/I_RD_WR_CONTROL/sig_set_rd_eop_SW0" (ROM)
+removed.
+     The signal
+"PLBV46_MASTER_BURST_I/I_RD_WR_CONTROL/I_REQ_CALCULATOR/parent_dbeats_remaining<
+9>" is loadless and has been removed.
+      Loadless block
+"PLBV46_MASTER_BURST_I/I_RD_WR_CONTROL/I_REQ_CALCULATOR/parent_dbeats_remaining_
+9" (SFF) removed.
+       The signal
+"PLBV46_MASTER_BURST_I/I_RD_WR_CONTROL/I_REQ_CALCULATOR/Mcount_parent_dbeats_rem
+aining9" is loadless and has been removed.
+        Loadless block
+"PLBV46_MASTER_BURST_I/I_RD_WR_CONTROL/I_REQ_CALCULATOR/Mcount_parent_dbeats_rem
+aining_xor<9>" (XOR) removed.
+         The signal
+"PLBV46_MASTER_BURST_I/I_RD_WR_CONTROL/I_REQ_CALCULATOR/Mcount_parent_dbeats_rem
+aining_cy<8>" is loadless and has been removed.
+          Loadless block
+"PLBV46_MASTER_BURST_I/I_RD_WR_CONTROL/I_REQ_CALCULATOR/Mcount_parent_dbeats_rem
+aining_cy<8>" (MUX) removed.
+           The signal
+"PLBV46_MASTER_BURST_I/I_RD_WR_CONTROL/I_REQ_CALCULATOR/Mcount_parent_dbeats_rem
+aining_cy<7>" is loadless and has been removed.
+            Loadless block
+"PLBV46_MASTER_BURST_I/I_RD_WR_CONTROL/I_REQ_CALCULATOR/Mcount_parent_dbeats_rem
+aining_cy<7>" (MUX) removed.
+             The signal
+"PLBV46_MASTER_BURST_I/I_RD_WR_CONTROL/I_REQ_CALCULATOR/Mcount_parent_dbeats_rem
+aining_cy<6>" is loadless and has been removed.
+              Loadless block
+"PLBV46_MASTER_BURST_I/I_RD_WR_CONTROL/I_REQ_CALCULATOR/Mcount_parent_dbeats_rem
+aining_cy<6>" (MUX) removed.
+               The signal
+"PLBV46_MASTER_BURST_I/I_RD_WR_CONTROL/I_REQ_CALCULATOR/Mcount_parent_dbeats_rem
+aining_cy<5>" is loadless and has been removed.
+                Loadless block
+"PLBV46_MASTER_BURST_I/I_RD_WR_CONTROL/I_REQ_CALCULATOR/Mcount_parent_dbeats_rem
+aining_cy<5>" (MUX) removed.
+                 The signal
+"PLBV46_MASTER_BURST_I/I_RD_WR_CONTROL/I_REQ_CALCULATOR/Mcount_parent_dbeats_rem
+aining_cy<4>" is loadless and has been removed.
+                  Loadless block
+"PLBV46_MASTER_BURST_I/I_RD_WR_CONTROL/I_REQ_CALCULATOR/Mcount_parent_dbeats_rem
+aining_cy<4>" (MUX) removed.
+                   The signal
+"PLBV46_MASTER_BURST_I/I_RD_WR_CONTROL/I_REQ_CALCULATOR/Mcount_parent_dbeats_rem
+aining_cy<3>" is loadless and has been removed.
+                    Loadless block
+"PLBV46_MASTER_BURST_I/I_RD_WR_CONTROL/I_REQ_CALCULATOR/Mcount_parent_dbeats_rem
+aining_cy<3>" (MUX) removed.
+                   The signal
+"PLBV46_MASTER_BURST_I/I_RD_WR_CONTROL/I_REQ_CALCULATOR/Mcount_parent_dbeats_rem
+aining_lut<4>" is loadless and has been removed.
+                    Loadless block
+"PLBV46_MASTER_BURST_I/I_RD_WR_CONTROL/I_REQ_CALCULATOR/Mcount_parent_dbeats_rem
+aining_lut<4>" (ROM) removed.
+                     The signal
+"PLBV46_MASTER_BURST_I/I_RD_WR_CONTROL/I_REQ_CALCULATOR/parent_dbeats_remaining<
+4>" is loadless and has been removed.
+                      Loadless block
+"PLBV46_MASTER_BURST_I/I_RD_WR_CONTROL/I_REQ_CALCULATOR/parent_dbeats_remaining_
+4" (SFF) removed.
+                       The signal
+"PLBV46_MASTER_BURST_I/I_RD_WR_CONTROL/I_REQ_CALCULATOR/Mcount_parent_dbeats_rem
+aining4" is loadless and has been removed.
+                        Loadless block
+"PLBV46_MASTER_BURST_I/I_RD_WR_CONTROL/I_REQ_CALCULATOR/Mcount_parent_dbeats_rem
+aining_xor<4>" (XOR) removed.
+                 The signal
+"PLBV46_MASTER_BURST_I/I_RD_WR_CONTROL/I_REQ_CALCULATOR/Mcount_parent_dbeats_rem
+aining_lut<5>" is loadless and has been removed.
+                  Loadless block
+"PLBV46_MASTER_BURST_I/I_RD_WR_CONTROL/I_REQ_CALCULATOR/Mcount_parent_dbeats_rem
+aining_lut<5>" (ROM) removed.
+                   The signal
+"PLBV46_MASTER_BURST_I/I_RD_WR_CONTROL/I_REQ_CALCULATOR/parent_dbeats_remaining<
+5>" is loadless and has been removed.
+                    Loadless block
+"PLBV46_MASTER_BURST_I/I_RD_WR_CONTROL/I_REQ_CALCULATOR/parent_dbeats_remaining_
+5" (SFF) removed.
+                     The signal
+"PLBV46_MASTER_BURST_I/I_RD_WR_CONTROL/I_REQ_CALCULATOR/Mcount_parent_dbeats_rem
+aining5" is loadless and has been removed.
+                      Loadless block
+"PLBV46_MASTER_BURST_I/I_RD_WR_CONTROL/I_REQ_CALCULATOR/Mcount_parent_dbeats_rem
+aining_xor<5>" (XOR) removed.
+               The signal
+"PLBV46_MASTER_BURST_I/I_RD_WR_CONTROL/I_REQ_CALCULATOR/Mcount_parent_dbeats_rem
+aining_lut<6>" is loadless and has been removed.
+                Loadless block
+"PLBV46_MASTER_BURST_I/I_RD_WR_CONTROL/I_REQ_CALCULATOR/Mcount_parent_dbeats_rem
+aining_lut<6>" (ROM) removed.
+                 The signal
+"PLBV46_MASTER_BURST_I/I_RD_WR_CONTROL/I_REQ_CALCULATOR/parent_dbeats_remaining<
+6>" is loadless and has been removed.
+                  Loadless block
+"PLBV46_MASTER_BURST_I/I_RD_WR_CONTROL/I_REQ_CALCULATOR/parent_dbeats_remaining_
+6" (SFF) removed.
+                   The signal
+"PLBV46_MASTER_BURST_I/I_RD_WR_CONTROL/I_REQ_CALCULATOR/Mcount_parent_dbeats_rem
+aining6" is loadless and has been removed.
+                    Loadless block
+"PLBV46_MASTER_BURST_I/I_RD_WR_CONTROL/I_REQ_CALCULATOR/Mcount_parent_dbeats_rem
+aining_xor<6>" (XOR) removed.
+             The signal
+"PLBV46_MASTER_BURST_I/I_RD_WR_CONTROL/I_REQ_CALCULATOR/Mcount_parent_dbeats_rem
+aining_lut<7>" is loadless and has been removed.
+              Loadless block
+"PLBV46_MASTER_BURST_I/I_RD_WR_CONTROL/I_REQ_CALCULATOR/Mcount_parent_dbeats_rem
+aining_lut<7>" (ROM) removed.
+               The signal
+"PLBV46_MASTER_BURST_I/I_RD_WR_CONTROL/I_REQ_CALCULATOR/parent_dbeats_remaining<
+7>" is loadless and has been removed.
+                Loadless block
+"PLBV46_MASTER_BURST_I/I_RD_WR_CONTROL/I_REQ_CALCULATOR/parent_dbeats_remaining_
+7" (SFF) removed.
+                 The signal
+"PLBV46_MASTER_BURST_I/I_RD_WR_CONTROL/I_REQ_CALCULATOR/Mcount_parent_dbeats_rem
+aining7" is loadless and has been removed.
+                  Loadless block
+"PLBV46_MASTER_BURST_I/I_RD_WR_CONTROL/I_REQ_CALCULATOR/Mcount_parent_dbeats_rem
+aining_xor<7>" (XOR) removed.
+           The signal
+"PLBV46_MASTER_BURST_I/I_RD_WR_CONTROL/I_REQ_CALCULATOR/Mcount_parent_dbeats_rem
+aining_lut<8>" is loadless and has been removed.
+            Loadless block
+"PLBV46_MASTER_BURST_I/I_RD_WR_CONTROL/I_REQ_CALCULATOR/Mcount_parent_dbeats_rem
+aining_lut<8>" (ROM) removed.
+             The signal
+"PLBV46_MASTER_BURST_I/I_RD_WR_CONTROL/I_REQ_CALCULATOR/parent_dbeats_remaining<
+8>" is loadless and has been removed.
+              Loadless block
+"PLBV46_MASTER_BURST_I/I_RD_WR_CONTROL/I_REQ_CALCULATOR/parent_dbeats_remaining_
+8" (SFF) removed.
+               The signal
+"PLBV46_MASTER_BURST_I/I_RD_WR_CONTROL/I_REQ_CALCULATOR/Mcount_parent_dbeats_rem
+aining8" is loadless and has been removed.
+                Loadless block
+"PLBV46_MASTER_BURST_I/I_RD_WR_CONTROL/I_REQ_CALCULATOR/Mcount_parent_dbeats_rem
+aining_xor<8>" (XOR) removed.
+         The signal
+"PLBV46_MASTER_BURST_I/I_RD_WR_CONTROL/I_REQ_CALCULATOR/Mcount_parent_dbeats_rem
+aining_lut<9>" is loadless and has been removed.
+          Loadless block
+"PLBV46_MASTER_BURST_I/I_RD_WR_CONTROL/I_REQ_CALCULATOR/Mcount_parent_dbeats_rem
+aining_lut<9>" (ROM) removed.
+     The signal "N195" is loadless and has been removed.
+      Loadless block "PLBV46_MASTER_BURST_I/I_RD_WR_CONTROL/sig_set_rd_eop_SW1" (ROM)
+removed.
+       The signal
+"PLBV46_MASTER_BURST_I/I_RD_WR_CONTROL/I_REQ_CALCULATOR/parent_dbeats_remaining<
+10>" is loadless and has been removed.
+        Loadless block
+"PLBV46_MASTER_BURST_I/I_RD_WR_CONTROL/I_REQ_CALCULATOR/parent_dbeats_remaining_
+10" (SFF) removed.
+         The signal
+"PLBV46_MASTER_BURST_I/I_RD_WR_CONTROL/I_REQ_CALCULATOR/Mcount_parent_dbeats_rem
+aining10" is loadless and has been removed.
+          Loadless block
+"PLBV46_MASTER_BURST_I/I_RD_WR_CONTROL/I_REQ_CALCULATOR/Mcount_parent_dbeats_rem
+aining_xor<10>" (XOR) removed.
+           The signal
+"PLBV46_MASTER_BURST_I/I_RD_WR_CONTROL/I_REQ_CALCULATOR/Mcount_parent_dbeats_rem
+aining_cy<9>" is loadless and has been removed.
+            Loadless block
+"PLBV46_MASTER_BURST_I/I_RD_WR_CONTROL/I_REQ_CALCULATOR/Mcount_parent_dbeats_rem
+aining_cy<9>" (MUX) removed.
+           The signal
+"PLBV46_MASTER_BURST_I/I_RD_WR_CONTROL/I_REQ_CALCULATOR/Mcount_parent_dbeats_rem
+aining_lut<10>" is loadless and has been removed.
+            Loadless block
+"PLBV46_MASTER_BURST_I/I_RD_WR_CONTROL/I_REQ_CALCULATOR/Mcount_parent_dbeats_rem
+aining_lut<10>" (ROM) removed.
+       The signal
+"PLBV46_MASTER_BURST_I/I_RD_WR_CONTROL/I_REQ_CALCULATOR/parent_dbeats_remaining<
+11>" is loadless and has been removed.
+        Loadless block
+"PLBV46_MASTER_BURST_I/I_RD_WR_CONTROL/I_REQ_CALCULATOR/parent_dbeats_remaining_
+11" (SFF) removed.
+         The signal
+"PLBV46_MASTER_BURST_I/I_RD_WR_CONTROL/I_REQ_CALCULATOR/Mcount_parent_dbeats_rem
+aining11" is loadless and has been removed.
+          Loadless block
+"PLBV46_MASTER_BURST_I/I_RD_WR_CONTROL/I_REQ_CALCULATOR/Mcount_parent_dbeats_rem
+aining_xor<11>" (XOR) removed.
+           The signal
+"PLBV46_MASTER_BURST_I/I_RD_WR_CONTROL/I_REQ_CALCULATOR/Mcount_parent_dbeats_rem
+aining_cy<10>" is loadless and has been removed.
+            Loadless block
+"PLBV46_MASTER_BURST_I/I_RD_WR_CONTROL/I_REQ_CALCULATOR/Mcount_parent_dbeats_rem
+aining_cy<10>" (MUX) removed.
+           The signal
+"PLBV46_MASTER_BURST_I/I_RD_WR_CONTROL/I_REQ_CALCULATOR/Mcount_parent_dbeats_rem
+aining_lut<11>" is loadless and has been removed.
+            Loadless block
+"PLBV46_MASTER_BURST_I/I_RD_WR_CONTROL/I_REQ_CALCULATOR/Mcount_parent_dbeats_rem
+aining_lut<11>" (ROM) removed.
+ The signal "PLBV46_MASTER_BURST_I/I_RD_WR_CONTROL/sig_clr_rd_eop" is loadless
+and has been removed.
+  Loadless block "PLBV46_MASTER_BURST_I/I_RD_WR_CONTROL/sig_clr_rd_eop1" (ROM)
+removed.
+Loadless block "PLBV46_MASTER_BURST_I/I_RD_WR_CONTROL/I_RDERR_REG" (SFF)
+removed.
+ The signal "PLBV46_MASTER_BURST_I/I_RD_WR_CONTROL/set_rderr" is loadless and has
+been removed.
+  Loadless block "PLBV46_MASTER_BURST_I/I_RD_WR_CONTROL/set_rderr1" (ROM) removed.
+Loadless block "PLBV46_MASTER_BURST_I/I_RD_WR_CONTROL/I_RDSOP_REG" (SFF)
+removed.
+ The signal "PLBV46_MASTER_BURST_I/I_RD_WR_CONTROL/sig_set_rd_sop" is loadless
+and has been removed.
+  Loadless block "PLBV46_MASTER_BURST_I/I_RD_WR_CONTROL/sig_set_rd_sop1" (ROM)
+removed.
+ The signal "PLBV46_MASTER_BURST_I/I_RD_WR_CONTROL/sig_clr_rd_sop" is loadless
+and has been removed.
+  Loadless block "PLBV46_MASTER_BURST_I/I_RD_WR_CONTROL/sig_clr_rd_sop1" (ROM)
+removed.
+Loadless block "PLBV46_MASTER_BURST_I/I_RD_WR_CONTROL/I_WRERR_REG" (SFF)
+removed.
+ The signal "PLBV46_MASTER_BURST_I/I_RD_WR_CONTROL/set_wrerr" is loadless and has
+been removed.
+  Loadless block "PLBV46_MASTER_BURST_I/I_RD_WR_CONTROL/set_wrerr1" (ROM) removed.
+The signal "USER_LOGIC_I/myAdder/c[31]" is sourceless and has been removed.
+The signal "USER_LOGIC_I/myAdder/c[30]" is sourceless and has been removed.
+The signal "USER_LOGIC_I/myAdder/c[29]" is sourceless and has been removed.
+The signal "USER_LOGIC_I/myAdder/c[28]" is sourceless and has been removed.
+The signal "USER_LOGIC_I/myAdder/c[27]" is sourceless and has been removed.
+The signal "USER_LOGIC_I/myAdder/c[26]" is sourceless and has been removed.
+The signal "USER_LOGIC_I/myAdder/c[25]" is sourceless and has been removed.
+The signal "USER_LOGIC_I/myAdder/c[24]" is sourceless and has been removed.
+The signal "USER_LOGIC_I/myAdder/c[23]" is sourceless and has been removed.
+The signal "USER_LOGIC_I/myAdder/c[22]" is sourceless and has been removed.
+The signal "USER_LOGIC_I/myAdder/c[21]" is sourceless and has been removed.
+The signal "USER_LOGIC_I/myAdder/c[20]" is sourceless and has been removed.
+The signal "USER_LOGIC_I/myAdder/c[19]" is sourceless and has been removed.
+The signal "USER_LOGIC_I/myAdder/c[18]" is sourceless and has been removed.
+The signal "USER_LOGIC_I/myAdder/c[17]" is sourceless and has been removed.
+The signal "USER_LOGIC_I/myAdder/c[16]" is sourceless and has been removed.
+The signal "USER_LOGIC_I/myAdder/c[15]" is sourceless and has been removed.
+The signal "USER_LOGIC_I/myAdder/c[14]" is sourceless and has been removed.
+The signal "USER_LOGIC_I/myAdder/c[13]" is sourceless and has been removed.
+The signal "USER_LOGIC_I/myAdder/c[12]" is sourceless and has been removed.
+The signal "USER_LOGIC_I/myAdder/c[11]" is sourceless and has been removed.
+The signal "USER_LOGIC_I/myAdder/c[10]" is sourceless and has been removed.
+The signal "USER_LOGIC_I/myAdder/c[9]" is sourceless and has been removed.
+The signal "USER_LOGIC_I/myAdder/c[8]" is sourceless and has been removed.
+The signal "USER_LOGIC_I/myAdder/c[7]" is sourceless and has been removed.
+The signal "USER_LOGIC_I/myAdder/c[6]" is sourceless and has been removed.
+The signal "USER_LOGIC_I/myAdder/c[5]" is sourceless and has been removed.
+The signal "USER_LOGIC_I/myAdder/c[4]" is sourceless and has been removed.
+The signal "USER_LOGIC_I/myAdder/c[3]" is sourceless and has been removed.
+The signal "USER_LOGIC_I/myAdder/c[2]" is sourceless and has been removed.
+The signal "USER_LOGIC_I/myAdder/c[1]" is sourceless and has been removed.
+The signal "USER_LOGIC_I/myAdder/c[0]" is sourceless and has been removed.
+ Sourceless block "USER_LOGIC_I/myAdder/c_cry_0" (MUX) removed.
+  The signal "USER_LOGIC_I/myAdder/c_cry_0/O" is sourceless and has been removed.
+The signal "USER_LOGIC_I/myAdder/GND" is sourceless and has been removed.
+The signal "USER_LOGIC_I/myAdder/c_axb_1" is sourceless and has been removed.
+ Sourceless block "USER_LOGIC_I/myAdder/c_s_1" (XOR) removed.
+ Sourceless block "USER_LOGIC_I/myAdder/c_cry_1" (MUX) removed.
+  The signal "USER_LOGIC_I/myAdder/c_cry_1/O" is sourceless and has been removed.
+The signal "USER_LOGIC_I/myAdder/c_axb_2" is sourceless and has been removed.
+ Sourceless block "USER_LOGIC_I/myAdder/c_s_2" (XOR) removed.
+ Sourceless block "USER_LOGIC_I/myAdder/c_cry_2" (MUX) removed.
+  The signal "USER_LOGIC_I/myAdder/c_cry_2/O" is sourceless and has been removed.
+The signal "USER_LOGIC_I/myAdder/c_axb_3" is sourceless and has been removed.
+ Sourceless block "USER_LOGIC_I/myAdder/c_s_3" (XOR) removed.
+ Sourceless block "USER_LOGIC_I/myAdder/c_cry_3" (MUX) removed.
+  The signal "USER_LOGIC_I/myAdder/c_cry_3/O" is sourceless and has been removed.
+The signal "USER_LOGIC_I/myAdder/c_axb_4" is sourceless and has been removed.
+ Sourceless block "USER_LOGIC_I/myAdder/c_s_4" (XOR) removed.
+ Sourceless block "USER_LOGIC_I/myAdder/c_cry_4" (MUX) removed.
+  The signal "USER_LOGIC_I/myAdder/c_cry_4/O" is sourceless and has been removed.
+The signal "USER_LOGIC_I/myAdder/c_axb_5" is sourceless and has been removed.
+ Sourceless block "USER_LOGIC_I/myAdder/c_s_5" (XOR) removed.
+ Sourceless block "USER_LOGIC_I/myAdder/c_cry_5" (MUX) removed.
+  The signal "USER_LOGIC_I/myAdder/c_cry_5/O" is sourceless and has been removed.
+The signal "USER_LOGIC_I/myAdder/c_axb_6" is sourceless and has been removed.
+ Sourceless block "USER_LOGIC_I/myAdder/c_s_6" (XOR) removed.
+ Sourceless block "USER_LOGIC_I/myAdder/c_cry_6" (MUX) removed.
+  The signal "USER_LOGIC_I/myAdder/c_cry_6/O" is sourceless and has been removed.
+The signal "USER_LOGIC_I/myAdder/c_axb_7" is sourceless and has been removed.
+ Sourceless block "USER_LOGIC_I/myAdder/c_s_7" (XOR) removed.
+ Sourceless block "USER_LOGIC_I/myAdder/c_cry_7" (MUX) removed.
+  The signal "USER_LOGIC_I/myAdder/c_cry_7/O" is sourceless and has been removed.
+The signal "USER_LOGIC_I/myAdder/c_axb_8" is sourceless and has been removed.
+ Sourceless block "USER_LOGIC_I/myAdder/c_s_8" (XOR) removed.
+ Sourceless block "USER_LOGIC_I/myAdder/c_cry_8" (MUX) removed.
+  The signal "USER_LOGIC_I/myAdder/c_cry_8/O" is sourceless and has been removed.
+The signal "USER_LOGIC_I/myAdder/c_axb_9" is sourceless and has been removed.
+ Sourceless block "USER_LOGIC_I/myAdder/c_s_9" (XOR) removed.
+ Sourceless block "USER_LOGIC_I/myAdder/c_cry_9" (MUX) removed.
+  The signal "USER_LOGIC_I/myAdder/c_cry_9/O" is sourceless and has been removed.
+The signal "USER_LOGIC_I/myAdder/c_axb_10" is sourceless and has been removed.
+ Sourceless block "USER_LOGIC_I/myAdder/c_s_10" (XOR) removed.
+ Sourceless block "USER_LOGIC_I/myAdder/c_cry_10" (MUX) removed.
+  The signal "USER_LOGIC_I/myAdder/c_cry_10/O" is sourceless and has been removed.
+The signal "USER_LOGIC_I/myAdder/c_axb_11" is sourceless and has been removed.
+ Sourceless block "USER_LOGIC_I/myAdder/c_s_11" (XOR) removed.
+ Sourceless block "USER_LOGIC_I/myAdder/c_cry_11" (MUX) removed.
+  The signal "USER_LOGIC_I/myAdder/c_cry_11/O" is sourceless and has been removed.
+The signal "USER_LOGIC_I/myAdder/c_axb_12" is sourceless and has been removed.
+ Sourceless block "USER_LOGIC_I/myAdder/c_s_12" (XOR) removed.
+ Sourceless block "USER_LOGIC_I/myAdder/c_cry_12" (MUX) removed.
+  The signal "USER_LOGIC_I/myAdder/c_cry_12/O" is sourceless and has been removed.
+The signal "USER_LOGIC_I/myAdder/c_axb_13" is sourceless and has been removed.
+ Sourceless block "USER_LOGIC_I/myAdder/c_s_13" (XOR) removed.
+ Sourceless block "USER_LOGIC_I/myAdder/c_cry_13" (MUX) removed.
+  The signal "USER_LOGIC_I/myAdder/c_cry_13/O" is sourceless and has been removed.
+The signal "USER_LOGIC_I/myAdder/c_axb_14" is sourceless and has been removed.
+ Sourceless block "USER_LOGIC_I/myAdder/c_s_14" (XOR) removed.
+ Sourceless block "USER_LOGIC_I/myAdder/c_cry_14" (MUX) removed.
+  The signal "USER_LOGIC_I/myAdder/c_cry_14/O" is sourceless and has been removed.
+The signal "USER_LOGIC_I/myAdder/c_axb_15" is sourceless and has been removed.
+ Sourceless block "USER_LOGIC_I/myAdder/c_s_15" (XOR) removed.
+ Sourceless block "USER_LOGIC_I/myAdder/c_cry_15" (MUX) removed.
+  The signal "USER_LOGIC_I/myAdder/c_cry_15/O" is sourceless and has been removed.
+The signal "USER_LOGIC_I/myAdder/c_axb_16" is sourceless and has been removed.
+ Sourceless block "USER_LOGIC_I/myAdder/c_s_16" (XOR) removed.
+ Sourceless block "USER_LOGIC_I/myAdder/c_cry_16" (MUX) removed.
+  The signal "USER_LOGIC_I/myAdder/c_cry_16/O" is sourceless and has been removed.
+The signal "USER_LOGIC_I/myAdder/c_axb_17" is sourceless and has been removed.
+ Sourceless block "USER_LOGIC_I/myAdder/c_s_17" (XOR) removed.
+ Sourceless block "USER_LOGIC_I/myAdder/c_cry_17" (MUX) removed.
+  The signal "USER_LOGIC_I/myAdder/c_cry_17/O" is sourceless and has been removed.
+The signal "USER_LOGIC_I/myAdder/c_axb_18" is sourceless and has been removed.
+ Sourceless block "USER_LOGIC_I/myAdder/c_s_18" (XOR) removed.
+ Sourceless block "USER_LOGIC_I/myAdder/c_cry_18" (MUX) removed.
+  The signal "USER_LOGIC_I/myAdder/c_cry_18/O" is sourceless and has been removed.
+The signal "USER_LOGIC_I/myAdder/c_axb_19" is sourceless and has been removed.
+ Sourceless block "USER_LOGIC_I/myAdder/c_s_19" (XOR) removed.
+ Sourceless block "USER_LOGIC_I/myAdder/c_cry_19" (MUX) removed.
+  The signal "USER_LOGIC_I/myAdder/c_cry_19/O" is sourceless and has been removed.
+The signal "USER_LOGIC_I/myAdder/c_axb_20" is sourceless and has been removed.
+ Sourceless block "USER_LOGIC_I/myAdder/c_s_20" (XOR) removed.
+ Sourceless block "USER_LOGIC_I/myAdder/c_cry_20" (MUX) removed.
+  The signal "USER_LOGIC_I/myAdder/c_cry_20/O" is sourceless and has been removed.
+The signal "USER_LOGIC_I/myAdder/c_axb_21" is sourceless and has been removed.
+ Sourceless block "USER_LOGIC_I/myAdder/c_s_21" (XOR) removed.
+ Sourceless block "USER_LOGIC_I/myAdder/c_cry_21" (MUX) removed.
+  The signal "USER_LOGIC_I/myAdder/c_cry_21/O" is sourceless and has been removed.
+The signal "USER_LOGIC_I/myAdder/c_axb_22" is sourceless and has been removed.
+ Sourceless block "USER_LOGIC_I/myAdder/c_s_22" (XOR) removed.
+ Sourceless block "USER_LOGIC_I/myAdder/c_cry_22" (MUX) removed.
+  The signal "USER_LOGIC_I/myAdder/c_cry_22/O" is sourceless and has been removed.
+The signal "USER_LOGIC_I/myAdder/c_axb_23" is sourceless and has been removed.
+ Sourceless block "USER_LOGIC_I/myAdder/c_s_23" (XOR) removed.
+ Sourceless block "USER_LOGIC_I/myAdder/c_cry_23" (MUX) removed.
+  The signal "USER_LOGIC_I/myAdder/c_cry_23/O" is sourceless and has been removed.
+The signal "USER_LOGIC_I/myAdder/c_axb_24" is sourceless and has been removed.
+ Sourceless block "USER_LOGIC_I/myAdder/c_s_24" (XOR) removed.
+ Sourceless block "USER_LOGIC_I/myAdder/c_cry_24" (MUX) removed.
+  The signal "USER_LOGIC_I/myAdder/c_cry_24/O" is sourceless and has been removed.
+The signal "USER_LOGIC_I/myAdder/c_axb_25" is sourceless and has been removed.
+ Sourceless block "USER_LOGIC_I/myAdder/c_s_25" (XOR) removed.
+ Sourceless block "USER_LOGIC_I/myAdder/c_cry_25" (MUX) removed.
+  The signal "USER_LOGIC_I/myAdder/c_cry_25/O" is sourceless and has been removed.
+The signal "USER_LOGIC_I/myAdder/c_axb_26" is sourceless and has been removed.
+ Sourceless block "USER_LOGIC_I/myAdder/c_s_26" (XOR) removed.
+ Sourceless block "USER_LOGIC_I/myAdder/c_cry_26" (MUX) removed.
+  The signal "USER_LOGIC_I/myAdder/c_cry_26/O" is sourceless and has been removed.
+The signal "USER_LOGIC_I/myAdder/c_axb_27" is sourceless and has been removed.
+ Sourceless block "USER_LOGIC_I/myAdder/c_s_27" (XOR) removed.
+ Sourceless block "USER_LOGIC_I/myAdder/c_cry_27" (MUX) removed.
+  The signal "USER_LOGIC_I/myAdder/c_cry_27/O" is sourceless and has been removed.
+The signal "USER_LOGIC_I/myAdder/c_axb_28" is sourceless and has been removed.
+ Sourceless block "USER_LOGIC_I/myAdder/c_s_28" (XOR) removed.
+ Sourceless block "USER_LOGIC_I/myAdder/c_cry_28" (MUX) removed.
+  The signal "USER_LOGIC_I/myAdder/c_cry_28/O" is sourceless and has been removed.
+The signal "USER_LOGIC_I/myAdder/c_axb_29" is sourceless and has been removed.
+ Sourceless block "USER_LOGIC_I/myAdder/c_s_29" (XOR) removed.
+ Sourceless block "USER_LOGIC_I/myAdder/c_cry_29" (MUX) removed.
+  The signal "USER_LOGIC_I/myAdder/c_cry_29/O" is sourceless and has been removed.
+The signal "USER_LOGIC_I/myAdder/c_axb_30" is sourceless and has been removed.
+ Sourceless block "USER_LOGIC_I/myAdder/c_s_30" (XOR) removed.
+ Sourceless block "USER_LOGIC_I/myAdder/c_cry_30" (MUX) removed.
+  The signal "USER_LOGIC_I/myAdder/c_cry_30/O" is sourceless and has been removed.
+The signal "USER_LOGIC_I/myAdder/c_axb_31" is sourceless and has been removed.
+ Sourceless block "USER_LOGIC_I/myAdder/c_s_31" (XOR) removed.
+
+The trimmed logic reported below is either:
+   1. part of a cycle
+   2. part of disabled logic
+   3. a side-effect of other trimmed logic
+
+The signal "PLBV46_MASTER_BURST_I/I_RD_WR_CONTROL/clear_rdburst" is unused and
+has been removed.
+ Unused block "PLBV46_MASTER_BURST_I/I_RD_WR_CONTROL/clear_rdburst1" (ROM)
+removed.
+  The signal "PLB_MRdBTerm_IBUF" is unused and has been removed.
+   Unused block "PLB_MRdBTerm_IBUF" (BUF) removed.
+    The signal "PLB_MRdBTerm" is unused and has been removed.
+     Unused block "PLB_MRdBTerm" (PAD) removed.
+The signal "PLBV46_MASTER_BURST_I/I_RD_WR_CONTROL/clear_wrburst" is unused and
+has been removed.
+ Unused block "PLBV46_MASTER_BURST_I/I_RD_WR_CONTROL/clear_wrburst1" (ROM)
+removed.
+  The signal "PLB_MWrBTerm_IBUF" is unused and has been removed.
+   Unused block "PLB_MWrBTerm_IBUF" (BUF) removed.
+    The signal "PLB_MWrBTerm" is unused and has been removed.
+     Unused block "PLB_MWrBTerm" (PAD) removed.
+The signal "PLBV46_SLAVE_SINGLE_I/I_SLAVE_ATTACHMENT/bus2ip_be_i<1>" is unused
+and has been removed.
+ Unused block "PLBV46_SLAVE_SINGLE_I/I_SLAVE_ATTACHMENT/bus2ip_be_i_1" (FF)
+removed.
+  The signal "PLBV46_SLAVE_SINGLE_I/I_SLAVE_ATTACHMENT/bus2ip_be_i_1_rstpot" is
+unused and has been removed.
+   Unused block "PLBV46_SLAVE_SINGLE_I/I_SLAVE_ATTACHMENT/bus2ip_be_i_1_rstpot"
+(ROM) removed.
+    The signal "PLBV46_SLAVE_SINGLE_I/I_SLAVE_ATTACHMENT/plb_be_reg<1>" is unused
+and has been removed.
+     Unused block "PLBV46_SLAVE_SINGLE_I/I_SLAVE_ATTACHMENT/plb_be_reg_1" (SFF)
+removed.
+      The signal "PLBV46_SLAVE_SINGLE_I/plb_be_muxed<1>" is unused and has been
+removed.
+       Unused block "PLBV46_SLAVE_SINGLE_I/plb_be_muxed<1>1" (ROM) removed.
+        The signal "PLB_BE_9_IBUF" is unused and has been removed.
+         Unused block "PLB_BE_9_IBUF" (BUF) removed.
+          The signal "PLB_BE<9>" is unused and has been removed.
+           Unused block "PLB_BE<9>" (PAD) removed.
+        The signal "PLB_BE_5_IBUF" is unused and has been removed.
+         Unused block "PLB_BE_5_IBUF" (BUF) removed.
+          The signal "PLB_BE<5>" is unused and has been removed.
+           Unused block "PLB_BE<5>" (PAD) removed.
+        The signal "PLB_BE_1_IBUF" is unused and has been removed.
+         Unused block "PLB_BE_1_IBUF" (BUF) removed.
+          The signal "PLB_BE<1>" is unused and has been removed.
+           Unused block "PLB_BE<1>" (PAD) removed.
+        The signal "PLB_BE_13_IBUF" is unused and has been removed.
+         Unused block "PLB_BE_13_IBUF" (BUF) removed.
+          The signal "PLB_BE<13>" is unused and has been removed.
+           Unused block "PLB_BE<13>" (PAD) removed.
+The signal "PLBV46_SLAVE_SINGLE_I/I_SLAVE_ATTACHMENT/bus2ip_be_i<2>" is unused
+and has been removed.
+ Unused block "PLBV46_SLAVE_SINGLE_I/I_SLAVE_ATTACHMENT/bus2ip_be_i_2" (FF)
+removed.
+  The signal "PLBV46_SLAVE_SINGLE_I/I_SLAVE_ATTACHMENT/bus2ip_be_i_2_rstpot" is
+unused and has been removed.
+   Unused block "PLBV46_SLAVE_SINGLE_I/I_SLAVE_ATTACHMENT/bus2ip_be_i_2_rstpot"
+(ROM) removed.
+    The signal "PLBV46_SLAVE_SINGLE_I/I_SLAVE_ATTACHMENT/plb_be_reg<2>" is unused
+and has been removed.
+     Unused block "PLBV46_SLAVE_SINGLE_I/I_SLAVE_ATTACHMENT/plb_be_reg_2" (SFF)
+removed.
+      The signal "PLBV46_SLAVE_SINGLE_I/plb_be_muxed<2>" is unused and has been
+removed.
+       Unused block "PLBV46_SLAVE_SINGLE_I/plb_be_muxed<2>1" (ROM) removed.
+        The signal "PLB_BE_10_IBUF" is unused and has been removed.
+         Unused block "PLB_BE_10_IBUF" (BUF) removed.
+          The signal "PLB_BE<10>" is unused and has been removed.
+           Unused block "PLB_BE<10>" (PAD) removed.
+        The signal "PLB_BE_6_IBUF" is unused and has been removed.
+         Unused block "PLB_BE_6_IBUF" (BUF) removed.
+          The signal "PLB_BE<6>" is unused and has been removed.
+           Unused block "PLB_BE<6>" (PAD) removed.
+        The signal "PLB_BE_2_IBUF" is unused and has been removed.
+         Unused block "PLB_BE_2_IBUF" (BUF) removed.
+          The signal "PLB_BE<2>" is unused and has been removed.
+           Unused block "PLB_BE<2>" (PAD) removed.
+        The signal "PLB_BE_14_IBUF" is unused and has been removed.
+         Unused block "PLB_BE_14_IBUF" (BUF) removed.
+          The signal "PLB_BE<14>" is unused and has been removed.
+           Unused block "PLB_BE<14>" (PAD) removed.
+The signal "PLBV46_SLAVE_SINGLE_I/I_SLAVE_ATTACHMENT/plb_wrdbus_reg<0>" is
+unused and has been removed.
+ Unused block "PLBV46_SLAVE_SINGLE_I/I_SLAVE_ATTACHMENT/plb_wrdbus_reg_0" (SFF)
+removed.
+  The signal "PLB_wrDBus_0_IBUF" is unused and has been removed.
+   Unused block "PLB_wrDBus_0_IBUF" (BUF) removed.
+    The signal "PLB_wrDBus<0>" is unused and has been removed.
+     Unused block "PLB_wrDBus<0>" (PAD) removed.
+The signal "PLBV46_SLAVE_SINGLE_I/I_SLAVE_ATTACHMENT/plb_wrdbus_reg<1>" is
+unused and has been removed.
+ Unused block "PLBV46_SLAVE_SINGLE_I/I_SLAVE_ATTACHMENT/plb_wrdbus_reg_1" (SFF)
+removed.
+  The signal "PLB_wrDBus_1_IBUF" is unused and has been removed.
+   Unused block "PLB_wrDBus_1_IBUF" (BUF) removed.
+    The signal "PLB_wrDBus<1>" is unused and has been removed.
+     Unused block "PLB_wrDBus<1>" (PAD) removed.
+The signal "PLBV46_SLAVE_SINGLE_I/I_SLAVE_ATTACHMENT/plb_wrdbus_reg<10>" is
+unused and has been removed.
+ Unused block "PLBV46_SLAVE_SINGLE_I/I_SLAVE_ATTACHMENT/plb_wrdbus_reg_10" (SFF)
+removed.
+  The signal "PLB_wrDBus_10_IBUF" is unused and has been removed.
+   Unused block "PLB_wrDBus_10_IBUF" (BUF) removed.
+    The signal "PLB_wrDBus<10>" is unused and has been removed.
+     Unused block "PLB_wrDBus<10>" (PAD) removed.
+The signal "PLBV46_SLAVE_SINGLE_I/I_SLAVE_ATTACHMENT/plb_wrdbus_reg<11>" is
+unused and has been removed.
+ Unused block "PLBV46_SLAVE_SINGLE_I/I_SLAVE_ATTACHMENT/plb_wrdbus_reg_11" (SFF)
+removed.
+  The signal "PLB_wrDBus_11_IBUF" is unused and has been removed.
+   Unused block "PLB_wrDBus_11_IBUF" (BUF) removed.
+    The signal "PLB_wrDBus<11>" is unused and has been removed.
+     Unused block "PLB_wrDBus<11>" (PAD) removed.
+The signal "PLBV46_SLAVE_SINGLE_I/I_SLAVE_ATTACHMENT/plb_wrdbus_reg<12>" is
+unused and has been removed.
+ Unused block "PLBV46_SLAVE_SINGLE_I/I_SLAVE_ATTACHMENT/plb_wrdbus_reg_12" (SFF)
+removed.
+  The signal "PLB_wrDBus_12_IBUF" is unused and has been removed.
+   Unused block "PLB_wrDBus_12_IBUF" (BUF) removed.
+    The signal "PLB_wrDBus<12>" is unused and has been removed.
+     Unused block "PLB_wrDBus<12>" (PAD) removed.
+The signal "PLBV46_SLAVE_SINGLE_I/I_SLAVE_ATTACHMENT/plb_wrdbus_reg<13>" is
+unused and has been removed.
+ Unused block "PLBV46_SLAVE_SINGLE_I/I_SLAVE_ATTACHMENT/plb_wrdbus_reg_13" (SFF)
+removed.
+  The signal "PLB_wrDBus_13_IBUF" is unused and has been removed.
+   Unused block "PLB_wrDBus_13_IBUF" (BUF) removed.
+    The signal "PLB_wrDBus<13>" is unused and has been removed.
+     Unused block "PLB_wrDBus<13>" (PAD) removed.
+The signal "PLBV46_SLAVE_SINGLE_I/I_SLAVE_ATTACHMENT/plb_wrdbus_reg<14>" is
+unused and has been removed.
+ Unused block "PLBV46_SLAVE_SINGLE_I/I_SLAVE_ATTACHMENT/plb_wrdbus_reg_14" (SFF)
+removed.
+  The signal "PLB_wrDBus_14_IBUF" is unused and has been removed.
+   Unused block "PLB_wrDBus_14_IBUF" (BUF) removed.
+    The signal "PLB_wrDBus<14>" is unused and has been removed.
+     Unused block "PLB_wrDBus<14>" (PAD) removed.
+The signal "PLBV46_SLAVE_SINGLE_I/I_SLAVE_ATTACHMENT/plb_wrdbus_reg<15>" is
+unused and has been removed.
+ Unused block "PLBV46_SLAVE_SINGLE_I/I_SLAVE_ATTACHMENT/plb_wrdbus_reg_15" (SFF)
+removed.
+  The signal "PLB_wrDBus_15_IBUF" is unused and has been removed.
+   Unused block "PLB_wrDBus_15_IBUF" (BUF) removed.
+    The signal "PLB_wrDBus<15>" is unused and has been removed.
+     Unused block "PLB_wrDBus<15>" (PAD) removed.
+The signal "PLBV46_SLAVE_SINGLE_I/I_SLAVE_ATTACHMENT/plb_wrdbus_reg<16>" is
+unused and has been removed.
+ Unused block "PLBV46_SLAVE_SINGLE_I/I_SLAVE_ATTACHMENT/plb_wrdbus_reg_16" (SFF)
+removed.
+  The signal "PLB_wrDBus_16_IBUF" is unused and has been removed.
+   Unused block "PLB_wrDBus_16_IBUF" (BUF) removed.
+    The signal "PLB_wrDBus<16>" is unused and has been removed.
+     Unused block "PLB_wrDBus<16>" (PAD) removed.
+The signal "PLBV46_SLAVE_SINGLE_I/I_SLAVE_ATTACHMENT/plb_wrdbus_reg<17>" is
+unused and has been removed.
+ Unused block "PLBV46_SLAVE_SINGLE_I/I_SLAVE_ATTACHMENT/plb_wrdbus_reg_17" (SFF)
+removed.
+  The signal "PLB_wrDBus_17_IBUF" is unused and has been removed.
+   Unused block "PLB_wrDBus_17_IBUF" (BUF) removed.
+    The signal "PLB_wrDBus<17>" is unused and has been removed.
+     Unused block "PLB_wrDBus<17>" (PAD) removed.
+The signal "PLBV46_SLAVE_SINGLE_I/I_SLAVE_ATTACHMENT/plb_wrdbus_reg<18>" is
+unused and has been removed.
+ Unused block "PLBV46_SLAVE_SINGLE_I/I_SLAVE_ATTACHMENT/plb_wrdbus_reg_18" (SFF)
+removed.
+  The signal "PLB_wrDBus_18_IBUF" is unused and has been removed.
+   Unused block "PLB_wrDBus_18_IBUF" (BUF) removed.
+    The signal "PLB_wrDBus<18>" is unused and has been removed.
+     Unused block "PLB_wrDBus<18>" (PAD) removed.
+The signal "PLBV46_SLAVE_SINGLE_I/I_SLAVE_ATTACHMENT/plb_wrdbus_reg<19>" is
+unused and has been removed.
+ Unused block "PLBV46_SLAVE_SINGLE_I/I_SLAVE_ATTACHMENT/plb_wrdbus_reg_19" (SFF)
+removed.
+  The signal "PLB_wrDBus_19_IBUF" is unused and has been removed.
+   Unused block "PLB_wrDBus_19_IBUF" (BUF) removed.
+    The signal "PLB_wrDBus<19>" is unused and has been removed.
+     Unused block "PLB_wrDBus<19>" (PAD) removed.
+The signal "PLBV46_SLAVE_SINGLE_I/I_SLAVE_ATTACHMENT/plb_wrdbus_reg<2>" is
+unused and has been removed.
+ Unused block "PLBV46_SLAVE_SINGLE_I/I_SLAVE_ATTACHMENT/plb_wrdbus_reg_2" (SFF)
+removed.
+  The signal "PLB_wrDBus_2_IBUF" is unused and has been removed.
+   Unused block "PLB_wrDBus_2_IBUF" (BUF) removed.
+    The signal "PLB_wrDBus<2>" is unused and has been removed.
+     Unused block "PLB_wrDBus<2>" (PAD) removed.
+The signal "PLBV46_SLAVE_SINGLE_I/I_SLAVE_ATTACHMENT/plb_wrdbus_reg<20>" is
+unused and has been removed.
+ Unused block "PLBV46_SLAVE_SINGLE_I/I_SLAVE_ATTACHMENT/plb_wrdbus_reg_20" (SFF)
+removed.
+  The signal "PLB_wrDBus_20_IBUF" is unused and has been removed.
+   Unused block "PLB_wrDBus_20_IBUF" (BUF) removed.
+    The signal "PLB_wrDBus<20>" is unused and has been removed.
+     Unused block "PLB_wrDBus<20>" (PAD) removed.
+The signal "PLBV46_SLAVE_SINGLE_I/I_SLAVE_ATTACHMENT/plb_wrdbus_reg<21>" is
+unused and has been removed.
+ Unused block "PLBV46_SLAVE_SINGLE_I/I_SLAVE_ATTACHMENT/plb_wrdbus_reg_21" (SFF)
+removed.
+  The signal "PLB_wrDBus_21_IBUF" is unused and has been removed.
+   Unused block "PLB_wrDBus_21_IBUF" (BUF) removed.
+    The signal "PLB_wrDBus<21>" is unused and has been removed.
+     Unused block "PLB_wrDBus<21>" (PAD) removed.
+The signal "PLBV46_SLAVE_SINGLE_I/I_SLAVE_ATTACHMENT/plb_wrdbus_reg<22>" is
+unused and has been removed.
+ Unused block "PLBV46_SLAVE_SINGLE_I/I_SLAVE_ATTACHMENT/plb_wrdbus_reg_22" (SFF)
+removed.
+  The signal "PLB_wrDBus_22_IBUF" is unused and has been removed.
+   Unused block "PLB_wrDBus_22_IBUF" (BUF) removed.
+    The signal "PLB_wrDBus<22>" is unused and has been removed.
+     Unused block "PLB_wrDBus<22>" (PAD) removed.
+The signal "PLBV46_SLAVE_SINGLE_I/I_SLAVE_ATTACHMENT/plb_wrdbus_reg<23>" is
+unused and has been removed.
+ Unused block "PLBV46_SLAVE_SINGLE_I/I_SLAVE_ATTACHMENT/plb_wrdbus_reg_23" (SFF)
+removed.
+  The signal "PLB_wrDBus_23_IBUF" is unused and has been removed.
+   Unused block "PLB_wrDBus_23_IBUF" (BUF) removed.
+    The signal "PLB_wrDBus<23>" is unused and has been removed.
+     Unused block "PLB_wrDBus<23>" (PAD) removed.
+The signal "PLBV46_SLAVE_SINGLE_I/I_SLAVE_ATTACHMENT/plb_wrdbus_reg<24>" is
+unused and has been removed.
+ Unused block "PLBV46_SLAVE_SINGLE_I/I_SLAVE_ATTACHMENT/plb_wrdbus_reg_24" (SFF)
+removed.
+  The signal "PLB_wrDBus_24_IBUF" is unused and has been removed.
+   Unused block "PLB_wrDBus_24_IBUF" (BUF) removed.
+    The signal "PLB_wrDBus<24>" is unused and has been removed.
+     Unused block "PLB_wrDBus<24>" (PAD) removed.
+The signal "PLBV46_SLAVE_SINGLE_I/I_SLAVE_ATTACHMENT/plb_wrdbus_reg<25>" is
+unused and has been removed.
+ Unused block "PLBV46_SLAVE_SINGLE_I/I_SLAVE_ATTACHMENT/plb_wrdbus_reg_25" (SFF)
+removed.
+  The signal "PLB_wrDBus_25_IBUF" is unused and has been removed.
+   Unused block "PLB_wrDBus_25_IBUF" (BUF) removed.
+    The signal "PLB_wrDBus<25>" is unused and has been removed.
+     Unused block "PLB_wrDBus<25>" (PAD) removed.
+The signal "PLBV46_SLAVE_SINGLE_I/I_SLAVE_ATTACHMENT/plb_wrdbus_reg<26>" is
+unused and has been removed.
+ Unused block "PLBV46_SLAVE_SINGLE_I/I_SLAVE_ATTACHMENT/plb_wrdbus_reg_26" (SFF)
+removed.
+  The signal "PLB_wrDBus_26_IBUF" is unused and has been removed.
+   Unused block "PLB_wrDBus_26_IBUF" (BUF) removed.
+    The signal "PLB_wrDBus<26>" is unused and has been removed.
+     Unused block "PLB_wrDBus<26>" (PAD) removed.
+The signal "PLBV46_SLAVE_SINGLE_I/I_SLAVE_ATTACHMENT/plb_wrdbus_reg<27>" is
+unused and has been removed.
+ Unused block "PLBV46_SLAVE_SINGLE_I/I_SLAVE_ATTACHMENT/plb_wrdbus_reg_27" (SFF)
+removed.
+  The signal "PLB_wrDBus_27_IBUF" is unused and has been removed.
+   Unused block "PLB_wrDBus_27_IBUF" (BUF) removed.
+    The signal "PLB_wrDBus<27>" is unused and has been removed.
+     Unused block "PLB_wrDBus<27>" (PAD) removed.
+The signal "PLBV46_SLAVE_SINGLE_I/I_SLAVE_ATTACHMENT/plb_wrdbus_reg<3>" is
+unused and has been removed.
+ Unused block "PLBV46_SLAVE_SINGLE_I/I_SLAVE_ATTACHMENT/plb_wrdbus_reg_3" (SFF)
+removed.
+  The signal "PLB_wrDBus_3_IBUF" is unused and has been removed.
+   Unused block "PLB_wrDBus_3_IBUF" (BUF) removed.
+    The signal "PLB_wrDBus<3>" is unused and has been removed.
+     Unused block "PLB_wrDBus<3>" (PAD) removed.
+The signal "PLBV46_SLAVE_SINGLE_I/I_SLAVE_ATTACHMENT/plb_wrdbus_reg<4>" is
+unused and has been removed.
+ Unused block "PLBV46_SLAVE_SINGLE_I/I_SLAVE_ATTACHMENT/plb_wrdbus_reg_4" (SFF)
+removed.
+  The signal "PLB_wrDBus_4_IBUF" is unused and has been removed.
+   Unused block "PLB_wrDBus_4_IBUF" (BUF) removed.
+    The signal "PLB_wrDBus<4>" is unused and has been removed.
+     Unused block "PLB_wrDBus<4>" (PAD) removed.
+The signal "PLBV46_SLAVE_SINGLE_I/I_SLAVE_ATTACHMENT/plb_wrdbus_reg<5>" is
+unused and has been removed.
+ Unused block "PLBV46_SLAVE_SINGLE_I/I_SLAVE_ATTACHMENT/plb_wrdbus_reg_5" (SFF)
+removed.
+  The signal "PLB_wrDBus_5_IBUF" is unused and has been removed.
+   Unused block "PLB_wrDBus_5_IBUF" (BUF) removed.
+    The signal "PLB_wrDBus<5>" is unused and has been removed.
+     Unused block "PLB_wrDBus<5>" (PAD) removed.
+The signal "PLBV46_SLAVE_SINGLE_I/I_SLAVE_ATTACHMENT/plb_wrdbus_reg<6>" is
+unused and has been removed.
+ Unused block "PLBV46_SLAVE_SINGLE_I/I_SLAVE_ATTACHMENT/plb_wrdbus_reg_6" (SFF)
+removed.
+  The signal "PLB_wrDBus_6_IBUF" is unused and has been removed.
+   Unused block "PLB_wrDBus_6_IBUF" (BUF) removed.
+    The signal "PLB_wrDBus<6>" is unused and has been removed.
+     Unused block "PLB_wrDBus<6>" (PAD) removed.
+The signal "PLBV46_SLAVE_SINGLE_I/I_SLAVE_ATTACHMENT/plb_wrdbus_reg<7>" is
+unused and has been removed.
+ Unused block "PLBV46_SLAVE_SINGLE_I/I_SLAVE_ATTACHMENT/plb_wrdbus_reg_7" (SFF)
+removed.
+  The signal "PLB_wrDBus_7_IBUF" is unused and has been removed.
+   Unused block "PLB_wrDBus_7_IBUF" (BUF) removed.
+    The signal "PLB_wrDBus<7>" is unused and has been removed.
+     Unused block "PLB_wrDBus<7>" (PAD) removed.
+The signal "PLBV46_SLAVE_SINGLE_I/I_SLAVE_ATTACHMENT/plb_wrdbus_reg<8>" is
+unused and has been removed.
+ Unused block "PLBV46_SLAVE_SINGLE_I/I_SLAVE_ATTACHMENT/plb_wrdbus_reg_8" (SFF)
+removed.
+  The signal "PLB_wrDBus_8_IBUF" is unused and has been removed.
+   Unused block "PLB_wrDBus_8_IBUF" (BUF) removed.
+    The signal "PLB_wrDBus<8>" is unused and has been removed.
+     Unused block "PLB_wrDBus<8>" (PAD) removed.
+The signal "PLBV46_SLAVE_SINGLE_I/I_SLAVE_ATTACHMENT/plb_wrdbus_reg<9>" is
+unused and has been removed.
+ Unused block "PLBV46_SLAVE_SINGLE_I/I_SLAVE_ATTACHMENT/plb_wrdbus_reg_9" (SFF)
+removed.
+  The signal "PLB_wrDBus_9_IBUF" is unused and has been removed.
+   Unused block "PLB_wrDBus_9_IBUF" (BUF) removed.
+    The signal "PLB_wrDBus<9>" is unused and has been removed.
+     Unused block "PLB_wrDBus<9>" (PAD) removed.
+The signal "USER_LOGIC_I/slv_reg0<0>" is unused and has been removed.
+ Unused block "USER_LOGIC_I/slv_reg0_0" (SFF) removed.
+  The signal "USER_LOGIC_I/slv_reg0_0_not0001" is unused and has been removed.
+   Unused block "USER_LOGIC_I/slv_reg0_0_not000111" (ROM) removed.
+    The signal "USER_LOGIC_I/slv_reg0_0_not0001_bdd0" is unused and has been
+removed.
+     Unused block "USER_LOGIC_I/slv_reg0_0_not0001244" (ROM) removed.
+      The signal "USER_LOGIC_I/slv_reg0_0_not0001_bdd12" is unused and has been
+removed.
+       Unused block "USER_LOGIC_I/slv_reg0_0_not000181" (ROM) removed.
+      The signal "USER_LOGIC_I/slv_reg0_0_not0001230" is unused and has been removed.
+       Unused block "USER_LOGIC_I/slv_reg1_0_not0001230" (ROM) removed.
+      The signal "USER_LOGIC_I/slv_reg0_0_not0001219" is unused and has been removed.
+       Unused block "USER_LOGIC_I/slv_reg0_0_not0001219" (ROM) removed.
+The signal "USER_LOGIC_I/slv_reg0<1>" is unused and has been removed.
+ Unused block "USER_LOGIC_I/slv_reg0_1" (SFF) removed.
+The signal "USER_LOGIC_I/slv_reg0<10>" is unused and has been removed.
+ Unused block "USER_LOGIC_I/slv_reg0_10" (SFF) removed.
+  The signal "USER_LOGIC_I/slv_reg0_8_not0001" is unused and has been removed.
+   Unused block "USER_LOGIC_I/slv_reg0_8_not000111" (ROM) removed.
+The signal "USER_LOGIC_I/slv_reg0<11>" is unused and has been removed.
+ Unused block "USER_LOGIC_I/slv_reg0_11" (SFF) removed.
+The signal "USER_LOGIC_I/slv_reg0<12>" is unused and has been removed.
+ Unused block "USER_LOGIC_I/slv_reg0_12" (SFF) removed.
+The signal "USER_LOGIC_I/slv_reg0<13>" is unused and has been removed.
+ Unused block "USER_LOGIC_I/slv_reg0_13" (SFF) removed.
+The signal "USER_LOGIC_I/slv_reg0<14>" is unused and has been removed.
+ Unused block "USER_LOGIC_I/slv_reg0_14" (SFF) removed.
+The signal "USER_LOGIC_I/slv_reg0<15>" is unused and has been removed.
+ Unused block "USER_LOGIC_I/slv_reg0_15" (SFF) removed.
+The signal "USER_LOGIC_I/slv_reg0<16>" is unused and has been removed.
+ Unused block "USER_LOGIC_I/slv_reg0_16" (SFF) removed.
+  The signal "USER_LOGIC_I/slv_reg0_16_not0001" is unused and has been removed.
+   Unused block "USER_LOGIC_I/slv_reg0_16_not000111" (ROM) removed.
+The signal "USER_LOGIC_I/slv_reg0<17>" is unused and has been removed.
+ Unused block "USER_LOGIC_I/slv_reg0_17" (SFF) removed.
+The signal "USER_LOGIC_I/slv_reg0<18>" is unused and has been removed.
+ Unused block "USER_LOGIC_I/slv_reg0_18" (SFF) removed.
+The signal "USER_LOGIC_I/slv_reg0<19>" is unused and has been removed.
+ Unused block "USER_LOGIC_I/slv_reg0_19" (SFF) removed.
+The signal "USER_LOGIC_I/slv_reg0<2>" is unused and has been removed.
+ Unused block "USER_LOGIC_I/slv_reg0_2" (SFF) removed.
+The signal "USER_LOGIC_I/slv_reg0<20>" is unused and has been removed.
+ Unused block "USER_LOGIC_I/slv_reg0_20" (SFF) removed.
+The signal "USER_LOGIC_I/slv_reg0<21>" is unused and has been removed.
+ Unused block "USER_LOGIC_I/slv_reg0_21" (SFF) removed.
+The signal "USER_LOGIC_I/slv_reg0<22>" is unused and has been removed.
+ Unused block "USER_LOGIC_I/slv_reg0_22" (SFF) removed.
+The signal "USER_LOGIC_I/slv_reg0<23>" is unused and has been removed.
+ Unused block "USER_LOGIC_I/slv_reg0_23" (SFF) removed.
+The signal "USER_LOGIC_I/slv_reg0<24>" is unused and has been removed.
+ Unused block "USER_LOGIC_I/slv_reg0_24" (SFF) removed.
+  The signal "USER_LOGIC_I/slv_reg0_24_not0001" is unused and has been removed.
+   Unused block "USER_LOGIC_I/slv_reg0_24_not000111" (ROM) removed.
+The signal "USER_LOGIC_I/slv_reg0<25>" is unused and has been removed.
+ Unused block "USER_LOGIC_I/slv_reg0_25" (SFF) removed.
+The signal "USER_LOGIC_I/slv_reg0<26>" is unused and has been removed.
+ Unused block "USER_LOGIC_I/slv_reg0_26" (SFF) removed.
+The signal "USER_LOGIC_I/slv_reg0<27>" is unused and has been removed.
+ Unused block "USER_LOGIC_I/slv_reg0_27" (SFF) removed.
+The signal "USER_LOGIC_I/slv_reg0<28>" is unused and has been removed.
+ Unused block "USER_LOGIC_I/slv_reg0_28" (SFF) removed.
+The signal "USER_LOGIC_I/slv_reg0<29>" is unused and has been removed.
+ Unused block "USER_LOGIC_I/slv_reg0_29" (SFF) removed.
+The signal "USER_LOGIC_I/slv_reg0<3>" is unused and has been removed.
+ Unused block "USER_LOGIC_I/slv_reg0_3" (SFF) removed.
+The signal "USER_LOGIC_I/slv_reg0<30>" is unused and has been removed.
+ Unused block "USER_LOGIC_I/slv_reg0_30" (SFF) removed.
+The signal "USER_LOGIC_I/slv_reg0<31>" is unused and has been removed.
+ Unused block "USER_LOGIC_I/slv_reg0_31" (SFF) removed.
+The signal "USER_LOGIC_I/slv_reg0<4>" is unused and has been removed.
+ Unused block "USER_LOGIC_I/slv_reg0_4" (SFF) removed.
+The signal "USER_LOGIC_I/slv_reg0<5>" is unused and has been removed.
+ Unused block "USER_LOGIC_I/slv_reg0_5" (SFF) removed.
+The signal "USER_LOGIC_I/slv_reg0<6>" is unused and has been removed.
+ Unused block "USER_LOGIC_I/slv_reg0_6" (SFF) removed.
+The signal "USER_LOGIC_I/slv_reg0<7>" is unused and has been removed.
+ Unused block "USER_LOGIC_I/slv_reg0_7" (SFF) removed.
+The signal "USER_LOGIC_I/slv_reg0<8>" is unused and has been removed.
+ Unused block "USER_LOGIC_I/slv_reg0_8" (SFF) removed.
+The signal "USER_LOGIC_I/slv_reg0<9>" is unused and has been removed.
+ Unused block "USER_LOGIC_I/slv_reg0_9" (SFF) removed.
+The signal "USER_LOGIC_I/slv_reg1<0>" is unused and has been removed.
+ Unused block "USER_LOGIC_I/slv_reg1_0" (SFF) removed.
+  The signal "USER_LOGIC_I/slv_reg1_0_not0001" is unused and has been removed.
+   Unused block "USER_LOGIC_I/slv_reg1_0_not000111" (ROM) removed.
+    The signal "USER_LOGIC_I/slv_reg1_0_not0001_bdd0" is unused and has been
+removed.
+     Unused block "USER_LOGIC_I/slv_reg1_0_not0001244" (ROM) removed.
+      The signal "USER_LOGIC_I/slv_reg1_0_not0001219" is unused and has been removed.
+       Unused block "USER_LOGIC_I/slv_reg1_0_not0001219" (ROM) removed.
+The signal "USER_LOGIC_I/slv_reg1<1>" is unused and has been removed.
+ Unused block "USER_LOGIC_I/slv_reg1_1" (SFF) removed.
+The signal "USER_LOGIC_I/slv_reg1<10>" is unused and has been removed.
+ Unused block "USER_LOGIC_I/slv_reg1_10" (SFF) removed.
+  The signal "USER_LOGIC_I/slv_reg1_8_not0001" is unused and has been removed.
+   Unused block "USER_LOGIC_I/slv_reg1_8_not000111" (ROM) removed.
+The signal "USER_LOGIC_I/slv_reg1<11>" is unused and has been removed.
+ Unused block "USER_LOGIC_I/slv_reg1_11" (SFF) removed.
+The signal "USER_LOGIC_I/slv_reg1<12>" is unused and has been removed.
+ Unused block "USER_LOGIC_I/slv_reg1_12" (SFF) removed.
+The signal "USER_LOGIC_I/slv_reg1<13>" is unused and has been removed.
+ Unused block "USER_LOGIC_I/slv_reg1_13" (SFF) removed.
+The signal "USER_LOGIC_I/slv_reg1<14>" is unused and has been removed.
+ Unused block "USER_LOGIC_I/slv_reg1_14" (SFF) removed.
+The signal "USER_LOGIC_I/slv_reg1<15>" is unused and has been removed.
+ Unused block "USER_LOGIC_I/slv_reg1_15" (SFF) removed.
+The signal "USER_LOGIC_I/slv_reg1<16>" is unused and has been removed.
+ Unused block "USER_LOGIC_I/slv_reg1_16" (SFF) removed.
+  The signal "USER_LOGIC_I/slv_reg1_16_not0001" is unused and has been removed.
+   Unused block "USER_LOGIC_I/slv_reg1_16_not000111" (ROM) removed.
+The signal "USER_LOGIC_I/slv_reg1<17>" is unused and has been removed.
+ Unused block "USER_LOGIC_I/slv_reg1_17" (SFF) removed.
+The signal "USER_LOGIC_I/slv_reg1<18>" is unused and has been removed.
+ Unused block "USER_LOGIC_I/slv_reg1_18" (SFF) removed.
+The signal "USER_LOGIC_I/slv_reg1<19>" is unused and has been removed.
+ Unused block "USER_LOGIC_I/slv_reg1_19" (SFF) removed.
+The signal "USER_LOGIC_I/slv_reg1<2>" is unused and has been removed.
+ Unused block "USER_LOGIC_I/slv_reg1_2" (SFF) removed.
+The signal "USER_LOGIC_I/slv_reg1<20>" is unused and has been removed.
+ Unused block "USER_LOGIC_I/slv_reg1_20" (SFF) removed.
+The signal "USER_LOGIC_I/slv_reg1<21>" is unused and has been removed.
+ Unused block "USER_LOGIC_I/slv_reg1_21" (SFF) removed.
+The signal "USER_LOGIC_I/slv_reg1<22>" is unused and has been removed.
+ Unused block "USER_LOGIC_I/slv_reg1_22" (SFF) removed.
+The signal "USER_LOGIC_I/slv_reg1<23>" is unused and has been removed.
+ Unused block "USER_LOGIC_I/slv_reg1_23" (SFF) removed.
+The signal "USER_LOGIC_I/slv_reg1<24>" is unused and has been removed.
+ Unused block "USER_LOGIC_I/slv_reg1_24" (SFF) removed.
+  The signal "USER_LOGIC_I/slv_reg1_24_not0001" is unused and has been removed.
+   Unused block "USER_LOGIC_I/slv_reg1_24_not000111" (ROM) removed.
+The signal "USER_LOGIC_I/slv_reg1<25>" is unused and has been removed.
+ Unused block "USER_LOGIC_I/slv_reg1_25" (SFF) removed.
+The signal "USER_LOGIC_I/slv_reg1<26>" is unused and has been removed.
+ Unused block "USER_LOGIC_I/slv_reg1_26" (SFF) removed.
+The signal "USER_LOGIC_I/slv_reg1<27>" is unused and has been removed.
+ Unused block "USER_LOGIC_I/slv_reg1_27" (SFF) removed.
+The signal "USER_LOGIC_I/slv_reg1<28>" is unused and has been removed.
+ Unused block "USER_LOGIC_I/slv_reg1_28" (SFF) removed.
+The signal "USER_LOGIC_I/slv_reg1<29>" is unused and has been removed.
+ Unused block "USER_LOGIC_I/slv_reg1_29" (SFF) removed.
+The signal "USER_LOGIC_I/slv_reg1<3>" is unused and has been removed.
+ Unused block "USER_LOGIC_I/slv_reg1_3" (SFF) removed.
+The signal "USER_LOGIC_I/slv_reg1<30>" is unused and has been removed.
+ Unused block "USER_LOGIC_I/slv_reg1_30" (SFF) removed.
+The signal "USER_LOGIC_I/slv_reg1<31>" is unused and has been removed.
+ Unused block "USER_LOGIC_I/slv_reg1_31" (SFF) removed.
+The signal "USER_LOGIC_I/slv_reg1<4>" is unused and has been removed.
+ Unused block "USER_LOGIC_I/slv_reg1_4" (SFF) removed.
+The signal "USER_LOGIC_I/slv_reg1<5>" is unused and has been removed.
+ Unused block "USER_LOGIC_I/slv_reg1_5" (SFF) removed.
+The signal "USER_LOGIC_I/slv_reg1<6>" is unused and has been removed.
+ Unused block "USER_LOGIC_I/slv_reg1_6" (SFF) removed.
+The signal "USER_LOGIC_I/slv_reg1<7>" is unused and has been removed.
+ Unused block "USER_LOGIC_I/slv_reg1_7" (SFF) removed.
+The signal "USER_LOGIC_I/slv_reg1<8>" is unused and has been removed.
+ Unused block "USER_LOGIC_I/slv_reg1_8" (SFF) removed.
+The signal "USER_LOGIC_I/slv_reg1<9>" is unused and has been removed.
+ Unused block "USER_LOGIC_I/slv_reg1_9" (SFF) removed.
+Unused block "USER_LOGIC_I/myAdder/GND" (ZERO) removed.
+Unused block "USER_LOGIC_I/myAdder/c_axb_0" (ROM) removed.
+Unused block "USER_LOGIC_I/myAdder/c_axb_1" (ROM) removed.
+Unused block "USER_LOGIC_I/myAdder/c_axb_10" (ROM) removed.
+Unused block "USER_LOGIC_I/myAdder/c_axb_11" (ROM) removed.
+Unused block "USER_LOGIC_I/myAdder/c_axb_12" (ROM) removed.
+Unused block "USER_LOGIC_I/myAdder/c_axb_13" (ROM) removed.
+Unused block "USER_LOGIC_I/myAdder/c_axb_14" (ROM) removed.
+Unused block "USER_LOGIC_I/myAdder/c_axb_15" (ROM) removed.
+Unused block "USER_LOGIC_I/myAdder/c_axb_16" (ROM) removed.
+Unused block "USER_LOGIC_I/myAdder/c_axb_17" (ROM) removed.
+Unused block "USER_LOGIC_I/myAdder/c_axb_18" (ROM) removed.
+Unused block "USER_LOGIC_I/myAdder/c_axb_19" (ROM) removed.
+Unused block "USER_LOGIC_I/myAdder/c_axb_2" (ROM) removed.
+Unused block "USER_LOGIC_I/myAdder/c_axb_20" (ROM) removed.
+Unused block "USER_LOGIC_I/myAdder/c_axb_21" (ROM) removed.
+Unused block "USER_LOGIC_I/myAdder/c_axb_22" (ROM) removed.
+Unused block "USER_LOGIC_I/myAdder/c_axb_23" (ROM) removed.
+Unused block "USER_LOGIC_I/myAdder/c_axb_24" (ROM) removed.
+Unused block "USER_LOGIC_I/myAdder/c_axb_25" (ROM) removed.
+Unused block "USER_LOGIC_I/myAdder/c_axb_26" (ROM) removed.
+Unused block "USER_LOGIC_I/myAdder/c_axb_27" (ROM) removed.
+Unused block "USER_LOGIC_I/myAdder/c_axb_28" (ROM) removed.
+Unused block "USER_LOGIC_I/myAdder/c_axb_29" (ROM) removed.
+Unused block "USER_LOGIC_I/myAdder/c_axb_3" (ROM) removed.
+Unused block "USER_LOGIC_I/myAdder/c_axb_30" (ROM) removed.
+Unused block "USER_LOGIC_I/myAdder/c_axb_31" (ROM) removed.
+Unused block "USER_LOGIC_I/myAdder/c_axb_4" (ROM) removed.
+Unused block "USER_LOGIC_I/myAdder/c_axb_5" (ROM) removed.
+Unused block "USER_LOGIC_I/myAdder/c_axb_6" (ROM) removed.
+Unused block "USER_LOGIC_I/myAdder/c_axb_7" (ROM) removed.
+Unused block "USER_LOGIC_I/myAdder/c_axb_8" (ROM) removed.
+Unused block "USER_LOGIC_I/myAdder/c_axb_9" (ROM) removed.
+
+Optimized Block(s):
+TYPE 		BLOCK
+FDRE 		PLBV46_MASTER_BURST_I/I_RD_WR_CONTROL/I_BUSLOCK_REG
+   optimized to 0
+FDRE 		PLBV46_MASTER_BURST_I/I_RD_WR_CONTROL/I_RDBURST_REG
+   optimized to 0
+FDRE 		PLBV46_MASTER_BURST_I/I_RD_WR_CONTROL/I_WRBURST_REG
+   optimized to 0
+GND 		XST_GND
+VCC 		XST_VCC
+
+To enable printing of redundant blocks removed and signals merged, set the
+detailed map report option and rerun map.
+
+Section 6 - IOB Properties
+--------------------------
+
++---------------------------------------------------------------------------------------------------------------------------------------------------------+
+| IOB Name                           | Type             | Direction | IO Standard          | Diff  | Drive    | Slew | Reg (s)      | Resistor | IOB      |
+|                                    |                  |           |                      | Term  | Strength | Rate |              |          | Delay    |
++---------------------------------------------------------------------------------------------------------------------------------------------------------+
+| IP2INTC_Irpt                       | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| MD_error                           | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| MPLB_Clk                           | IOB              | INPUT     | LVCMOS25             |       |          |      |              |          |          |
+| MPLB_Rst                           | IOB              | INPUT     | LVCMOS25             |       |          |      |              |          |          |
+| M_ABus<0>                          | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| M_ABus<1>                          | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| M_ABus<2>                          | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| M_ABus<3>                          | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| M_ABus<4>                          | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| M_ABus<5>                          | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| M_ABus<6>                          | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| M_ABus<7>                          | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| M_ABus<8>                          | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| M_ABus<9>                          | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| M_ABus<10>                         | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| M_ABus<11>                         | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| M_ABus<12>                         | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| M_ABus<13>                         | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| M_ABus<14>                         | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| M_ABus<15>                         | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| M_ABus<16>                         | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| M_ABus<17>                         | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| M_ABus<18>                         | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| M_ABus<19>                         | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| M_ABus<20>                         | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| M_ABus<21>                         | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| M_ABus<22>                         | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| M_ABus<23>                         | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| M_ABus<24>                         | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| M_ABus<25>                         | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| M_ABus<26>                         | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| M_ABus<27>                         | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| M_ABus<28>                         | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| M_ABus<29>                         | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| M_ABus<30>                         | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| M_ABus<31>                         | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| M_BE<0>                            | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| M_BE<1>                            | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| M_BE<2>                            | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| M_BE<3>                            | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| M_BE<4>                            | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| M_BE<5>                            | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| M_BE<6>                            | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| M_BE<7>                            | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| M_BE<8>                            | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| M_BE<9>                            | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| M_BE<10>                           | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| M_BE<11>                           | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| M_BE<12>                           | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| M_BE<13>                           | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| M_BE<14>                           | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| M_BE<15>                           | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| M_MSize<0>                         | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| M_MSize<1>                         | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| M_RNW                              | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| M_TAttribute<0>                    | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| M_TAttribute<1>                    | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| M_TAttribute<2>                    | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| M_TAttribute<3>                    | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| M_TAttribute<4>                    | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| M_TAttribute<5>                    | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| M_TAttribute<6>                    | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| M_TAttribute<7>                    | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| M_TAttribute<8>                    | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| M_TAttribute<9>                    | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| M_TAttribute<10>                   | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| M_TAttribute<11>                   | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| M_TAttribute<12>                   | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| M_TAttribute<13>                   | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| M_TAttribute<14>                   | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| M_TAttribute<15>                   | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| M_UABus<0>                         | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| M_UABus<1>                         | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| M_UABus<2>                         | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| M_UABus<3>                         | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| M_UABus<4>                         | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| M_UABus<5>                         | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| M_UABus<6>                         | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| M_UABus<7>                         | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| M_UABus<8>                         | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| M_UABus<9>                         | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| M_UABus<10>                        | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| M_UABus<11>                        | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| M_UABus<12>                        | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| M_UABus<13>                        | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| M_UABus<14>                        | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| M_UABus<15>                        | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| M_UABus<16>                        | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| M_UABus<17>                        | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| M_UABus<18>                        | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| M_UABus<19>                        | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| M_UABus<20>                        | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| M_UABus<21>                        | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| M_UABus<22>                        | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| M_UABus<23>                        | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| M_UABus<24>                        | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| M_UABus<25>                        | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| M_UABus<26>                        | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| M_UABus<27>                        | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| M_UABus<28>                        | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| M_UABus<29>                        | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| M_UABus<30>                        | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| M_UABus<31>                        | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| M_abort                            | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| M_busLock                          | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| M_lockErr                          | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| M_priority<0>                      | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| M_priority<1>                      | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| M_rdBurst                          | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| M_request                          | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| M_size<0>                          | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| M_size<1>                          | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| M_size<2>                          | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| M_size<3>                          | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| M_type<0>                          | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| M_type<1>                          | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| M_type<2>                          | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| M_wrBurst                          | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| M_wrDBus<0>                        | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| M_wrDBus<1>                        | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| M_wrDBus<2>                        | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| M_wrDBus<3>                        | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| M_wrDBus<4>                        | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| M_wrDBus<5>                        | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| M_wrDBus<6>                        | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| M_wrDBus<7>                        | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| M_wrDBus<8>                        | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| M_wrDBus<9>                        | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| M_wrDBus<10>                       | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| M_wrDBus<11>                       | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| M_wrDBus<12>                       | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| M_wrDBus<13>                       | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| M_wrDBus<14>                       | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| M_wrDBus<15>                       | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| M_wrDBus<16>                       | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| M_wrDBus<17>                       | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| M_wrDBus<18>                       | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| M_wrDBus<19>                       | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| M_wrDBus<20>                       | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| M_wrDBus<21>                       | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| M_wrDBus<22>                       | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| M_wrDBus<23>                       | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| M_wrDBus<24>                       | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| M_wrDBus<25>                       | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| M_wrDBus<26>                       | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| M_wrDBus<27>                       | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| M_wrDBus<28>                       | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| M_wrDBus<29>                       | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| M_wrDBus<30>                       | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| M_wrDBus<31>                       | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| M_wrDBus<32>                       | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| M_wrDBus<33>                       | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| M_wrDBus<34>                       | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| M_wrDBus<35>                       | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| M_wrDBus<36>                       | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| M_wrDBus<37>                       | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| M_wrDBus<38>                       | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| M_wrDBus<39>                       | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| M_wrDBus<40>                       | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| M_wrDBus<41>                       | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| M_wrDBus<42>                       | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| M_wrDBus<43>                       | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| M_wrDBus<44>                       | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| M_wrDBus<45>                       | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| M_wrDBus<46>                       | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| M_wrDBus<47>                       | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| M_wrDBus<48>                       | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| M_wrDBus<49>                       | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| M_wrDBus<50>                       | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| M_wrDBus<51>                       | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| M_wrDBus<52>                       | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| M_wrDBus<53>                       | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| M_wrDBus<54>                       | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| M_wrDBus<55>                       | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| M_wrDBus<56>                       | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| M_wrDBus<57>                       | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| M_wrDBus<58>                       | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| M_wrDBus<59>                       | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| M_wrDBus<60>                       | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| M_wrDBus<61>                       | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| M_wrDBus<62>                       | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| M_wrDBus<63>                       | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| M_wrDBus<64>                       | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| M_wrDBus<65>                       | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| M_wrDBus<66>                       | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| M_wrDBus<67>                       | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| M_wrDBus<68>                       | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| M_wrDBus<69>                       | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| M_wrDBus<70>                       | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| M_wrDBus<71>                       | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| M_wrDBus<72>                       | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| M_wrDBus<73>                       | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| M_wrDBus<74>                       | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| M_wrDBus<75>                       | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| M_wrDBus<76>                       | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| M_wrDBus<77>                       | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| M_wrDBus<78>                       | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| M_wrDBus<79>                       | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| M_wrDBus<80>                       | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| M_wrDBus<81>                       | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| M_wrDBus<82>                       | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| M_wrDBus<83>                       | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| M_wrDBus<84>                       | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| M_wrDBus<85>                       | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| M_wrDBus<86>                       | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| M_wrDBus<87>                       | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| M_wrDBus<88>                       | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| M_wrDBus<89>                       | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| M_wrDBus<90>                       | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| M_wrDBus<91>                       | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| M_wrDBus<92>                       | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| M_wrDBus<93>                       | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| M_wrDBus<94>                       | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| M_wrDBus<95>                       | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| M_wrDBus<96>                       | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| M_wrDBus<97>                       | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| M_wrDBus<98>                       | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| M_wrDBus<99>                       | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| M_wrDBus<100>                      | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| M_wrDBus<101>                      | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| M_wrDBus<102>                      | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| M_wrDBus<103>                      | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| M_wrDBus<104>                      | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| M_wrDBus<105>                      | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| M_wrDBus<106>                      | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| M_wrDBus<107>                      | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| M_wrDBus<108>                      | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| M_wrDBus<109>                      | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| M_wrDBus<110>                      | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| M_wrDBus<111>                      | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| M_wrDBus<112>                      | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| M_wrDBus<113>                      | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| M_wrDBus<114>                      | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| M_wrDBus<115>                      | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| M_wrDBus<116>                      | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| M_wrDBus<117>                      | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| M_wrDBus<118>                      | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| M_wrDBus<119>                      | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| M_wrDBus<120>                      | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| M_wrDBus<121>                      | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| M_wrDBus<122>                      | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| M_wrDBus<123>                      | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| M_wrDBus<124>                      | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| M_wrDBus<125>                      | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| M_wrDBus<126>                      | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| M_wrDBus<127>                      | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| PLB_ABus<0>                        | IOB              | INPUT     | LVCMOS25             |       |          |      |              |          |          |
+| PLB_ABus<1>                        | IOB              | INPUT     | LVCMOS25             |       |          |      |              |          |          |
+| PLB_ABus<2>                        | IOB              | INPUT     | LVCMOS25             |       |          |      |              |          |          |
+| PLB_ABus<3>                        | IOB              | INPUT     | LVCMOS25             |       |          |      |              |          |          |
+| PLB_ABus<4>                        | IOB              | INPUT     | LVCMOS25             |       |          |      |              |          |          |
+| PLB_ABus<5>                        | IOB              | INPUT     | LVCMOS25             |       |          |      |              |          |          |
+| PLB_ABus<6>                        | IOB              | INPUT     | LVCMOS25             |       |          |      |              |          |          |
+| PLB_ABus<7>                        | IOB              | INPUT     | LVCMOS25             |       |          |      |              |          |          |
+| PLB_ABus<8>                        | IOB              | INPUT     | LVCMOS25             |       |          |      |              |          |          |
+| PLB_ABus<9>                        | IOB              | INPUT     | LVCMOS25             |       |          |      |              |          |          |
+| PLB_ABus<10>                       | IOB              | INPUT     | LVCMOS25             |       |          |      |              |          |          |
+| PLB_ABus<11>                       | IOB              | INPUT     | LVCMOS25             |       |          |      |              |          |          |
+| PLB_ABus<12>                       | IOB              | INPUT     | LVCMOS25             |       |          |      |              |          |          |
+| PLB_ABus<13>                       | IOB              | INPUT     | LVCMOS25             |       |          |      |              |          |          |
+| PLB_ABus<14>                       | IOB              | INPUT     | LVCMOS25             |       |          |      |              |          |          |
+| PLB_ABus<15>                       | IOB              | INPUT     | LVCMOS25             |       |          |      |              |          |          |
+| PLB_ABus<16>                       | IOB              | INPUT     | LVCMOS25             |       |          |      |              |          |          |
+| PLB_ABus<17>                       | IOB              | INPUT     | LVCMOS25             |       |          |      |              |          |          |
+| PLB_ABus<18>                       | IOB              | INPUT     | LVCMOS25             |       |          |      |              |          |          |
+| PLB_ABus<19>                       | IOB              | INPUT     | LVCMOS25             |       |          |      |              |          |          |
+| PLB_ABus<20>                       | IOB              | INPUT     | LVCMOS25             |       |          |      |              |          |          |
+| PLB_ABus<21>                       | IOB              | INPUT     | LVCMOS25             |       |          |      |              |          |          |
+| PLB_ABus<22>                       | IOB              | INPUT     | LVCMOS25             |       |          |      |              |          |          |
+| PLB_ABus<23>                       | IOB              | INPUT     | LVCMOS25             |       |          |      |              |          |          |
+| PLB_ABus<24>                       | IOB              | INPUT     | LVCMOS25             |       |          |      |              |          |          |
+| PLB_ABus<25>                       | IOB              | INPUT     | LVCMOS25             |       |          |      |              |          |          |
+| PLB_ABus<26>                       | IOB              | INPUT     | LVCMOS25             |       |          |      |              |          |          |
+| PLB_ABus<27>                       | IOB              | INPUT     | LVCMOS25             |       |          |      |              |          |          |
+| PLB_ABus<28>                       | IOB              | INPUT     | LVCMOS25             |       |          |      |              |          |          |
+| PLB_ABus<29>                       | IOB              | INPUT     | LVCMOS25             |       |          |      |              |          |          |
+| PLB_ABus<30>                       | IOB              | INPUT     | LVCMOS25             |       |          |      |              |          |          |
+| PLB_ABus<31>                       | IOB              | INPUT     | LVCMOS25             |       |          |      |              |          |          |
+| PLB_BE<0>                          | IOB              | INPUT     | LVCMOS25             |       |          |      |              |          |          |
+| PLB_BE<3>                          | IOB              | INPUT     | LVCMOS25             |       |          |      |              |          |          |
+| PLB_BE<4>                          | IOB              | INPUT     | LVCMOS25             |       |          |      |              |          |          |
+| PLB_BE<7>                          | IOB              | INPUT     | LVCMOS25             |       |          |      |              |          |          |
+| PLB_BE<8>                          | IOB              | INPUT     | LVCMOS25             |       |          |      |              |          |          |
+| PLB_BE<11>                         | IOB              | INPUT     | LVCMOS25             |       |          |      |              |          |          |
+| PLB_BE<12>                         | IOB              | INPUT     | LVCMOS25             |       |          |      |              |          |          |
+| PLB_BE<15>                         | IOB              | INPUT     | LVCMOS25             |       |          |      |              |          |          |
+| PLB_MAddrAck                       | IOB              | INPUT     | LVCMOS25             |       |          |      |              |          |          |
+| PLB_MRdDAck                        | IOB              | INPUT     | LVCMOS25             |       |          |      |              |          |          |
+| PLB_MRdErr                         | IOB              | INPUT     | LVCMOS25             |       |          |      |              |          |          |
+| PLB_MTimeout                       | IOB              | INPUT     | LVCMOS25             |       |          |      |              |          |          |
+| PLB_MWrDAck                        | IOB              | INPUT     | LVCMOS25             |       |          |      |              |          |          |
+| PLB_MWrErr                         | IOB              | INPUT     | LVCMOS25             |       |          |      |              |          |          |
+| PLB_PAValid                        | IOB              | INPUT     | LVCMOS25             |       |          |      |              |          |          |
+| PLB_RNW                            | IOB              | INPUT     | LVCMOS25             |       |          |      |              |          |          |
+| PLB_masterID<0>                    | IOB              | INPUT     | LVCMOS25             |       |          |      |              |          |          |
+| PLB_masterID<1>                    | IOB              | INPUT     | LVCMOS25             |       |          |      |              |          |          |
+| PLB_masterID<2>                    | IOB              | INPUT     | LVCMOS25             |       |          |      |              |          |          |
+| PLB_size<0>                        | IOB              | INPUT     | LVCMOS25             |       |          |      |              |          |          |
+| PLB_size<1>                        | IOB              | INPUT     | LVCMOS25             |       |          |      |              |          |          |
+| PLB_size<2>                        | IOB              | INPUT     | LVCMOS25             |       |          |      |              |          |          |
+| PLB_size<3>                        | IOB              | INPUT     | LVCMOS25             |       |          |      |              |          |          |
+| PLB_type<0>                        | IOB              | INPUT     | LVCMOS25             |       |          |      |              |          |          |
+| PLB_type<1>                        | IOB              | INPUT     | LVCMOS25             |       |          |      |              |          |          |
+| PLB_type<2>                        | IOB              | INPUT     | LVCMOS25             |       |          |      |              |          |          |
+| PLB_wrDBus<28>                     | IOB              | INPUT     | LVCMOS25             |       |          |      |              |          |          |
+| PLB_wrDBus<29>                     | IOB              | INPUT     | LVCMOS25             |       |          |      |              |          |          |
+| PLB_wrDBus<30>                     | IOB              | INPUT     | LVCMOS25             |       |          |      |              |          |          |
+| PLB_wrDBus<31>                     | IOB              | INPUT     | LVCMOS25             |       |          |      |              |          |          |
+| SPLB_Clk                           | IOB              | INPUT     | LVCMOS25             |       |          |      |              |          |          |
+| SPLB_Rst                           | IOB              | INPUT     | LVCMOS25             |       |          |      |              |          |          |
+| Sl_MBusy<0>                        | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| Sl_MBusy<1>                        | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| Sl_MBusy<2>                        | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| Sl_MBusy<3>                        | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| Sl_MBusy<4>                        | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| Sl_MBusy<5>                        | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| Sl_MBusy<6>                        | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| Sl_MBusy<7>                        | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| Sl_MIRQ<0>                         | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| Sl_MIRQ<1>                         | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| Sl_MIRQ<2>                         | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| Sl_MIRQ<3>                         | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| Sl_MIRQ<4>                         | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| Sl_MIRQ<5>                         | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| Sl_MIRQ<6>                         | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| Sl_MIRQ<7>                         | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| Sl_MRdErr<0>                       | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| Sl_MRdErr<1>                       | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| Sl_MRdErr<2>                       | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| Sl_MRdErr<3>                       | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| Sl_MRdErr<4>                       | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| Sl_MRdErr<5>                       | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| Sl_MRdErr<6>                       | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| Sl_MRdErr<7>                       | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| Sl_MWrErr<0>                       | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| Sl_MWrErr<1>                       | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| Sl_MWrErr<2>                       | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| Sl_MWrErr<3>                       | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| Sl_MWrErr<4>                       | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| Sl_MWrErr<5>                       | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| Sl_MWrErr<6>                       | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| Sl_MWrErr<7>                       | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| Sl_SSize<0>                        | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| Sl_SSize<1>                        | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| Sl_addrAck                         | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| Sl_rdBTerm                         | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| Sl_rdComp                          | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| Sl_rdDAck                          | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| Sl_rdDBus<0>                       | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| Sl_rdDBus<1>                       | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| Sl_rdDBus<2>                       | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| Sl_rdDBus<3>                       | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| Sl_rdDBus<4>                       | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| Sl_rdDBus<5>                       | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| Sl_rdDBus<6>                       | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| Sl_rdDBus<7>                       | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| Sl_rdDBus<8>                       | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| Sl_rdDBus<9>                       | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| Sl_rdDBus<10>                      | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| Sl_rdDBus<11>                      | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| Sl_rdDBus<12>                      | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| Sl_rdDBus<13>                      | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| Sl_rdDBus<14>                      | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| Sl_rdDBus<15>                      | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| Sl_rdDBus<16>                      | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| Sl_rdDBus<17>                      | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| Sl_rdDBus<18>                      | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| Sl_rdDBus<19>                      | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| Sl_rdDBus<20>                      | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| Sl_rdDBus<21>                      | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| Sl_rdDBus<22>                      | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| Sl_rdDBus<23>                      | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| Sl_rdDBus<24>                      | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| Sl_rdDBus<25>                      | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| Sl_rdDBus<26>                      | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| Sl_rdDBus<27>                      | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| Sl_rdDBus<28>                      | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| Sl_rdDBus<29>                      | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| Sl_rdDBus<30>                      | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| Sl_rdDBus<31>                      | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| Sl_rdDBus<32>                      | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| Sl_rdDBus<33>                      | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| Sl_rdDBus<34>                      | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| Sl_rdDBus<35>                      | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| Sl_rdDBus<36>                      | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| Sl_rdDBus<37>                      | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| Sl_rdDBus<38>                      | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| Sl_rdDBus<39>                      | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| Sl_rdDBus<40>                      | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| Sl_rdDBus<41>                      | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| Sl_rdDBus<42>                      | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| Sl_rdDBus<43>                      | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| Sl_rdDBus<44>                      | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| Sl_rdDBus<45>                      | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| Sl_rdDBus<46>                      | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| Sl_rdDBus<47>                      | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| Sl_rdDBus<48>                      | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| Sl_rdDBus<49>                      | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| Sl_rdDBus<50>                      | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| Sl_rdDBus<51>                      | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| Sl_rdDBus<52>                      | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| Sl_rdDBus<53>                      | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| Sl_rdDBus<54>                      | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| Sl_rdDBus<55>                      | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| Sl_rdDBus<56>                      | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| Sl_rdDBus<57>                      | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| Sl_rdDBus<58>                      | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| Sl_rdDBus<59>                      | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| Sl_rdDBus<60>                      | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| Sl_rdDBus<61>                      | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| Sl_rdDBus<62>                      | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| Sl_rdDBus<63>                      | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| Sl_rdDBus<64>                      | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| Sl_rdDBus<65>                      | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| Sl_rdDBus<66>                      | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| Sl_rdDBus<67>                      | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| Sl_rdDBus<68>                      | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| Sl_rdDBus<69>                      | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| Sl_rdDBus<70>                      | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| Sl_rdDBus<71>                      | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| Sl_rdDBus<72>                      | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| Sl_rdDBus<73>                      | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| Sl_rdDBus<74>                      | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| Sl_rdDBus<75>                      | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| Sl_rdDBus<76>                      | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| Sl_rdDBus<77>                      | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| Sl_rdDBus<78>                      | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| Sl_rdDBus<79>                      | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| Sl_rdDBus<80>                      | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| Sl_rdDBus<81>                      | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| Sl_rdDBus<82>                      | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| Sl_rdDBus<83>                      | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| Sl_rdDBus<84>                      | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| Sl_rdDBus<85>                      | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| Sl_rdDBus<86>                      | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| Sl_rdDBus<87>                      | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| Sl_rdDBus<88>                      | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| Sl_rdDBus<89>                      | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| Sl_rdDBus<90>                      | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| Sl_rdDBus<91>                      | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| Sl_rdDBus<92>                      | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| Sl_rdDBus<93>                      | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| Sl_rdDBus<94>                      | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| Sl_rdDBus<95>                      | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| Sl_rdDBus<96>                      | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| Sl_rdDBus<97>                      | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| Sl_rdDBus<98>                      | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| Sl_rdDBus<99>                      | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| Sl_rdDBus<100>                     | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| Sl_rdDBus<101>                     | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| Sl_rdDBus<102>                     | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| Sl_rdDBus<103>                     | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| Sl_rdDBus<104>                     | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| Sl_rdDBus<105>                     | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| Sl_rdDBus<106>                     | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| Sl_rdDBus<107>                     | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| Sl_rdDBus<108>                     | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| Sl_rdDBus<109>                     | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| Sl_rdDBus<110>                     | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| Sl_rdDBus<111>                     | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| Sl_rdDBus<112>                     | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| Sl_rdDBus<113>                     | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| Sl_rdDBus<114>                     | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| Sl_rdDBus<115>                     | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| Sl_rdDBus<116>                     | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| Sl_rdDBus<117>                     | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| Sl_rdDBus<118>                     | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| Sl_rdDBus<119>                     | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| Sl_rdDBus<120>                     | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| Sl_rdDBus<121>                     | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| Sl_rdDBus<122>                     | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| Sl_rdDBus<123>                     | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| Sl_rdDBus<124>                     | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| Sl_rdDBus<125>                     | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| Sl_rdDBus<126>                     | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| Sl_rdDBus<127>                     | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| Sl_rdWdAddr<0>                     | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| Sl_rdWdAddr<1>                     | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| Sl_rdWdAddr<2>                     | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| Sl_rdWdAddr<3>                     | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| Sl_rearbitrate                     | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| Sl_wait                            | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| Sl_wrBTerm                         | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| Sl_wrComp                          | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| Sl_wrDAck                          | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
++---------------------------------------------------------------------------------------------------------------------------------------------------------+
+
+Section 7 - RPMs
+----------------
+
+Section 8 - Guide Report
+------------------------
+Guide not run on this design.
+
+Section 9 - Area Group and Partition Summary
+--------------------------------------------
+
+Partition Implementation Status
+-------------------------------
+
+  No Partitions were found in this design.
+
+-------------------------------
+
+Area Group Information
+----------------------
+
+  No area groups were found in this design.
+
+----------------------
+
+Section 10 - Timing Report
+--------------------------
+A logic-level (pre-route) timing report can be generated by using Xilinx static
+timing analysis tools, Timing Analyzer (GUI) or TRCE (command line), with the
+mapped NCD and PCF files. Please note that this timing report will be generated
+using estimated delay information. For accurate numbers, please generate a
+timing report with the post Place and Route NCD file.
+
+For more information about the Timing Analyzer, consult the Xilinx Timing
+Analyzer Reference Manual; for more information about TRCE, consult the Xilinx
+Command Line Tools User Guide "TRACE" chapter.
+
+Section 11 - Configuration String Details
+-----------------------------------------
+Use the "-detail" map option to print out Configuration Strings
+
+Section 12 - Control Set Information
+------------------------------------
+Use the "-detail" map option to print out Control Set Information.
+
+Section 13 - Utilization by Hierarchy
+-------------------------------------
+Use the "-detail" map option to print out the Utilization by Hierarchy section.

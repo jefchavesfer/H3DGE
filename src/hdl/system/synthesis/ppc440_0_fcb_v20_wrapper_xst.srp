@@ -1,0 +1,321 @@
+Release 13.1 - xst O.40d (nt64)
+Copyright (c) 1995-2011 Xilinx, Inc.  All rights reserved.
+--> 
+TABLE OF CONTENTS
+  1) Synthesis Options Summary
+  2) HDL Compilation
+  3) Design Hierarchy Analysis
+  4) HDL Analysis
+  5) HDL Synthesis
+     5.1) HDL Synthesis Report
+  6) Advanced HDL Synthesis
+     6.1) Advanced HDL Synthesis Report
+  7) Low Level Synthesis
+  8) Partition Report
+  9) Final Report
+	9.1) Device utilization summary
+	9.2) Partition Resource Summary
+	9.3) TIMING REPORT
+
+
+=========================================================================
+*                      Synthesis Options Summary                        *
+=========================================================================
+---- Source Parameters
+Input Format                       : MIXED
+Input File Name                    : "ppc440_0_fcb_v20_wrapper_xst.prj"
+Verilog Include Directory          : {"C:\git\h3dge\src\hdl\system\pcores\" "C:\Xilinx\13.1\ISE_DS\EDK\hw\XilinxBFMinterface\pcores\" "C:\Xilinx\13.1\ISE_DS\EDK\hw\XilinxProcessorIPLib\pcores\" }
+
+---- Target Parameters
+Target Device                      : xc5vfx70tff1136-1
+Output File Name                   : "../implementation/ppc440_0_fcb_v20_wrapper.ngc"
+
+---- Source Options
+Top Module Name                    : ppc440_0_fcb_v20_wrapper
+
+---- Target Options
+Add IO Buffers                     : NO
+
+---- General Options
+Optimization Goal                  : speed
+Netlist Hierarchy                  : as_optimized
+Optimization Effort                : 1
+Hierarchy Separator                : /
+
+---- Other Options
+Cores Search Directories           : {../implementation/ppc440_0_fcb_v20_wrapper}
+
+=========================================================================
+
+
+=========================================================================
+*                          HDL Compilation                              *
+=========================================================================
+Compiling vhdl file "C:/Xilinx/13.1/ISE_DS/EDK/hw/XilinxProcessorIPLib/pcores/fcb_v20_v1_00_a/hdl/vhdl/fcb_v20.vhd" in Library fcb_v20_v1_00_a.
+Entity <fcb_v20> compiled.
+Entity <fcb_v20> (Architecture <IMP>) compiled.
+Compiling vhdl file "C:/git/h3dge/src/hdl/system/hdl/ppc440_0_fcb_v20_wrapper.vhd" in Library work.
+Entity <ppc440_0_fcb_v20_wrapper> compiled.
+Entity <ppc440_0_fcb_v20_wrapper> (Architecture <STRUCTURE>) compiled.
+
+=========================================================================
+*                     Design Hierarchy Analysis                         *
+=========================================================================
+Analyzing hierarchy for entity <ppc440_0_fcb_v20_wrapper> in library <work> (architecture <STRUCTURE>).
+
+Analyzing hierarchy for entity <fcb_v20> in library <fcb_v20_v1_00_a> (architecture <IMP>) with generics.
+	C_DATA_WIDTH = 32
+	C_DECUDI_WIDTH = 4
+	C_EXT_RESET_HIGH = 1
+	C_FCB2_NUM_MASTERS = 1
+	C_FCB2_NUM_SLAVES = 1
+	C_LBA_WIDTH = 4
+	C_LDSDATA_WIDTH = 128
+
+
+=========================================================================
+*                            HDL Analysis                               *
+=========================================================================
+Analyzing Entity <ppc440_0_fcb_v20_wrapper> in library <work> (Architecture <STRUCTURE>).
+    Set property "MAX_FANOUT = 8" for signal <FCB_CLK> in unit <fcb_v20>.
+    Set property "MAX_FANOUT = 8" for signal <SYS_RST> in unit <fcb_v20>.
+    Set property "MAX_FANOUT = 8" for signal <FCB_RST> in unit <fcb_v20>.
+    Set property "MAX_FANOUT = 8" for signal <M_DECUDI> in unit <fcb_v20>.
+    Set property "MAX_FANOUT = 8" for signal <M_DECUDIVALID> in unit <fcb_v20>.
+    Set property "MAX_FANOUT = 8" for signal <M_ENDIAN> in unit <fcb_v20>.
+    Set property "MAX_FANOUT = 8" for signal <M_FLUSH> in unit <fcb_v20>.
+    Set property "MAX_FANOUT = 8" for signal <M_INSTRUCTION> in unit <fcb_v20>.
+    Set property "MAX_FANOUT = 8" for signal <M_INSTRVALID> in unit <fcb_v20>.
+    Set property "MAX_FANOUT = 8" for signal <M_LOADBYTEADDR> in unit <fcb_v20>.
+    Set property "MAX_FANOUT = 8" for signal <M_LOADDATA> in unit <fcb_v20>.
+    Set property "MAX_FANOUT = 8" for signal <M_LOADDVALID> in unit <fcb_v20>.
+    Set property "MAX_FANOUT = 8" for signal <M_OPERANDVALID> in unit <fcb_v20>.
+    Set property "MAX_FANOUT = 8" for signal <M_RADATA> in unit <fcb_v20>.
+    Set property "MAX_FANOUT = 8" for signal <M_RBDATA> in unit <fcb_v20>.
+    Set property "MAX_FANOUT = 8" for signal <M_WRITEBACKOK> in unit <fcb_v20>.
+    Set property "MAX_FANOUT = 8" for signal <M_DECFPUOP> in unit <fcb_v20>.
+    Set property "MAX_FANOUT = 8" for signal <M_DECLOAD> in unit <fcb_v20>.
+    Set property "MAX_FANOUT = 8" for signal <M_DECSTORE> in unit <fcb_v20>.
+    Set property "MAX_FANOUT = 8" for signal <M_DECLDSTXFERSIZE> in unit <fcb_v20>.
+    Set property "MAX_FANOUT = 8" for signal <M_DECNONAUTON> in unit <fcb_v20>.
+    Set property "MAX_FANOUT = 8" for signal <M_NEXTINSTRREADY> in unit <fcb_v20>.
+    Set property "MAX_FANOUT = 8" for signal <M_MSRFE0> in unit <fcb_v20>.
+    Set property "MAX_FANOUT = 8" for signal <M_MSRFE1> in unit <fcb_v20>.
+    Set property "MAX_FANOUT = 8" for signal <FCB_CR> in unit <fcb_v20>.
+    Set property "MAX_FANOUT = 8" for signal <FCB_DONE> in unit <fcb_v20>.
+    Set property "MAX_FANOUT = 8" for signal <FCB_EXCEPTION> in unit <fcb_v20>.
+    Set property "MAX_FANOUT = 8" for signal <FCB_RESULT> in unit <fcb_v20>.
+    Set property "MAX_FANOUT = 8" for signal <FCB_RESULTVALID> in unit <fcb_v20>.
+    Set property "MAX_FANOUT = 8" for signal <FCB_SLEEPNOTREADY> in unit <fcb_v20>.
+    Set property "MAX_FANOUT = 8" for signal <FCB_STOREDATA> in unit <fcb_v20>.
+    Set property "MAX_FANOUT = 8" for signal <FCB_CONFIRMINSTR> in unit <fcb_v20>.
+    Set property "MAX_FANOUT = 8" for signal <FCB_FPSCRFEX> in unit <fcb_v20>.
+    Set property "MAX_FANOUT = 8" for signal <FCB_DECUDI> in unit <fcb_v20>.
+    Set property "MAX_FANOUT = 8" for signal <FCB_DECUDIVALID> in unit <fcb_v20>.
+    Set property "MAX_FANOUT = 8" for signal <FCB_ENDIAN> in unit <fcb_v20>.
+    Set property "MAX_FANOUT = 8" for signal <FCB_FLUSH> in unit <fcb_v20>.
+    Set property "MAX_FANOUT = 8" for signal <FCB_INSTRUCTION> in unit <fcb_v20>.
+    Set property "MAX_FANOUT = 8" for signal <FCB_INSTRVALID> in unit <fcb_v20>.
+    Set property "MAX_FANOUT = 8" for signal <FCB_LOADBYTEADDR> in unit <fcb_v20>.
+    Set property "MAX_FANOUT = 8" for signal <FCB_LOADDATA> in unit <fcb_v20>.
+    Set property "MAX_FANOUT = 8" for signal <FCB_LOADDVALID> in unit <fcb_v20>.
+    Set property "MAX_FANOUT = 8" for signal <FCB_OPERANDVALID> in unit <fcb_v20>.
+    Set property "MAX_FANOUT = 8" for signal <FCB_RADATA> in unit <fcb_v20>.
+    Set property "MAX_FANOUT = 8" for signal <FCB_RBDATA> in unit <fcb_v20>.
+    Set property "MAX_FANOUT = 8" for signal <FCB_WRITEBACKOK> in unit <fcb_v20>.
+    Set property "MAX_FANOUT = 8" for signal <FCB_DECFPUOP> in unit <fcb_v20>.
+    Set property "MAX_FANOUT = 8" for signal <FCB_DECLOAD> in unit <fcb_v20>.
+    Set property "MAX_FANOUT = 8" for signal <FCB_DECSTORE> in unit <fcb_v20>.
+    Set property "MAX_FANOUT = 8" for signal <FCB_DECLDSTXFERSIZE> in unit <fcb_v20>.
+    Set property "MAX_FANOUT = 8" for signal <FCB_DECNONAUTON> in unit <fcb_v20>.
+    Set property "MAX_FANOUT = 8" for signal <FCB_NEXTINSTRREADY> in unit <fcb_v20>.
+    Set property "MAX_FANOUT = 8" for signal <FCB_MSRFE0> in unit <fcb_v20>.
+    Set property "MAX_FANOUT = 8" for signal <FCB_MSRFE1> in unit <fcb_v20>.
+    Set property "MAX_FANOUT = 8" for signal <Sl_CR> in unit <fcb_v20>.
+    Set property "MAX_FANOUT = 8" for signal <Sl_DONE> in unit <fcb_v20>.
+    Set property "MAX_FANOUT = 8" for signal <Sl_EXCEPTION> in unit <fcb_v20>.
+    Set property "MAX_FANOUT = 8" for signal <Sl_RESULT> in unit <fcb_v20>.
+    Set property "MAX_FANOUT = 8" for signal <Sl_RESULTVALID> in unit <fcb_v20>.
+    Set property "MAX_FANOUT = 8" for signal <Sl_SLEEPNOTREADY> in unit <fcb_v20>.
+    Set property "MAX_FANOUT = 8" for signal <Sl_STOREDATA> in unit <fcb_v20>.
+    Set property "MAX_FANOUT = 8" for signal <Sl_CONFIRMINSTR> in unit <fcb_v20>.
+    Set property "MAX_FANOUT = 8" for signal <Sl_FPSCRFEX> in unit <fcb_v20>.
+Entity <ppc440_0_fcb_v20_wrapper> analyzed. Unit <ppc440_0_fcb_v20_wrapper> generated.
+
+Analyzing generic Entity <fcb_v20> in library <fcb_v20_v1_00_a> (Architecture <IMP>).
+	C_DATA_WIDTH = 32
+	C_DECUDI_WIDTH = 4
+	C_EXT_RESET_HIGH = 1
+	C_FCB2_NUM_MASTERS = 1
+	C_FCB2_NUM_SLAVES = 1
+	C_LBA_WIDTH = 4
+	C_LDSDATA_WIDTH = 128
+    Set property "MAX_FANOUT = 8" for signal <resultvalid_qualify>.
+Entity <fcb_v20> analyzed. Unit <fcb_v20> generated.
+
+
+=========================================================================
+*                           HDL Synthesis                               *
+=========================================================================
+
+Performing bidirectional port resolution...
+
+Synthesizing Unit <fcb_v20>.
+    Related source file is "C:/Xilinx/13.1/ISE_DS/EDK/hw/XilinxProcessorIPLib/pcores/fcb_v20_v1_00_a/hdl/vhdl/fcb_v20.vhd".
+WARNING:Xst:647 - Input <FCB_CLK> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
+WARNING:Xst:646 - Signal <resultvalid_qualify<0>> is assigned but never used. This unconnected signal will be trimmed during the optimization process.
+Unit <fcb_v20> synthesized.
+
+
+Synthesizing Unit <ppc440_0_fcb_v20_wrapper>.
+    Related source file is "C:/git/h3dge/src/hdl/system/hdl/ppc440_0_fcb_v20_wrapper.vhd".
+Unit <ppc440_0_fcb_v20_wrapper> synthesized.
+
+
+=========================================================================
+HDL Synthesis Report
+
+Found no macro
+=========================================================================
+
+=========================================================================
+*                       Advanced HDL Synthesis                          *
+=========================================================================
+
+
+=========================================================================
+Advanced HDL Synthesis Report
+
+Found no macro
+=========================================================================
+
+=========================================================================
+*                         Low Level Synthesis                           *
+=========================================================================
+
+Optimizing unit <ppc440_0_fcb_v20_wrapper> ...
+
+Mapping all equations...
+Building and optimizing final netlist ...
+
+Final Macro Processing ...
+
+=========================================================================
+Final Register Report
+
+Found no macro
+=========================================================================
+
+=========================================================================
+*                           Partition Report                            *
+=========================================================================
+
+Partition Implementation Status
+-------------------------------
+
+  No Partitions were found in this design.
+
+-------------------------------
+
+=========================================================================
+*                            Final Report                               *
+=========================================================================
+Final Results
+Top Level Output File Name         : ../implementation/ppc440_0_fcb_v20_wrapper.ngc
+Output Format                      : ngc
+Optimization Goal                  : speed
+Keep Hierarchy                     : no
+
+Design Statistics
+# IOs                              : 841
+
+Cell Usage :
+=========================================================================
+
+Device utilization summary:
+---------------------------
+
+Selected Device : 5vfx70tff1136-1 
+
+
+Slice Logic Utilization: 
+
+Slice Logic Distribution: 
+ Number of LUT Flip Flop pairs used:      0
+   Number with an unused Flip Flop:       0  out of      0         
+   Number with an unused LUT:             0  out of      0         
+   Number of fully used LUT-FF pairs:     0  out of      0         
+   Number of unique control sets:         0
+
+IO Utilization: 
+ Number of IOs:                         841
+ Number of bonded IOBs:                   0  out of    640     0%  
+
+Specific Feature Utilization:
+
+---------------------------
+Partition Resource Summary:
+---------------------------
+
+  No Partitions were found in this design.
+
+---------------------------
+
+
+=========================================================================
+TIMING REPORT
+
+NOTE: THESE TIMING NUMBERS ARE ONLY A SYNTHESIS ESTIMATE.
+      FOR ACCURATE TIMING INFORMATION PLEASE REFER TO THE TRACE REPORT
+      GENERATED AFTER PLACE-and-ROUTE.
+
+Clock Information:
+------------------
+No clock signals found in this design
+
+Asynchronous Control Signals Information:
+----------------------------------------
+No asynchronous control signals found in this design
+
+Timing Summary:
+---------------
+Speed Grade: -1
+
+   Minimum period: No path found
+   Minimum input arrival time before clock: No path found
+   Maximum output required time after clock: No path found
+   Maximum combinational path delay: 0.000ns
+
+Timing Detail:
+--------------
+All values displayed in nanoseconds (ns)
+
+=========================================================================
+Timing constraint: Default path analysis
+  Total number of paths / destination ports: 420 / 420
+-------------------------------------------------------------------------
+Delay:               0.000ns (Levels of Logic = 0)
+  Source:            M_MSRFE0 (PAD)
+  Destination:       FCB_MSRFE0 (PAD)
+
+  Data Path: M_MSRFE0 to FCB_MSRFE0
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+    ----------------------------------------
+    Total                      0.000ns (0.000ns logic, 0.000ns route)
+
+=========================================================================
+
+
+Total REAL time to Xst completion: 5.00 secs
+Total CPU time to Xst completion: 4.90 secs
+ 
+--> 
+
+Total memory usage is 274520 kilobytes
+
+Number of errors   :    0 (   0 filtered)
+Number of warnings :    2 (   0 filtered)
+Number of infos    :    0 (   0 filtered)
+

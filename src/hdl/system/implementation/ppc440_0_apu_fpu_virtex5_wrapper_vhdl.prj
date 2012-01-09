@@ -1,0 +1,3 @@
+vhdl common_v1_00_a "C:\Xilinx\13.1\ISE_DS\EDK\hw\XilinxProcessorIPLib\pcores\common_v1_00_a\hdl\vhdl\family.vhd"
+vhdl apu_fpu_virtex5_v1_01_a "C:\Xilinx\13.1\ISE_DS\EDK\hw\XilinxProcessorIPLib\pcores\apu_fpu_virtex5_v1_01_a\synhdl\vhdl\apu_fpu_virtex5.vhd"
+vhdl work "C:\git\h3dge\src\hdl\system\hdl\ppc440_0_apu_fpu_virtex5_wrapper.vhd"

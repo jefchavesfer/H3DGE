@@ -1,0 +1,186 @@
+normal xxxxxxxx xxxxxxxx xxxxxxxx
+normal xxxxxxxx xxxxxxxx xxxxxxxx
+normal xxxxxxxx xxxxxxxx xxxxxxxx
+normal xxxxxxxx xxxxxxxx xxxxxxxx
+normal xxxxxxxx xxxxxxxx xxxxxxxx
+normal xxxxxxxx xxxxxxxx xxxxxxxx
+normal xxxxxxxx xxxxxxxx xxxxxxxx
+normal xxxxxxxx xxxxxxxx xxxxxxxx
+normal xxxxxxxx xxxxxxxx xxxxxxxx
+normal xxxxxxxx xxxxxxxx xxxxxxxx
+normal xxxxxxxx xxxxxxxx xxxxxxxx
+normal xxxxxxxx xxxxxxxx xxxxxxxx
+normal xxxxxxxx xxxxxxxx xxxxxxxx
+normal xxxxxxxx xxxxxxxx xxxxxxxx
+normal xxxxxxxx xxxxxxxx xxxxxxxx
+normal xxxxxxxx xxxxxxxx xxxxxxxx
+normal xxxxxxxx xxxxxxxx xxxxxxxx
+normal xxxxxxxx xxxxxxxx xxxxxxxx
+normal f0000000 00000000 00000000
+normal f0000000 00000000 00000000
+starting calculations
+v1: 00000000 00000000 00000000
+v2: 00000000 00000000 20000000
+v3: 00000000 20000000 00000000
+e1: 00000000 00000000 20000000
+e2: 00000000 20000000 00000000
+r.start: 18000000 08000000 08000000
+r.dir: f0000000 00000000 00000000
+trig.v1: 00000000 00000000 00000000
+t1: 18000000 08000000 08000000
+p: 00000000 00000000 e0000000
+q: 10000000 d0000000 00000000
+det: c0000000
+u 04000000
+testv: 00000000
+v: 04000000
+value t inside limits
+e2: 00000000, 20000000, 00000000, e1: 00000000, 00000000, 20000000 t1: 18000000, 08000000, 08000000
+q 10000000, d0000000, 00000000, det c0000000, u 04000000, v 04000000
+t: 18000000
+saindo da funcao
+refr: intersection point: xxxxxxxx xxxxxxxx xxxxxxxx
+aux: 10000000
+aux after normal change: f0000000
+normal: 10000000 00000000 00000000
+nq: 002934
+n.i^2: 10000000
+1 - n.i^2: 00000000
+refrCond: 000000000
+auxRefr: 00000000
+1 - auxRefr: 10000000
+squrt(auxRefr): 10000000
+nq: 0066b4
+nqdec: 066b4000
+normal coeff: 0994c000
+v1: f994c000 00000000 00000000, aux3 066b4000, r.dir f0000000 00000000 00000000
+v2: 0994c000 00000000 00000000, aux4 0994c000, normal 10000000 00000000 00000000
+refr.dir: f0000000 00000000 00000000
+successful refraction calculation
+refr: intersection point: 00000000 08000000 08000000
+aux: 10000000
+aux after normal change: f0000000
+normal: 10000000 00000000 00000000
+nq: 002934
+n.i^2: 10000000
+1 - n.i^2: 00000000
+refrCond: 000000000
+auxRefr: 00000000
+1 - auxRefr: 10000000
+squrt(auxRefr): 10000000
+nq: 0066b4
+nqdec: 066b4000
+normal coeff: 0994c000
+v1: f994c000 00000000 00000000, aux3 066b4000, r.dir f0000000 00000000 00000000
+v2: 0994c000 00000000 00000000, aux4 0994c000, normal 10000000 00000000 00000000
+refr.dir: f0000000 00000000 00000000
+successful refraction calculation
+=============case triangle OYZ with normal changing triangle perpendicular ray refraction==================
+code intersection normal:2 value intersection :18000000
+reflected ray - start: 00000000 08000000 08000000 dir: f0000000 00000000 00000000
+=============end test==================
+normal f4afb0cd 0b504f33 00000000
+normal f4afb0cc 0b504f34 00000000
+normal 00000000 10000000 00000000
+normal 00000000 10000000 00000000
+starting calculations
+v1: 00000000 00000000 00000000
+v2: 00000000 00000000 20000000
+v3: 20000000 00000000 00000000
+e1: 00000000 00000000 20000000
+e2: 20000000 00000000 00000000
+r.start: 08000000 08000000 08000000
+r.dir: 0b504f33 f4afb0cd 00000000
+trig.v1: 00000000 00000000 00000000
+t1: 08000000 08000000 08000000
+p: 00000000 00000000 16a09e66
+q: 10000000 f0000000 00000000
+det: 2d413ccc
+u 04000000
+testv: 00000000
+v: 08000000
+value t inside limits
+e2: 20000000, 00000000, 00000000, e1: 00000000, 00000000, 20000000 t1: 08000000, 08000000, 08000000
+q 10000000, f0000000, 00000000, det 2d413ccc, u 04000000, v 08000000
+t: 0b504f33
+saindo da funcao
+refr: intersection point: 18f876cc f7078934 08000000
+aux: f4afb0cd
+normal: 00000000 10000000 00000000
+nq: 002934
+n.i^2: 07ffffff
+1 - n.i^2: 08000001
+refrCond: 00149a000
+auxRefr: 0149a000
+1 - auxRefr: 0eb66000
+squrt(auxRefr): 0f57bb2c
+nq: 0066b4
+nqdec: 066b4000
+normal coeff: 0acdc726
+v1: 0489f406 fb760bfa 00000000, aux3 066b4000, r.dir 0b504f33 f4afb0cd 00000000
+v2: 00000000 0acdc726 00000000, aux4 0acdc726, normal 00000000 10000000 00000000
+refr.dir: 0489f406 f0a844d4 00000000
+successful refraction calculation
+refr: intersection point: 0fffffff 00000001 08000000
+aux: f4afb0cd
+normal: 00000000 10000000 00000000
+nq: 002934
+n.i^2: 07ffffff
+1 - n.i^2: 08000001
+refrCond: 00149a000
+auxRefr: 0149a000
+1 - auxRefr: 0eb66000
+squrt(auxRefr): 0f57bb2c
+nq: 0066b4
+nqdec: 066b4000
+normal coeff: 0acdc726
+v1: 0489f406 fb760bfa 00000000, aux3 066b4000, r.dir 0b504f33 f4afb0cd 00000000
+v2: 00000000 0acdc726 00000000, aux4 0acdc726, normal 00000000 10000000 00000000
+refr.dir: 0489f406 f0a844d4 00000000
+successful refraction calculation
+=============case triangle OXZ with NO normal changing triangle 45deg ray refraction in aix XY==================
+code intersection normal:2 value intersection :0b504f33
+refracted ray - codeRefr: 2 start: 0fffffff 00000001 08000000 dir: 0489f406 f0a844d4 00000000
+=============end test==================
+starting calculations
+v1: 00000000 00000000 00000000
+v2: 00000000 00000000 20000000
+v3: 20000000 00000000 00000000
+e1: 00000000 00000000 20000000
+e2: 20000000 00000000 00000000
+r.start: 08000000 08000000 08000000
+r.dir: 00000000 f4afb0cd f4afb0cd
+trig.v1: 00000000 00000000 00000000
+t1: 08000000 08000000 08000000
+p: 00000000 e95f619a 16a09e66
+q: 10000000 f0000000 00000000
+det: 2d413ccc
+u 00000000
+testv: 00000000
+v: 04000000
+value t inside limits
+e2: 20000000, 00000000, 00000000, e1: 00000000, 00000000, 20000000 t1: 08000000, 08000000, 08000000
+q 10000000, f0000000, 00000000, det 2d413ccc, u 00000000, v 04000000
+t: 0b504f33
+saindo da funcao
+refr: intersection point: 08000000 00000001 00000001
+aux: f4afb0cd
+normal: 00000000 10000000 00000000
+nq: 002934
+n.i^2: 07ffffff
+1 - n.i^2: 08000001
+refrCond: 00149a000
+auxRefr: 0149a000
+1 - auxRefr: 0eb66000
+squrt(auxRefr): 0f57bb2c
+nq: 0066b4
+nqdec: 066b4000
+normal coeff: 0acdc726
+v1: 00000000 fb760bfa fb760bfa, aux3 066b4000, r.dir 00000000 f4afb0cd f4afb0cd
+v2: 00000000 0acdc726 00000000, aux4 0acdc726, normal 00000000 10000000 00000000
+refr.dir: 00000000 f0a844d4 fb760bfa
+successful refraction calculation
+=============case triangle OXZ with NO normal changing triangle 45deg ray refraction in axis YZ (border intersection)==================
+code intersection normal:2 value intersection :0b504f33
+reflected ray - start: 08000000 00000001 00000001 dir: 00000000 f0a844d4 fb760bfa
+=============end test==================

@@ -1,0 +1,224 @@
+# ELBREAD: Elaboration process.
+# ELBREAD: Elaboration time 0.2 [s].
+alog -O2 -l VIRTEX5 -sve  -work coproc -sv2k9 $dsn/src/deftypes.sv $dsn/src/mathfunctions.sv $dsn/src/lightfunctions.sv $dsn/src/triangleintersectiontest.sv $dsn/src/reflect.sv $dsn/src/normalprep.sv $dsn/src/refract.sv $dsn/src/user_logic.sv $dsn/src/demux.sv $dsn/src/vectorialProduct.sv $dsn/src/mux.sv $dsn/src/intersectionDF.sv $dsn/src/mDiv.sv $dsn/src/scalarProduct.sv $dsn/src/intersectionCU.sv $dsn/src/intersectionModule.sv $dsn/src/tb_triangleIntersectionTest.sv $dsn/src/normalDF.sv $dsn/src/mSqrt.sv $dsn/src/normalCU.sv $dsn/src/normalAndIntersectionPoint.sv
+# Warning: The source is compiled without the -dbg switch. Line breakpoints and code coverage will not be available.
+# Compile...
+# Pass 1. Scanning modules hierarchy.
+# Module \$root found in current working library.
+# Error: VCP2000 mathfunctions.sv : (42, 57): Syntax error. Unexpected token: ). Expected tokens: '[' , 'event' , 'inout' , 'input' , 'integer' ... .
+# Error: VCP2000 mathfunctions.sv : (46, 11): Syntax error. Unexpected token: signal[_IDENTIFIER]. Expected tokens: '(*' , 'import' , 'export' , 'property' , 'sequence' ... .
+# Error: VCP2505 mathfunctions.sv : (67, 45): Duplicate identifier: b
+# Error: VCP2505 mathfunctions.sv : (92, 37): Duplicate identifier: b
+# Error: VCP2505 mathfunctions.sv : (115, 45): Duplicate identifier: b
+# Error: VCP2505 mathfunctions.sv : (138, 45): Duplicate identifier: b
+# Warning: VCP7606 lightfunctions.sv : (2, 20): Package math_pack imports its own symbols.
+# Error: VCP5103 triangleintersectiontest.sv : (17, 15): Undeclared identifier: t.
+# Error: VCP5103 triangleintersectiontest.sv : (18, 18): Undeclared identifier: code.
+# Error: VCP5103 reflect.sv : (8, 18): Undeclared identifier: refl.
+# Warning: VCP7606 normalprep.sv : (2, 20): Package math_pack imports its own symbols.
+# Error: VCP5103 normalprep.sv : (9, 20): Undeclared identifier: normal.
+# Error: VCP5103 refract.sv : (10, 18): Undeclared identifier: code.
+# Error: VCP5103 refract.sv : (11, 18): Undeclared identifier: refr.
+# Warning: VCP7606 demux.sv : (2, 20): Package math_pack imports its own symbols.
+# Warning: VCP7606 vectorialProduct.sv : (2, 20): Package math_pack imports its own symbols.
+# Warning: VCP7606 mux.sv : (2, 20): Package math_pack imports its own symbols.
+# Warning: VCP7606 intersectionDF.sv : (2, 20): Package math_pack imports its own symbols.
+# Warning: VCP7606 mDiv.sv : (2, 20): Package math_pack imports its own symbols.
+# Error: VCP5103 mDiv.sv : (7, 13): Undeclared identifier: c.
+# Warning: VCP7606 scalarProduct.sv : (2, 20): Package math_pack imports its own symbols.
+# Error: VCP5103 scalarProduct.sv : (7, 15): Undeclared identifier: c.
+# Warning: VCP7606 intersectionCU.sv : (2, 20): Package math_pack imports its own symbols.
+# Warning: VCP7606 intersectionModule.sv : (2, 20): Package math_pack imports its own symbols.
+# Error: VCP2505 tb_triangleIntersectionTest.sv : (4, 12): Duplicate identifier: t
+# Error: VCP2505 tb_triangleIntersectionTest.sv : (5, 10): Duplicate identifier: r
+# Error: VCP2505 tb_triangleIntersectionTest.sv : (6, 18): Duplicate identifier: trig
+# Error: VCP2505 tb_triangleIntersectionTest.sv : (7, 20): Duplicate identifier: code
+# Error: VCP2505 tb_triangleIntersectionTest.sv : (8, 18): Duplicate identifier: of
+# Warning: VCP7606 normalDF.sv : (2, 20): Package math_pack imports its own symbols.
+# Warning: VCP7606 mSqrt.sv : (2, 20): Package math_pack imports its own symbols.
+# Error: VCP5103 mSqrt.sv : (7, 13): Undeclared identifier: b.
+# Warning: VCP7606 normalCU.sv : (2, 20): Package math_pack imports its own symbols.
+# Error: VCP2505 normalCU.sv : (7, 19): Duplicate identifier: state
+# Error: VCP2505 normalCU.sv : (8, 21): Duplicate identifier: prv_start
+# Warning: VCP7606 normalAndIntersectionPoint.sv : (2, 20): Package math_pack imports its own symbols.
+# Error: VCP2505 normalAndIntersectionPoint.sv : (7, 28): Duplicate identifier: det
+# Error: VCP2505 normalAndIntersectionPoint.sv : (7, 28): Duplicate identifier: u
+# Error: VCP2505 normalAndIntersectionPoint.sv : (7, 28): Duplicate identifier: v
+# Error: VCP2505 normalAndIntersectionPoint.sv : (7, 28): Duplicate identifier: tUCDF
+# Error: VCP2505 normalAndIntersectionPoint.sv : (8, 23): Duplicate identifier: t1
+# Error: VCP2505 normalAndIntersectionPoint.sv : (8, 23): Duplicate identifier: e1
+# Error: VCP2505 normalAndIntersectionPoint.sv : (8, 23): Duplicate identifier: e2
+# Error: VCP2505 normalAndIntersectionPoint.sv : (9, 22): Duplicate identifier: sel1
+# Error: VCP2505 normalAndIntersectionPoint.sv : (9, 22): Duplicate identifier: sel2
+# Error: VCP2505 normalAndIntersectionPoint.sv : (10, 17): Duplicate identifier: rdir
+# Error: VCP2000 normalAndIntersectionPoint.sv : (18, 30): Syntax error. Unexpected token: input[_INPUT]. Expected tokens: 'full_case' , 'parallel_case' , 'parallel_case full_case' , 'identifier' , 'user-defined type' ... .
+# Error: VCP2000 normalAndIntersectionPoint.sv : (18, 50): Syntax error. Unexpected token: input[_INPUT]. Expected tokens: 'full_case' , 'parallel_case' , 'parallel_case full_case' , 'identifier' , 'user-defined type' ... .
+# Error: VCP2000 normalAndIntersectionPoint.sv : (18, 70): Syntax error. Unexpected token: input[_INPUT]. Expected tokens: 'full_case' , 'parallel_case' , 'parallel_case full_case' , 'identifier' , 'user-defined type' ... .
+# Error: VCP2000 normalAndIntersectionPoint.sv : (18, 88): Syntax error. Unexpected token: input[_INPUT]. Expected tokens: 'full_case' , 'parallel_case' , 'parallel_case full_case' , 'identifier' , 'user-defined type' ... .
+# Error: VCP2000 normalAndIntersectionPoint.sv : (18, 107): Syntax error. Unexpected token: output[_OUTPUT]. Expected tokens: 'full_case' , 'parallel_case' , 'parallel_case full_case' , 'identifier' , 'user-defined type' ... .
+# Error: VCP2000 normalAndIntersectionPoint.sv : (19, 13): Syntax error. Unexpected token: normalDF[_IDENTIFIER]. Expected tokens: '=' , '[' , ',' , ';' .
+# Compile failure 38 Errors 14 Warnings  Analysis time: 0[s].
+alog -O2 -l VIRTEX5 -sve  -work coproc -sv2k9 $dsn/src/deftypes.sv $dsn/src/mathfunctions.sv $dsn/src/lightfunctions.sv $dsn/src/triangleintersectiontest.sv $dsn/src/reflect.sv $dsn/src/normalprep.sv $dsn/src/refract.sv $dsn/src/user_logic.sv $dsn/src/demux.sv $dsn/src/vectorialProduct.sv $dsn/src/mux.sv $dsn/src/intersectionDF.sv $dsn/src/mDiv.sv $dsn/src/scalarProduct.sv $dsn/src/intersectionCU.sv $dsn/src/intersectionModule.sv $dsn/src/tb_triangleIntersectionTest.sv $dsn/src/normalDF.sv $dsn/src/mSqrt.sv $dsn/src/normalCU.sv $dsn/src/normalAndIntersectionPoint.sv
+# Warning: The source is compiled without the -dbg switch. Line breakpoints and code coverage will not be available.
+# Compile...
+# Pass 1. Scanning modules hierarchy.
+# Module \$root found in current working library.
+# Error: VCP2000 normalAndIntersectionPoint.sv : (18, 30): Syntax error. Unexpected token: input[_INPUT]. Expected tokens: 'full_case' , 'parallel_case' , 'parallel_case full_case' , 'identifier' , 'user-defined type' ... .
+# Error: VCP2000 normalAndIntersectionPoint.sv : (18, 50): Syntax error. Unexpected token: input[_INPUT]. Expected tokens: 'full_case' , 'parallel_case' , 'parallel_case full_case' , 'identifier' , 'user-defined type' ... .
+# Error: VCP2000 normalAndIntersectionPoint.sv : (18, 70): Syntax error. Unexpected token: input[_INPUT]. Expected tokens: 'full_case' , 'parallel_case' , 'parallel_case full_case' , 'identifier' , 'user-defined type' ... .
+# Error: VCP2000 normalAndIntersectionPoint.sv : (18, 88): Syntax error. Unexpected token: input[_INPUT]. Expected tokens: 'full_case' , 'parallel_case' , 'parallel_case full_case' , 'identifier' , 'user-defined type' ... .
+# Error: VCP2000 normalAndIntersectionPoint.sv : (18, 107): Syntax error. Unexpected token: output[_OUTPUT]. Expected tokens: 'full_case' , 'parallel_case' , 'parallel_case full_case' , 'identifier' , 'user-defined type' ... .
+# Error: VCP2000 normalAndIntersectionPoint.sv : (19, 13): Syntax error. Unexpected token: normalDF[_IDENTIFIER]. Expected tokens: '=' , '[' , ',' , ';' .
+# Compile failure 6 Errors 0 Warnings  Analysis time: 0[s].
+alog -O2 -l VIRTEX5 -sve  -work coproc -sv2k9 $dsn/src/deftypes.sv $dsn/src/mathfunctions.sv $dsn/src/lightfunctions.sv $dsn/src/triangleintersectiontest.sv $dsn/src/reflect.sv $dsn/src/normalprep.sv $dsn/src/refract.sv $dsn/src/user_logic.sv $dsn/src/demux.sv $dsn/src/vectorialProduct.sv $dsn/src/mux.sv $dsn/src/intersectionDF.sv $dsn/src/mDiv.sv $dsn/src/scalarProduct.sv $dsn/src/intersectionCU.sv $dsn/src/intersectionModule.sv $dsn/src/tb_triangleIntersectionTest.sv $dsn/src/normalDF.sv $dsn/src/mSqrt.sv $dsn/src/normalCU.sv $dsn/src/normalAndIntersectionPoint.sv
+# Warning: The source is compiled without the -dbg switch. Line breakpoints and code coverage will not be available.
+# Compile...
+# Pass 1. Scanning modules hierarchy.
+# Module \$root found in current working library.
+# Error: VCP2000 normalAndIntersectionPoint.sv : (18, 30): Syntax error. Unexpected token: input[_INPUT]. Expected tokens: 'full_case' , 'parallel_case' , 'parallel_case full_case' , 'identifier' , 'user-defined type' ... .
+# Error: VCP2000 normalAndIntersectionPoint.sv : (18, 50): Syntax error. Unexpected token: input[_INPUT]. Expected tokens: 'full_case' , 'parallel_case' , 'parallel_case full_case' , 'identifier' , 'user-defined type' ... .
+# Error: VCP2000 normalAndIntersectionPoint.sv : (18, 70): Syntax error. Unexpected token: input[_INPUT]. Expected tokens: 'full_case' , 'parallel_case' , 'parallel_case full_case' , 'identifier' , 'user-defined type' ... .
+# Error: VCP2000 normalAndIntersectionPoint.sv : (18, 88): Syntax error. Unexpected token: input[_INPUT]. Expected tokens: 'full_case' , 'parallel_case' , 'parallel_case full_case' , 'identifier' , 'user-defined type' ... .
+# Error: VCP2000 normalAndIntersectionPoint.sv : (18, 107): Syntax error. Unexpected token: output[_OUTPUT]. Expected tokens: 'full_case' , 'parallel_case' , 'parallel_case full_case' , 'identifier' , 'user-defined type' ... .
+# Error: VCP2000 normalAndIntersectionPoint.sv : (19, 13): Syntax error. Unexpected token: normalDF[_IDENTIFIER]. Expected tokens: '=' , '[' , ',' , ';' .
+# Error: VCP2000 normalAndIntersectionPoint.sv : (19, 129): Syntax error. Unexpected token: ;. Expected tokens: ',' , ')' .
+# Compile failure 7 Errors 0 Warnings  Analysis time: 0[s].
+alog -O2 -l VIRTEX5 -sve  -work coproc -sv2k9 $dsn/src/deftypes.sv $dsn/src/mathfunctions.sv $dsn/src/lightfunctions.sv $dsn/src/triangleintersectiontest.sv $dsn/src/reflect.sv $dsn/src/normalprep.sv $dsn/src/refract.sv $dsn/src/user_logic.sv $dsn/src/demux.sv $dsn/src/vectorialProduct.sv $dsn/src/mux.sv $dsn/src/intersectionDF.sv $dsn/src/mDiv.sv $dsn/src/scalarProduct.sv $dsn/src/intersectionCU.sv $dsn/src/intersectionModule.sv $dsn/src/tb_triangleIntersectionTest.sv $dsn/src/normalDF.sv $dsn/src/mSqrt.sv $dsn/src/normalCU.sv $dsn/src/normalAndIntersectionPoint.sv
+# Warning: The source is compiled without the -dbg switch. Line breakpoints and code coverage will not be available.
+# Compile...
+# Pass 1. Scanning modules hierarchy.
+# Module \$root found in current working library.
+# Pass 2. Processing instantiations.
+# Error: VCP2000 intersectionDF.sv : (25, 93): Syntax error. Unexpected token: ). Expected tokens: '(*' , '.' .
+# Error: VCP2000 intersectionDF.sv : (26, 93): Syntax error. Unexpected token: ). Expected tokens: '(*' , '.' .
+# Error: VCP2000 intersectionDF.sv : (28, 75): Syntax error. Unexpected token: ). Expected tokens: '(*' , '.' .
+# Error: VCP2000 intersectionDF.sv : (30, 95): Syntax error. Unexpected token: ). Expected tokens: '(*' , '.' .
+# Error: VCP2000 intersectionDF.sv : (31, 95): Syntax error. Unexpected token: ). Expected tokens: '(*' , '.' .
+# Error: VCP2000 normalAndIntersectionPoint.sv : (18, 128): Syntax error. Unexpected token: ;. Expected tokens: ',' , ')' .
+# Compile failure 6 Errors 0 Warnings  Analysis time: 0[s].
+alog -O2 -l VIRTEX5 -sve  -work coproc -sv2k9 $dsn/src/deftypes.sv $dsn/src/mathfunctions.sv $dsn/src/lightfunctions.sv $dsn/src/triangleintersectiontest.sv $dsn/src/reflect.sv $dsn/src/normalprep.sv $dsn/src/refract.sv $dsn/src/user_logic.sv $dsn/src/demux.sv $dsn/src/vectorialProduct.sv $dsn/src/mux.sv $dsn/src/intersectionDF.sv $dsn/src/mDiv.sv $dsn/src/scalarProduct.sv $dsn/src/intersectionCU.sv $dsn/src/intersectionModule.sv $dsn/src/tb_triangleIntersectionTest.sv $dsn/src/normalDF.sv $dsn/src/mSqrt.sv $dsn/src/normalCU.sv $dsn/src/normalAndIntersectionPoint.sv
+# Warning: The source is compiled without the -dbg switch. Line breakpoints and code coverage will not be available.
+# Compile...
+# Pass 1. Scanning modules hierarchy.
+# Module \$root found in current working library.
+# Pass 2. Processing instantiations.
+# Error: VCP2000 normalAndIntersectionPoint.sv : (18, 128): Syntax error. Unexpected token: ;. Expected tokens: ',' , ')' .
+# Compile failure 1 Errors 0 Warnings  Analysis time: 0[s].
+alog -O2 -l VIRTEX5 -sve  -work coproc -sv2k9 $dsn/src/deftypes.sv $dsn/src/mathfunctions.sv $dsn/src/lightfunctions.sv $dsn/src/triangleintersectiontest.sv $dsn/src/reflect.sv $dsn/src/normalprep.sv $dsn/src/refract.sv $dsn/src/user_logic.sv $dsn/src/demux.sv $dsn/src/vectorialProduct.sv $dsn/src/mux.sv $dsn/src/intersectionDF.sv $dsn/src/mDiv.sv $dsn/src/scalarProduct.sv $dsn/src/intersectionCU.sv $dsn/src/intersectionModule.sv $dsn/src/tb_triangleIntersectionTest.sv $dsn/src/normalDF.sv $dsn/src/mSqrt.sv $dsn/src/normalCU.sv $dsn/src/normalAndIntersectionPoint.sv
+# Warning: The source is compiled without the -dbg switch. Line breakpoints and code coverage will not be available.
+# Compile...
+# Pass 1. Scanning modules hierarchy.
+# Module \$root found in current working library.
+# Pass 2. Processing instantiations.
+# Pass 3. Processing behavioral statements.
+# Error: VCP2898 mDiv.sv : (7, 34): Mismatched number of actual and formal arguments in function math_pack.fDiv call.
+# Compile failure 1 Errors 0 Warnings  Analysis time: 0[s].
+alog -O2 -l VIRTEX5 -sve  -work coproc -sv2k9 $dsn/src/deftypes.sv $dsn/src/mathfunctions.sv $dsn/src/lightfunctions.sv $dsn/src/triangleintersectiontest.sv $dsn/src/reflect.sv $dsn/src/normalprep.sv $dsn/src/refract.sv $dsn/src/user_logic.sv $dsn/src/demux.sv $dsn/src/vectorialProduct.sv $dsn/src/mux.sv $dsn/src/intersectionDF.sv $dsn/src/mDiv.sv $dsn/src/scalarProduct.sv $dsn/src/intersectionCU.sv $dsn/src/intersectionModule.sv $dsn/src/tb_triangleIntersectionTest.sv $dsn/src/normalDF.sv $dsn/src/mSqrt.sv $dsn/src/normalCU.sv $dsn/src/normalAndIntersectionPoint.sv
+# Warning: The source is compiled without the -dbg switch. Line breakpoints and code coverage will not be available.
+# Compile...
+# Pass 1. Scanning modules hierarchy.
+# Module \$root found in current working library.
+# Pass 2. Processing instantiations.
+# Pass 3. Processing behavioral statements.
+# Running Optimizer.
+# ELB/DAG code generating.
+# Module \$root found in current working library.
+# Unit top modules: reflectRay prepareIntersectionAndNormalVector refractRay user_logic tb_triangleIntersectionTest normalAndIntersectionPoint.
+# $root top modules: reflectRay prepareIntersectionAndNormalVector refractRay user_logic tb_triangleIntersectionTest normalAndIntersectionPoint.
+# Compile success 0 Errors 0 Warnings  Analysis time: 1[s].
+# done
+asim -O5 +access +r +m+tb_triangleIntersectionTest tb_triangleIntersectionTest
+# ELBREAD: Elaboration process.
+# ELBREAD: Elaboration time 0.0 [s].
+# asim: Stack memory: 32MB
+# asim: Retval memory: 32MB
+# KERNEL: Main thread initiated.
+# KERNEL: Kernel process initialization phase.
+# KERNEL: Time resolution set to 1ps.
+# ELAB2: Elaboration final pass...
+# ELAB2: Create instances ...
+# ELAB2: Create instances complete.
+# SLP: Started
+# SLP: Elaboration phase ...
+# SLP: Elaboration phase ... done : 0.1 [s]
+# SLP: Generation phase ...
+# SLP: Generation phase ... done : 0.8 [s]
+# SLP: Finished : 1.0 [s]
+# SLP: 0 primitives and 18 (100.00%) other processes in SLP
+# SLP: 127 (100.00%) signals in SLP and 0 interface signals
+# ELAB2: Elaboration final pass complete - time: 1.1 [s].
+# KERNEL: SLP loading done - time: 0.0 [s].
+# KERNEL: Warning: You are using the Active-HDL EDU Edition. The performance of simulation is running at a reduced rate.
+# KERNEL: Warning: Contact Aldec for available upgrade options - sales@aldec.com.
+# KERNEL: SLP simulation initialization done - time: 0.0 [s].
+# KERNEL: Kernel process initialization done.
+# Allocation: Simulator allocated 5684 kB (elbread=1023 elab2=4571 kernel=89 sdf=0)
+# KERNEL: ASDB file was created in location d:\TCC\h3dge2\src\hdl\system\pcores\h3dge_coproc_v1_00_a\hdl\verilog\coproc\coproc\src\wave.asdb
+#  20:14, samedi 10 décembre 2011
+#  Simulation has been initialized
+#  Selected Top-Level: tb_triangleIntersectionTest (tb_triangleIntersectionTest)
+# Warning: Cannot set breakpoint. No executable statement found or debugging data is unavailable. Compile source files with the -dbg argument of the acom/alog command or check the Enable Debug option in the Compilation | VHDL/Verilog category of the Design Settings dialog box.
+run
+# KERNEL: test intersection complete
+# KERNEL: 
+# KERNEL: test intersection complete
+# KERNEL: 
+# KERNEL: test intersection complete
+# KERNEL: 
+# KERNEL: test intersection complete
+# KERNEL: 
+# KERNEL: test intersection complete
+# KERNEL: 
+# KERNEL: test intersection complete
+# KERNEL: 
+# KERNEL: test intersection complete
+# KERNEL: 
+# RUNTIME: RUNTIME_0068 tb_triangleIntersectionTest.sv (245): $finish called.
+# KERNEL: Time: 70 ms,  Iteration: 0,  TOP instance,  Process: @INITIAL#19_1@.
+# KERNEL: stopped at time: 70 ms
+# 10 signal(s) traced.
+restart
+# ELBREAD: Elaboration process.
+# ELBREAD: Elaboration time 0.2 [s].
+# KERNEL: Main thread initiated.
+# KERNEL: Kernel process initialization phase.
+# KERNEL: Time resolution set to 1ps.
+# ELAB2: Elaboration final pass...
+# ELAB2: Create instances ...
+# ELAB2: Create instances complete.
+# SLP: Started
+# SLP: Finished. Using existing simulator library
+# SLP: 0 primitives and 18 (100.00%) other processes in SLP
+# SLP: 127 (100.00%) signals in SLP and 0 interface signals
+# ELAB2: Elaboration final pass complete - time: 0.1 [s].
+# KERNEL: SLP loading done - time: 0.0 [s].
+# KERNEL: Warning: You are using the Active-HDL EDU Edition. The performance of simulation is running at a reduced rate.
+# KERNEL: Warning: Contact Aldec for available upgrade options - sales@aldec.com.
+# KERNEL: SLP simulation initialization done - time: 0.0 [s].
+# KERNEL: Kernel process initialization done.
+# Allocation: Simulator allocated 5684 kB (elbread=1023 elab2=4571 kernel=89 sdf=0)
+# KERNEL: ASDB file was created in location d:\TCC\h3dge2\src\hdl\system\pcores\h3dge_coproc_v1_00_a\hdl\verilog\coproc\coproc\src\wave.asdb
+#  20:14, samedi 10 décembre 2011
+#  Simulation has been initialized
+#  Selected Top-Level: tb_triangleIntersectionTest (tb_triangleIntersectionTest)
+run
+# KERNEL: test intersection complete
+# KERNEL: 
+# KERNEL: test intersection complete
+# KERNEL: 
+# KERNEL: test intersection complete
+# KERNEL: 
+# KERNEL: test intersection complete
+# KERNEL: 
+# KERNEL: test intersection complete
+# KERNEL: 
+# KERNEL: test intersection complete
+# KERNEL: 
+# KERNEL: test intersection complete
+# KERNEL: 
+# RUNTIME: RUNTIME_0068 tb_triangleIntersectionTest.sv (245): $finish called.
+# KERNEL: Time: 70 ms,  Iteration: 0,  TOP instance,  Process: @INITIAL#19_1@.
+# KERNEL: stopped at time: 70 ms
+# Warning: Cannot set breakpoint. No executable statement found or debugging data is unavailable. Compile source files with the -dbg argument of the acom/alog command or check the Enable Debug option in the Compilation | VHDL/Verilog category of the Design Settings dialog box.
+# Warning: Cannot set breakpoint. No executable statement found or debugging data is unavailable. Compile source files with the -dbg argument of the acom/alog command or check the Enable Debug option in the Compilation | VHDL/Verilog category of the Design Settings dialog box.
+alog -O2 -l VIRTEX5 -sve  -work coproc -sv2k9 $dsn/src/deftypes.sv $dsn/src/mathfunctions.sv $dsn/src/lightfunctions.sv $dsn/src/triangleintersectiontest.sv $dsn/src/reflect.sv $dsn/src/normalprep.sv $dsn/src/refract.sv $dsn/src/user_logic.sv $dsn/src/demux.sv $dsn/src/vectorialProduct.sv $dsn/src/mux.sv $dsn/src/intersectionDF.sv $dsn/src/mDiv.sv $dsn/src/scalarProduct.sv $dsn/src/intersectionCU.sv $dsn/src/inters

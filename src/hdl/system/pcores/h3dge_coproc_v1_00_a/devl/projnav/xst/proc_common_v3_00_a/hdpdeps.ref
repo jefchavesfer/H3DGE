@@ -1,0 +1,65 @@
+V3 38
+FL C:/Xilinx/13.1/ISE_DS/EDK/hw/XilinxProcessorIPLib/pcores/proc_common_v3_00_a/hdl/vhdl/counter_f.vhd 2010/09/14.20:35:46 O.40d
+EN proc_common_v3_00_a/counter_f 1323626318 \
+      FL C:/Xilinx/13.1/ISE_DS/EDK/hw/XilinxProcessorIPLib/pcores/proc_common_v3_00_a/hdl/vhdl/counter_f.vhd \
+      PB ieee/std_logic_1164 1296775758 PB ieee/NUMERIC_STD 1296775759 LB unisim \
+      LB proc_common_v3_00_a PB proc_common_v3_00_a/family_support 1323626307
+AR proc_common_v3_00_a/counter_f/imp 1323626319 \
+      FL C:/Xilinx/13.1/ISE_DS/EDK/hw/XilinxProcessorIPLib/pcores/proc_common_v3_00_a/hdl/vhdl/counter_f.vhd \
+      EN proc_common_v3_00_a/counter_f 1323626318 CP std_logic_vector CP std_logic \
+      CP MUXCY_L CP XORCY CP FDRE CP unsigned
+FL C:/Xilinx/13.1/ISE_DS/EDK/hw/XilinxProcessorIPLib/pcores/proc_common_v3_00_a/hdl/vhdl/family_support.vhd 2011/01/05.23:21:52 O.40d
+PH proc_common_v3_00_a/family_support 1323626306 \
+      FL C:/Xilinx/13.1/ISE_DS/EDK/hw/XilinxProcessorIPLib/pcores/proc_common_v3_00_a/hdl/vhdl/family_support.vhd
+PB proc_common_v3_00_a/family_support 1323626307 \
+      FL C:/Xilinx/13.1/ISE_DS/EDK/hw/XilinxProcessorIPLib/pcores/proc_common_v3_00_a/hdl/vhdl/family_support.vhd \
+      PH proc_common_v3_00_a/family_support 1323626306
+FL C:/Xilinx/13.1/ISE_DS/EDK/hw/XilinxProcessorIPLib/pcores/proc_common_v3_00_a/hdl/vhdl/ipif_pkg.vhd 2010/09/14.20:35:46 O.40d
+PH proc_common_v3_00_a/ipif_pkg 1323626316 \
+      FL C:/Xilinx/13.1/ISE_DS/EDK/hw/XilinxProcessorIPLib/pcores/proc_common_v3_00_a/hdl/vhdl/ipif_pkg.vhd \
+      PB ieee/std_logic_1164 1296775758 PB ieee/std_logic_arith 1296775759 \
+      PB ieee/STD_LOGIC_UNSIGNED 1296775760
+PB proc_common_v3_00_a/ipif_pkg 1323626317 \
+      FL C:/Xilinx/13.1/ISE_DS/EDK/hw/XilinxProcessorIPLib/pcores/proc_common_v3_00_a/hdl/vhdl/ipif_pkg.vhd \
+      PH proc_common_v3_00_a/ipif_pkg 1323626316 LB proc_common_v3_00_a \
+      PB proc_common_v3_00_a/proc_common_pkg 1323626309
+FL C:/Xilinx/13.1/ISE_DS/EDK/hw/XilinxProcessorIPLib/pcores/proc_common_v3_00_a/hdl/vhdl/or_gate128.vhd 2010/09/14.20:35:46 O.40d
+EN proc_common_v3_00_a/or_gate128 1323626314 \
+      FL C:/Xilinx/13.1/ISE_DS/EDK/hw/XilinxProcessorIPLib/pcores/proc_common_v3_00_a/hdl/vhdl/or_gate128.vhd \
+      PB ieee/std_logic_1164 1296775758 PB ieee/std_logic_arith 1296775759 \
+      PB ieee/STD_LOGIC_UNSIGNED 1296775760 LB proc_common_v3_00_a
+AR proc_common_v3_00_a/or_gate128/imp 1323626315 \
+      FL C:/Xilinx/13.1/ISE_DS/EDK/hw/XilinxProcessorIPLib/pcores/proc_common_v3_00_a/hdl/vhdl/or_gate128.vhd \
+      EN proc_common_v3_00_a/or_gate128 1323626314 CP std_logic_vector CP or_muxcy
+FL C:/Xilinx/13.1/ISE_DS/EDK/hw/XilinxProcessorIPLib/pcores/proc_common_v3_00_a/hdl/vhdl/or_muxcy.vhd 2010/09/14.20:35:46 O.40d
+EN proc_common_v3_00_a/or_muxcy 1323626310 \
+      FL C:/Xilinx/13.1/ISE_DS/EDK/hw/XilinxProcessorIPLib/pcores/proc_common_v3_00_a/hdl/vhdl/or_muxcy.vhd \
+      PB ieee/std_logic_1164 1296775758 LB unisim
+AR proc_common_v3_00_a/or_muxcy/implementation 1323626311 \
+      FL C:/Xilinx/13.1/ISE_DS/EDK/hw/XilinxProcessorIPLib/pcores/proc_common_v3_00_a/hdl/vhdl/or_muxcy.vhd \
+      EN proc_common_v3_00_a/or_muxcy 1323626310 CP std_logic_vector CP MUXCY
+FL C:/Xilinx/13.1/ISE_DS/EDK/hw/XilinxProcessorIPLib/pcores/proc_common_v3_00_a/hdl/vhdl/proc_common_pkg.vhd 2010/10/27.23:14:32 O.40d
+PH proc_common_v3_00_a/proc_common_pkg 1323626308 \
+      FL C:/Xilinx/13.1/ISE_DS/EDK/hw/XilinxProcessorIPLib/pcores/proc_common_v3_00_a/hdl/vhdl/proc_common_pkg.vhd \
+      PB ieee/std_logic_1164 1296775758 PB ieee/std_logic_arith 1296775759 \
+      PB ieee/STD_LOGIC_UNSIGNED 1296775760
+PB proc_common_v3_00_a/proc_common_pkg 1323626309 \
+      FL C:/Xilinx/13.1/ISE_DS/EDK/hw/XilinxProcessorIPLib/pcores/proc_common_v3_00_a/hdl/vhdl/proc_common_pkg.vhd \
+      PH proc_common_v3_00_a/proc_common_pkg 1323626308
+FL C:/Xilinx/13.1/ISE_DS/EDK/hw/XilinxProcessorIPLib/pcores/proc_common_v3_00_a/hdl/vhdl/pselect_f.vhd 2010/09/14.20:35:47 O.40d
+EN proc_common_v3_00_a/pselect_f 1323626312 \
+      FL C:/Xilinx/13.1/ISE_DS/EDK/hw/XilinxProcessorIPLib/pcores/proc_common_v3_00_a/hdl/vhdl/pselect_f.vhd \
+      PB ieee/std_logic_1164 1296775758 LB unisim LB proc_common_v3_00_a \
+      PB proc_common_v3_00_a/family_support 1323626307
+AR proc_common_v3_00_a/pselect_f/imp 1323626313 \
+      FL C:/Xilinx/13.1/ISE_DS/EDK/hw/XilinxProcessorIPLib/pcores/proc_common_v3_00_a/hdl/vhdl/pselect_f.vhd \
+      EN proc_common_v3_00_a/pselect_f 1323626312 CP integer CP std_logic_vector \
+      CP natural CP positive CP MUXCY
+FL C:/Xilinx/13.1/ISE_DS/EDK/hw/XilinxProcessorIPLib/pcores/proc_common_v3_00_a/hdl/vhdl/soft_reset.vhd 2010/09/14.20:35:47 O.40d
+EN proc_common_v3_00_a/soft_reset 1323626320 \
+      FL C:/Xilinx/13.1/ISE_DS/EDK/hw/XilinxProcessorIPLib/pcores/proc_common_v3_00_a/hdl/vhdl/soft_reset.vhd \
+      PB ieee/std_logic_1164 1296775758 PB ieee/NUMERIC_STD 1296775759 LB unisim \
+      PH unisim/VCOMPONENTS 1296775759
+AR proc_common_v3_00_a/soft_reset/implementation 1323626321 \
+      FL C:/Xilinx/13.1/ISE_DS/EDK/hw/XilinxProcessorIPLib/pcores/proc_common_v3_00_a/hdl/vhdl/soft_reset.vhd \
+      EN proc_common_v3_00_a/soft_reset 1323626320 CP FDRSE

@@ -1,0 +1,2 @@
+vhdl fcb_v20_v1_00_a "C:\Xilinx\13.1\ISE_DS\EDK\hw\XilinxProcessorIPLib\pcores\fcb_v20_v1_00_a\hdl\vhdl\fcb_v20.vhd"
+vhdl work "C:\git\h3dge\src\hdl\system\hdl\ppc440_0_fcb_v20_wrapper.vhd"

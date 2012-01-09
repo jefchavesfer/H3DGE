@@ -1,0 +1,14 @@
+[Version]
+Version=8.3
+[Designs]
+coproc=.\coproc\coproc.adf
+[Browser]
+sort=order
+mode=asc
+[Order]
+order=1
+macro=
+[Expand]
+coproc=1
+[Settings]
+Active=coproc

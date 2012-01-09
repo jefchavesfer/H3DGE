@@ -1,0 +1,11 @@
+"./src/refract.sv"	1
+"./src/triangleintersectiontest.sv"	1
+"./src/defTypes.sv"	1
+"./src/reflect.sv"	1
+"./src/normalPrep.sv"	1
+""	1
+"./src/mathFunctions.sv"	1
+"./src/tb_triangleIntersectionTest.sv"	1
+"./src/tb_refractRays.sv"	1
+"./src/tb_reflectRays.sv"	1
+"./src/lightFunctions.sv"	1

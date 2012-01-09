@@ -1,0 +1,2 @@
+svf2ace -wtck -d -m 16776192 -i h3dge.svf -o h3dge.ace
+quit

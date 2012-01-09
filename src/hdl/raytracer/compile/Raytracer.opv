@@ -1,0 +1,1 @@
+ -erf "d:\TCC\h3dge\src\hdl\raytracer\compile\Raytracer.erf" -work Raytracer -lc d:/TCC/h3dge/src/hdl/raytracer/library.cfg -fl d:/TCC/h3dge/src/hdl/raytracer/projlib.cfg -o d:/TCC/h3dge/src/hdl/raytracer/compile -l "Raytracer"

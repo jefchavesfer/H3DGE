@@ -1,0 +1,23 @@
+xst -intstyle ise -ifn "C:/git/h3dge/src/hdl/system/pcores/h3dge_coproc_v1_00_a/devl/projnav/h3dge_coproc.xst" -ofn "C:/git/h3dge/src/hdl/system/pcores/h3dge_coproc_v1_00_a/devl/projnav/h3dge_coproc.syr" 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -i -p xc5vfx70t-ff1136-1 h3dge_coproc.ngc h3dge_coproc.ngd  
+map -intstyle ise -p xc5vfx70t-ff1136-1 -w -logic_opt off -ol high -t 1 -register_duplication off -global_opt off -mt off -cm area -ir off -pr off -lc off -power off -o h3dge_coproc_map.ncd h3dge_coproc.ngd h3dge_coproc.pcf 
+par -w -intstyle ise -ol high -mt off h3dge_coproc_map.ncd h3dge_coproc.ncd h3dge_coproc.pcf 
+trce -intstyle ise -v 3 -s 1 -n 3 -fastpaths -xml h3dge_coproc.twx h3dge_coproc.ncd -o h3dge_coproc.twr h3dge_coproc.pcf 
+xst -intstyle ise -ifn "C:/git/h3dge2/src/hdl/system/pcores/h3dge_coproc_v1_00_a/devl/projnav/h3dge_coproc.xst" -ofn "C:/git/h3dge2/src/hdl/system/pcores/h3dge_coproc_v1_00_a/devl/projnav/h3dge_coproc.syr" 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -i -p xc5vfx70t-ff1136-1 h3dge_coproc.ngc h3dge_coproc.ngd  
+map -intstyle ise -p xc5vfx70t-ff1136-1 -w -logic_opt off -ol high -t 1 -register_duplication off -global_opt off -mt off -cm area -ir off -pr off -lc off -power off -o h3dge_coproc_map.ncd h3dge_coproc.ngd h3dge_coproc.pcf 
+xst -intstyle ise -ifn "C:/git/h3dge2/src/hdl/system/pcores/h3dge_coproc_v1_00_a/devl/projnav/h3dge_coproc.xst" -ofn "C:/git/h3dge2/src/hdl/system/pcores/h3dge_coproc_v1_00_a/devl/projnav/h3dge_coproc.syr" 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -i -p xc5vfx70t-ff1136-1 h3dge_coproc.ngc h3dge_coproc.ngd  
+map -intstyle ise -p xc5vfx70t-ff1136-1 -w -logic_opt off -ol high -t 1 -register_duplication off -global_opt off -mt off -cm area -ir off -pr off -lc off -power off -o h3dge_coproc_map.ncd h3dge_coproc.ngd h3dge_coproc.pcf 
+par -w -intstyle ise -ol high -mt off h3dge_coproc_map.ncd h3dge_coproc.ncd h3dge_coproc.pcf 
+trce -intstyle ise -v 3 -s 1 -n 3 -fastpaths -xml h3dge_coproc.twx h3dge_coproc.ncd -o h3dge_coproc.twr h3dge_coproc.pcf 
+xst -intstyle ise -ifn "C:/git/h3dge2/src/hdl/system/pcores/h3dge_coproc_v1_00_a/devl/projnav/h3dge_coproc.xst" -ofn "C:/git/h3dge2/src/hdl/system/pcores/h3dge_coproc_v1_00_a/devl/projnav/h3dge_coproc.syr" 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -i -p xc5vfx70t-ff1136-1 h3dge_coproc.ngc h3dge_coproc.ngd  
+map -intstyle ise -p xc5vfx70t-ff1136-1 -w -logic_opt off -ol high -t 1 -register_duplication off -global_opt off -mt off -cm area -ir off -pr off -lc off -power off -o h3dge_coproc_map.ncd h3dge_coproc.ngd h3dge_coproc.pcf 
+par -w -intstyle ise -ol high -mt off h3dge_coproc_map.ncd h3dge_coproc.ncd h3dge_coproc.pcf 
+trce -intstyle ise -v 3 -s 1 -n 3 -fastpaths -xml h3dge_coproc.twx h3dge_coproc.ncd -o h3dge_coproc.twr h3dge_coproc.pcf 
+xst -intstyle ise -ifn "C:/git/h3dge/src/hdl/system/pcores/h3dge_coproc_v1_00_a/devl/projnav/h3dge_coproc.xst" -ofn "C:/git/h3dge/src/hdl/system/pcores/h3dge_coproc_v1_00_a/devl/projnav/h3dge_coproc.syr" 
+xst -intstyle ise -ifn "C:/git/h3dge/src/hdl/system/pcores/h3dge_coproc_v1_00_a/devl/projnav/h3dge_coproc.xst" -ofn "C:/git/h3dge/src/hdl/system/pcores/h3dge_coproc_v1_00_a/devl/projnav/h3dge_coproc.syr" 
+xst -intstyle ise -ifn "C:/git/h3dge/src/hdl/system/pcores/h3dge_coproc_v1_00_a/devl/projnav/h3dge_coproc.xst" -ofn "C:/git/h3dge/src/hdl/system/pcores/h3dge_coproc_v1_00_a/devl/projnav/h3dge_coproc.syr" 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -i -p xc5vfx70t-ff1136-1 h3dge_coproc.ngc h3dge_coproc.ngd  
+xst -intstyle ise -ifn "C:/git/h3dge/src/hdl/system/pcores/h3dge_coproc_v1_00_a/devl/projnav/h3dge_coproc.xst" -ofn "C:/git/h3dge/src/hdl/system/pcores/h3dge_coproc_v1_00_a/devl/projnav/h3dge_coproc.syr" 

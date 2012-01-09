@@ -1,0 +1,5 @@
+setmode -bs
+setCable -p svf -file ../../h3dge_hw_platform/system.svf
+addDevice -p 1 -file ../../h3dge_hw_platform/system.bit
+program -p 1
+quit

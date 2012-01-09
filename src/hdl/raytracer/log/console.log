@@ -1,0 +1,471 @@
+# ELBREAD: Elaboration process.
+# ELBREAD: Elaboration time 0.4 [s].
+alog -O2 -l VIRTEX5 -sve  -work Raytracer -sv2k9 $dsn/src/defTypes.sv $dsn/src/mathFunctions.sv $dsn/src/lightFunctions.sv $dsn/src/triangleintersectiontest.sv $dsn/src/tb_triangleIntersectionTest.sv $dsn/src/reflect.sv $dsn/src/tb_reflectRays.sv $dsn/src/refract.sv $dsn/src/normalPrep.sv $dsn/src/tb_refractRays.sv
+# Warning: The source is compiled without the -dbg switch. Line breakpoints and code coverage will not be available.
+# Compile...
+# Pass 1. Scanning modules hierarchy.
+# Module \$root found in current working library.
+# Pass 2. Processing instantiations.
+# Pass 3. Processing behavioral statements.
+# Error: VCP2000 tb_triangleIntersectionTest.sv : (155, 5): Syntax error. Unexpected token: r[__r]. Expected tokens: '?' , '||' , '&&' , '|' , '^' ... .
+# Error: VCP2000 tb_triangleIntersectionTest.sv : (156, 5): Syntax error. Unexpected token: r[__r]. Expected tokens: '?' , '||' , '&&' , '|' , '^' ... .
+# Error: VCP2000 tb_triangleIntersectionTest.sv : (157, 5): Syntax error. Unexpected token: trig[_IDENTIFIER]. Expected tokens: '?' , '||' , '&&' , '|' , '^' ... .
+# Compile failure 3 Errors 0 Warnings  Analysis time: 0[s].
+alog -O2 -l VIRTEX5 -sve  -work Raytracer -sv2k9 $dsn/src/defTypes.sv $dsn/src/mathFunctions.sv $dsn/src/lightFunctions.sv $dsn/src/triangleintersectiontest.sv $dsn/src/tb_triangleIntersectionTest.sv $dsn/src/reflect.sv $dsn/src/tb_reflectRays.sv $dsn/src/refract.sv $dsn/src/normalPrep.sv $dsn/src/tb_refractRays.sv
+# Warning: The source is compiled without the -dbg switch. Line breakpoints and code coverage will not be available.
+# Compile...
+# Pass 1. Scanning modules hierarchy.
+# Module \$root found in current working library.
+# Pass 2. Processing instantiations.
+# Pass 3. Processing behavioral statements.
+# Running Optimizer.
+# ELB/DAG code generating.
+# Module \$root found in current working library.
+# Unit top modules: tb_triangleIntersectionTest tb_reflectedRayTest tb_refractedRayTest.
+# $root top modules: IntersectionTest tb_triangleIntersectionTest tb_reflectedRayTest tb_refractedRayTest.
+# Compile success 0 Errors 0 Warnings  Analysis time: 1[s].
+# done
+asim -O5 +access +r +m+tb_triangleIntersectionTest tb_triangleIntersectionTest
+# ELBREAD: Elaboration process.
+# ELBREAD: Elaboration time 0.0 [s].
+# asim: Stack memory: 32MB
+# asim: Retval memory: 32MB
+# KERNEL: Main thread initiated.
+# KERNEL: Kernel process initialization phase.
+# KERNEL: Time resolution set to 1ps.
+# ELAB2: Elaboration final pass...
+# ELAB2: Create instances ...
+# ELAB2: Create instances complete.
+# SLP: Started
+# SLP: Elaboration phase ...
+# SLP: Elaboration phase ... done : 0.1 [s]
+# SLP: Generation phase ...
+# SLP: Generation phase ... done : 0.7 [s]
+# SLP: Finished : 0.8 [s]
+# SLP: 0 primitives and 5 (83.33%) other processes in SLP
+# SLP: 9 (21.95%) signals in SLP and 4 (9.76%) interface signals
+# ELAB2: Elaboration final pass complete - time: 0.8 [s].
+# KERNEL: SLP loading done - time: 0.1 [s].
+# KERNEL: Warning: You are using the Active-HDL EDU Edition. The performance of simulation is running at a reduced rate.
+# KERNEL: Warning: Contact Aldec for available upgrade options - sales@aldec.com.
+# KERNEL: SLP simulation initialization done - time: 0.0 [s].
+# KERNEL: Kernel process initialization done.
+# Allocation: Simulator allocated 6720 kB (elbread=1023 elab2=5351 kernel=345 sdf=0)
+# KERNEL: ASDB file was created in location d:\TCC\h3dge\src\hdl\raytracer\src\wave.asdb
+#  03:38, samedi 12 novembre 2011
+#  Simulation has been initialized
+#  Selected Top-Level: tb_triangleIntersectionTest (tb_triangleIntersectionTest)
+run
+# KERNEL: test intersection complete
+# KERNEL: 
+# KERNEL:           2t: 00083126
+# KERNEL: test intersection complete
+# KERNEL: 
+# KERNEL:           2t: 08000000
+# KERNEL: test intersection complete
+# KERNEL: 
+# KERNEL: test intersection complete
+# KERNEL: 
+# KERNEL: test intersection complete
+# KERNEL: 
+# KERNEL:           2t: 10000000
+# KERNEL: test intersection complete
+# KERNEL: 
+# KERNEL:           2t: 0ddb3d78
+# KERNEL: test intersection complete
+# KERNEL: 
+# RUNTIME: RUNTIME_0068 tb_triangleIntersectionTest.sv (172): $finish called.
+# KERNEL: Time: 70 ms,  Iteration: 0,  TOP instance,  Process: @INITIAL#14_0@.
+# KERNEL: stopped at time: 70 ms
+restart
+# ELBREAD: Elaboration process.
+# ELBREAD: Error: You do not have a valid license to run simulation with SystemVerilog.
+# Contact Aldec for ordering information - sales@aldec.com.
+# ELBREAD: Error: Elaboration process completed with errors.
+# Design: Error: Elaboration failed
+# Error: Cannot initialize simulation - no top level  entity/architecture or configuration is selected
+# Connection to the license server has been restored.
+# Connection to the license server has been restored.
+# Connection to the license server has been restored.
+# Connection to the license server has been restored.
+# Connection to the license server has been restored.
+# Connection to the license server has been restored.
+# Connection to the license server has been restored.
+# Warning: Failed to connect to the license server. 4 tries left.
+# Warning: Failed to connect to the license server. 4 tries left.
+# Warning: Failed to connect to the license server. 4 tries left.
+# Warning: Failed to connect to the license server. 4 tries left.
+# Warning: Failed to connect to the license server. 4 tries left.
+# Warning: Failed to connect to the license server. 4 tries left.
+# ELBREAD: Elaboration process.
+# ELBREAD: Elaboration time 0.3 [s].
+# ELBREAD: Elaboration process.
+# ELBREAD: Elaboration time 0.0 [s].
+asim -O5 +access +r +m+tb_refractedRayTest tb_refractedRayTest
+# ELBREAD: Elaboration process.
+# ELBREAD: Elaboration time 0.0 [s].
+# asim: Stack memory: 32MB
+# asim: Retval memory: 32MB
+# KERNEL: Main thread initiated.
+# KERNEL: Kernel process initialization phase.
+# KERNEL: Time resolution set to 1ps.
+# ELAB2: Elaboration final pass...
+# ELAB2: Create instances ...
+# ELAB2: Create instances complete.
+# SLP: Started
+# SLP: Elaboration phase ...
+# SLP: Elaboration phase ... done : 0.1 [s]
+# SLP: Generation phase ...
+# SLP: Generation phase ... done : 1.0 [s]
+# SLP: Finished : 1.1 [s]
+# SLP: 0 primitives and 12 (92.31%) other processes in SLP
+# SLP: 91 (73.98%) signals in SLP and 18 (14.63%) interface signals
+# ELAB2: Elaboration final pass complete - time: 1.1 [s].
+# KERNEL: SLP loading done - time: 0.0 [s].
+# KERNEL: Warning: You are using the Active-HDL EDU Edition. The performance of simulation is running at a reduced rate.
+# KERNEL: Warning: Contact Aldec for available upgrade options - sales@aldec.com.
+# KERNEL: SLP simulation initialization done - time: 0.0 [s].
+# KERNEL: Kernel process initialization done.
+# Allocation: Simulator allocated 6670 kB (elbread=1023 elab2=5301 kernel=345 sdf=0)
+# KERNEL: ASDB file was created in location d:\TCC\h3dge\src\hdl\raytracer\src\wave.asdb
+#  03:50, samedi 12 novembre 2011
+#  Simulation has been initialized
+#  Selected Top-Level: tb_refractedRayTest (tb_refractedRayTest)
+run
+# KERNEL:           2t: 18000000
+# KERNEL:           2t: 0b504f33
+# RUNTIME: RUNTIME_0068 tb_refractRays.sv (162): $finish called.
+# KERNEL: Time: 20 ms,  Iteration: 0,  TOP instance,  Process: @INITIAL#20_0@.
+# KERNEL: stopped at time: 20 ms
+alog -O2 -l VIRTEX5 -sve  -work Raytracer -sv2k9 $dsn/src/defTypes.sv $dsn/src/mathFunctions.sv $dsn/src/lightFunctions.sv $dsn/src/triangleintersectiontest.sv $dsn/src/tb_triangleIntersectionTest.sv $dsn/src/reflect.sv $dsn/src/tb_reflectRays.sv $dsn/src/refract.sv $dsn/src/normalPrep.sv $dsn/src/tb_refractRays.sv
+# Warning: The source is compiled without the -dbg switch. Line breakpoints and code coverage will not be available.
+# Compile...
+# Pass 1. Scanning modules hierarchy.
+# Module \$root found in current working library.
+# Pass 2. Processing instantiations.
+# Pass 3. Processing behavioral statements.
+# Running Optimizer.
+# ELB/DAG code generating.
+# Module \$root found in current working library.
+# Unit top modules: tb_triangleIntersectionTest tb_reflectedRayTest tb_refractedRayTest.
+# $root top modules: IntersectionTest tb_triangleIntersectionTest tb_reflectedRayTest tb_refractedRayTest.
+# Compile success 0 Errors 0 Warnings  Analysis time: 1[s].
+# done
+restart
+# ELBREAD: Elaboration process.
+# ELBREAD: Elaboration time 0.4 [s].
+# KERNEL: Main thread initiated.
+# KERNEL: Kernel process initialization phase.
+# KERNEL: Time resolution set to 1ps.
+# ELAB2: Elaboration final pass...
+# ELAB2: Create instances ...
+# ELAB2: Create instances complete.
+# SLP: Started
+# SLP: Elaboration phase ...
+# SLP: Elaboration phase ... done : 0.1 [s]
+# SLP: Generation phase ...
+# SLP: Generation phase ... done : 0.8 [s]
+# SLP: Finished : 1.0 [s]
+# SLP: 0 primitives and 12 (92.31%) other processes in SLP
+# SLP: 91 (73.98%) signals in SLP and 18 (14.63%) interface signals
+# ELAB2: Elaboration final pass complete - time: 1.1 [s].
+# KERNEL: SLP loading done - time: 0.1 [s].
+# KERNEL: Warning: You are using the Active-HDL EDU Edition. The performance of simulation is running at a reduced rate.
+# KERNEL: Warning: Contact Aldec for available upgrade options - sales@aldec.com.
+# KERNEL: SLP simulation initialization done - time: 0.0 [s].
+# KERNEL: Kernel process initialization done.
+# Allocation: Simulator allocated 6670 kB (elbread=1023 elab2=5301 kernel=345 sdf=0)
+# KERNEL: ASDB file was created in location d:\TCC\h3dge\src\hdl\raytracer\src\wave.asdb
+#  03:53, samedi 12 novembre 2011
+#  Simulation has been initialized
+#  Selected Top-Level: tb_refractedRayTest (tb_refractedRayTest)
+# Connection to the license server has been restored.
+# Connection to the license server has been restored.
+# Connection to the license server has been restored.
+# Connection to the license server has been restored.
+# Connection to the license server has been restored.
+# Connection to the license server has been restored.
+# Connection to the license server has been restored.
+# Connection to the license server has been restored.
+# Connection to the license server has been restored.
+# Connection to the license server has been restored.
+# Connection to the license server has been restored.
+# Warning: Failed to connect to the license server. 4 tries left.
+# Warning: Failed to connect to the license server. 4 tries left.
+run
+# KERNEL:           2t: 18000000
+# KERNEL:           2t: 0b504f33
+# RUNTIME: RUNTIME_0068 tb_refractRays.sv (162): $finish called.
+# KERNEL: Time: 20 ms,  Iteration: 0,  TOP instance,  Process: @INITIAL#20_0@.
+# KERNEL: stopped at time: 20 ms
+# Connection to the license server has been restored.
+# Connection to the license server has been restored.
+# Connection to the license server has been restored.
+# Connection to the license server has been restored.
+# Connection to the license server has been restored.
+# Connection to the license server has been restored.
+# Connection to the license server has been restored.
+# Connection to the license server has been restored.
+# Connection to the license server has been restored.
+# Connection to the license server has been restored.
+# Connection to the license server has been restored.
+# Connection to the license server has been restored.
+# Connection to the license server has been restored.
+# Connection to the license server has been restored.
+# Connection to the license server has been restored.
+# Connection to the license server has been restored.
+# Connection to the license server has been restored.
+# Connection to the license server has been restored.
+# Connection to the license server has been restored.
+# Connection to the license server has been restored.
+# Connection to the license server has been restored.
+# Connection to the license server has been restored.
+# Connection to the license server has been restored.
+restart
+# ELBREAD: Elaboration process.
+# ELBREAD: Elaboration time 0.3 [s].
+# KERNEL: Main thread initiated.
+# KERNEL: Kernel process initialization phase.
+# KERNEL: Time resolution set to 1ps.
+# ELAB2: Elaboration final pass...
+# ELAB2: Create instances ...
+# ELAB2: Create instances complete.
+# SLP: Started
+# SLP: Finished. Using existing simulator library
+# SLP: 0 primitives and 12 (92.31%) other processes in SLP
+# SLP: 91 (73.98%) signals in SLP and 18 (14.63%) interface signals
+# ELAB2: Elaboration final pass complete - time: 0.1 [s].
+# KERNEL: SLP loading done - time: 0.0 [s].
+# KERNEL: Warning: You are using the Active-HDL EDU Edition. The performance of simulation is running at a reduced rate.
+# KERNEL: Warning: Contact Aldec for available upgrade options - sales@aldec.com.
+# KERNEL: SLP simulation initialization done - time: 0.0 [s].
+# KERNEL: Kernel process initialization done.
+# Allocation: Simulator allocated 6670 kB (elbread=1023 elab2=5301 kernel=345 sdf=0)
+# KERNEL: ASDB file was created in location d:\TCC\h3dge\src\hdl\raytracer\src\wave.asdb
+#  04:16, samedi 12 novembre 2011
+#  Simulation has been initialized
+#  Selected Top-Level: tb_refractedRayTest (tb_refractedRayTest)
+alog -O2 -l VIRTEX5 -sve  -work Raytracer -sv2k9 $dsn/src/defTypes.sv $dsn/src/mathFunctions.sv $dsn/src/lightFunctions.sv $dsn/src/triangleintersectiontest.sv $dsn/src/tb_triangleIntersectionTest.sv $dsn/src/reflect.sv $dsn/src/tb_reflectRays.sv $dsn/src/refract.sv $dsn/src/normalPrep.sv $dsn/src/tb_refractRays.sv
+# Warning: The source is compiled without the -dbg switch. Line breakpoints and code coverage will not be available.
+# Compile...
+# Pass 1. Scanning modules hierarchy.
+# Module \$root found in current working library.
+# Pass 2. Processing instantiations.
+# Pass 3. Processing behavioral statements.
+# Running Optimizer.
+# ELB/DAG code generating.
+# Module \$root found in current working library.
+# Unit top modules: tb_triangleIntersectionTest tb_reflectedRayTest tb_refractedRayTest.
+# $root top modules: IntersectionTest tb_triangleIntersectionTest tb_reflectedRayTest tb_refractedRayTest.
+# Compile success 0 Errors 0 Warnings  Analysis time: 1[s].
+# done
+restart
+# ELBREAD: Elaboration process.
+# ELBREAD: Elaboration time 0.4 [s].
+# KERNEL: Main thread initiated.
+# KERNEL: Kernel process initialization phase.
+# KERNEL: Time resolution set to 1ps.
+# ELAB2: Elaboration final pass...
+# ELAB2: Create instances ...
+# ELBREAD: Error: Hierarchical reference not found: refl.start.x (from "tb_refractedRayTest")
+# KERNEL: Error: E8005 : Kernel process initialization failed.
+# Error: Fatal error occurred during simulation initialization.
+alog -O2 -l VIRTEX5 -sve  -work Raytracer -sv2k9 $dsn/src/defTypes.sv $dsn/src/mathFunctions.sv $dsn/src/lightFunctions.sv $dsn/src/triangleintersectiontest.sv $dsn/src/tb_triangleIntersectionTest.sv $dsn/src/reflect.sv $dsn/src/tb_reflectRays.sv $dsn/src/refract.sv $dsn/src/normalPrep.sv $dsn/src/tb_refractRays.sv
+# Warning: The source is compiled without the -dbg switch. Line breakpoints and code coverage will not be available.
+# Compile...
+# Pass 1. Scanning modules hierarchy.
+# Module \$root found in current working library.
+# Pass 2. Processing instantiations.
+# Pass 3. Processing behavioral statements.
+# Connection to the license server has been restored.
+# Running Optimizer.
+# ELB/DAG code generating.
+# Module \$root found in current working library.
+# Unit top modules: tb_triangleIntersectionTest tb_reflectedRayTest tb_refractedRayTest.
+# $root top modules: IntersectionTest tb_triangleIntersectionTest tb_reflectedRayTest tb_refractedRayTest.
+# Compile success 0 Errors 0 Warnings  Analysis time: 1[s].
+# Connection to the license server has been restored.
+# Connection to the license server has been restored.
+# Connection to the license server has been restored.
+# done
+# Connection to the license server has been restored.
+# Connection to the license server has been restored.
+asim -O5 +access +r +m+tb_refractedRayTest tb_refractedRayTest
+# ELBREAD: Elaboration process.
+# ELBREAD: Elaboration time 0.4 [s].
+# asim: Stack memory: 32MB
+# asim: Retval memory: 32MB
+# KERNEL: Main thread initiated.
+# KERNEL: Kernel process initialization phase.
+# KERNEL: Time resolution set to 1ps.
+# ELAB2: Elaboration final pass...
+# ELAB2: Create instances ...
+# ELAB2: Create instances complete.
+# SLP: Started
+# SLP: Elaboration phase ...
+# SLP: Elaboration phase ... done : 0.1 [s]
+# SLP: Generation phase ...
+# SLP: Generation phase ... done : 0.9 [s]
+# SLP: Finished : 1.1 [s]
+# SLP: 0 primitives and 12 (92.31%) other processes in SLP
+# SLP: 91 (73.98%) signals in SLP and 18 (14.63%) interface signals
+# ELAB2: Elaboration final pass complete - time: 1.1 [s].
+# KERNEL: SLP loading done - time: 0.0 [s].
+# KERNEL: Warning: You are using the Active-HDL EDU Edition. The performance of simulation is running at a reduced rate.
+# KERNEL: Warning: Contact Aldec for available upgrade options - sales@aldec.com.
+# KERNEL: SLP simulation initialization done - time: 0.0 [s].
+# KERNEL: Kernel process initialization done.
+# Allocation: Simulator allocated 6710 kB (elbread=1023 elab2=5341 kernel=345 sdf=0)
+# KERNEL: ASDB file was created in location d:\TCC\h3dge\src\hdl\raytracer\src\wave.asdb
+#  04:17, samedi 12 novembre 2011
+#  Simulation has been initialized
+#  Selected Top-Level: tb_refractedRayTest (tb_refractedRayTest)
+run
+# KERNEL:           2t: 18000000
+# KERNEL:           2t: 0b504f33
+# KERNEL:           2t: 0b504f33
+# RUNTIME: RUNTIME_0068 tb_refractRays.sv (162): $finish called.
+# KERNEL: Time: 30 ms,  Iteration: 0,  TOP instance,  Process: @INITIAL#20_0@.
+# KERNEL: stopped at time: 30 ms
+alog -O2 -l VIRTEX5 -sve  -work Raytracer -sv2k9 $dsn/src/defTypes.sv $dsn/src/mathFunctions.sv $dsn/src/lightFunctions.sv $dsn/src/triangleintersectiontest.sv $dsn/src/tb_triangleIntersectionTest.sv $dsn/src/reflect.sv $dsn/src/tb_reflectRays.sv $dsn/src/refract.sv $dsn/src/normalPrep.sv $dsn/src/tb_refractRays.sv
+# Warning: The source is compiled without the -dbg switch. Line breakpoints and code coverage will not be available.
+# Compile...
+# Pass 1. Scanning modules hierarchy.
+# Module \$root found in current working library.
+# Pass 2. Processing instantiations.
+# Pass 3. Processing behavioral statements.
+# Running Optimizer.
+# ELB/DAG code generating.
+# Module \$root found in current working library.
+# Unit top modules: tb_triangleIntersectionTest tb_reflectedRayTest tb_refractedRayTest.
+# $root top modules: IntersectionTest tb_triangleIntersectionTest tb_reflectedRayTest tb_refractedRayTest.
+# Compile success 0 Errors 0 Warnings  Analysis time: 1[s].
+# done
+restart
+# ELBREAD: Elaboration process.
+# ELBREAD: Elaboration time 0.3 [s].
+# KERNEL: Main thread initiated.
+# KERNEL: Kernel process initialization phase.
+# KERNEL: Time resolution set to 1ps.
+# ELAB2: Elaboration final pass...
+# ELAB2: Create instances ...
+# ELAB2: Create instances complete.
+# SLP: Started
+# SLP: Elaboration phase ...
+# SLP: Elaboration phase ... done : 0.1 [s]
+# SLP: Generation phase ...
+# SLP: Generation phase ... done : 0.9 [s]
+# SLP: Finished : 1.1 [s]
+# SLP: 0 primitives and 12 (92.31%) other processes in SLP
+# SLP: 91 (73.98%) signals in SLP and 18 (14.63%) interface signals
+# ELAB2: Elaboration final pass complete - time: 1.1 [s].
+# KERNEL: SLP loading done - time: 0.1 [s].
+# KERNEL: Warning: You are using the Active-HDL EDU Edition. The performance of simulation is running at a reduced rate.
+# KERNEL: Warning: Contact Aldec for available upgrade options - sales@aldec.com.
+# KERNEL: SLP simulation initialization done - time: 0.0 [s].
+# KERNEL: Kernel process initialization done.
+# Allocation: Simulator allocated 6710 kB (elbread=1023 elab2=5341 kernel=345 sdf=0)
+# KERNEL: ASDB file was created in location d:\TCC\h3dge\src\hdl\raytracer\src\wave.asdb
+#  04:19, samedi 12 novembre 2011
+#  Simulation has been initialized
+#  Selected Top-Level: tb_refractedRayTest (tb_refractedRayTest)
+run
+# KERNEL:           xt: 18000000
+# KERNEL:           xt: 0b504f33
+# KERNEL:           xt: 0b504f33
+# RUNTIME: RUNTIME_0068 tb_refractRays.sv (97): $finish called.
+# KERNEL: Time: 30 ms,  Iteration: 0,  TOP instance,  Process: @INITIAL#19_0@.
+# KERNEL: stopped at time: 30 ms
+restart
+# ELBREAD: Elaboration process.
+# ELBREAD: Elaboration time 0.4 [s].
+# KERNEL: Main thread initiated.
+# KERNEL: Kernel process initialization phase.
+# KERNEL: Time resolution set to 1ps.
+# ELAB2: Elaboration final pass...
+# ELAB2: Create instances ...
+# ELAB2: Create instances complete.
+# SLP: Started
+# SLP: Finished. Using existing simulator library
+# SLP: 0 primitives and 12 (92.31%) other processes in SLP
+# SLP: 91 (73.98%) signals in SLP and 18 (14.63%) interface signals
+# ELAB2: Elaboration final pass complete - time: 0.1 [s].
+# KERNEL: SLP loading done - time: 0.0 [s].
+# KERNEL: Warning: You are using the Active-HDL EDU Edition. The performance of simulation is running at a reduced rate.
+# KERNEL: Warning: Contact Aldec for available upgrade options - sales@aldec.com.
+# KERNEL: SLP simulation initialization done - time: 0.0 [s].
+# KERNEL: Kernel process initialization done.
+# Allocation: Simulator allocated 6710 kB (elbread=1023 elab2=5341 kernel=345 sdf=0)
+# KERNEL: ASDB file was created in location d:\TCC\h3dge\src\hdl\raytracer\src\wave.asdb
+#  04:19, samedi 12 novembre 2011
+#  Simulation has been initialized
+#  Selected Top-Level: tb_refractedRayTest (tb_refractedRayTest)
+run
+# KERNEL:           xt: 18000000
+# KERNEL:           xt: 0b504f33
+# KERNEL:           xt: 0b504f33
+# RUNTIME: RUNTIME_0068 tb_refractRays.sv (97): $finish called.
+# KERNEL: Time: 30 ms,  Iteration: 0,  TOP instance,  Process: @INITIAL#19_0@.
+# KERNEL: stopped at time: 30 ms
+run
+restart
+# ELBREAD: Elaboration process.
+# ELBREAD: Elaboration time 0.3 [s].
+# KERNEL: Main thread initiated.
+# KERNEL: Kernel process initialization phase.
+# KERNEL: Time resolution set to 1ps.
+# ELAB2: Elaboration final pass...
+# ELAB2: Create instances ...
+# ELAB2: Create instances complete.
+# SLP: Started
+# SLP: Finished. Using existing simulator library
+# SLP: 0 primitives and 12 (92.31%) other processes in SLP
+# SLP: 91 (73.98%) signals in SLP and 18 (14.63%) interface signals
+# ELAB2: Elaboration final pass complete - time: 0.1 [s].
+# KERNEL: SLP loading done - time: 0.0 [s].
+# KERNEL: Warning: You are using the Active-HDL EDU Edition. The performance of simulation is running at a reduced rate.
+# KERNEL: Warning: Contact Aldec for available upgrade options - sales@aldec.com.
+# KERNEL: SLP simulation initialization done - time: 0.0 [s].
+# KERNEL: Kernel process initialization done.
+# Allocation: Simulator allocated 6710 kB (elbread=1023 elab2=5341 kernel=345 sdf=0)
+# KERNEL: ASDB file was created in location d:\TCC\h3dge\src\hdl\raytracer\src\wave.asdb
+#  04:19, samedi 12 novembre 2011
+#  Simulation has been initialized
+#  Selected Top-Level: tb_refractedRayTest (tb_refractedRayTest)
+run
+# KERNEL:           xt: 18000000
+# KERNEL:           xt: 0b504f33
+# KERNEL:           xt: 0b504f33
+# RUNTIME: RUNTIME_0068 tb_refractRays.sv (97): $finish called.
+# KERNEL: Time: 30 ms,  Iteration: 0,  TOP instance,  Process: @INITIAL#19_0@.
+# KERNEL: stopped at time: 30 ms
+alog -O2 -l VIRTEX5 -sve  -work Raytracer -sv2k9 $dsn/src/defTypes.sv $dsn/src/mathFunctions.sv $dsn/src/lightFunctions.sv $dsn/src/triangleintersectiontest.sv $dsn/src/tb_triangleIntersectionTest.sv $dsn/src/reflect.sv $dsn/src/tb_reflectRays.sv $dsn/src/refract.sv $dsn/src/normalPrep.sv $dsn/src/tb_refractRays.sv
+# Warning: The source is compiled without the -dbg switch. Line breakpoints and code coverage will not be available.
+# Compile...
+# Pass 1. Scanning modules hierarchy.
+# Module \$root found in current working library.
+# Pass 2. Processing instantiations.
+# Pass 3. Processing behavioral statements.
+# Running Optimizer.
+# ELB/DAG code generating.
+# Module \$root found in current working library.
+# Unit top modules: tb_triangleIntersectionTest tb_reflectedRayTest tb_refractedRayTest.
+# $root top modules: IntersectionTest tb_triangleIntersectionTest tb_reflectedRayTest tb_refractedRayTest.
+# Compile success 0 Errors 0 Warnings  Analysis time: 1[s].
+# done
+restart
+# ELBREAD: Elaboration process.
+# ELBREAD: Elaboration time 0.3 [s].
+# KERNEL: Main thread initiated.
+# KERNEL: Kernel process initialization phase.
+# KERNEL: Time resolution set to 1ps.
+# ELAB2: Elaboration final pass...
+# ELAB2: Create instances ...
+# ELAB2: Create instances complete.
+# SLP: Started
+# SLP: Elaboration phase ...
+# SLP: Elaboration phase ... done : 0.1 [s]
+# SLP: Generation phase ...
+# SLP: Generation phase ... done : 0.9 [s]
+# SLP: Finished : 1.1 [s]
+# SLP: 0 primitives and 12 (92.31%) ot

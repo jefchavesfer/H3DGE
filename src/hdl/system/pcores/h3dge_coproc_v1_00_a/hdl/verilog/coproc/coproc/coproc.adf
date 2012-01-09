@@ -1,0 +1,141 @@
+[Project]
+Current Flow=Multivendor
+VCS=0
+version=3
+Current Config=compile
+
+[Configurations]
+compile=coproc
+
+[Library]
+coproc=.\coproc.LIB
+
+[Settings]
+AccessRead=0
+AccessReadWrite=0
+AccessACCB=0
+AccessACCR=0
+AccessReadWriteSLP=0
+AccessReadTopLevel=1
+DisableC=1
+ENABLE_ADV_DATAFLOW=0
+FLOW_TYPE=HDL
+LANGUAGE=VERILOG
+REFRESH_FLOW=1
+SYNTH_TOOL=MV_SYNPLIFY_PREMIER_DP_D2009_12
+RUN_MODE_SYNTH=1
+IMPL_TOOL=MV_ISE122
+CSYNTH_TOOL=<none>
+PHYSSYNTH_TOOL=<none>
+FLOWTOOLS=IMPL_WITH_SYNTH
+ON_SERVERFARM_SYNTH=0
+ON_SERVERFARM_IMPL=0
+ON_SERVERFARM_SIM=0
+DVM_DISPLAY=NO
+VerilogDirsChanged=1
+FAMILY=Xilinx12x VIRTEX5
+HESPrepare=0
+fileopeninsrc=1
+fileopenfolder=D:\TCC\h3dge2\src\hdl\system\pcores\h3dge_coproc_v1_00_a\hdl\verilog\coproc\coproc\src
+
+[LocalVerilogSets]
+EnableSLP=1
+EnableDebug=0
+
+[LocalVhdlSets]
+CompileWithDebug=0
+
+[$LibMap$]
+coproc=.
+Active_lib=VIRTEX5
+xilinxun=VIRTEX5
+UnlinkedDesignLibrary=VIRTEX5
+DESIGNS=VIRTEX5
+
+[IMPLEMENTATION_XILINX12]
+impl_opt(dont_run_translate)=0
+impl_opt(dont_run_map)=0
+impl_opt(dont_run_place)=0
+impl_opt(dont_run_trace)=0
+impl_opt(dont_run_simulation)=0
+impl_opt(dont_run_fit)=0
+impl_opt(dont_run_bitgen)=1
+
+[IMPLEMENTATION]
+FLOW_STEPS_RESET=0
+UCF=
+
+[Verilog Library]
+VIRTEX5=
+
+[HierarchyViewer]
+SortInfo=u
+HierarchyInformation=
+ShowHide=ShowTopLevel
+Selected=
+
+[Folders]
+Name3=Makefiles
+Directory3=d:\TCC\h3dge2\src\hdl\system\pcores\h3dge_coproc_v1_00_a\hdl\verilog\coproc\coproc\
+Extension3=mak
+Name4=Memory
+Directory4=d:\TCC\h3dge2\src\hdl\system\pcores\h3dge_coproc_v1_00_a\hdl\verilog\coproc\coproc\src
+Extension4=mem;mif;hex
+Name5=Dll Libraries
+Directory5=d:\TCC\h3dge2\src\hdl\system\pcores\h3dge_coproc_v1_00_a\hdl\verilog\coproc\coproc\
+Extension5=dll
+Name6=PDF
+Directory6=d:\TCC\h3dge2\src\hdl\system\pcores\h3dge_coproc_v1_00_a\hdl\verilog\coproc\coproc\
+Extension6=pdf
+Name7=HTML
+Directory7=d:\TCC\h3dge2\src\hdl\system\pcores\h3dge_coproc_v1_00_a\hdl\verilog\coproc\coproc\
+Extension7=
+
+[Files]
+/deftypes.sv=-1
+/mathfunctions.sv=-1
+/lightfunctions.sv=-1
+/triangleintersectiontest.sv=-1
+/reflect.sv=-1
+/normalprep.sv=-1
+/refract.sv=-1
+/user_logic.sv=-1
+/demux.sv=-1
+/vectorialProduct.sv=-1
+/mux.sv=-1
+/intersectionDF.sv=-1
+/mDiv.sv=-1
+/scalarProduct.sv=-1
+/intersectionCU.sv=-1
+/intersectionModule.sv=-1
+/tb_triangleIntersectionTest.sv=-1
+/normalDF.sv=-1
+/mSqrt.sv=-1
+/normalCU.sv=-1
+/normalAndIntersectionPoint.sv=-1
+/tb_normalAndIntersectionPoint.sv=-1
+
+[Files.Data]
+.\src\deftypes.sv=SystemVerilog Source Code
+.\src\mathfunctions.sv=SystemVerilog Source Code
+.\src\lightfunctions.sv=SystemVerilog Source Code
+.\src\triangleintersectiontest.sv=SystemVerilog Source Code
+.\src\reflect.sv=SystemVerilog Source Code
+.\src\normalprep.sv=SystemVerilog Source Code
+.\src\refract.sv=SystemVerilog Source Code
+.\src\user_logic.sv=SystemVerilog Source Code
+.\src\demux.sv=SystemVerilog Source Code
+.\src\vectorialProduct.sv=SystemVerilog Source Code
+.\src\mux.sv=SystemVerilog Source Code
+.\src\intersectionDF.sv=SystemVerilog Source Code
+.\src\mDiv.sv=SystemVerilog Source Code
+.\src\scalarProduct.sv=SystemVerilog Source Code
+.\src\intersectionCU.sv=SystemVerilog Source Code
+.\src\intersectionModule.sv=SystemVerilog Source Code
+.\src\tb_triangleIntersectionTest.sv=SystemVerilog Source Code
+.\src\normalDF.sv=SystemVerilog Source Code
+.\src\mSqrt.sv=SystemVerilog Source Code
+.\src\normalCU.sv=SystemVerilog Source Code
+.\src\normalAndIntersectionPoint.sv=SystemVerilog Source Code
+.\src\tb_normalAndIntersectionPoint.sv=SystemVerilog Source Code
+

@@ -1,0 +1,14 @@
+##############################################################################
+## Filename:          C:/git/h3dge/src/hdl/system/pcores/h3dge_coproc_v1_00_a/data/h3dge_coproc_v2_1_0.pao
+## Description:       Peripheral Analysis Order
+## Date:              Wed Nov 30 20:33:35 2011 (by Create and Import Peripheral Wizard)
+##############################################################################
+
+lib proc_common_v3_00_a  all 
+lib plbv46_slave_single_v1_01_a  all 
+lib plbv46_master_burst_v1_01_a  all 
+lib interrupt_control_v2_01_a  all 
+lib h3dge_coproc_v1_00_a adder verilog
+lib h3dge_coproc_v1_00_a coproc verilog
+lib h3dge_coproc_v1_00_a user_logic verilog
+lib h3dge_coproc_v1_00_a h3dge_coproc vhdl

@@ -1,0 +1,405 @@
+Release 13.1 - xst O.40d (nt64)
+Copyright (c) 1995-2011 Xilinx, Inc.  All rights reserved.
+--> Parameter TMPDIR set to xst/projnav.tmp
+
+
+Total REAL time to Xst completion: 0.00 secs
+Total CPU time to Xst completion: 0.11 secs
+ 
+--> Parameter xsthdpdir set to xst
+
+
+Total REAL time to Xst completion: 0.00 secs
+Total CPU time to Xst completion: 0.11 secs
+ 
+--> Reading design: h3dge_coproc.prj
+
+TABLE OF CONTENTS
+  1) Synthesis Options Summary
+  2) HDL Compilation
+  3) Design Hierarchy Analysis
+  4) HDL Analysis
+  5) HDL Synthesis
+     5.1) HDL Synthesis Report
+  6) Advanced HDL Synthesis
+     6.1) Advanced HDL Synthesis Report
+  7) Low Level Synthesis
+  8) Partition Report
+  9) Final Report
+	9.1) Device utilization summary
+	9.2) Partition Resource Summary
+	9.3) TIMING REPORT
+
+
+=========================================================================
+*                      Synthesis Options Summary                        *
+=========================================================================
+---- Source Parameters
+Input File Name                    : "h3dge_coproc.prj"
+Input Format                       : mixed
+Ignore Synthesis Constraint File   : NO
+
+---- Target Parameters
+Output File Name                   : "h3dge_coproc"
+Output Format                      : NGC
+Target Device                      : xc5vfx70t-1-ff1136
+
+---- Source Options
+Top Module Name                    : h3dge_coproc
+Automatic FSM Extraction           : YES
+FSM Encoding Algorithm             : Auto
+Safe Implementation                : No
+FSM Style                          : LUT
+RAM Extraction                     : Yes
+RAM Style                          : Auto
+ROM Extraction                     : Yes
+Mux Style                          : Auto
+Decoder Extraction                 : YES
+Priority Encoder Extraction        : Yes
+Shift Register Extraction          : YES
+Logical Shifter Extraction         : YES
+XOR Collapsing                     : YES
+ROM Style                          : Auto
+Mux Extraction                     : Yes
+Resource Sharing                   : YES
+Asynchronous To Synchronous        : NO
+Use DSP Block                      : Auto
+Automatic Register Balancing       : No
+
+---- Target Options
+LUT Combining                      : Off
+Reduce Control Sets                : Off
+Add IO Buffers                     : YES
+Global Maximum Fanout              : 100000
+Add Generic Clock Buffer(BUFG)     : 32
+Register Duplication               : YES
+Slice Packing                      : YES
+Optimize Instantiated Primitives   : NO
+Use Clock Enable                   : Auto
+Use Synchronous Set                : Auto
+Use Synchronous Reset              : Auto
+Pack IO Registers into IOBs        : Auto
+Equivalent register Removal        : YES
+
+---- General Options
+Optimization Goal                  : Speed
+Optimization Effort                : 1
+Power Reduction                    : NO
+Keep Hierarchy                     : No
+Netlist Hierarchy                  : As_Optimized
+RTL Output                         : Yes
+Global Optimization                : AllClockNets
+Read Cores                         : YES
+Write Timing Constraints           : NO
+Cross Clock Analysis               : NO
+Hierarchy Separator                : /
+Bus Delimiter                      : <>
+Case Specifier                     : Maintain
+Slice Utilization Ratio            : 100
+BRAM Utilization Ratio             : 100
+DSP48 Utilization Ratio            : 100
+Verilog 2001                       : YES
+Auto BRAM Packing                  : NO
+Slice Utilization Ratio Delta      : 5
+
+=========================================================================
+
+
+=========================================================================
+*                          HDL Compilation                              *
+=========================================================================
+Compiling vhdl file "C:/Xilinx/13.1/ISE_DS/EDK/hw/XilinxProcessorIPLib/pcores/proc_common_v3_00_a/hdl/vhdl/family_support.vhd" in Library proc_common_v3_00_a.
+Architecture family_support of Entity family_support is up to date.
+Compiling vhdl file "C:/Xilinx/13.1/ISE_DS/EDK/hw/XilinxProcessorIPLib/pcores/proc_common_v3_00_a/hdl/vhdl/proc_common_pkg.vhd" in Library proc_common_v3_00_a.
+Architecture proc_common_pkg of Entity proc_common_pkg is up to date.
+Compiling vhdl file "C:/Xilinx/13.1/ISE_DS/EDK/hw/XilinxProcessorIPLib/pcores/proc_common_v3_00_a/hdl/vhdl/or_muxcy.vhd" in Library proc_common_v3_00_a.
+Architecture implementation of Entity or_muxcy is up to date.
+Compiling vhdl file "C:/Xilinx/13.1/ISE_DS/EDK/hw/XilinxProcessorIPLib/pcores/proc_common_v3_00_a/hdl/vhdl/pselect_f.vhd" in Library proc_common_v3_00_a.
+Architecture imp of Entity pselect_f is up to date.
+Compiling vhdl file "C:/Xilinx/13.1/ISE_DS/EDK/hw/XilinxProcessorIPLib/pcores/proc_common_v3_00_a/hdl/vhdl/or_gate128.vhd" in Library proc_common_v3_00_a.
+Architecture imp of Entity or_gate128 is up to date.
+Compiling vhdl file "C:/Xilinx/13.1/ISE_DS/EDK/hw/XilinxProcessorIPLib/pcores/proc_common_v3_00_a/hdl/vhdl/ipif_pkg.vhd" in Library proc_common_v3_00_a.
+Architecture ipif_pkg of Entity ipif_pkg is up to date.
+Compiling vhdl file "C:/Xilinx/13.1/ISE_DS/EDK/hw/XilinxProcessorIPLib/pcores/proc_common_v3_00_a/hdl/vhdl/counter_f.vhd" in Library proc_common_v3_00_a.
+Architecture imp of Entity counter_f is up to date.
+Compiling vhdl file "C:/Xilinx/13.1/ISE_DS/EDK/hw/XilinxProcessorIPLib/pcores/proc_common_v3_00_a/hdl/vhdl/soft_reset.vhd" in Library proc_common_v3_00_a.
+Architecture implementation of Entity soft_reset is up to date.
+Compiling vhdl file "C:/Xilinx/13.1/ISE_DS/EDK/hw/XilinxProcessorIPLib/pcores/plbv46_master_burst_v1_01_a/hdl/vhdl/plb_mstr_addr_gen.vhd" in Library plbv46_master_burst_v1_01_a.
+Architecture implementation of Entity plb_mstr_addr_gen is up to date.
+Compiling vhdl file "C:/Xilinx/13.1/ISE_DS/EDK/hw/XilinxProcessorIPLib/pcores/plbv46_master_burst_v1_01_a/hdl/vhdl/rd_wr_calc_burst.vhd" in Library plbv46_master_burst_v1_01_a.
+Architecture implementation of Entity rd_wr_calc_burst is up to date.
+Compiling vhdl file "C:/Xilinx/13.1/ISE_DS/EDK/hw/XilinxProcessorIPLib/pcores/plbv46_slave_single_v1_01_a/hdl/vhdl/plb_address_decoder.vhd" in Library plbv46_slave_single_v1_01_a.
+Architecture imp of Entity plb_address_decoder is up to date.
+Compiling vhdl file "C:/Xilinx/13.1/ISE_DS/EDK/hw/XilinxProcessorIPLib/pcores/plbv46_master_burst_v1_01_a/hdl/vhdl/cc_brst_exp_adptr.vhd" in Library plbv46_master_burst_v1_01_a.
+Architecture implementation of Entity cc_brst_exp_adptr is up to date.
+Compiling vhdl file "C:/Xilinx/13.1/ISE_DS/EDK/hw/XilinxProcessorIPLib/pcores/plbv46_master_burst_v1_01_a/hdl/vhdl/data_width_adapter.vhd" in Library plbv46_master_burst_v1_01_a.
+Architecture implementation of Entity data_width_adapter is up to date.
+Compiling vhdl file "C:/Xilinx/13.1/ISE_DS/EDK/hw/XilinxProcessorIPLib/pcores/plbv46_master_burst_v1_01_a/hdl/vhdl/data_mirror_128.vhd" in Library plbv46_master_burst_v1_01_a.
+Architecture implementation of Entity data_mirror_128 is up to date.
+Compiling vhdl file "C:/Xilinx/13.1/ISE_DS/EDK/hw/XilinxProcessorIPLib/pcores/plbv46_master_burst_v1_01_a/hdl/vhdl/rd_wr_controller.vhd" in Library plbv46_master_burst_v1_01_a.
+Architecture implementation of Entity rd_wr_controller is up to date.
+Compiling vhdl file "C:/Xilinx/13.1/ISE_DS/EDK/hw/XilinxProcessorIPLib/pcores/plbv46_master_burst_v1_01_a/hdl/vhdl/llink_rd_backend_no_fifo.vhd" in Library plbv46_master_burst_v1_01_a.
+Architecture implementation of Entity llink_rd_backend_no_fifo is up to date.
+Compiling vhdl file "C:/Xilinx/13.1/ISE_DS/EDK/hw/XilinxProcessorIPLib/pcores/plbv46_master_burst_v1_01_a/hdl/vhdl/llink_wr_backend_no_fifo.vhd" in Library plbv46_master_burst_v1_01_a.
+Architecture implementation of Entity llink_wr_backend_no_fifo is up to date.
+Compiling vhdl file "C:/Xilinx/13.1/ISE_DS/EDK/hw/XilinxProcessorIPLib/pcores/plbv46_slave_single_v1_01_a/hdl/vhdl/plb_slave_attachment.vhd" in Library plbv46_slave_single_v1_01_a.
+Architecture implementation of Entity plb_slave_attachment is up to date.
+Compiling vhdl file "C:/Xilinx/13.1/ISE_DS/EDK/hw/XilinxProcessorIPLib/pcores/interrupt_control_v2_01_a/hdl/vhdl/interrupt_control.vhd" in Library interrupt_control_v2_01_a.
+Architecture implementation of Entity interrupt_control is up to date.
+Compiling vhdl file "C:/Xilinx/13.1/ISE_DS/EDK/hw/XilinxProcessorIPLib/pcores/plbv46_slave_single_v1_01_a/hdl/vhdl/plbv46_slave_single.vhd" in Library plbv46_slave_single_v1_01_a.
+Architecture implementation of Entity plbv46_slave_single is up to date.
+Compiling vhdl file "C:/Xilinx/13.1/ISE_DS/EDK/hw/XilinxProcessorIPLib/pcores/plbv46_master_burst_v1_01_a/hdl/vhdl/plbv46_master_burst.vhd" in Library plbv46_master_burst_v1_01_a.
+Architecture implementation of Entity plbv46_master_burst is up to date.
+Compiling vhdl file "C:/git/h3dge/src/hdl/system/pcores/h3dge_coproc_v1_00_a/hdl/vhdl/h3dge_coproc.vhd" in Library work.
+Architecture imp of Entity h3dge_coproc is up to date.
+Compiling verilog file "../../hdl/verilog/coproc.v" in library work
+Compiling verilog file "../../hdl/verilog/adder.v" in library work
+Module <coproc> compiled
+Compiling verilog file "../../hdl/verilog/user_logic.v" in library work
+Module <adder> compiled
+Module <user_logic> compiled
+No errors in compilation
+Analysis of file <"h3dge_coproc.prj"> succeeded.
+ 
+
+=========================================================================
+*                     Design Hierarchy Analysis                         *
+=========================================================================
+Analyzing hierarchy for entity <h3dge_coproc> in library <work> (architecture <imp>) with generics.
+	C_BASEADDR = "11111111111111111111111111111111"
+	C_FAMILY = "virtex6"
+	C_HIGHADDR = "00000000000000000000000000000000"
+	C_INCLUDE_DPHASE_TIMER = 1
+	C_MPLB_AWIDTH = 32
+	C_MPLB_CLK_PERIOD_PS = 10000
+	C_MPLB_DWIDTH = 128
+	C_MPLB_NATIVE_DWIDTH = 32
+	C_MPLB_P2P = 0
+	C_MPLB_SMALLEST_SLAVE = 32
+	C_SPLB_AWIDTH = 32
+	C_SPLB_CLK_PERIOD_PS = 10000
+	C_SPLB_DWIDTH = 128
+	C_SPLB_MID_WIDTH = 3
+	C_SPLB_NATIVE_DWIDTH = 32
+	C_SPLB_NUM_MASTERS = 8
+	C_SPLB_P2P = 0
+	C_SPLB_SMALLEST_MASTER = 32
+	C_SPLB_SUPPORT_BURSTS = 0
+
+Analyzing hierarchy for entity <plbv46_slave_single> in library <plbv46_slave_single_v1_01_a> (architecture <implementation>) with generics.
+	C_ARD_ADDR_RANGE_ARRAY = ("0000000000000000000000000000000011111111111111111111111111111111",
+	                          "0000000000000000000000000000000011111111111111111111111111111111",
+	                          "0000000000000000000000000000000011111111111111111111111111111111",
+	                          "0000000000000000000000000000000011111111111111111111111111111111",
+	                          "0000000000000000000000000000000011111111111111111111111111111111",
+	                          "0000000000000000000000000000000011111111111111111111111111111111",
+	                          "0000000000000000000000000000000011111111111111111111111111111111",
+	                          "0000000000000000000000000000000011111111111111111111111111111111")
+	C_ARD_NUM_CE_ARRAY = (32,4,1,16)
+	C_BUS2CORE_CLK_RATIO = 1
+	C_FAMILY = "virtex6"
+	C_INCLUDE_DPHASE_TIMER = 1
+	C_SIPIF_DWIDTH = 32
+	C_SPLB_AWIDTH = 32
+	C_SPLB_DWIDTH = 128
+	C_SPLB_MID_WIDTH = 3
+	C_SPLB_NUM_MASTERS = 8
+	C_SPLB_P2P = 0
+
+Analyzing hierarchy for entity <plbv46_master_burst> in library <plbv46_master_burst_v1_01_a> (architecture <implementation>) with generics.
+	C_FAMILY = "virtex6"
+	C_INHIBIT_CC_BLE_INCLUSION = 0
+	C_MPLB_AWIDTH = 32
+	C_MPLB_DWIDTH = 128
+	C_MPLB_NATIVE_DWIDTH = 32
+	C_MPLB_SMALLEST_SLAVE = 32
+
+Analyzing hierarchy for entity <soft_reset> in library <proc_common_v3_00_a> (architecture <implementation>) with generics.
+	C_RESET_WIDTH = 4
+	C_SIPIF_DWIDTH = 32
+
+Analyzing hierarchy for entity <interrupt_control> in library <interrupt_control_v2_01_a> (architecture <implementation>) with generics.
+	C_INCLUDE_DEV_ISC = false
+	C_INCLUDE_DEV_PENCODER = false
+	C_IPIF_DWIDTH = 32
+	C_IP_INTR_MODE_ARRAY = (1)
+	C_NUM_CE = 16
+	C_NUM_IPIF_IRPT_SRC = 4
+
+Analyzing hierarchy for module <user_logic> in library <work> with parameters.
+	C_MST_AWIDTH = "00000000000000000000000000100000"
+	C_MST_DWIDTH = "00000000000000000000000000100000"
+	C_NUM_INTR = "00000000000000000000000000000001"
+	C_NUM_REG = "00000000000000000000000000011000"
+	C_SLV_DWIDTH = "00000000000000000000000000100000"
+
+Analyzing hierarchy for entity <plb_slave_attachment> in library <plbv46_slave_single_v1_01_a> (architecture <implementation>) with generics.
+	C_ARD_ADDR_RANGE_ARRAY = ("0000000000000000000000000000000011111111111111111111111111111111",
+	                          "0000000000000000000000000000000011111111111111111111111111111111",
+	                          "0000000000000000000000000000000011111111111111111111111111111111",
+	                          "0000000000000000000000000000000011111111111111111111111111111111",
+	                          "0000000000000000000000000000000011111111111111111111111111111111",
+	                          "0000000000000000000000000000000011111111111111111111111111111111",
+	                          "0000000000000000000000000000000011111111111111111111111111111111",
+	                          "0000000000000000000000000000000011111111111111111111111111111111")
+	C_ARD_NUM_CE_ARRAY = (32,4,1,16)
+	C_BUS2CORE_CLK_RATIO = 1
+	C_DPHASE_TIMEOUT = 128
+	C_FAMILY = "virtex6"
+	C_INCLUDE_DPHASE_TIMER = 1
+	C_IPIF_ABUS_WIDTH = 32
+	C_IPIF_DBUS_WIDTH = 32
+	C_PLB_MID_WIDTH = 3
+	C_PLB_NUM_MASTERS = 8
+	C_SPLB_P2P = 0
+
+Analyzing hierarchy for entity <data_width_adapter> in library <plbv46_master_burst_v1_01_a> (architecture <implementation>) with generics.
+	C_MIPIF_DWIDTH = 32
+	C_MPLB_DWIDTH = 128
+
+Analyzing hierarchy for entity <data_mirror_128> in library <plbv46_master_burst_v1_01_a> (architecture <implementation>) with generics.
+	C_MIPIF_DWIDTH = 32
+	C_MPLB_DWIDTH = 128
+
+Analyzing hierarchy for entity <rd_wr_controller> in library <plbv46_master_burst_v1_01_a> (architecture <implementation>) with generics.
+	C_AWIDTH = 32
+	C_LENGTH_WIDTH = 12
+	C_LLINK_DWIDTH = 32
+	C_LLINK_REM_WIDTH = 4
+	C_NATIVE_DWIDTH = 32
+
+Analyzing hierarchy for entity <llink_rd_backend_no_fifo> in library <plbv46_master_burst_v1_01_a> (architecture <implementation>) with generics.
+	C_DISREGARD_VACANCY = true
+	C_FAMILY = "virtex6"
+	C_PLB_DWIDTH = 32
+	C_RDFIFO_VACANCY_WIDTH = 1
+	C_RD_FTR_SIZE_BYTES = 0
+	C_RD_HDR_SIZE_BYTES = 0
+	C_REM_POLARITY = 0
+	C_REM_WIDTH = 4
+	C_SG_IS_PRESENT = 0
+
+Analyzing hierarchy for entity <llink_wr_backend_no_fifo> in library <plbv46_master_burst_v1_01_a> (architecture <implementation>) with generics.
+	C_DISREGARD_OCCUPANCY = true
+	C_FAMILY = "virtex6"
+	C_PLB_DWIDTH = 32
+	C_REM_POLARITY = 0
+	C_REM_WIDTH = 4
+	C_SG_IS_PRESENT = 0
+	C_WRFIFO_OCCUPANCY_WIDTH = 1
+	C_WR_FTR_SIZE_BYTES = 0
+	C_WR_HDR_SIZE_BYTES = 0
+
+Analyzing hierarchy for entity <plb_address_decoder> in library <plbv46_slave_single_v1_01_a> (architecture <IMP>) with generics.
+	C_ARD_ADDR_RANGE_ARRAY = ("0000000000000000000000000000000011111111111111111111111111111111",
+	                          "0000000000000000000000000000000011111111111111111111111111111111",
+	                          "0000000000000000000000000000000011111111111111111111111111111111",
+	                          "0000000000000000000000000000000011111111111111111111111111111111",
+	                          "0000000000000000000000000000000011111111111111111111111111111111",
+	                          "0000000000000000000000000000000011111111111111111111111111111111",
+	                          "0000000000000000000000000000000011111111111111111111111111111111",
+	                          "0000000000000000000000000000000011111111111111111111111111111111")
+	C_ARD_NUM_CE_ARRAY = (32,4,1,16)
+	C_BUS_AWIDTH = 32
+	C_FAMILY = "nofamily"
+	C_SPLB_P2P = 0
+
+Analyzing hierarchy for entity <counter_f> in library <proc_common_v3_00_a> (architecture <imp>) with generics.
+	C_FAMILY = "nofamily"
+	C_NUM_BITS = 8
+
+Analyzing hierarchy for entity <rd_wr_calc_burst> in library <plbv46_master_burst_v1_01_a> (architecture <implementation>) with generics.
+	C_LENGTH_WIDTH = 12
+	C_MAX_FBURST_DBCNT = 16
+	C_NATIVE_DWIDTH = 32
+	C_PLB_AWIDTH = 32
+
+Analyzing hierarchy for entity <pselect_f> in library <proc_common_v3_00_a> (architecture <imp>) with generics.
+	C_AB = 32
+	C_AW = 32
+	C_BAR = "11111111111111111111111111111111"
+	C_FAMILY = "nofamily"
+
+Analyzing hierarchy for entity <pselect_f> in library <proc_common_v3_00_a> (architecture <imp>) with generics.
+	C_AB = 5
+	C_AW = 5
+	C_BAR = "00000"
+	C_FAMILY = "nofamily"
+
+Analyzing hierarchy for entity <pselect_f> in library <proc_common_v3_00_a> (architecture <imp>) with generics.
+	C_AB = 5
+	C_AW = 5
+	C_BAR = "00001"
+	C_FAMILY = "nofamily"
+
+Analyzing hierarchy for entity <pselect_f> in library <proc_common_v3_00_a> (architecture <imp>) with generics.
+	C_AB = 5
+	C_AW = 5
+	C_BAR = "00010"
+	C_FAMILY = "nofamily"
+
+Analyzing hierarchy for entity <pselect_f> in library <proc_common_v3_00_a> (architecture <imp>) with generics.
+	C_AB = 5
+	C_AW = 5
+	C_BAR = "00011"
+	C_FAMILY = "nofamily"
+
+Analyzing hierarchy for entity <pselect_f> in library <proc_common_v3_00_a> (architecture <imp>) with generics.
+	C_AB = 5
+	C_AW = 5
+	C_BAR = "00100"
+	C_FAMILY = "nofamily"
+
+Analyzing hierarchy for entity <pselect_f> in library <proc_common_v3_00_a> (architecture <imp>) with generics.
+	C_AB = 5
+	C_AW = 5
+	C_BAR = "00101"
+	C_FAMILY = "nofamily"
+
+Analyzing hierarchy for entity <pselect_f> in library <proc_common_v3_00_a> (architecture <imp>) with generics.
+	C_AB = 5
+	C_AW = 5
+	C_BAR = "00110"
+	C_FAMILY = "nofamily"
+
+Analyzing hierarchy for entity <pselect_f> in library <proc_common_v3_00_a> (architecture <imp>) with generics.
+	C_AB = 5
+	C_AW = 5
+	C_BAR = "00111"
+	C_FAMILY = "nofamily"
+
+Analyzing hierarchy for entity <pselect_f> in library <proc_common_v3_00_a> (architecture <imp>) with generics.
+	C_AB = 5
+	C_AW = 5
+	C_BAR = "01000"
+	C_FAMILY = "nofamily"
+
+Analyzing hierarchy for entity <pselect_f> in library <proc_common_v3_00_a> (architecture <imp>) with generics.
+	C_AB = 5
+	C_AW = 5
+	C_BAR = "01001"
+	C_FAMILY = "nofamily"
+
+Analyzing hierarchy for entity <pselect_f> in library <proc_common_v3_00_a> (architecture <imp>) with generics.
+	C_AB = 5
+	C_AW = 5
+	C_BAR = "01010"
+	C_FAMILY = "nofamily"
+
+Analyzing hierarchy for entity <pselect_f> in library <proc_common_v3_00_a> (architecture <imp>) with generics.
+	C_AB = 5
+	C_AW = 5
+	C_BAR = "01011"
+	C_FAMILY = "nofamily"
+
+Analyzing hierarchy for entity <pselect_f> in library <proc_common_v3_00_a> (architecture <imp>) with generics.
+	C_AB = 5
+	C_AW = 5
+	C_BAR = "01100"
+	C_FAMILY = "nofamily"
+
+Analyzing hierarchy for entity <pselect_f> in library <proc_common_v3_00_a> (architecture <imp>) with generics.
+	C_AB = 5
+	C_AW = 5
+	C_BAR = "01101"
+	C_FAMILY = "nofamily"
